@@ -1,0 +1,13 @@
+spec_uri: specification/minecraft-versions.yml
+version: 0.9.0-pre.0
+contact:
+  name: Minecraft Versions
+  url: https://github.com/oapicf/minecraft-versions
+  email: blah+oapicf@cliffano.com
+scm:
+  git_user: oapicf
+  git_repo: minecraft-versions
+base_dir:
+  github_actions: /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/minecraft-versions
+  local: /Users/cliffano/dev/workspace-studio/minecraft-versions
+  custom: /Users/cliffano/dev/workspace-studio/generator-openapi-generator/stage/minecraft-versions

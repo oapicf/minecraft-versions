@@ -1,0 +1,166 @@
+---
+openapi: 3.0.0
+info:
+  version: 0.9.0-pre.0
+  title:
+  description: SDK for Minecraft versions info
+  license:
+    name: MIT
+  contact:
+    name: OpenAPI Clients Factory
+    url: https://github.com/oapicf/minecraft-versions
+    email: blah+oapicf@cliffano.com
+servers:
+  - url: https://launchermeta.mojang.com
+  - url: https://piston-meta.mojang.com
+paths:
+  /mc/game/version_manifest:
+    get:
+      summary: Get Minecraft version manifest
+      responses:
+        '200':
+          description: A list of Minecraft versions with the latest and snapshot releases
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  latest:
+                    type: object
+                    properties:
+                      release:
+                        type: string
+                        example: "1.21"
+                      snapshot:
+                        type: string
+                        example: "24w14potato"
+                  versions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: "24w14potato"
+                        type:
+                          type: string
+                          example: "snapshot"
+                        url:
+                          type: string
+                          example: "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
+                        time:
+                          type: string
+                          format: date-time
+                          example: "2024-04-01T11:14:41+00:00"
+                        releaseTime:
+                          type: string
+                          format: date-time
+                          example: "2024-04-01T11:07:19+00:00"
+  /v1/packages/{packageId}/{versionId}.json:
+    get:
+      summary: Get Minecraft version package details
+      parameters:
+        - name: packageId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 177e49d3233cb6eac42f0495c0a48e719870c2ae
+        - name: versionId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 1.21
+      responses:
+        '200':
+          description: Get package version details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  assetIndex:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      sha1:
+                        type: string
+                      size:
+                        type: integer
+                      totalSize:
+                        type: integer
+                      url:
+                        type: string
+                  assets:
+                    type: integer
+                  complianceLevel:
+                    type: integer
+                  downloads:
+                    type: object
+                    properties:
+                      client:
+                        type: object
+                        properties:
+                          sha1:
+                            type: string
+                          size:
+                            type: integer
+                          url:
+                            type: string
+                      client_mappings:
+                        type: object
+                        properties:
+                          sha1:
+                            type: string
+                          size:
+                            type: integer
+                          url:
+                            type: string
+                      server:
+                        type: object
+                        properties:
+                          sha1:
+                            type: string
+                          size:
+                            type: integer
+                          url:
+                            type: string
+                      server_mappings:
+                        type: object
+                        properties:
+                          sha1:
+                            type: string
+                          size:
+                            type: integer
+                          url:
+                            type: string
+                  id:
+                    type: string
+                  javaVersion:
+                    type: object
+                    properties:
+                      component:
+                        type: string
+                      majorVersion:
+                        type: integer
+                  mainClass:
+                    type: string
+                    example: "net.minecraft.client.main.Main"
+                  minimumLauncherVersion:
+                    type: integer
+                    example: 21
+                  time:
+                    type: string
+                    format: date-time
+                    example: "2024-04-01T11:14:41+00:00"
+                  releaseTime:
+                    type: string
+                    format: date-time
+                    example: "2024-04-01T11:07:19+00:00"
+                  type:
+                    type: string
+                    example: "snapshot"
