@@ -8,6 +8,6 @@ scm:
   git_user: oapicf
   git_repo: minecraft-versions
 base_dir:
-  github_actions: /home/runner/work/minecraft-versions/minecraft-versions/stage/minecraft-versions
+  github_actions: /home/runner/work/minecraft-versions/minecraft-versions/
   local: /Users/cliffano/dev/workspace-studio/minecraft-versions
   custom: /Users/cliffano/dev/workspace-studio/generator-openapi-generator/stage/minecraft-versions
