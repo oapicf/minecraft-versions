@@ -13,14 +13,14 @@ export(ApiClient)
 export(ApiResponse)
 
 # Models
-export(GetMinecraftVersionManifest200Response)
-export(GetMinecraftVersionManifest200ResponseLatest)
-export(GetMinecraftVersionManifest200ResponseVersionsInner)
-export(V1PackagesPackageIdVersionIdJsonGet200Response)
-export(V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex)
-export(V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads)
-export(V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient)
-export(V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion)
+export(Download)
+export(Version)
+export(VersionManifest)
+export(VersionManifestLatest)
+export(VersionPackageInfo)
+export(VersionPackageInfoAssetIndex)
+export(VersionPackageInfoDownloads)
+export(VersionPackageInfoJavaVersion)
 
 # APIs
 export(DefaultApi)

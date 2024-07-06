@@ -3,8 +3,8 @@ package org.openapitools.apis
 import java.io._
 import org.openapitools._
 import org.openapitools.models._
-import org.openapitools.models.GetMinecraftVersionManifest200Response
-import org.openapitools.models.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.models.VersionManifest
+import org.openapitools.models.VersionPackageInfo
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -26,7 +26,7 @@ object DefaultApi {
     */
     def endpoints(da: DataAccessor) =
         getMinecraftVersionManifest(da) :+:
-        v1PackagesPackageIdVersionIdJsonGet(da)
+        getMinecraftVersionPackageInfo(da)
 
 
     private def checkError(e: CommonError) = e match {
@@ -51,9 +51,9 @@ object DefaultApi {
 
         /**
         * 
-        * @return An endpoint representing a GetMinecraftVersionManifest200Response
+        * @return An endpoint representing a VersionManifest
         */
-        private def getMinecraftVersionManifest(da: DataAccessor): Endpoint[GetMinecraftVersionManifest200Response] =
+        private def getMinecraftVersionManifest(da: DataAccessor): Endpoint[VersionManifest] =
         get("mc" :: "game" :: "version_manifest.json") { () =>
           da.Default_getMinecraftVersionManifest() match {
             case Left(error) => checkError(error)
@@ -65,11 +65,11 @@ object DefaultApi {
 
         /**
         * 
-        * @return An endpoint representing a V1PackagesPackageIdVersionIdJsonGet200Response
+        * @return An endpoint representing a VersionPackageInfo
         */
-        private def v1PackagesPackageIdVersionIdJsonGet(da: DataAccessor): Endpoint[V1PackagesPackageIdVersionIdJsonGet200Response] =
+        private def getMinecraftVersionPackageInfo(da: DataAccessor): Endpoint[VersionPackageInfo] =
         get("v1" :: "packages" :: string :: "{versionId}.json") { (packageId: String, versionId: String) =>
-          da.Default_v1PackagesPackageIdVersionIdJsonGet(packageId, versionId) match {
+          da.Default_getMinecraftVersionPackageInfo(packageId, versionId) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

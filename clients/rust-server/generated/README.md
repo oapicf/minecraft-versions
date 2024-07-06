@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 0.9.0-pre.0
-- Build date: 2024-07-06T08:47:12.396906017Z[Etc/UTC]
+- Build date: 2024-07-06T11:29:49.758135140Z[Etc/UTC]
 - Generator version: 7.6.0
 
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
@@ -63,7 +63,7 @@ To run a client, follow one of the following simple steps:
 
 ```
 cargo run --example client GetMinecraftVersionManifest
-cargo run --example client V1PackagesPackageIdVersionIdJsonGet
+cargo run --example client GetMinecraftVersionPackageInfo
 ```
 
 ### HTTPS
@@ -98,19 +98,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](docs/default_api.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[****](docs/default_api.md#) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](docs/default_api.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation For Models
 
- - [GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [Download](docs/Download.md)
+ - [Version](docs/Version.md)
+ - [VersionManifest](docs/VersionManifest.md)
+ - [VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 ## Documentation For Authorization

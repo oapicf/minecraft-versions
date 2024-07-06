@@ -5,7 +5,7 @@ All URIs are relative to **
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 
@@ -25,7 +25,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](VersionManifest.md)
 
 ### Authorization
 
@@ -39,14 +39,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## v1PackagesPackageIdVersionIdJsonGet
+## getMinecraftVersionPackageInfo
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 
 ```bash
- v1PackagesPackageIdVersionIdJsonGet packageId=value versionId=value
+ getMinecraftVersionPackageInfo packageId=value versionId=value
 ```
 
 ### Parameters
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](VersionPackageInfo.md)
 
 ### Authorization
 

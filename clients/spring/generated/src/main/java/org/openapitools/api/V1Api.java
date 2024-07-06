@@ -5,7 +5,7 @@
  */
 package org.openapitools.api;
 
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionPackageInfo;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T08:47:46.239289619Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T11:30:22.703239748Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Validated
 @Tag(name = "v1", description = "the v1 API")
 public interface V1Api {
@@ -42,18 +42,18 @@ public interface V1Api {
     }
 
     /**
-     * GET /v1/packages/{packageId}/{versionId}.json : Get Minecraft version package details
+     * GET /v1/packages/{packageId}/{versionId}.json : Get Minecraft version package info
      *
      * @param packageId  (required)
      * @param versionId  (required)
      * @return Get package version details (status code 200)
      */
     @Operation(
-        operationId = "v1PackagesPackageIdVersionIdJsonGet",
-        summary = "Get Minecraft version package details",
+        operationId = "getMinecraftVersionPackageInfo",
+        summary = "Get Minecraft version package info",
         responses = {
             @ApiResponse(responseCode = "200", description = "Get package version details", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = V1PackagesPackageIdVersionIdJsonGet200Response.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = VersionPackageInfo.class))
             })
         }
     )
@@ -63,7 +63,7 @@ public interface V1Api {
         produces = { "application/json" }
     )
     
-    default ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(
+    default ResponseEntity<VersionPackageInfo> getMinecraftVersionPackageInfo(
         @Parameter(name = "packageId", description = "", required = true, in = ParameterIn.PATH) @PathVariable("packageId") String packageId,
         @Parameter(name = "versionId", description = "", required = true, in = ParameterIn.PATH) @PathVariable("versionId") String versionId
     ) {

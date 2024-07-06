@@ -5,12 +5,12 @@ All URIs are relative to *https://launchermeta.mojang.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
-| [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
+| [**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 <a name="getMinecraftVersionManifest"></a>
 # **getMinecraftVersionManifest**
-> getMinecraftVersionManifest_200_response getMinecraftVersionManifest()
+> VersionManifest getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -19,7 +19,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**getMinecraftVersionManifest_200_response**](../Models/getMinecraftVersionManifest_200_response.md)
+[**VersionManifest**](../Models/VersionManifest.md)
 
 ### Authorization
 
@@ -30,11 +30,11 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-<a name="v1PackagesPackageIdVersionIdJsonGet"></a>
-# **v1PackagesPackageIdVersionIdJsonGet**
-> _v1_packages__packageId___versionId__json_get_200_response v1PackagesPackageIdVersionIdJsonGet(packageId, versionId)
+<a name="getMinecraftVersionPackageInfo"></a>
+# **getMinecraftVersionPackageInfo**
+> VersionPackageInfo getMinecraftVersionPackageInfo(packageId, versionId)
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Parameters
 
@@ -45,7 +45,7 @@ Get Minecraft version package details
 
 ### Return type
 
-[**_v1_packages__packageId___versionId__json_get_200_response**](../Models/_v1_packages__packageId___versionId__json_get_200_response.md)
+[**VersionPackageInfo**](../Models/VersionPackageInfo.md)
 
 ### Authorization
 

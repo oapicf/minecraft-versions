@@ -14,8 +14,8 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
-import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.client.model.VersionManifest;
+import org.openapitools.client.model.VersionPackageInfo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,20 +39,20 @@ public class DefaultApiTest {
      */
     @Test
     public void getMinecraftVersionManifestTest() throws ApiException {
-        GetMinecraftVersionManifest200Response response = api.getMinecraftVersionManifest();
+        VersionManifest response = api.getMinecraftVersionManifest();
         // TODO: test validations
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void v1PackagesPackageIdVersionIdJsonGetTest() throws ApiException {
+    public void getMinecraftVersionPackageInfoTest() throws ApiException {
         String packageId = null;
         String versionId = null;
-        V1PackagesPackageIdVersionIdJsonGet200Response response = api.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+        VersionPackageInfo response = api.getMinecraftVersionPackageInfo(packageId, versionId);
         // TODO: test validations
     }
 

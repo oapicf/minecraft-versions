@@ -6,14 +6,14 @@ A [Giraffe](https://github.com/giraffe-fsharp/Giraffe) server stub for the OpenA
 
 The following models have been auto-generated from the provided OpenAPI schema:
 
-- model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionModel.fs
-- model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientModel.fs
-- model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsModel.fs
-- model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexModel.fs
-- model/V1PackagesPackageIdVersionIdJsonGet200ResponseModel.fs
-- model/GetMinecraftVersionManifest200ResponseVersionsInnerModel.fs
-- model/GetMinecraftVersionManifest200ResponseLatestModel.fs
-- model/GetMinecraftVersionManifest200ResponseModel.fs
+- model/VersionPackageInfoJavaVersionModel.fs
+- model/DownloadModel.fs
+- model/VersionPackageInfoAssetIndexModel.fs
+- model/VersionPackageInfoDownloadsModel.fs
+- model/VersionManifestLatestModel.fs
+- model/VersionModel.fs
+- model/VersionManifestModel.fs
+- model/VersionPackageInfoModel.fs
 
 ## Operations
 

@@ -73,7 +73,7 @@ class DefaultApi
         'getMinecraftVersionManifest' => [
             'application/json',
         ],
-        'v1PackagesPackageIdVersionIdJsonGet' => [
+        'getMinecraftVersionPackageInfo' => [
             'application/json',
         ],
     ];
@@ -133,11 +133,11 @@ class DefaultApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response
+     * @return \OpenAPI\Client\Model\VersionManifest
      */
     public function getMinecraftVersionManifest(
         string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
-    ): \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response
+    ): \OpenAPI\Client\Model\VersionManifest
     {
         list($response) = $this->getMinecraftVersionManifestWithHttpInfo($contentType);
         return $response;
@@ -152,7 +152,7 @@ class DefaultApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\VersionManifest, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMinecraftVersionManifestWithHttpInfo(
         string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
@@ -197,11 +197,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\VersionManifest' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\VersionManifest' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -219,13 +219,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VersionManifest', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response';
+            $returnType = '\OpenAPI\Client\Model\VersionManifest';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -258,7 +258,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response',
+                        '\OpenAPI\Client\Model\VersionManifest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -304,7 +304,7 @@ class DefaultApi
         string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
     ): PromiseInterface
     {
-        $returnType = '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response';
+        $returnType = '\OpenAPI\Client\Model\VersionManifest';
         $request = $this->getMinecraftVersionManifestRequest($contentType);
 
         return $this->client
@@ -422,48 +422,48 @@ class DefaultApi
     }
 
     /**
-     * Operation v1PackagesPackageIdVersionIdJsonGet
+     * Operation getMinecraftVersionPackageInfo
      *
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param  string $package_id package_id (required)
      * @param  string $version_id version_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionPackageInfo'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return \OpenAPI\Client\Model\VersionPackageInfo
      */
-    public function v1PackagesPackageIdVersionIdJsonGet(
+    public function getMinecraftVersionPackageInfo(
         string $package_id,
         string $version_id,
-        string $contentType = self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'][0]
-    ): \OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response
+        string $contentType = self::contentTypes['getMinecraftVersionPackageInfo'][0]
+    ): \OpenAPI\Client\Model\VersionPackageInfo
     {
-        list($response) = $this->v1PackagesPackageIdVersionIdJsonGetWithHttpInfo($package_id, $version_id, $contentType);
+        list($response) = $this->getMinecraftVersionPackageInfoWithHttpInfo($package_id, $version_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation v1PackagesPackageIdVersionIdJsonGetWithHttpInfo
+     * Operation getMinecraftVersionPackageInfoWithHttpInfo
      *
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param  string $package_id (required)
      * @param  string $version_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionPackageInfo'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\VersionPackageInfo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(
+    public function getMinecraftVersionPackageInfoWithHttpInfo(
         string $package_id,
         string $version_id,
-        string $contentType = self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'][0]
+        string $contentType = self::contentTypes['getMinecraftVersionPackageInfo'][0]
     ): array
     {
-        $request = $this->v1PackagesPackageIdVersionIdJsonGetRequest($package_id, $version_id, $contentType);
+        $request = $this->getMinecraftVersionPackageInfoRequest($package_id, $version_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -502,11 +502,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\VersionPackageInfo' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\VersionPackageInfo' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -524,13 +524,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VersionPackageInfo', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response';
+            $returnType = '\OpenAPI\Client\Model\VersionPackageInfo';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -563,7 +563,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response',
+                        '\OpenAPI\Client\Model\VersionPackageInfo',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -574,24 +574,24 @@ class DefaultApi
     }
 
     /**
-     * Operation v1PackagesPackageIdVersionIdJsonGetAsync
+     * Operation getMinecraftVersionPackageInfoAsync
      *
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param  string $package_id (required)
      * @param  string $version_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionPackageInfo'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function v1PackagesPackageIdVersionIdJsonGetAsync(
+    public function getMinecraftVersionPackageInfoAsync(
         string $package_id,
         string $version_id,
-        string $contentType = self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'][0]
+        string $contentType = self::contentTypes['getMinecraftVersionPackageInfo'][0]
     ): PromiseInterface
     {
-        return $this->v1PackagesPackageIdVersionIdJsonGetAsyncWithHttpInfo($package_id, $version_id, $contentType)
+        return $this->getMinecraftVersionPackageInfoAsyncWithHttpInfo($package_id, $version_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -600,25 +600,25 @@ class DefaultApi
     }
 
     /**
-     * Operation v1PackagesPackageIdVersionIdJsonGetAsyncWithHttpInfo
+     * Operation getMinecraftVersionPackageInfoAsyncWithHttpInfo
      *
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param  string $package_id (required)
      * @param  string $version_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionPackageInfo'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function v1PackagesPackageIdVersionIdJsonGetAsyncWithHttpInfo(
+    public function getMinecraftVersionPackageInfoAsyncWithHttpInfo(
         $package_id,
         $version_id,
-        string $contentType = self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'][0]
+        string $contentType = self::contentTypes['getMinecraftVersionPackageInfo'][0]
     ): PromiseInterface
     {
-        $returnType = '\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response';
-        $request = $this->v1PackagesPackageIdVersionIdJsonGetRequest($package_id, $version_id, $contentType);
+        $returnType = '\OpenAPI\Client\Model\VersionPackageInfo';
+        $request = $this->getMinecraftVersionPackageInfoRequest($package_id, $version_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -657,33 +657,33 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'v1PackagesPackageIdVersionIdJsonGet'
+     * Create request for operation 'getMinecraftVersionPackageInfo'
      *
      * @param  string $package_id (required)
      * @param  string $version_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionPackageInfo'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function v1PackagesPackageIdVersionIdJsonGetRequest(
+    public function getMinecraftVersionPackageInfoRequest(
         $package_id,
         $version_id,
-        string $contentType = self::contentTypes['v1PackagesPackageIdVersionIdJsonGet'][0]
+        string $contentType = self::contentTypes['getMinecraftVersionPackageInfo'][0]
     ): Request
     {
 
         // verify the required parameter 'package_id' is set
         if ($package_id === null || (is_array($package_id) && count($package_id) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $package_id when calling v1PackagesPackageIdVersionIdJsonGet'
+                'Missing the required parameter $package_id when calling getMinecraftVersionPackageInfo'
             );
         }
 
         // verify the required parameter 'version_id' is set
         if ($version_id === null || (is_array($version_id) && count($version_id) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $version_id when calling v1PackagesPackageIdVersionIdJsonGet'
+                'Missing the required parameter $version_id when calling getMinecraftVersionPackageInfo'
             );
         }
 

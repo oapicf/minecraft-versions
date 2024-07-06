@@ -60,19 +60,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**getMinecraftVersionManifest**](doc//DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](doc//DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApi* | [**getMinecraftVersionPackageInfo**](doc//DefaultApi.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation For Models
 
- - [GetMinecraftVersionManifest200Response](doc//GetMinecraftVersionManifest200Response.md)
- - [GetMinecraftVersionManifest200ResponseLatest](doc//GetMinecraftVersionManifest200ResponseLatest.md)
- - [GetMinecraftVersionManifest200ResponseVersionsInner](doc//GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [V1PackagesPackageIdVersionIdJsonGet200Response](doc//V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](doc//V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](doc//V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](doc//V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](doc//V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [Download](doc//Download.md)
+ - [Version](doc//Version.md)
+ - [VersionManifest](doc//VersionManifest.md)
+ - [VersionManifestLatest](doc//VersionManifestLatest.md)
+ - [VersionPackageInfo](doc//VersionPackageInfo.md)
+ - [VersionPackageInfoAssetIndex](doc//VersionPackageInfoAssetIndex.md)
+ - [VersionPackageInfoDownloads](doc//VersionPackageInfoDownloads.md)
+ - [VersionPackageInfoJavaVersion](doc//VersionPackageInfoJavaVersion.md)
 
 
 ## Documentation For Authorization

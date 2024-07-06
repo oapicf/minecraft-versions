@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetMinecraftVersionManifest200Response,
-  V1PackagesPackageIdVersionIdJsonGet200Response,
+  VersionManifest,
+  VersionPackageInfo,
 } from '../models/index';
 import {
-    GetMinecraftVersionManifest200ResponseFromJSON,
-    GetMinecraftVersionManifest200ResponseToJSON,
-    V1PackagesPackageIdVersionIdJsonGet200ResponseFromJSON,
-    V1PackagesPackageIdVersionIdJsonGet200ResponseToJSON,
+    VersionManifestFromJSON,
+    VersionManifestToJSON,
+    VersionPackageInfoFromJSON,
+    VersionPackageInfoToJSON,
 } from '../models/index';
 
-export interface V1PackagesPackageIdVersionIdJsonGetRequest {
+export interface GetMinecraftVersionPackageInfoRequest {
     packageId: string;
     versionId: string;
 }
@@ -38,7 +38,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get Minecraft version manifest
      */
-    async getMinecraftVersionManifestRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetMinecraftVersionManifest200Response>> {
+    async getMinecraftVersionManifestRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VersionManifest>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -50,32 +50,32 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetMinecraftVersionManifest200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => VersionManifestFromJSON(jsonValue));
     }
 
     /**
      * Get Minecraft version manifest
      */
-    async getMinecraftVersionManifest(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMinecraftVersionManifest200Response> {
+    async getMinecraftVersionManifest(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VersionManifest> {
         const response = await this.getMinecraftVersionManifestRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      */
-    async v1PackagesPackageIdVersionIdJsonGetRaw(requestParameters: V1PackagesPackageIdVersionIdJsonGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response>> {
+    async getMinecraftVersionPackageInfoRaw(requestParameters: GetMinecraftVersionPackageInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VersionPackageInfo>> {
         if (requestParameters['packageId'] == null) {
             throw new runtime.RequiredError(
                 'packageId',
-                'Required parameter "packageId" was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet().'
+                'Required parameter "packageId" was null or undefined when calling getMinecraftVersionPackageInfo().'
             );
         }
 
         if (requestParameters['versionId'] == null) {
             throw new runtime.RequiredError(
                 'versionId',
-                'Required parameter "versionId" was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet().'
+                'Required parameter "versionId" was null or undefined when calling getMinecraftVersionPackageInfo().'
             );
         }
 
@@ -90,14 +90,14 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1PackagesPackageIdVersionIdJsonGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => VersionPackageInfoFromJSON(jsonValue));
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      */
-    async v1PackagesPackageIdVersionIdJsonGet(requestParameters: V1PackagesPackageIdVersionIdJsonGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1PackagesPackageIdVersionIdJsonGet200Response> {
-        const response = await this.v1PackagesPackageIdVersionIdJsonGetRaw(requestParameters, initOverrides);
+    async getMinecraftVersionPackageInfo(requestParameters: GetMinecraftVersionPackageInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VersionPackageInfo> {
+        const response = await this.getMinecraftVersionPackageInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

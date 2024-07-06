@@ -20,8 +20,8 @@ import { IAPIConfiguration } from '../IAPIConfiguration';
 import { Headers } from '../Headers';
 import HttpResponse from '../HttpResponse';
 
-import { GetMinecraftVersionManifest200Response } from '../model/getMinecraftVersionManifest200Response';
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../model/v1PackagesPackageIdVersionIdJsonGet200Response';
+import { VersionManifest } from '../model/versionManifest';
+import { VersionPackageInfo } from '../model/versionPackageInfo';
 
 import { COLLECTION_FORMATS }  from '../variables';
 
@@ -42,15 +42,15 @@ export class DefaultService {
      * 
      
      */
-    public getMinecraftVersionManifest(observe?: 'body', headers?: Headers): Observable<GetMinecraftVersionManifest200Response>;
-    public getMinecraftVersionManifest(observe?: 'response', headers?: Headers): Observable<HttpResponse<GetMinecraftVersionManifest200Response>>;
+    public getMinecraftVersionManifest(observe?: 'body', headers?: Headers): Observable<VersionManifest>;
+    public getMinecraftVersionManifest(observe?: 'response', headers?: Headers): Observable<HttpResponse<VersionManifest>>;
     public getMinecraftVersionManifest(observe: any = 'body', headers: Headers = {}): Observable<any> {
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<GetMinecraftVersionManifest200Response>> = this.httpClient.get(`${this.basePath}/mc/game/version_manifest.json`, headers);
+        const response: Observable<HttpResponse<VersionManifest>> = this.httpClient.get(`${this.basePath}/mc/game/version_manifest.json`, headers);
         if (observe === 'body') {
                return response.pipe(
-                   map((httpResponse: HttpResponse) => <GetMinecraftVersionManifest200Response>(httpResponse.response))
+                   map((httpResponse: HttpResponse) => <VersionManifest>(httpResponse.response))
                );
         }
         return response;
@@ -58,29 +58,29 @@ export class DefaultService {
 
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId 
      * @param versionId 
      
      */
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe?: 'body', headers?: Headers): Observable<V1PackagesPackageIdVersionIdJsonGet200Response>;
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<V1PackagesPackageIdVersionIdJsonGet200Response>>;
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe?: 'body', headers?: Headers): Observable<VersionPackageInfo>;
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<VersionPackageInfo>>;
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (packageId === null || packageId === undefined){
-            throw new Error('Required parameter packageId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter packageId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
         if (versionId === null || versionId === undefined){
-            throw new Error('Required parameter versionId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter versionId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<V1PackagesPackageIdVersionIdJsonGet200Response>> = this.httpClient.get(`${this.basePath}/v1/packages/${encodeURIComponent(String(packageId))}/${encodeURIComponent(String(versionId))}.json`, headers);
+        const response: Observable<HttpResponse<VersionPackageInfo>> = this.httpClient.get(`${this.basePath}/v1/packages/${encodeURIComponent(String(packageId))}/${encodeURIComponent(String(versionId))}.json`, headers);
         if (observe === 'body') {
                return response.pipe(
-                   map((httpResponse: HttpResponse) => <V1PackagesPackageIdVersionIdJsonGet200Response>(httpResponse.response))
+                   map((httpResponse: HttpResponse) => <VersionPackageInfo>(httpResponse.response))
                );
         }
         return response;

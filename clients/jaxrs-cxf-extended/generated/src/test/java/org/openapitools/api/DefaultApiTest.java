@@ -13,8 +13,8 @@
 
 package org.openapitools.api;
 
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
@@ -67,23 +67,23 @@ public class DefaultApiTest {
     public void getMinecraftVersionManifestTest() throws Exception {
 
         // TODO: delete this line and uncomment the next
-        // GetMinecraftVersionManifest200Response response = api.getMinecraftVersionManifest();
+        // VersionManifest response = api.getMinecraftVersionManifest();
         // TODO: complete test assertions
     }
     
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @throws ApiException if the API call fails
      */
     @Test
-    public void v1PackagesPackageIdVersionIdJsonGetTest() throws Exception {
+    public void getMinecraftVersionPackageInfoTest() throws Exception {
         // TODO: assign appropriate parameter values
         String packageId = null;
         String versionId = null;
 
         // TODO: delete this line and uncomment the next
-        // V1PackagesPackageIdVersionIdJsonGet200Response response = api.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+        // VersionPackageInfo response = api.getMinecraftVersionPackageInfo(packageId, versionId);
         // TODO: complete test assertions
     }
     

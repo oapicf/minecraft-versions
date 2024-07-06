@@ -15,8 +15,8 @@
 #include "OpenAPIBaseModel.h"
 #include "OpenAPIDefaultApi.h"
 
-#include "OpenAPIGetMinecraftVersionManifest200Response.h"
-#include "OpenAPIV1PackagesPackageIdVersionIdJsonGet200Response.h"
+#include "OpenAPIVersionManifest.h"
+#include "OpenAPIVersionPackageInfo.h"
 
 namespace OpenAPI
 {
@@ -40,16 +40,16 @@ public:
 	void SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode) final;
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 
-    OpenAPIGetMinecraftVersionManifest200Response Content;
+    OpenAPIVersionManifest Content;
 };
 
-/* Get Minecraft version package details
+/* Get Minecraft version package info
 
 */
-class OPENAPI_API OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetRequest : public Request
+class OPENAPI_API OpenAPIDefaultApi::GetMinecraftVersionPackageInfoRequest : public Request
 {
 public:
-    virtual ~V1PackagesPackageIdVersionIdJsonGetRequest() {}
+    virtual ~GetMinecraftVersionPackageInfoRequest() {}
 	void SetupHttpRequest(const FHttpRequestRef& HttpRequest) const final;
 	FString ComputePath() const final;
 
@@ -57,14 +57,14 @@ public:
 	FString VersionId;
 };
 
-class OPENAPI_API OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetResponse : public Response
+class OPENAPI_API OpenAPIDefaultApi::GetMinecraftVersionPackageInfoResponse : public Response
 {
 public:
-    virtual ~V1PackagesPackageIdVersionIdJsonGetResponse() {}
+    virtual ~GetMinecraftVersionPackageInfoResponse() {}
 	void SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode) final;
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 
-    OpenAPIV1PackagesPackageIdVersionIdJsonGet200Response Content;
+    OpenAPIVersionPackageInfo Content;
 };
 
 }

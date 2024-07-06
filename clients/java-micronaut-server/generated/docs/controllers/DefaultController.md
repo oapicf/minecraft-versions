@@ -7,32 +7,32 @@ The controller class is defined in **[DefaultController.java](../../src/main/jav
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1PackagesPackageIdVersionIdJsonGet**](#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 <a id="getMinecraftVersionManifest"></a>
 # **getMinecraftVersionManifest**
 ```java
-Mono<GetMinecraftVersionManifest200Response> DefaultController.getMinecraftVersionManifest()
+Mono<VersionManifest> DefaultController.getMinecraftVersionManifest()
 ```
 
 Get Minecraft version manifest
 
 
 ### Return type
-[**GetMinecraftVersionManifest200Response**](../../docs/models/GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](../../docs/models/VersionManifest.md)
 
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `application/json`
 
-<a id="v1PackagesPackageIdVersionIdJsonGet"></a>
-# **v1PackagesPackageIdVersionIdJsonGet**
+<a id="getMinecraftVersionPackageInfo"></a>
+# **getMinecraftVersionPackageInfo**
 ```java
-Mono<V1PackagesPackageIdVersionIdJsonGet200Response> DefaultController.v1PackagesPackageIdVersionIdJsonGet(packageIdversionId)
+Mono<VersionPackageInfo> DefaultController.getMinecraftVersionPackageInfo(packageIdversionId)
 ```
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Parameters
 Name | Type | Description  | Notes
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 **versionId** | `String` |  |
 
 ### Return type
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](../../docs/models/V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](../../docs/models/VersionPackageInfo.md)
 
 
 ### HTTP request headers

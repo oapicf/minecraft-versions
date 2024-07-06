@@ -59,7 +59,7 @@ allowed_methods(
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'V1PackagesPackageIdVersionIdJsonGet'
+        operation_id = 'GetMinecraftVersionPackageInfo'
     }
 ) ->
     {[<<"GET">>], Req, State};
@@ -104,7 +104,7 @@ valid_content_headers(
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'V1PackagesPackageIdVersionIdJsonGet'
+        operation_id = 'GetMinecraftVersionPackageInfo'
     }
 ) ->
     Headers = [],

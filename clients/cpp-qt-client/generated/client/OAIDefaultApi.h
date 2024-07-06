@@ -18,8 +18,8 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAIGetMinecraftVersionManifest_200_response.h"
-#include "OAI_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "OAIVersionManifest.h"
+#include "OAIVersionPackageInfo.h"
 #include <QString>
 
 #include <QObject>
@@ -65,7 +65,7 @@ public:
     * @param[in]  package_id QString [required]
     * @param[in]  version_id QString [required]
     */
-    void v1PackagesPackageIdVersionIdJsonGet(const QString &package_id, const QString &version_id);
+    void getMinecraftVersionPackageInfo(const QString &package_id, const QString &version_id);
 
 
 private:
@@ -91,29 +91,29 @@ private:
     int _OauthMethod = 0;
 
     void getMinecraftVersionManifestCallback(OAIHttpRequestWorker *worker);
-    void v1PackagesPackageIdVersionIdJsonGetCallback(OAIHttpRequestWorker *worker);
+    void getMinecraftVersionPackageInfoCallback(OAIHttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void getMinecraftVersionManifestSignal(OAIGetMinecraftVersionManifest_200_response summary);
-    void v1PackagesPackageIdVersionIdJsonGetSignal(OAI_v1_packages__packageId___versionId__json_get_200_response summary);
+    void getMinecraftVersionManifestSignal(OAIVersionManifest summary);
+    void getMinecraftVersionPackageInfoSignal(OAIVersionPackageInfo summary);
 
-    void getMinecraftVersionManifestSignalFull(OAIHttpRequestWorker *worker, OAIGetMinecraftVersionManifest_200_response summary);
-    void v1PackagesPackageIdVersionIdJsonGetSignalFull(OAIHttpRequestWorker *worker, OAI_v1_packages__packageId___versionId__json_get_200_response summary);
+    void getMinecraftVersionManifestSignalFull(OAIHttpRequestWorker *worker, OAIVersionManifest summary);
+    void getMinecraftVersionPackageInfoSignalFull(OAIHttpRequestWorker *worker, OAIVersionPackageInfo summary);
 
     Q_DECL_DEPRECATED_X("Use getMinecraftVersionManifestSignalError() instead")
-    void getMinecraftVersionManifestSignalE(OAIGetMinecraftVersionManifest_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getMinecraftVersionManifestSignalError(OAIGetMinecraftVersionManifest_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use v1PackagesPackageIdVersionIdJsonGetSignalError() instead")
-    void v1PackagesPackageIdVersionIdJsonGetSignalE(OAI_v1_packages__packageId___versionId__json_get_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void v1PackagesPackageIdVersionIdJsonGetSignalError(OAI_v1_packages__packageId___versionId__json_get_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getMinecraftVersionManifestSignalE(OAIVersionManifest summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getMinecraftVersionManifestSignalError(OAIVersionManifest summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getMinecraftVersionPackageInfoSignalError() instead")
+    void getMinecraftVersionPackageInfoSignalE(OAIVersionPackageInfo summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getMinecraftVersionPackageInfoSignalError(OAIVersionPackageInfo summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use getMinecraftVersionManifestSignalErrorFull() instead")
     void getMinecraftVersionManifestSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getMinecraftVersionManifestSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use v1PackagesPackageIdVersionIdJsonGetSignalErrorFull() instead")
-    void v1PackagesPackageIdVersionIdJsonGetSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void v1PackagesPackageIdVersionIdJsonGetSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getMinecraftVersionPackageInfoSignalErrorFull() instead")
+    void getMinecraftVersionPackageInfoSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getMinecraftVersionPackageInfoSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

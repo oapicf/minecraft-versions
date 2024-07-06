@@ -24,12 +24,12 @@ inherit
 feature -- API Access
 
 
-	minecraft_version_manifest : detachable GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE
+	minecraft_version_manifest : detachable VERSION_MANIFEST
 			-- Get Minecraft version manifest
 			-- 
 			-- 
 			-- 
-			-- Result GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE
+			-- Result VERSION_MANIFEST
 		require
 		local
   			l_path: STRING
@@ -50,15 +50,15 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE } l_response.data ({ GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE }) as l_data then
+			elseif attached { VERSION_MANIFEST } l_response.data ({ VERSION_MANIFEST }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")
 			end
 		end
 
-	v1_packages_package_id_version_id_json_get (package_id: STRING_32; version_id: STRING_32): detachable MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE
-			-- Get Minecraft version package details
+	minecraft_version_package_info (package_id: STRING_32; version_id: STRING_32): detachable VERSION_PACKAGE_INFO
+			-- Get Minecraft version package info
 			-- 
 			-- 
 			-- argument: package_id  (required)
@@ -66,7 +66,7 @@ feature -- API Access
 			-- argument: version_id  (required)
 			-- 
 			-- 
-			-- Result MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE
+			-- Result VERSION_PACKAGE_INFO
 		require
 		local
   			l_path: STRING
@@ -89,7 +89,7 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE } l_response.data ({ MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE }) as l_data then
+			elseif attached { VERSION_PACKAGE_INFO } l_response.data ({ VERSION_PACKAGE_INFO }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")

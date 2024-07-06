@@ -55,10 +55,10 @@
         done();
       });
     });
-    describe('v1PackagesPackageIdVersionIdJsonGet', function() {
-      it('should call v1PackagesPackageIdVersionIdJsonGet successfully', function(done) {
-        //uncomment below and update the code to test v1PackagesPackageIdVersionIdJsonGet
-        //instance.v1PackagesPackageIdVersionIdJsonGet(function(error) {
+    describe('getMinecraftVersionPackageInfo', function() {
+      it('should call getMinecraftVersionPackageInfo successfully', function(done) {
+        //uncomment below and update the code to test getMinecraftVersionPackageInfo
+        //instance.getMinecraftVersionPackageInfo(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

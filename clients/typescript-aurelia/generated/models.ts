@@ -11,19 +11,14 @@
  */
 
 
-export interface GetMinecraftVersionManifest200Response {
-  latest?: GetMinecraftVersionManifest200ResponseLatest;
-  versions?: Array<GetMinecraftVersionManifest200ResponseVersionsInner>;
+export interface Download {
+  sha1?: string;
+  size?: number;
+  url?: string;
 }
 
 
-export interface GetMinecraftVersionManifest200ResponseLatest {
-  release?: string;
-  snapshot?: string;
-}
-
-
-export interface GetMinecraftVersionManifest200ResponseVersionsInner {
+export interface Version {
   id?: string;
   type?: string;
   url?: string;
@@ -32,14 +27,26 @@ export interface GetMinecraftVersionManifest200ResponseVersionsInner {
 }
 
 
-export interface V1PackagesPackageIdVersionIdJsonGet200Response {
+export interface VersionManifest {
+  latest?: VersionManifestLatest;
+  versions?: Array<Version>;
+}
+
+
+export interface VersionManifestLatest {
+  release?: string;
+  snapshot?: string;
+}
+
+
+export interface VersionPackageInfo {
   version?: string;
-  assetIndex?: V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
+  assetIndex?: VersionPackageInfoAssetIndex;
   assets?: number;
   complianceLevel?: number;
-  downloads?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
+  downloads?: VersionPackageInfoDownloads;
   id?: string;
-  javaVersion?: V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion;
+  javaVersion?: VersionPackageInfoJavaVersion;
   mainClass?: string;
   minimumLauncherVersion?: number;
   time?: string;
@@ -48,7 +55,7 @@ export interface V1PackagesPackageIdVersionIdJsonGet200Response {
 }
 
 
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+export interface VersionPackageInfoAssetIndex {
   id?: string;
   sha1?: string;
   size?: number;
@@ -57,22 +64,15 @@ export interface V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
 }
 
 
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
-  client?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
-  client_mappings?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
-  server?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
-  server_mappings?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+export interface VersionPackageInfoDownloads {
+  client?: Download;
+  client_mappings?: Download;
+  server?: Download;
+  server_mappings?: Download;
 }
 
 
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-  sha1?: string;
-  size?: number;
-  url?: string;
-}
-
-
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+export interface VersionPackageInfoJavaVersion {
   component?: string;
   majorVersion?: number;
 }

@@ -3,8 +3,8 @@
 from fastapi.testclient import TestClient
 
 
-from openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response  # noqa: F401
-from openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response  # noqa: F401
+from openapi_server.models.version_manifest import VersionManifest  # noqa: F401
+from openapi_server.models.version_package_info import VersionPackageInfo  # noqa: F401
 
 
 def test_get_minecraft_version_manifest(client: TestClient):
@@ -26,10 +26,10 @@ def test_get_minecraft_version_manifest(client: TestClient):
     #assert response.status_code == 200
 
 
-def test_v1_packages_package_id_version_id_json_get(client: TestClient):
-    """Test case for v1_packages_package_id_version_id_json_get
+def test_get_minecraft_version_package_info(client: TestClient):
+    """Test case for get_minecraft_version_package_info
 
-    Get Minecraft version package details
+    Get Minecraft version package info
     """
 
     headers = {

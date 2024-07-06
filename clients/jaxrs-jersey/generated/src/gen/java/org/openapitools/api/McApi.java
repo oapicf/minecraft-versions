@@ -6,7 +6,7 @@ import org.openapitools.api.factories.McApiServiceFactory;
 import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
 
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
+import org.openapitools.model.VersionManifest;
 
 import java.util.Map;
 import java.util.List;
@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the mc API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T08:45:05.905032694Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T11:27:47.555730347Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class McApi  {
    private final McApiService delegate;
 
@@ -58,9 +58,9 @@ public class McApi  {
     
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get Minecraft version manifest", notes = "", response = GetMinecraftVersionManifest200Response.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "Get Minecraft version manifest", notes = "", response = VersionManifest.class, tags={  })
     @io.swagger.annotations.ApiResponses(value = {
-        @io.swagger.annotations.ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = GetMinecraftVersionManifest200Response.class)
+        @io.swagger.annotations.ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = VersionManifest.class)
     })
     public Response getMinecraftVersionManifest(@Context SecurityContext securityContext)
     throws NotFoundException {

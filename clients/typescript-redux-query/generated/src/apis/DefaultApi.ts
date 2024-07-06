@@ -15,15 +15,15 @@
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
 import {
-    GetMinecraftVersionManifest200Response,
-    GetMinecraftVersionManifest200ResponseFromJSON,
-    GetMinecraftVersionManifest200ResponseToJSON,
-    V1PackagesPackageIdVersionIdJsonGet200Response,
-    V1PackagesPackageIdVersionIdJsonGet200ResponseFromJSON,
-    V1PackagesPackageIdVersionIdJsonGet200ResponseToJSON,
+    VersionManifest,
+    VersionManifestFromJSON,
+    VersionManifestToJSON,
+    VersionPackageInfo,
+    VersionPackageInfoFromJSON,
+    VersionPackageInfoToJSON,
 } from '../models';
 
-export interface V1PackagesPackageIdVersionIdJsonGetRequest {
+export interface GetMinecraftVersionPackageInfoRequest {
     packageId: string;
     versionId: string;
 }
@@ -32,7 +32,7 @@ export interface V1PackagesPackageIdVersionIdJsonGetRequest {
 /**
  * Get Minecraft version manifest
  */
-function getMinecraftVersionManifestRaw<T>( requestConfig: runtime.TypedQueryConfig<T, GetMinecraftVersionManifest200Response> = {}): QueryConfig<T> {
+function getMinecraftVersionManifestRaw<T>( requestConfig: runtime.TypedQueryConfig<T, VersionManifest> = {}): QueryConfig<T> {
     let queryParameters = null;
 
 
@@ -58,7 +58,7 @@ function getMinecraftVersionManifestRaw<T>( requestConfig: runtime.TypedQueryCon
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(GetMinecraftVersionManifest200ResponseFromJSON(body), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(VersionManifestFromJSON(body), text);
     }
 
     return config;
@@ -67,20 +67,20 @@ function getMinecraftVersionManifestRaw<T>( requestConfig: runtime.TypedQueryCon
 /**
 * Get Minecraft version manifest
 */
-export function getMinecraftVersionManifest<T>( requestConfig?: runtime.TypedQueryConfig<T, GetMinecraftVersionManifest200Response>): QueryConfig<T> {
+export function getMinecraftVersionManifest<T>( requestConfig?: runtime.TypedQueryConfig<T, VersionManifest>): QueryConfig<T> {
     return getMinecraftVersionManifestRaw( requestConfig);
 }
 
 /**
- * Get Minecraft version package details
+ * Get Minecraft version package info
  */
-function v1PackagesPackageIdVersionIdJsonGetRaw<T>(requestParameters: V1PackagesPackageIdVersionIdJsonGetRequest, requestConfig: runtime.TypedQueryConfig<T, V1PackagesPackageIdVersionIdJsonGet200Response> = {}): QueryConfig<T> {
+function getMinecraftVersionPackageInfoRaw<T>(requestParameters: GetMinecraftVersionPackageInfoRequest, requestConfig: runtime.TypedQueryConfig<T, VersionPackageInfo> = {}): QueryConfig<T> {
     if (requestParameters.packageId === null || requestParameters.packageId === undefined) {
-        throw new runtime.RequiredError('packageId','Required parameter requestParameters.packageId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+        throw new runtime.RequiredError('packageId','Required parameter requestParameters.packageId was null or undefined when calling getMinecraftVersionPackageInfo.');
     }
 
     if (requestParameters.versionId === null || requestParameters.versionId === undefined) {
-        throw new runtime.RequiredError('versionId','Required parameter requestParameters.versionId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+        throw new runtime.RequiredError('versionId','Required parameter requestParameters.versionId was null or undefined when calling getMinecraftVersionPackageInfo.');
     }
 
     let queryParameters = null;
@@ -108,16 +108,16 @@ function v1PackagesPackageIdVersionIdJsonGetRaw<T>(requestParameters: V1Packages
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(V1PackagesPackageIdVersionIdJsonGet200ResponseFromJSON(body), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(VersionPackageInfoFromJSON(body), text);
     }
 
     return config;
 }
 
 /**
-* Get Minecraft version package details
+* Get Minecraft version package info
 */
-export function v1PackagesPackageIdVersionIdJsonGet<T>(requestParameters: V1PackagesPackageIdVersionIdJsonGetRequest, requestConfig?: runtime.TypedQueryConfig<T, V1PackagesPackageIdVersionIdJsonGet200Response>): QueryConfig<T> {
-    return v1PackagesPackageIdVersionIdJsonGetRaw(requestParameters, requestConfig);
+export function getMinecraftVersionPackageInfo<T>(requestParameters: GetMinecraftVersionPackageInfoRequest, requestConfig?: runtime.TypedQueryConfig<T, VersionPackageInfo>): QueryConfig<T> {
+    return getMinecraftVersionPackageInfoRaw(requestParameters, requestConfig);
 }
 

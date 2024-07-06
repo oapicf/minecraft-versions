@@ -1,8 +1,8 @@
 #import "OAIDefaultApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIGetMinecraftVersionManifest200Response.h"
-#import "OAIV1PackagesPackageIdVersionIdJsonGet200Response.h"
+#import "OAIVersionManifest.h"
+#import "OAIVersionPackageInfo.h"
 
 
 @interface OAIDefaultApi ()
@@ -53,10 +53,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Get Minecraft version manifest
 /// 
-///  @returns OAIGetMinecraftVersionManifest200Response*
+///  @returns OAIVersionManifest*
 ///
 -(NSURLSessionTask*) getMinecraftVersionManifestWithCompletionHandler: 
-    (void (^)(OAIGetMinecraftVersionManifest200Response* output, NSError* error)) handler {
+    (void (^)(OAIVersionManifest* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mc/game/version_manifest.json"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -94,26 +94,26 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIGetMinecraftVersionManifest200Response*"
+                              responseType: @"OAIVersionManifest*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIGetMinecraftVersionManifest200Response*)data, error);
+                                    handler((OAIVersionManifest*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Get Minecraft version package details
+/// Get Minecraft version package info
 /// 
 ///  @param packageId  
 ///
 ///  @param versionId  
 ///
-///  @returns OAIV1PackagesPackageIdVersionIdJsonGet200Response*
+///  @returns OAIVersionPackageInfo*
 ///
--(NSURLSessionTask*) v1PackagesPackageIdVersionIdJsonGetWithPackageId: (NSString*) packageId
+-(NSURLSessionTask*) getMinecraftVersionPackageInfoWithPackageId: (NSString*) packageId
     versionId: (NSString*) versionId
-    completionHandler: (void (^)(OAIV1PackagesPackageIdVersionIdJsonGet200Response* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIVersionPackageInfo* output, NSError* error)) handler {
     // verify the required parameter 'packageId' is set
     if (packageId == nil) {
         NSParameterAssert(packageId);
@@ -179,10 +179,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIV1PackagesPackageIdVersionIdJsonGet200Response*"
+                              responseType: @"OAIVersionPackageInfo*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIV1PackagesPackageIdVersionIdJsonGet200Response*)data, error);
+                                    handler((OAIVersionPackageInfo*)data, error);
                                 }
                             }];
 }

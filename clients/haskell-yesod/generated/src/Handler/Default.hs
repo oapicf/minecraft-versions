@@ -11,9 +11,9 @@ import           Import
 getMcGameVersionManifestJsonR :: Handler Value
 getMcGameVersionManifestJsonR = notImplemented
 
--- | Get Minecraft version package details
+-- | Get Minecraft version package info
 --
--- operationId: v1PackagesPackageIdVersionIdJsonGet
+-- operationId: getMinecraftVersionPackageInfo
 getV1PackagesByText{VersionId}JsonR :: Text -- ^ 
                                     -> Text -- ^ 
                                     -> Handler Value

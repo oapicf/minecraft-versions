@@ -12,8 +12,8 @@
 
 package org.openapitools.server.api
 
-import org.openapitools.server.model.GetMinecraftVersionManifest200Response
-import org.openapitools.server.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.server.model.VersionManifest
+import org.openapitools.server.model.VersionPackageInfo
 
 import java.io.File
 
@@ -40,7 +40,7 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val getMinecraftVersionManifestOperation = (apiOperation[GetMinecraftVersionManifest200Response]("getMinecraftVersionManifest")
+  val getMinecraftVersionManifestOperation = (apiOperation[VersionManifest]("getMinecraftVersionManifest")
     summary "Get Minecraft version manifest"
     parameters()
   )
@@ -50,12 +50,12 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
 
   
 
-  val v1PackagesPackageIdVersionIdJsonGetOperation = (apiOperation[V1PackagesPackageIdVersionIdJsonGet200Response]("v1PackagesPackageIdVersionIdJsonGet")
-    summary "Get Minecraft version package details"
+  val getMinecraftVersionPackageInfoOperation = (apiOperation[VersionPackageInfo]("getMinecraftVersionPackageInfo")
+    summary "Get Minecraft version package info"
     parameters(pathParam[String]("packageId").description(""), pathParam[String]("versionId").description(""))
   )
 
-  get("/v1/packages/:packageId/{versionId}.json", operation(v1PackagesPackageIdVersionIdJsonGetOperation)) {
+  get("/v1/packages/:packageId/{versionId}.json", operation(getMinecraftVersionPackageInfoOperation)) {
     val packageId = params.getOrElse("packageId", halt(400))
     //println("packageId: " + packageId)
     val versionId = params.getOrElse("versionId", halt(400))

@@ -25,7 +25,7 @@ where
             get(get_minecraft_version_manifest::<I, A>)
         )
         .route("/v1/packages/:package_id/:version_id.json",
-            get(v1_packages_package_id_version_id_json_get::<I, A>)
+            get(get_minecraft_version_package_info::<I, A>)
         )
         .with_state(api_impl)
 }
@@ -109,10 +109,10 @@ where
 
 
 #[tracing::instrument(skip_all)]
-fn v1_packages_package_id_version_id_json_get_validation(
-  path_params: models::V1PackagesPackageIdVersionIdJsonGetPathParams,
+fn get_minecraft_version_package_info_validation(
+  path_params: models::GetMinecraftVersionPackageInfoPathParams,
 ) -> std::result::Result<(
-  models::V1PackagesPackageIdVersionIdJsonGetPathParams,
+  models::GetMinecraftVersionPackageInfoPathParams,
 ), ValidationErrors>
 {
   path_params.validate()?;
@@ -121,13 +121,13 @@ Ok((
   path_params,
 ))
 }
-/// V1PackagesPackageIdVersionIdJsonGet - GET /v1/packages/{packageId}/{versionId}.json
+/// GetMinecraftVersionPackageInfo - GET /v1/packages/{packageId}/{versionId}.json
 #[tracing::instrument(skip_all)]
-async fn v1_packages_package_id_version_id_json_get<I, A>(
+async fn get_minecraft_version_package_info<I, A>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Path(path_params): Path<models::V1PackagesPackageIdVersionIdJsonGetPathParams>,
+  Path(path_params): Path<models::GetMinecraftVersionPackageInfoPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where 
@@ -137,7 +137,7 @@ where
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move || 
-    v1_packages_package_id_version_id_json_get_validation(
+    get_minecraft_version_package_info_validation(
         path_params,
     )
   ).await.unwrap();
@@ -151,7 +151,7 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST); 
   };
 
-  let result = api_impl.as_ref().v1_packages_package_id_version_id_json_get(
+  let result = api_impl.as_ref().get_minecraft_version_package_info(
       method,
       host,
       cookies,
@@ -162,7 +162,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                apis::default::V1PackagesPackageIdVersionIdJsonGetResponse::Status200_GetPackageVersionDetails
+                                                apis::default::GetMinecraftVersionPackageInfoResponse::Status200_GetPackageVersionDetails
                                                     (body)
                                                 => {
 

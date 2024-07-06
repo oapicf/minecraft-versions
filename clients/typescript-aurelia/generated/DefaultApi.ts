@@ -15,8 +15,8 @@ import { HttpClient } from 'aurelia-http-client';
 import { Api } from './Api';
 import { AuthStorage } from './AuthStorage';
 import {
-  GetMinecraftVersionManifest200Response,
-  V1PackagesPackageIdVersionIdJsonGet200Response,
+  VersionPackageInfo,
+  VersionManifest,
 } from './models';
 
 /**
@@ -26,9 +26,9 @@ export interface IGetMinecraftVersionManifestParams {
 }
 
 /**
- * v1PackagesPackageIdVersionIdJsonGet - parameters interface
+ * getMinecraftVersionPackageInfo - parameters interface
  */
-export interface IV1PackagesPackageIdVersionIdJsonGetParams {
+export interface IGetMinecraftVersionPackageInfoParams {
   packageId: string;
   versionId: string;
 }
@@ -52,7 +52,7 @@ export class DefaultApi extends Api {
   /**
    * Get Minecraft version manifest
    */
-  async getMinecraftVersionManifest(): Promise<GetMinecraftVersionManifest200Response> {
+  async getMinecraftVersionManifest(): Promise<VersionManifest> {
     // Verify required parameters are set
 
     // Create URL to call
@@ -74,14 +74,14 @@ export class DefaultApi extends Api {
   }
 
   /**
-   * Get Minecraft version package details
+   * Get Minecraft version package info
    * @param params.packageId 
    * @param params.versionId 
    */
-  async v1PackagesPackageIdVersionIdJsonGet(params: IV1PackagesPackageIdVersionIdJsonGetParams): Promise<V1PackagesPackageIdVersionIdJsonGet200Response> {
+  async getMinecraftVersionPackageInfo(params: IGetMinecraftVersionPackageInfoParams): Promise<VersionPackageInfo> {
     // Verify required parameters are set
-    this.ensureParamIsSet('v1PackagesPackageIdVersionIdJsonGet', params, 'packageId');
-    this.ensureParamIsSet('v1PackagesPackageIdVersionIdJsonGet', params, 'versionId');
+    this.ensureParamIsSet('getMinecraftVersionPackageInfo', params, 'packageId');
+    this.ensureParamIsSet('getMinecraftVersionPackageInfo', params, 'versionId');
 
     // Create URL to call
     const url = `${this.basePath}/v1/packages/{packageId}/{versionId}.json`

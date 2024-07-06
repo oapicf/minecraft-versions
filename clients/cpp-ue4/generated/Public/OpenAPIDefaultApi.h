@@ -40,18 +40,18 @@ public:
 
 	class GetMinecraftVersionManifestRequest;
 	class GetMinecraftVersionManifestResponse;
-	class V1PackagesPackageIdVersionIdJsonGetRequest;
-	class V1PackagesPackageIdVersionIdJsonGetResponse;
+	class GetMinecraftVersionPackageInfoRequest;
+	class GetMinecraftVersionPackageInfoResponse;
 	
     DECLARE_DELEGATE_OneParam(FGetMinecraftVersionManifestDelegate, const GetMinecraftVersionManifestResponse&);
-    DECLARE_DELEGATE_OneParam(FV1PackagesPackageIdVersionIdJsonGetDelegate, const V1PackagesPackageIdVersionIdJsonGetResponse&);
+    DECLARE_DELEGATE_OneParam(FGetMinecraftVersionPackageInfoDelegate, const GetMinecraftVersionPackageInfoResponse&);
     
     FHttpRequestPtr GetMinecraftVersionManifest(const GetMinecraftVersionManifestRequest& Request, const FGetMinecraftVersionManifestDelegate& Delegate = FGetMinecraftVersionManifestDelegate()) const;
-    FHttpRequestPtr V1PackagesPackageIdVersionIdJsonGet(const V1PackagesPackageIdVersionIdJsonGetRequest& Request, const FV1PackagesPackageIdVersionIdJsonGetDelegate& Delegate = FV1PackagesPackageIdVersionIdJsonGetDelegate()) const;
+    FHttpRequestPtr GetMinecraftVersionPackageInfo(const GetMinecraftVersionPackageInfoRequest& Request, const FGetMinecraftVersionPackageInfoDelegate& Delegate = FGetMinecraftVersionPackageInfoDelegate()) const;
     
 private:
     void OnGetMinecraftVersionManifestResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetMinecraftVersionManifestDelegate Delegate) const;
-    void OnV1PackagesPackageIdVersionIdJsonGetResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FV1PackagesPackageIdVersionIdJsonGetDelegate Delegate) const;
+    void OnGetMinecraftVersionPackageInfoResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetMinecraftVersionPackageInfoDelegate Delegate) const;
     
 	FHttpRequestRef CreateHttpRequest(const Request& Request) const;
 	bool IsValid() const;

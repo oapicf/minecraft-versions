@@ -1,6 +1,6 @@
 package org.openapitools.api;
 
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionPackageInfo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T08:47:46.239289619Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T11:30:22.703239748Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 @RequestMapping("${openapi.OpenAPI Spring.base-path:}")
 public class V1ApiController implements V1Api {

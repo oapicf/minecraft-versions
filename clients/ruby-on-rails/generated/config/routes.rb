@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
 
   add_openapi_route 'GET', '/mc/game/version_manifest.json', controller_name: 'default', action_name: 'get_minecraft_version_manifest'
-  add_openapi_route 'GET', '/v1/packages/{packageId}/{versionId}.json', controller_name: 'default', action_name: 'v1_packages_package_id_version_id_json_get'
+  add_openapi_route 'GET', '/v1/packages/{packageId}/{versionId}.json', controller_name: 'default', action_name: 'get_minecraft_version_package_info'
 end

@@ -23,7 +23,7 @@ type ServiceFuture = BoxFuture<'static, Result<Response<Body>, crate::ServiceErr
 
 use crate::{Api,
      GetMinecraftVersionManifestResponse,
-     V1PackagesPackageIdVersionIdJsonGetResponse
+     GetMinecraftVersionPackageInfoResponse
 };
 
 mod paths {
@@ -184,7 +184,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                         Ok(response)
             },
 
-            // V1PackagesPackageIdVersionIdJsonGet - GET /v1/packages/{packageId}/{versionId}.json
+            // GetMinecraftVersionPackageInfo - GET /v1/packages/{packageId}/{versionId}.json
             hyper::Method::GET if path.matched(paths::ID_V1_PACKAGES_PACKAGEID_VERSIONID_JSON) => {
                 // Path parameters
                 let path: &str = uri.path();
@@ -223,7 +223,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.v1_packages_package_id_version_id_json_get(
+                                let result = api_impl.get_minecraft_version_package_info(
                                             param_package_id,
                                             param_version_id,
                                         &context
@@ -236,14 +236,14 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                V1PackagesPackageIdVersionIdJsonGetResponse::GetPackageVersionDetails
+                                                GetMinecraftVersionPackageInfoResponse::GetPackageVersionDetails
                                                     (body)
                                                 => {
                                                     *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("application/json")
-                                                            .expect("Unable to create Content-Type header for V1_PACKAGES_PACKAGE_ID_VERSION_ID_JSON_GET_GET_PACKAGE_VERSION_DETAILS"));
+                                                            .expect("Unable to create Content-Type header for GET_MINECRAFT_VERSION_PACKAGE_INFO_GET_PACKAGE_VERSION_DETAILS"));
                                                     let body_content = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = Body::from(body_content);
                                                 },
@@ -276,8 +276,8 @@ impl<T> RequestParser<T> for ApiRequestParser {
         match *request.method() {
             // GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
             hyper::Method::GET if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST_JSON) => Some("GetMinecraftVersionManifest"),
-            // V1PackagesPackageIdVersionIdJsonGet - GET /v1/packages/{packageId}/{versionId}.json
-            hyper::Method::GET if path.matched(paths::ID_V1_PACKAGES_PACKAGEID_VERSIONID_JSON) => Some("V1PackagesPackageIdVersionIdJsonGet"),
+            // GetMinecraftVersionPackageInfo - GET /v1/packages/{packageId}/{versionId}.json
+            hyper::Method::GET if path.matched(paths::ID_V1_PACKAGES_PACKAGEID_VERSIONID_JSON) => Some("GetMinecraftVersionPackageInfo"),
             _ => None,
         }
     }

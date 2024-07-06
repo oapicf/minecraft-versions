@@ -5,5 +5,5 @@
  *
  *)
 
-val get_minecraft_version_manifest : unit -> Get_minecraft_version_manifest_200_response.t Lwt.t
-val v1_packages_package_id_version_id_json_get : package_id:string -> version_id:string -> Model__v1_packages__package_id___version_id__json_get_200_response.t Lwt.t
+val get_minecraft_version_manifest : unit -> Version_manifest.t Lwt.t
+val get_minecraft_version_package_info : package_id:string -> version_id:string -> Version_package_info.t Lwt.t

@@ -21,8 +21,8 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.GetMinecraftVersionManifest200Response
-import org.openapitools.client.api.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.client.api.VersionManifest
+import org.openapitools.client.api.VersionPackageInfo
 
 object DefaultApi {
 
@@ -30,8 +30,8 @@ object DefaultApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getMinecraftVersionManifest(host: String): Task[GetMinecraftVersionManifest200Response] = {
-    implicit val returnTypeDecoder: EntityDecoder[GetMinecraftVersionManifest200Response] = jsonOf[GetMinecraftVersionManifest200Response]
+  def getMinecraftVersionManifest(host: String): Task[VersionManifest] = {
+    implicit val returnTypeDecoder: EntityDecoder[VersionManifest] = jsonOf[VersionManifest]
 
     val path = "/mc/game/version_manifest.json"
 
@@ -46,13 +46,13 @@ object DefaultApi {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[GetMinecraftVersionManifest200Response](req)
+      resp          <- client.expect[VersionManifest](req)
 
     } yield resp
   }
 
-  def v1PackagesPackageIdVersionIdJsonGet(host: String, packageId: String, versionId: String): Task[V1PackagesPackageIdVersionIdJsonGet200Response] = {
-    implicit val returnTypeDecoder: EntityDecoder[V1PackagesPackageIdVersionIdJsonGet200Response] = jsonOf[V1PackagesPackageIdVersionIdJsonGet200Response]
+  def getMinecraftVersionPackageInfo(host: String, packageId: String, versionId: String): Task[VersionPackageInfo] = {
+    implicit val returnTypeDecoder: EntityDecoder[VersionPackageInfo] = jsonOf[VersionPackageInfo]
 
     val path = "/v1/packages/{packageId}/{versionId}.json".replaceAll("\\{" + "packageId" + "\\}",escape(packageId.toString)).replaceAll("\\{" + "versionId" + "\\}",escape(versionId.toString))
 
@@ -67,7 +67,7 @@ object DefaultApi {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[V1PackagesPackageIdVersionIdJsonGet200Response](req)
+      resp          <- client.expect[VersionPackageInfo](req)
 
     } yield resp
   }
@@ -79,8 +79,8 @@ class HttpServiceDefaultApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getMinecraftVersionManifest(): Task[GetMinecraftVersionManifest200Response] = {
-    implicit val returnTypeDecoder: EntityDecoder[GetMinecraftVersionManifest200Response] = jsonOf[GetMinecraftVersionManifest200Response]
+  def getMinecraftVersionManifest(): Task[VersionManifest] = {
+    implicit val returnTypeDecoder: EntityDecoder[VersionManifest] = jsonOf[VersionManifest]
 
     val path = "/mc/game/version_manifest.json"
 
@@ -95,13 +95,13 @@ class HttpServiceDefaultApi(service: HttpService) {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[GetMinecraftVersionManifest200Response](req)
+      resp          <- client.expect[VersionManifest](req)
 
     } yield resp
   }
 
-  def v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String): Task[V1PackagesPackageIdVersionIdJsonGet200Response] = {
-    implicit val returnTypeDecoder: EntityDecoder[V1PackagesPackageIdVersionIdJsonGet200Response] = jsonOf[V1PackagesPackageIdVersionIdJsonGet200Response]
+  def getMinecraftVersionPackageInfo(packageId: String, versionId: String): Task[VersionPackageInfo] = {
+    implicit val returnTypeDecoder: EntityDecoder[VersionPackageInfo] = jsonOf[VersionPackageInfo]
 
     val path = "/v1/packages/{packageId}/{versionId}.json".replaceAll("\\{" + "packageId" + "\\}",escape(packageId.toString)).replaceAll("\\{" + "versionId" + "\\}",escape(versionId.toString))
 
@@ -116,7 +116,7 @@ class HttpServiceDefaultApi(service: HttpService) {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[V1PackagesPackageIdVersionIdJsonGet200Response](req)
+      resp          <- client.expect[VersionPackageInfo](req)
 
     } yield resp
   }

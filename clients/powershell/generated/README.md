@@ -54,19 +54,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**Get-MinecraftVersionManifest**](docs/DefaultApi.md#Get-MinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | [**Invoke-V1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#Invoke-V1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApi* | [**Get-MinecraftVersionPackageInfo**](docs/DefaultApi.md#Get-MinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation for Models
 
- - [PSOpenAPITools\Model.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [PSOpenAPITools\Model.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [PSOpenAPITools\Model.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [PSOpenAPITools\Model.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [PSOpenAPITools\Model.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [PSOpenAPITools\Model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [PSOpenAPITools\Model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [PSOpenAPITools\Model.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [PSOpenAPITools\Model.Download](docs/Download.md)
+ - [PSOpenAPITools\Model.Version](docs/Version.md)
+ - [PSOpenAPITools\Model.VersionManifest](docs/VersionManifest.md)
+ - [PSOpenAPITools\Model.VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [PSOpenAPITools\Model.VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [PSOpenAPITools\Model.VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [PSOpenAPITools\Model.VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [PSOpenAPITools\Model.VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 <a id="documentation-for-authorization"></a>

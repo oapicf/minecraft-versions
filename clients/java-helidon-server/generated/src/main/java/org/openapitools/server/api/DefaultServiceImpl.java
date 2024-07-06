@@ -1,8 +1,8 @@
 package org.openapitools.server.api;
 
-import org.openapitools.server.model.GetMinecraftVersionManifest200Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.openapitools.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.server.model.VersionManifest;
+import org.openapitools.server.model.VersionPackageInfo;
 import java.util.logging.Logger;
 
 import io.helidon.webserver.ServerRequest;
@@ -19,7 +19,7 @@ public class DefaultServiceImpl implements DefaultService {
         response.status(HTTP_CODE_NOT_IMPLEMENTED).send();
     }
 
-    public void v1PackagesPackageIdVersionIdJsonGet(ServerRequest request, ServerResponse response) {
+    public void getMinecraftVersionPackageInfo(ServerRequest request, ServerResponse response) {
         response.status(HTTP_CODE_NOT_IMPLEMENTED).send();
     }
 

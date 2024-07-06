@@ -27,7 +27,7 @@ type ApiGetMinecraftVersionManifestRequest struct {
 	ApiService *DefaultAPIService
 }
 
-func (r ApiGetMinecraftVersionManifestRequest) Execute() (*GetMinecraftVersionManifest200Response, *http.Response, error) {
+func (r ApiGetMinecraftVersionManifestRequest) Execute() (*VersionManifest, *http.Response, error) {
 	return r.ApiService.GetMinecraftVersionManifestExecute(r)
 }
 
@@ -45,13 +45,13 @@ func (a *DefaultAPIService) GetMinecraftVersionManifest(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return GetMinecraftVersionManifest200Response
-func (a *DefaultAPIService) GetMinecraftVersionManifestExecute(r ApiGetMinecraftVersionManifestRequest) (*GetMinecraftVersionManifest200Response, *http.Response, error) {
+//  @return VersionManifest
+func (a *DefaultAPIService) GetMinecraftVersionManifestExecute(r ApiGetMinecraftVersionManifestRequest) (*VersionManifest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetMinecraftVersionManifest200Response
+		localVarReturnValue  *VersionManifest
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetMinecraftVersionManifest")
@@ -119,27 +119,27 @@ func (a *DefaultAPIService) GetMinecraftVersionManifestExecute(r ApiGetMinecraft
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiV1PackagesPackageIdVersionIdJsonGetRequest struct {
+type ApiGetMinecraftVersionPackageInfoRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	packageId string
 	versionId string
 }
 
-func (r ApiV1PackagesPackageIdVersionIdJsonGetRequest) Execute() (*V1PackagesPackageIdVersionIdJsonGet200Response, *http.Response, error) {
-	return r.ApiService.V1PackagesPackageIdVersionIdJsonGetExecute(r)
+func (r ApiGetMinecraftVersionPackageInfoRequest) Execute() (*VersionPackageInfo, *http.Response, error) {
+	return r.ApiService.GetMinecraftVersionPackageInfoExecute(r)
 }
 
 /*
-V1PackagesPackageIdVersionIdJsonGet Get Minecraft version package details
+GetMinecraftVersionPackageInfo Get Minecraft version package info
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param packageId
  @param versionId
- @return ApiV1PackagesPackageIdVersionIdJsonGetRequest
+ @return ApiGetMinecraftVersionPackageInfoRequest
 */
-func (a *DefaultAPIService) V1PackagesPackageIdVersionIdJsonGet(ctx context.Context, packageId string, versionId string) ApiV1PackagesPackageIdVersionIdJsonGetRequest {
-	return ApiV1PackagesPackageIdVersionIdJsonGetRequest{
+func (a *DefaultAPIService) GetMinecraftVersionPackageInfo(ctx context.Context, packageId string, versionId string) ApiGetMinecraftVersionPackageInfoRequest {
+	return ApiGetMinecraftVersionPackageInfoRequest{
 		ApiService: a,
 		ctx: ctx,
 		packageId: packageId,
@@ -148,16 +148,16 @@ func (a *DefaultAPIService) V1PackagesPackageIdVersionIdJsonGet(ctx context.Cont
 }
 
 // Execute executes the request
-//  @return V1PackagesPackageIdVersionIdJsonGet200Response
-func (a *DefaultAPIService) V1PackagesPackageIdVersionIdJsonGetExecute(r ApiV1PackagesPackageIdVersionIdJsonGetRequest) (*V1PackagesPackageIdVersionIdJsonGet200Response, *http.Response, error) {
+//  @return VersionPackageInfo
+func (a *DefaultAPIService) GetMinecraftVersionPackageInfoExecute(r ApiGetMinecraftVersionPackageInfoRequest) (*VersionPackageInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *V1PackagesPackageIdVersionIdJsonGet200Response
+		localVarReturnValue  *VersionPackageInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1PackagesPackageIdVersionIdJsonGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetMinecraftVersionPackageInfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

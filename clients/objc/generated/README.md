@@ -43,14 +43,14 @@ Import the following:
 #import <OpenAPIClient/OAIApiClient.h>
 #import <OpenAPIClient/OAIDefaultConfiguration.h>
 // load models
-#import <OpenAPIClient/OAIGetMinecraftVersionManifest200Response.h>
-#import <OpenAPIClient/OAIGetMinecraftVersionManifest200ResponseLatest.h>
-#import <OpenAPIClient/OAIGetMinecraftVersionManifest200ResponseVersionsInner.h>
-#import <OpenAPIClient/OAIV1PackagesPackageIdVersionIdJsonGet200Response.h>
-#import <OpenAPIClient/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.h>
-#import <OpenAPIClient/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.h>
-#import <OpenAPIClient/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.h>
-#import <OpenAPIClient/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.h>
+#import <OpenAPIClient/OAIDownload.h>
+#import <OpenAPIClient/OAIVersion.h>
+#import <OpenAPIClient/OAIVersionManifest.h>
+#import <OpenAPIClient/OAIVersionManifestLatest.h>
+#import <OpenAPIClient/OAIVersionPackageInfo.h>
+#import <OpenAPIClient/OAIVersionPackageInfoAssetIndex.h>
+#import <OpenAPIClient/OAIVersionPackageInfoDownloads.h>
+#import <OpenAPIClient/OAIVersionPackageInfoJavaVersion.h>
 // load API classes for accessing endpoints
 #import <OpenAPIClient/OAIDefaultApi.h>
 
@@ -72,7 +72,7 @@ OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
 
 // Get Minecraft version manifest
 [apiInstance getMinecraftVersionManifestWithCompletionHandler: 
-              ^(OAIGetMinecraftVersionManifest200Response* output, NSError* error) {
+              ^(OAIVersionManifest* output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -90,19 +90,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OAIDefaultApi* | [**getMinecraftVersionManifest**](docs/OAIDefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*OAIDefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/OAIDefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*OAIDefaultApi* | [**getMinecraftVersionPackageInfo**](docs/OAIDefaultApi.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation For Models
 
- - [OAIGetMinecraftVersionManifest200Response](docs/OAIGetMinecraftVersionManifest200Response.md)
- - [OAIGetMinecraftVersionManifest200ResponseLatest](docs/OAIGetMinecraftVersionManifest200ResponseLatest.md)
- - [OAIGetMinecraftVersionManifest200ResponseVersionsInner](docs/OAIGetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [OAIV1PackagesPackageIdVersionIdJsonGet200Response](docs/OAIV1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [OAIV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [OAIV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [OAIV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [OAIV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/OAIV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [OAIDownload](docs/OAIDownload.md)
+ - [OAIVersion](docs/OAIVersion.md)
+ - [OAIVersionManifest](docs/OAIVersionManifest.md)
+ - [OAIVersionManifestLatest](docs/OAIVersionManifestLatest.md)
+ - [OAIVersionPackageInfo](docs/OAIVersionPackageInfo.md)
+ - [OAIVersionPackageInfoAssetIndex](docs/OAIVersionPackageInfoAssetIndex.md)
+ - [OAIVersionPackageInfoDownloads](docs/OAIVersionPackageInfoDownloads.md)
+ - [OAIVersionPackageInfoJavaVersion](docs/OAIVersionPackageInfoJavaVersion.md)
 
 
 ## Documentation For Authorization

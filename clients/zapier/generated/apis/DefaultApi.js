@@ -1,6 +1,6 @@
 const samples = require('../samples/DefaultApi');
-const _v1_packages__packageId___versionId__json_get_200_response = require('../models/_v1_packages__packageId___versionId__json_get_200_response');
-const getMinecraftVersionManifest_200_response = require('../models/getMinecraftVersionManifest_200_response');
+const VersionManifest = require('../models/VersionManifest');
+const VersionPackageInfo = require('../models/VersionPackageInfo');
 const utils = require('../utils/utils');
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
             inputFields: [
             ],
             outputFields: [
-                ...getMinecraftVersionManifest_200_response.fields('', false),
+                ...VersionManifest.fields('', false),
             ],
             perform: async (z, bundle) => {
                 const options = {
@@ -39,14 +39,14 @@ module.exports = {
                     return results;
                 })
             },
-            sample: samples['getMinecraftVersionManifest_200_responseSample']
+            sample: samples['VersionManifestSample']
         }
     },
-    v1PackagesPackageIdVersionIdJsonGet: {
-        key: 'v1PackagesPackageIdVersionIdJsonGet',
+    getMinecraftVersionPackageInfo: {
+        key: 'getMinecraftVersionPackageInfo',
         noun: 'default',
         display: {
-            label: 'Get Minecraft version package details',
+            label: 'Get Minecraft version package info',
             description: '',
             hidden: false,
         },
@@ -66,7 +66,7 @@ module.exports = {
                 },
             ],
             outputFields: [
-                ..._v1_packages__packageId___versionId__json_get_200_response.fields('', false),
+                ...VersionPackageInfo.fields('', false),
             ],
             perform: async (z, bundle) => {
                 const options = {
@@ -89,7 +89,7 @@ module.exports = {
                     return results;
                 })
             },
-            sample: samples['_v1_packages__packageId___versionId__json_get_200_responseSample']
+            sample: samples['VersionPackageInfoSample']
         }
     },
 }

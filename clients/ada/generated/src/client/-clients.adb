@@ -20,7 +20,7 @@ package body .Clients is
    --  Get Minecraft version manifest
    procedure Get_Minecraft_Version_Manifest
       (Client : in out Client_Type;
-       Result : out .Models.GetMinecraftVersionManifest200Response_Type) is
+       Result : out .Models.VersionManifest_Type) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
@@ -32,12 +32,12 @@ package body .Clients is
       .Models.Deserialize (Reply, "", Result);
    end Get_Minecraft_Version_Manifest;
 
-   --  Get Minecraft version package details
-   procedure V_1Packages_Package_Id_Version_Id_Json_Get
+   --  Get Minecraft version package info
+   procedure Get_Minecraft_Version_Package_Info
       (Client : in out Client_Type;
        Package_Id : in Swagger.UString;
        Version_Id : in Swagger.UString;
-       Result : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type) is
+       Result : out .Models.VersionPackageInfo_Type) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
@@ -49,5 +49,5 @@ package body .Clients is
       URI.Set_Path_Param ("versionId", Version_Id);
       Client.Call (Swagger.Clients.GET, URI, Reply);
       .Models.Deserialize (Reply, "", Result);
-   end V_1Packages_Package_Id_Version_Id_Json_Get;
+   end Get_Minecraft_Version_Package_Info;
 end .Clients;

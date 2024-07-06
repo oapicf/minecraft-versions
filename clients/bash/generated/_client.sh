@@ -298,7 +298,7 @@ case $state in
     # Operations
     _values "Operations" \
             "getMinecraftVersionManifest[Get Minecraft version manifest]" \
-            "v1PackagesPackageIdVersionIdJsonGet[Get Minecraft version package details]" \
+            "getMinecraftVersionPackageInfo[Get Minecraft version package info]" \
 
     _arguments "(--help)--help[Print information about operation]"
 
@@ -312,7 +312,7 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      v1PackagesPackageIdVersionIdJsonGet)
+      getMinecraftVersionPackageInfo)
         local -a _op_arguments
         _op_arguments=(
           "packageId=:[PATH] "

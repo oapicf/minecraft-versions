@@ -27,20 +27,20 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**getMinecraftVersionManifest**](docs/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApi* | [**getMinecraftVersionPackageInfo**](docs/DefaultApi.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [org.openapitools.server.api.model.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [org.openapitools.server.api.model.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [org.openapitools.server.api.model.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [org.openapitools.server.api.model.Download](docs/Download.md)
+ - [org.openapitools.server.api.model.Version](docs/Version.md)
+ - [org.openapitools.server.api.model.VersionManifest](docs/VersionManifest.md)
+ - [org.openapitools.server.api.model.VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [org.openapitools.server.api.model.VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [org.openapitools.server.api.model.VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [org.openapitools.server.api.model.VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [org.openapitools.server.api.model.VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 <a id="documentation-for-authorization"></a>

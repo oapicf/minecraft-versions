@@ -5,7 +5,7 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](DefaultApiInterface.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1PackagesPackageIdVersionIdJsonGet**](DefaultApiInterface.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](DefaultApiInterface.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Service Declaration
@@ -20,7 +20,7 @@ services:
 ```
 
 ## **getMinecraftVersionManifest**
-> OpenAPI\Server\Model\GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
+> OpenAPI\Server\Model\VersionManifest getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -55,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OpenAPI\Server\Model\GetMinecraftVersionManifest200Response**](../Model/GetMinecraftVersionManifest200Response.md)
+[**OpenAPI\Server\Model\VersionManifest**](../Model/VersionManifest.md)
 
 ### Authorization
 
@@ -68,10 +68,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-## **v1PackagesPackageIdVersionIdJsonGet**
-> OpenAPI\Server\Model\V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet($packageId, $versionId)
+## **getMinecraftVersionPackageInfo**
+> OpenAPI\Server\Model\VersionPackageInfo getMinecraftVersionPackageInfo($packageId, $versionId)
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example Implementation
 ```php
@@ -88,9 +88,9 @@ class DefaultApi implements DefaultApiInterface
     // ...
 
     /**
-     * Implementation of DefaultApiInterface#v1PackagesPackageIdVersionIdJsonGet
+     * Implementation of DefaultApiInterface#getMinecraftVersionPackageInfo
      */
-    public function v1PackagesPackageIdVersionIdJsonGet(string $packageId, string $versionId, int &$responseCode, array &$responseHeaders): array|object|null
+    public function getMinecraftVersionPackageInfo(string $packageId, string $versionId, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OpenAPI\Server\Model\V1PackagesPackageIdVersionIdJsonGet200Response**](../Model/V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**OpenAPI\Server\Model\VersionPackageInfo**](../Model/VersionPackageInfo.md)
 
 ### Authorization
 

@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\GetMinecraftVersionManifest200ResponseVersionsInner::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\Version::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\GetMinecraftVersionManifest200ResponseVersionsInner::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\Version::class}}
  * }})
  */
 class Collection extends \ArrayObject

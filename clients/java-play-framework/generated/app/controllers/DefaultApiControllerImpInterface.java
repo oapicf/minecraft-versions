@@ -1,7 +1,7 @@
 package controllers;
 
-import apimodels.GetMinecraftVersionManifest200Response;
-import apimodels.V1PackagesPackageIdVersionIdJsonGet200Response;
+import apimodels.VersionManifest;
+import apimodels.VersionPackageInfo;
 
 import com.google.inject.Inject;
 import com.typesafe.config.Config;
@@ -29,7 +29,7 @@ public abstract class DefaultApiControllerImpInterface {
     private ObjectMapper mapper = new ObjectMapper();
 
     public Result getMinecraftVersionManifestHttp(Http.Request request) throws Exception {
-        GetMinecraftVersionManifest200Response obj = getMinecraftVersionManifest(request);
+        VersionManifest obj = getMinecraftVersionManifest(request);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -41,10 +41,10 @@ public abstract class DefaultApiControllerImpInterface {
 
     }
 
-    public abstract GetMinecraftVersionManifest200Response getMinecraftVersionManifest(Http.Request request) throws Exception;
+    public abstract VersionManifest getMinecraftVersionManifest(Http.Request request) throws Exception;
 
-    public Result v1PackagesPackageIdVersionIdJsonGetHttp(Http.Request request, String packageId, String versionId) throws Exception {
-        V1PackagesPackageIdVersionIdJsonGet200Response obj = v1PackagesPackageIdVersionIdJsonGet(request, packageId, versionId);
+    public Result getMinecraftVersionPackageInfoHttp(Http.Request request, String packageId, String versionId) throws Exception {
+        VersionPackageInfo obj = getMinecraftVersionPackageInfo(request, packageId, versionId);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -56,6 +56,6 @@ public abstract class DefaultApiControllerImpInterface {
 
     }
 
-    public abstract V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet(Http.Request request, String packageId, String versionId) throws Exception;
+    public abstract VersionPackageInfo getMinecraftVersionPackageInfo(Http.Request request, String packageId, String versionId) throws Exception;
 
 }

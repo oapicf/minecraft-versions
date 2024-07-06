@@ -34,12 +34,12 @@ isa_ok($api, 'WWW::OpenAPIClient::DefaultApi');
 #my $get_minecraft_version_manifest_result = $api->get_minecraft_version_manifest();
 
 #
-# v1_packages_package_id_version_id_json_get test
+# get_minecraft_version_package_info test
 #
 # uncomment below and update the test
-#my $v1_packages_package_id_version_id_json_get_package_id = undef; # replace NULL with a proper value
-#my $v1_packages_package_id_version_id_json_get_version_id = undef; # replace NULL with a proper value
-#my $v1_packages_package_id_version_id_json_get_result = $api->v1_packages_package_id_version_id_json_get(package_id => $v1_packages_package_id_version_id_json_get_package_id, version_id => $v1_packages_package_id_version_id_json_get_version_id);
+#my $get_minecraft_version_package_info_package_id = undef; # replace NULL with a proper value
+#my $get_minecraft_version_package_info_version_id = undef; # replace NULL with a proper value
+#my $get_minecraft_version_package_info_result = $api->get_minecraft_version_package_info(package_id => $get_minecraft_version_package_info_package_id, version_id => $get_minecraft_version_package_info_version_id);
 
 
 done_testing();

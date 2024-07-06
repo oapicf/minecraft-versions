@@ -104,19 +104,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApiInterface* | [**getMinecraftVersionManifest**](docs/Api/DefaultApiInterface.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApiInterface* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/Api/DefaultApiInterface.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApiInterface* | [**getMinecraftVersionPackageInfo**](docs/Api/DefaultApiInterface.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation For Models
 
- - [GetMinecraftVersionManifest200Response](docs/Model/GetMinecraftVersionManifest200Response.md)
- - [GetMinecraftVersionManifest200ResponseLatest](docs/Model/GetMinecraftVersionManifest200ResponseLatest.md)
- - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/Model/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/Model/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [Download](docs/Model/Download.md)
+ - [Version](docs/Model/Version.md)
+ - [VersionManifest](docs/Model/VersionManifest.md)
+ - [VersionManifestLatest](docs/Model/VersionManifestLatest.md)
+ - [VersionPackageInfo](docs/Model/VersionPackageInfo.md)
+ - [VersionPackageInfoAssetIndex](docs/Model/VersionPackageInfoAssetIndex.md)
+ - [VersionPackageInfoDownloads](docs/Model/VersionPackageInfoDownloads.md)
+ - [VersionPackageInfoJavaVersion](docs/Model/VersionPackageInfoJavaVersion.md)
 
 
 ## Documentation For Authorization

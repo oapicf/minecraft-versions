@@ -54,10 +54,10 @@ func (c *DefaultAPIController) Routes() Routes {
 			"/mc/game/version_manifest.json",
 			c.GetMinecraftVersionManifest,
 		},
-		"V1PackagesPackageIdVersionIdJsonGet": Route{
+		"GetMinecraftVersionPackageInfo": Route{
 			strings.ToUpper("Get"),
 			"/v1/packages/{packageId}/{versionId}.json",
-			c.V1PackagesPackageIdVersionIdJsonGet,
+			c.GetMinecraftVersionPackageInfo,
 		},
 	}
 }
@@ -74,8 +74,8 @@ func (c *DefaultAPIController) GetMinecraftVersionManifest(w http.ResponseWriter
 	_ = EncodeJSONResponse(result.Body, &result.Code, w)
 }
 
-// V1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details
-func (c *DefaultAPIController) V1PackagesPackageIdVersionIdJsonGet(w http.ResponseWriter, r *http.Request) {
+// GetMinecraftVersionPackageInfo - Get Minecraft version package info
+func (c *DefaultAPIController) GetMinecraftVersionPackageInfo(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	packageIdParam := params["packageId"]
 	if packageIdParam == "" {
@@ -87,7 +87,7 @@ func (c *DefaultAPIController) V1PackagesPackageIdVersionIdJsonGet(w http.Respon
 		c.errorHandler(w, r, &RequiredError{"versionId"}, nil)
 		return
 	}
-	result, err := c.service.V1PackagesPackageIdVersionIdJsonGet(r.Context(), packageIdParam, versionIdParam)
+	result, err := c.service.GetMinecraftVersionPackageInfo(r.Context(), packageIdParam, versionIdParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

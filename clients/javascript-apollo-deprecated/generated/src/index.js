@@ -13,14 +13,14 @@
 
 
 import ApiClient from './ApiClient';
-import GetMinecraftVersionManifest200Response from './model/GetMinecraftVersionManifest200Response';
-import GetMinecraftVersionManifest200ResponseLatest from './model/GetMinecraftVersionManifest200ResponseLatest';
-import GetMinecraftVersionManifest200ResponseVersionsInner from './model/GetMinecraftVersionManifest200ResponseVersionsInner';
-import V1PackagesPackageIdVersionIdJsonGet200Response from './model/V1PackagesPackageIdVersionIdJsonGet200Response';
-import V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex from './model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
-import V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads from './model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
-import V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient from './model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
-import V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion from './model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
+import Download from './model/Download';
+import Version from './model/Version';
+import VersionManifest from './model/VersionManifest';
+import VersionManifestLatest from './model/VersionManifestLatest';
+import VersionPackageInfo from './model/VersionPackageInfo';
+import VersionPackageInfoAssetIndex from './model/VersionPackageInfoAssetIndex';
+import VersionPackageInfoDownloads from './model/VersionPackageInfoDownloads';
+import VersionPackageInfoJavaVersion from './model/VersionPackageInfoJavaVersion';
 import DefaultApi from './api/DefaultApi';
 
 
@@ -63,52 +63,52 @@ export {
     ApiClient,
 
     /**
-     * The GetMinecraftVersionManifest200Response model constructor.
-     * @property {module:model/GetMinecraftVersionManifest200Response}
+     * The Download model constructor.
+     * @property {module:model/Download}
      */
-    GetMinecraftVersionManifest200Response,
+    Download,
 
     /**
-     * The GetMinecraftVersionManifest200ResponseLatest model constructor.
-     * @property {module:model/GetMinecraftVersionManifest200ResponseLatest}
+     * The Version model constructor.
+     * @property {module:model/Version}
      */
-    GetMinecraftVersionManifest200ResponseLatest,
+    Version,
 
     /**
-     * The GetMinecraftVersionManifest200ResponseVersionsInner model constructor.
-     * @property {module:model/GetMinecraftVersionManifest200ResponseVersionsInner}
+     * The VersionManifest model constructor.
+     * @property {module:model/VersionManifest}
      */
-    GetMinecraftVersionManifest200ResponseVersionsInner,
+    VersionManifest,
 
     /**
-     * The V1PackagesPackageIdVersionIdJsonGet200Response model constructor.
-     * @property {module:model/V1PackagesPackageIdVersionIdJsonGet200Response}
+     * The VersionManifestLatest model constructor.
+     * @property {module:model/VersionManifestLatest}
      */
-    V1PackagesPackageIdVersionIdJsonGet200Response,
+    VersionManifestLatest,
 
     /**
-     * The V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex model constructor.
-     * @property {module:model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex}
+     * The VersionPackageInfo model constructor.
+     * @property {module:model/VersionPackageInfo}
      */
-    V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
+    VersionPackageInfo,
 
     /**
-     * The V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads model constructor.
-     * @property {module:model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads}
+     * The VersionPackageInfoAssetIndex model constructor.
+     * @property {module:model/VersionPackageInfoAssetIndex}
      */
-    V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,
+    VersionPackageInfoAssetIndex,
 
     /**
-     * The V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient model constructor.
-     * @property {module:model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
+     * The VersionPackageInfoDownloads model constructor.
+     * @property {module:model/VersionPackageInfoDownloads}
      */
-    V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient,
+    VersionPackageInfoDownloads,
 
     /**
-     * The V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion model constructor.
-     * @property {module:model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion}
+     * The VersionPackageInfoJavaVersion model constructor.
+     * @property {module:model/VersionPackageInfoJavaVersion}
      */
-    V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion,
+    VersionPackageInfoJavaVersion,
 
     /**
     * The DefaultApi service constructor.

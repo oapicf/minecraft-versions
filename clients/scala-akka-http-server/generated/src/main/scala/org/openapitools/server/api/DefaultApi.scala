@@ -7,8 +7,8 @@ import akka.http.scaladsl.marshalling.ToEntityMarshaller
 import akka.http.scaladsl.unmarshalling.FromEntityUnmarshaller
 import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
-import org.openapitools.server.model.GetMinecraftVersionManifest200Response
-import org.openapitools.server.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.server.model.VersionManifest
+import org.openapitools.server.model.VersionPackageInfo
 
 
 class DefaultApi(
@@ -27,7 +27,7 @@ class DefaultApi(
     } ~
     path("v1" / "packages" / Segment / "{versionId}.json") { (packageId, versionId) => 
       get {  
-            defaultService.v1PackagesPackageIdVersionIdJsonGet(packageId = packageId, versionId = versionId)
+            defaultService.getMinecraftVersionPackageInfo(packageId = packageId, versionId = versionId)
       }
     }
 }
@@ -35,30 +35,30 @@ class DefaultApi(
 
 trait DefaultApiService {
 
-  def getMinecraftVersionManifest200(responseGetMinecraftVersionManifest200Response: GetMinecraftVersionManifest200Response)(implicit toEntityMarshallerGetMinecraftVersionManifest200Response: ToEntityMarshaller[GetMinecraftVersionManifest200Response]): Route =
-    complete((200, responseGetMinecraftVersionManifest200Response))
+  def getMinecraftVersionManifest200(responseVersionManifest: VersionManifest)(implicit toEntityMarshallerVersionManifest: ToEntityMarshaller[VersionManifest]): Route =
+    complete((200, responseVersionManifest))
   /**
-   * Code: 200, Message: A list of Minecraft versions with the latest and snapshot releases, DataType: GetMinecraftVersionManifest200Response
+   * Code: 200, Message: A list of Minecraft versions with the latest and snapshot releases, DataType: VersionManifest
    */
   def getMinecraftVersionManifest()
-      (implicit toEntityMarshallerGetMinecraftVersionManifest200Response: ToEntityMarshaller[GetMinecraftVersionManifest200Response]): Route
+      (implicit toEntityMarshallerVersionManifest: ToEntityMarshaller[VersionManifest]): Route
 
-  def v1PackagesPackageIdVersionIdJsonGet200(responseV1PackagesPackageIdVersionIdJsonGet200Response: V1PackagesPackageIdVersionIdJsonGet200Response)(implicit toEntityMarshallerV1PackagesPackageIdVersionIdJsonGet200Response: ToEntityMarshaller[V1PackagesPackageIdVersionIdJsonGet200Response]): Route =
-    complete((200, responseV1PackagesPackageIdVersionIdJsonGet200Response))
+  def getMinecraftVersionPackageInfo200(responseVersionPackageInfo: VersionPackageInfo)(implicit toEntityMarshallerVersionPackageInfo: ToEntityMarshaller[VersionPackageInfo]): Route =
+    complete((200, responseVersionPackageInfo))
   /**
-   * Code: 200, Message: Get package version details, DataType: V1PackagesPackageIdVersionIdJsonGet200Response
+   * Code: 200, Message: Get package version details, DataType: VersionPackageInfo
    */
-  def v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String)
-      (implicit toEntityMarshallerV1PackagesPackageIdVersionIdJsonGet200Response: ToEntityMarshaller[V1PackagesPackageIdVersionIdJsonGet200Response]): Route
+  def getMinecraftVersionPackageInfo(packageId: String, versionId: String)
+      (implicit toEntityMarshallerVersionPackageInfo: ToEntityMarshaller[VersionPackageInfo]): Route
 
 }
 
 trait DefaultApiMarshaller {
 
 
-  implicit def toEntityMarshallerV1PackagesPackageIdVersionIdJsonGet200Response: ToEntityMarshaller[V1PackagesPackageIdVersionIdJsonGet200Response]
+  implicit def toEntityMarshallerVersionManifest: ToEntityMarshaller[VersionManifest]
 
-  implicit def toEntityMarshallerGetMinecraftVersionManifest200Response: ToEntityMarshaller[GetMinecraftVersionManifest200Response]
+  implicit def toEntityMarshallerVersionPackageInfo: ToEntityMarshaller[VersionPackageInfo]
 
 }
 

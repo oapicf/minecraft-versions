@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "OAIGetMinecraftVersionManifest200Response.h"
-#import "OAIV1PackagesPackageIdVersionIdJsonGet200Response.h"
+#import "OAIVersionManifest.h"
+#import "OAIVersionPackageInfo.h"
 #import "OAIApi.h"
 
 /**
@@ -30,12 +30,12 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///  code:200 message:"A list of Minecraft versions with the latest and snapshot releases"
 ///
-/// @return OAIGetMinecraftVersionManifest200Response*
+/// @return OAIVersionManifest*
 -(NSURLSessionTask*) getMinecraftVersionManifestWithCompletionHandler: 
-    (void (^)(OAIGetMinecraftVersionManifest200Response* output, NSError* error)) handler;
+    (void (^)(OAIVersionManifest* output, NSError* error)) handler;
 
 
-/// Get Minecraft version package details
+/// Get Minecraft version package info
 /// 
 ///
 /// @param packageId 
@@ -43,10 +43,10 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///  code:200 message:"Get package version details"
 ///
-/// @return OAIV1PackagesPackageIdVersionIdJsonGet200Response*
--(NSURLSessionTask*) v1PackagesPackageIdVersionIdJsonGetWithPackageId: (NSString*) packageId
+/// @return OAIVersionPackageInfo*
+-(NSURLSessionTask*) getMinecraftVersionPackageInfoWithPackageId: (NSString*) packageId
     versionId: (NSString*) versionId
-    completionHandler: (void (^)(OAIV1PackagesPackageIdVersionIdJsonGet200Response* output, NSError* error)) handler;
+    completionHandler: (void (^)(OAIVersionPackageInfo* output, NSError* error)) handler;
 
 
 

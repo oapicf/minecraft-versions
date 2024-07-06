@@ -27,19 +27,19 @@ public class DefaultApi extends RouteBuilder {
                 .description("Get Minecraft version manifest")
                 .id("getMinecraftVersionManifestApi")
                 .produces("application/json")
-                .outType(GetMinecraftVersionManifest200Response.class)
+                .outType(VersionManifest.class)
                 .to("direct:getMinecraftVersionManifest");
         
 
         /**
-        GET /v1/packages/{packageId}/{versionId}.json : Get Minecraft version package details
+        GET /v1/packages/{packageId}/{versionId}.json : Get Minecraft version package info
         **/
         rest()
             .get("/v1/packages/{packageId}/{versionId}.json")
-                .description("Get Minecraft version package details")
-                .id("v1PackagesPackageIdVersionIdJsonGetApi")
+                .description("Get Minecraft version package info")
+                .id("getMinecraftVersionPackageInfoApi")
                 .produces("application/json")
-                .outType(V1PackagesPackageIdVersionIdJsonGet200Response.class)
+                .outType(VersionPackageInfo.class)
                 .param()
                     .name("packageId")
                     .type(RestParamType.path)
@@ -50,7 +50,7 @@ public class DefaultApi extends RouteBuilder {
                     .type(RestParamType.path)
                     .required(true)
                 .endParam()
-                .to("direct:v1PackagesPackageIdVersionIdJsonGet");
+                .to("direct:getMinecraftVersionPackageInfo");
         
     }
 }

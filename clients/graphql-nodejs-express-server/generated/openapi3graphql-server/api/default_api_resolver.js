@@ -15,15 +15,15 @@
 export default {
     Query: {
 
-        // @return GetMinecraftVersionManifest200Response
+        // @return VersionManifest
         GetMinecraftVersionManifest: () => {
             return {
                 
             };
         },
 
-        // @return V1PackagesPackageIdVersionIdJsonGet200Response
-        V1PackagesPackageIdVersionIdJsonGet: ($packageId, $versionId) => {
+        // @return VersionPackageInfo
+        GetMinecraftVersionPackageInfo: ($packageId, $versionId) => {
             return {
                 "packageId": "177e49d3233cb6eac42f0495c0a48e719870c2ae",
                 "versionId": "1.21"

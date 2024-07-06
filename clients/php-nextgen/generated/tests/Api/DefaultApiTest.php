@@ -81,12 +81,12 @@ class DefaultApiTest extends TestCase
     }
 
     /**
-     * Test case for v1PackagesPackageIdVersionIdJsonGet
+     * Test case for getMinecraftVersionPackageInfo
      *
-     * Get Minecraft version package details.
+     * Get Minecraft version package info.
      *
      */
-    public function testV1PackagesPackageIdVersionIdJsonGet()
+    public function testGetMinecraftVersionPackageInfo()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

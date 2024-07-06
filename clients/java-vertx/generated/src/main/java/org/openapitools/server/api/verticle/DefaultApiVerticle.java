@@ -8,9 +8,9 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 
-import org.openapitools.server.api.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.server.api.MainApiException;
-import org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.server.api.model.VersionManifest;
+import org.openapitools.server.api.model.VersionPackageInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +19,7 @@ public class DefaultApiVerticle extends AbstractVerticle {
     static final Logger LOGGER = LoggerFactory.getLogger(DefaultApiVerticle.class);
 
     static final String GETMINECRAFTVERSIONMANIFEST_SERVICE_ID = "getMinecraftVersionManifest";
-    static final String GET_V1_PACKAGES_PACKAGEID_VERSIONID.JSON_SERVICE_ID = "GET_v1_packages_packageId_versionId.json";
+    static final String GETMINECRAFTVERSIONPACKAGEINFO_SERVICE_ID = "getMinecraftVersionPackageInfo";
     
     final DefaultApi service;
 
@@ -55,11 +55,11 @@ public class DefaultApiVerticle extends AbstractVerticle {
             }
         });
         
-        //Consumer for GET_v1_packages_packageId_versionId.json
-        vertx.eventBus().<JsonObject> consumer(GET_V1_PACKAGES_PACKAGEID_VERSIONID.JSON_SERVICE_ID).handler(message -> {
+        //Consumer for getMinecraftVersionPackageInfo
+        vertx.eventBus().<JsonObject> consumer(GETMINECRAFTVERSIONPACKAGEINFO_SERVICE_ID).handler(message -> {
             try {
                 // Workaround for #allParams section clearing the vendorExtensions map
-                String serviceId = "GET_v1_packages_packageId_versionId.json";
+                String serviceId = "getMinecraftVersionPackageInfo";
                 String packageIdParam = message.body().getString("packageId");
                 if(packageIdParam == null) {
                     manageError(message, new MainApiException(400, "packageId is required"), serviceId);
@@ -72,16 +72,16 @@ public class DefaultApiVerticle extends AbstractVerticle {
                     return;
                 }
                 String versionId = versionIdParam;
-                service.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, result -> {
+                service.getMinecraftVersionPackageInfo(packageId, versionId, result -> {
                     if (result.succeeded())
                         message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
                     else {
                         Throwable cause = result.cause();
-                        manageError(message, cause, "GET_v1_packages_packageId_versionId.json");
+                        manageError(message, cause, "getMinecraftVersionPackageInfo");
                     }
                 });
             } catch (Exception e) {
-                logUnexpectedError("GET_v1_packages_packageId_versionId.json", e);
+                logUnexpectedError("getMinecraftVersionPackageInfo", e);
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });

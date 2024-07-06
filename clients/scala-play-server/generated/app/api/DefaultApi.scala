@@ -1,18 +1,18 @@
 package api
 
 import play.api.libs.json._
-import model.GetMinecraftVersionManifest200Response
-import model.V1PackagesPackageIdVersionIdJsonGet200Response
+import model.VersionManifest
+import model.VersionPackageInfo
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-06T08:47:35.761849206Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-06T11:30:12.560558556Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 trait DefaultApi {
   /**
     * Get Minecraft version manifest
     */
-  def getMinecraftVersionManifest(): GetMinecraftVersionManifest200Response
+  def getMinecraftVersionManifest(): VersionManifest
 
   /**
-    * Get Minecraft version package details
+    * Get Minecraft version package info
     */
-  def v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String): V1PackagesPackageIdVersionIdJsonGet200Response
+  def getMinecraftVersionPackageInfo(packageId: String, versionId: String): VersionPackageInfo
 }

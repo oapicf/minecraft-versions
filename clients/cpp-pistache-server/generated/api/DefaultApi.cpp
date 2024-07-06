@@ -34,7 +34,7 @@ void DefaultApi::setupRoutes() {
     using namespace Pistache::Rest;
 
     Routes::Get(*router, base + "/mc/game/version_manifest.json", Routes::bind(&DefaultApi::get_minecraft_version_manifest_handler, this));
-    Routes::Get(*router, base + "/v1/packages/:packageId/:versionId.json", Routes::bind(&DefaultApi::v1_packages_package_id_version_id_json_get_handler, this));
+    Routes::Get(*router, base + "/v1/packages/:packageId/:versionId.json", Routes::bind(&DefaultApi::get_minecraft_version_package_info_handler, this));
 
     // Default handler, called when a route is not found
     router->addCustomHandler(Routes::bind(&DefaultApi::default_api_default_handler, this));
@@ -78,7 +78,7 @@ void DefaultApi::get_minecraft_version_manifest_handler(const Pistache::Rest::Re
     }
 
 }
-void DefaultApi::v1_packages_package_id_version_id_json_get_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+void DefaultApi::get_minecraft_version_package_info_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
     try {
 
     // Getting the path params
@@ -86,7 +86,7 @@ void DefaultApi::v1_packages_package_id_version_id_json_get_handler(const Pistac
     auto versionId = request.param(":versionId").as<std::string>();
     
     try {
-        this->v1_packages_package_id_version_id_json_get(packageId, versionId, response);
+        this->get_minecraft_version_package_info(packageId, versionId, response);
     } catch (Pistache::Http::HttpError &e) {
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;

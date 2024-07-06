@@ -23,11 +23,11 @@ object Paths {
     @Serializable @Resource("/mc/game/version_manifest.json") class getMinecraftVersionManifest
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId  
      * @param versionId  
      */
-    @Serializable @Resource("/v1/packages/{packageId}/{versionId}.json") class v1PackagesPackageIdVersionIdJsonGet(val packageId: kotlin.String, val versionId: kotlin.String)
+    @Serializable @Resource("/v1/packages/{packageId}/{versionId}.json") class getMinecraftVersionPackageInfo(val packageId: kotlin.String, val versionId: kotlin.String)
 
 }

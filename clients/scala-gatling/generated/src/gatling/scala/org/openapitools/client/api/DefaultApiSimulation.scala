@@ -57,12 +57,12 @@ class DefaultApiSimulation extends Simulation {
 
     // Setup all the operations per second for the test to ultimately be generated from configs
     val getMinecraftVersionManifestPerSecond = config.getDouble("performance.operationsPerSecond.getMinecraftVersionManifest") * rateMultiplier * instanceMultiplier
-    val v1PackagesPackageIdVersionIdJsonGetPerSecond = config.getDouble("performance.operationsPerSecond.v1PackagesPackageIdVersionIdJsonGet") * rateMultiplier * instanceMultiplier
+    val getMinecraftVersionPackageInfoPerSecond = config.getDouble("performance.operationsPerSecond.getMinecraftVersionPackageInfo") * rateMultiplier * instanceMultiplier
 
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
 
     // Set up CSV feeders
-    val nullPATHFeeder = csv(userDataDirectory + File.separator + "v1PackagesPackageIdVersionIdJsonGet-pathParams.csv").random
+    val getMinecraftVersionPackageInfoPATHFeeder = csv(userDataDirectory + File.separator + "getMinecraftVersionPackageInfo-pathParams.csv").random
 
     // Setup all scenarios
 
@@ -80,17 +80,17 @@ class DefaultApiSimulation extends Simulation {
     )
 
     
-    val scnv1PackagesPackageIdVersionIdJsonGet = scenario("v1PackagesPackageIdVersionIdJsonGetSimulation")
-        .feed(nullPATHFeeder)
-        .exec(http("v1PackagesPackageIdVersionIdJsonGet")
+    val scngetMinecraftVersionPackageInfo = scenario("getMinecraftVersionPackageInfoSimulation")
+        .feed(getMinecraftVersionPackageInfoPATHFeeder)
+        .exec(http("getMinecraftVersionPackageInfo")
         .httpRequest("GET","/v1/packages/${packageId}/${versionId}.json")
 )
 
-    // Run scnv1PackagesPackageIdVersionIdJsonGet with warm up and reach a constant rate for entire duration
-    scenarioBuilders += scnv1PackagesPackageIdVersionIdJsonGet.inject(
-        rampUsersPerSec(1) to(v1PackagesPackageIdVersionIdJsonGetPerSecond) during(rampUpSeconds),
-        constantUsersPerSec(v1PackagesPackageIdVersionIdJsonGetPerSecond) during(durationSeconds),
-        rampUsersPerSec(v1PackagesPackageIdVersionIdJsonGetPerSecond) to(1) during(rampDownSeconds)
+    // Run scngetMinecraftVersionPackageInfo with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scngetMinecraftVersionPackageInfo.inject(
+        rampUsersPerSec(1) to(getMinecraftVersionPackageInfoPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(getMinecraftVersionPackageInfoPerSecond) during(durationSeconds),
+        rampUsersPerSec(getMinecraftVersionPackageInfoPerSecond) to(1) during(rampDownSeconds)
     )
 
     setUp(

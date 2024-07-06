@@ -12,6 +12,8 @@
 
 
 import { ApiExecuterI, ApiError, checkRequiredParams } from "/ApiHelper"
+import { VersionManifest } from 'VersionManifest';
+import { VersionPackageInfo } from 'VersionPackageInfo';
 
 
 
@@ -19,9 +21,9 @@ import { ApiExecuterI, ApiError, checkRequiredParams } from "/ApiHelper"
 /**
  * @summary Get Minecraft version manifest
  * @param fe Callback interface that runs the fetch query
- * @response 200 [~Object+] A list of Minecraft versions with the latest and snapshot releases
+ * @response 200 [VersionManifest] A list of Minecraft versions with the latest and snapshot releases
  */
-export public async function DefaultApi__getMinecraftVersionManifest(fe : ApiExecuterI, ) : Promise<~Object+, Object> {
+export public async function DefaultApi__getMinecraftVersionManifest(fe : ApiExecuterI, ) : Promise<VersionManifest, Object> {
     checkRequiredParams('getMinecraftVersionManifest', {  });
 
     const _pathParams = { };
@@ -29,7 +31,7 @@ export public async function DefaultApi__getMinecraftVersionManifest(fe : ApiExe
     const _headerParams = { };
     const _body = undefined;
 
-    return await fe.<~Object+, undefined>exec(
+    return await fe.<VersionManifest, undefined>exec(
         'GET', '' + '/mc/game/version_manifest.json',
         _pathParams, _queryParams, _headerParams,
         undefined,
@@ -38,14 +40,14 @@ export public async function DefaultApi__getMinecraftVersionManifest(fe : ApiExe
 }
 
 /**
- * @summary Get Minecraft version package details
+ * @summary Get Minecraft version package info
  * @param fe Callback interface that runs the fetch query
  * @param packageId 
  * @param versionId 
- * @response 200 [~Object+] Get package version details
+ * @response 200 [VersionPackageInfo] Get package version details
  */
-export public async function DefaultApi__v1PackagesPackageIdVersionIdJsonGet(fe : ApiExecuterI, packageId: string, versionId: string) : Promise<~Object+, Object> {
-    checkRequiredParams('v1PackagesPackageIdVersionIdJsonGet', { 'packageId': packageId, 'versionId': versionId });
+export public async function DefaultApi__getMinecraftVersionPackageInfo(fe : ApiExecuterI, packageId: string, versionId: string) : Promise<VersionPackageInfo, Object> {
+    checkRequiredParams('getMinecraftVersionPackageInfo', { 'packageId': packageId, 'versionId': versionId });
 
     const _pathParams = { 
         'packageId': packageId, 
@@ -54,7 +56,7 @@ export public async function DefaultApi__v1PackagesPackageIdVersionIdJsonGet(fe 
     const _headerParams = { };
     const _body = undefined;
 
-    return await fe.<~Object+, undefined>exec(
+    return await fe.<VersionPackageInfo, undefined>exec(
         'GET', '' + '/v1/packages/{packageId}/{versionId}.json',
         _pathParams, _queryParams, _headerParams,
         undefined,

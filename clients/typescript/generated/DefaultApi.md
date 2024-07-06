@@ -5,11 +5,11 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 # **getMinecraftVersionManifest**
-> GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
+> VersionManifest getMinecraftVersionManifest()
 
 
 ### Example
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**GetMinecraftVersionManifest200Response**
+**VersionManifest**
 
 ### Authorization
 
@@ -55,8 +55,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **v1PackagesPackageIdVersionIdJsonGet**
-> V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet()
+# **getMinecraftVersionPackageInfo**
+> VersionPackageInfo getMinecraftVersionPackageInfo()
 
 
 ### Example
@@ -69,14 +69,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
-let body:.DefaultApiV1PackagesPackageIdVersionIdJsonGetRequest = {
+let body:.DefaultApiGetMinecraftVersionPackageInfoRequest = {
   // string
   packageId: "177e49d3233cb6eac42f0495c0a48e719870c2ae",
   // string
   versionId: "1.21",
 };
 
-apiInstance.v1PackagesPackageIdVersionIdJsonGet(body).then((data:any) => {
+apiInstance.getMinecraftVersionPackageInfo(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**V1PackagesPackageIdVersionIdJsonGet200Response**
+**VersionPackageInfo**
 
 ### Authorization
 

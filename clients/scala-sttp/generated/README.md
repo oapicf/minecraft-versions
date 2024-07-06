@@ -68,19 +68,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | **getMinecraftVersionManifest** | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | **v1PackagesPackageIdVersionIdJsonGet** | **GET** /v1/packages/${packageId}/${versionId}.json | Get Minecraft version package details
+*DefaultApi* | **getMinecraftVersionPackageInfo** | **GET** /v1/packages/${packageId}/${versionId}.json | Get Minecraft version package info
 
 
 ## Documentation for Models
 
- - [GetMinecraftVersionManifest200Response](GetMinecraftVersionManifest200Response.md)
- - [GetMinecraftVersionManifest200ResponseLatest](GetMinecraftVersionManifest200ResponseLatest.md)
- - [GetMinecraftVersionManifest200ResponseVersionsInner](GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [V1PackagesPackageIdVersionIdJsonGet200Response](V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [Download](Download.md)
+ - [Version](Version.md)
+ - [VersionManifest](VersionManifest.md)
+ - [VersionManifestLatest](VersionManifestLatest.md)
+ - [VersionPackageInfo](VersionPackageInfo.md)
+ - [VersionPackageInfoAssetIndex](VersionPackageInfoAssetIndex.md)
+ - [VersionPackageInfoDownloads](VersionPackageInfoDownloads.md)
+ - [VersionPackageInfoJavaVersion](VersionPackageInfoJavaVersion.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -4,7 +4,7 @@ const Service = require('./Service');
 /**
 * Get Minecraft version manifest
 *
-* returns getMinecraftVersionManifest_200_response
+* returns VersionManifest
 * */
 const getMinecraftVersionManifest = () => new Promise(
   async (resolve, reject) => {
@@ -20,13 +20,13 @@ const getMinecraftVersionManifest = () => new Promise(
   },
 );
 /**
-* Get Minecraft version package details
+* Get Minecraft version package info
 *
 * packageId String 
 * versionId String 
-* returns _v1_packages__packageId___versionId__json_get_200_response
+* returns VersionPackageInfo
 * */
-const v1PackagesPackageIdVersionIdJsonGET = ({ packageId, versionId }) => new Promise(
+const getMinecraftVersionPackageInfo = ({ packageId, versionId }) => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
@@ -44,5 +44,5 @@ const v1PackagesPackageIdVersionIdJsonGET = ({ packageId, versionId }) => new Pr
 
 module.exports = {
   getMinecraftVersionManifest,
-  v1PackagesPackageIdVersionIdJsonGET,
+  getMinecraftVersionPackageInfo,
 };

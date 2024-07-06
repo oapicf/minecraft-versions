@@ -20,12 +20,12 @@ main =
   hspec $ modifyMaxSize (const 10) $ do
     describe "JSON instances" $ do
       pure ()
-      propMimeEq MimeJSON (Proxy :: Proxy GetMinecraftVersionManifest200Response)
-      propMimeEq MimeJSON (Proxy :: Proxy GetMinecraftVersionManifest200ResponseLatest)
-      propMimeEq MimeJSON (Proxy :: Proxy GetMinecraftVersionManifest200ResponseVersionsInner)
-      propMimeEq MimeJSON (Proxy :: Proxy V1PackagesPackageIdVersionIdJsonGet200Response)
-      propMimeEq MimeJSON (Proxy :: Proxy V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex)
-      propMimeEq MimeJSON (Proxy :: Proxy V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads)
-      propMimeEq MimeJSON (Proxy :: Proxy V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient)
-      propMimeEq MimeJSON (Proxy :: Proxy V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion)
+      propMimeEq MimeJSON (Proxy :: Proxy Download)
+      propMimeEq MimeJSON (Proxy :: Proxy Version)
+      propMimeEq MimeJSON (Proxy :: Proxy VersionManifest)
+      propMimeEq MimeJSON (Proxy :: Proxy VersionManifestLatest)
+      propMimeEq MimeJSON (Proxy :: Proxy VersionPackageInfo)
+      propMimeEq MimeJSON (Proxy :: Proxy VersionPackageInfoAssetIndex)
+      propMimeEq MimeJSON (Proxy :: Proxy VersionPackageInfoDownloads)
+      propMimeEq MimeJSON (Proxy :: Proxy VersionPackageInfoJavaVersion)
       

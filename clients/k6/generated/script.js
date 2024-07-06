@@ -39,7 +39,7 @@ export default function() {
         let versionId = '1.21'; // extracted from 'example' field defined at the parameter level of OpenAPI spec
         let packageId = '177e49d3233cb6eac42f0495c0a48e719870c2ae'; // extracted from 'example' field defined at the parameter level of OpenAPI spec
 
-        // Request No. 1: 
+        // Request No. 1: getMinecraftVersionPackageInfo
         {
             let url = BASE_URL + `/v1/packages/${packageId}/${versionId}.json`;
             let request = http.get(url);

@@ -14,8 +14,8 @@
 
 
 import ApiClient from "../ApiClient";
-import GetMinecraftVersionManifest200Response from '../model/GetMinecraftVersionManifest200Response';
-import V1PackagesPackageIdVersionIdJsonGet200Response from '../model/V1PackagesPackageIdVersionIdJsonGet200Response';
+import VersionManifest from '../model/VersionManifest';
+import VersionPackageInfo from '../model/VersionPackageInfo';
 
 /**
 * Default service.
@@ -37,7 +37,7 @@ export default class DefaultApi extends ApiClient {
     /**
      * Get Minecraft version manifest
      * @param requestInit Dynamic configuration. @see {@link https://github.com/apollographql/apollo-server/pull/1277}
-     * @return {Promise<module:model/GetMinecraftVersionManifest200Response>}
+     * @return {Promise<module:model/VersionManifest>}
      */
     async getMinecraftVersionManifest(requestInit) {
       let postBody = null;
@@ -55,7 +55,7 @@ export default class DefaultApi extends ApiClient {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetMinecraftVersionManifest200Response;
+      let returnType = VersionManifest;
 
       return this.callApi(
         '/mc/game/version_manifest.json', 'GET',
@@ -65,21 +65,21 @@ export default class DefaultApi extends ApiClient {
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @param {String} packageId 
      * @param {String} versionId 
      * @param requestInit Dynamic configuration. @see {@link https://github.com/apollographql/apollo-server/pull/1277}
-     * @return {Promise<module:model/V1PackagesPackageIdVersionIdJsonGet200Response>}
+     * @return {Promise<module:model/VersionPackageInfo>}
      */
-    async v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, requestInit) {
+    async getMinecraftVersionPackageInfo(packageId, versionId, requestInit) {
       let postBody = null;
       // verify the required parameter 'packageId' is set
       if (packageId === undefined || packageId === null) {
-        throw new Error("Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet");
+        throw new Error("Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo");
       }
       // verify the required parameter 'versionId' is set
       if (versionId === undefined || versionId === null) {
-        throw new Error("Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet");
+        throw new Error("Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo");
       }
 
       let pathParams = {
@@ -97,7 +97,7 @@ export default class DefaultApi extends ApiClient {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = V1PackagesPackageIdVersionIdJsonGet200Response;
+      let returnType = VersionPackageInfo;
 
       return this.callApi(
         '/v1/packages/{packageId}/{versionId}.json', 'GET',

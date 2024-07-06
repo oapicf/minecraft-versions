@@ -1,20 +1,20 @@
-export * from '../models/GetMinecraftVersionManifest200Response';
-export * from '../models/GetMinecraftVersionManifest200ResponseLatest';
-export * from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
-export * from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
-export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
-export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
-export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
-export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
+export * from '../models/Download';
+export * from '../models/Version';
+export * from '../models/VersionManifest';
+export * from '../models/VersionManifestLatest';
+export * from '../models/VersionPackageInfo';
+export * from '../models/VersionPackageInfoAssetIndex';
+export * from '../models/VersionPackageInfoDownloads';
+export * from '../models/VersionPackageInfoJavaVersion';
 
-import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
-import { GetMinecraftVersionManifest200ResponseLatest } from '../models/GetMinecraftVersionManifest200ResponseLatest';
-import { GetMinecraftVersionManifest200ResponseVersionsInner } from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
+import { Download } from '../models/Download';
+import { Version } from '../models/Version';
+import { VersionManifest } from '../models/VersionManifest';
+import { VersionManifestLatest } from '../models/VersionManifestLatest';
+import { VersionPackageInfo } from '../models/VersionPackageInfo';
+import { VersionPackageInfoAssetIndex } from '../models/VersionPackageInfoAssetIndex';
+import { VersionPackageInfoDownloads } from '../models/VersionPackageInfoDownloads';
+import { VersionPackageInfoJavaVersion } from '../models/VersionPackageInfoJavaVersion';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -32,14 +32,14 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
-    "GetMinecraftVersionManifest200Response": GetMinecraftVersionManifest200Response,
-    "GetMinecraftVersionManifest200ResponseLatest": GetMinecraftVersionManifest200ResponseLatest,
-    "GetMinecraftVersionManifest200ResponseVersionsInner": GetMinecraftVersionManifest200ResponseVersionsInner,
-    "V1PackagesPackageIdVersionIdJsonGet200Response": V1PackagesPackageIdVersionIdJsonGet200Response,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex": V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads": V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient": V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion": V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion,
+    "Download": Download,
+    "Version": Version,
+    "VersionManifest": VersionManifest,
+    "VersionManifestLatest": VersionManifestLatest,
+    "VersionPackageInfo": VersionPackageInfo,
+    "VersionPackageInfoAssetIndex": VersionPackageInfoAssetIndex,
+    "VersionPackageInfoDownloads": VersionPackageInfoDownloads,
+    "VersionPackageInfoJavaVersion": VersionPackageInfoJavaVersion,
 }
 
 type MimeTypeDescriptor = {

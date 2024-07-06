@@ -1,6 +1,6 @@
 package org.openapitools.api
 
-import org.openapitools.model.GetMinecraftVersionManifest200Response
+import org.openapitools.model.VersionManifest
 import org.junit.jupiter.api.Test
 import org.springframework.http.ResponseEntity
 
@@ -16,7 +16,7 @@ class McApiTest {
      */
     @Test
     fun getMinecraftVersionManifestTest() {
-        val response: ResponseEntity<GetMinecraftVersionManifest200Response> = api.getMinecraftVersionManifest()
+        val response: ResponseEntity<VersionManifest> = api.getMinecraftVersionManifest()
 
         // TODO: test validations
     }

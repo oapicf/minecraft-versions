@@ -20,8 +20,8 @@ func main() {
 	// GetMinecraftVersionManifest - Get Minecraft version manifest
 	e.GET("/mc/game/version_manifest.json", c.GetMinecraftVersionManifest)
 
-	// V1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details
-	e.GET("/v1/packages/:packageId/:versionId.json", c.V1PackagesPackageIdVersionIdJsonGet)
+	// GetMinecraftVersionPackageInfo - Get Minecraft version package info
+	e.GET("/v1/packages/:packageId/:versionId.json", c.GetMinecraftVersionPackageInfo)
 
 
 	// Start server

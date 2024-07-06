@@ -8,8 +8,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
+import { VersionManifest } from '../models/VersionManifest';
+import { VersionPackageInfo } from '../models/VersionPackageInfo';
 
 /**
  * no description
@@ -40,22 +40,22 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @param packageId 
      * @param versionId 
      */
-    public async v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, _options?: Configuration): Promise<RequestContext> {
+    public async getMinecraftVersionPackageInfo(packageId: string, versionId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'packageId' is not null or undefined
         if (packageId === null || packageId === undefined) {
-            throw new RequiredError("DefaultApi", "v1PackagesPackageIdVersionIdJsonGet", "packageId");
+            throw new RequiredError("DefaultApi", "getMinecraftVersionPackageInfo", "packageId");
         }
 
 
         // verify required parameter 'versionId' is not null or undefined
         if (versionId === null || versionId === undefined) {
-            throw new RequiredError("DefaultApi", "v1PackagesPackageIdVersionIdJsonGet", "versionId");
+            throw new RequiredError("DefaultApi", "getMinecraftVersionPackageInfo", "versionId");
         }
 
 
@@ -89,22 +89,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to getMinecraftVersionManifest
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getMinecraftVersionManifestWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetMinecraftVersionManifest200Response >> {
+     public async getMinecraftVersionManifestWithHttpInfo(response: ResponseContext): Promise<HttpInfo<VersionManifest >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetMinecraftVersionManifest200Response = ObjectSerializer.deserialize(
+            const body: VersionManifest = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetMinecraftVersionManifest200Response", ""
-            ) as GetMinecraftVersionManifest200Response;
+                "VersionManifest", ""
+            ) as VersionManifest;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetMinecraftVersionManifest200Response = ObjectSerializer.deserialize(
+            const body: VersionManifest = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetMinecraftVersionManifest200Response", ""
-            ) as GetMinecraftVersionManifest200Response;
+                "VersionManifest", ""
+            ) as VersionManifest;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -115,25 +115,25 @@ export class DefaultApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to v1PackagesPackageIdVersionIdJsonGet
+     * @params response Response returned by the server for a request to getMinecraftVersionPackageInfo
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(response: ResponseContext): Promise<HttpInfo<V1PackagesPackageIdVersionIdJsonGet200Response >> {
+     public async getMinecraftVersionPackageInfoWithHttpInfo(response: ResponseContext): Promise<HttpInfo<VersionPackageInfo >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: V1PackagesPackageIdVersionIdJsonGet200Response = ObjectSerializer.deserialize(
+            const body: VersionPackageInfo = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "V1PackagesPackageIdVersionIdJsonGet200Response", ""
-            ) as V1PackagesPackageIdVersionIdJsonGet200Response;
+                "VersionPackageInfo", ""
+            ) as VersionPackageInfo;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: V1PackagesPackageIdVersionIdJsonGet200Response = ObjectSerializer.deserialize(
+            const body: VersionPackageInfo = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "V1PackagesPackageIdVersionIdJsonGet200Response", ""
-            ) as V1PackagesPackageIdVersionIdJsonGet200Response;
+                "VersionPackageInfo", ""
+            ) as VersionPackageInfo;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

@@ -15,62 +15,60 @@ package .Models is
 
 
 
-   type GetMinecraftVersionManifest200ResponseLatest_Type is
+   type Download_Type is
+     record
+       Sha_1 : Swagger.Nullable_UString;
+       Size : Swagger.Nullable_Integer;
+       Url : Swagger.Nullable_UString;
+     end record;
+
+
+   package Download_Type_Vectors is
+      new Ada.Containers.Vectors (Index_Type   => Positive,
+                                  Element_Type => .Models.Download_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.Download_Type);
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Download_Type_Vectors.Vector);
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.Download_Type);
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out Download_Type_Vectors.Vector);
+
+
+
+   type VersionManifestLatest_Type is
      record
        Release : Swagger.Nullable_UString;
        Snapshot : Swagger.Nullable_UString;
      end record;
 
 
-   package GetMinecraftVersionManifest200ResponseLatest_Type_Vectors is
+   package VersionManifestLatest_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GetMinecraftVersionManifest200ResponseLatest_Type);
+                                  Element_Type => .Models.VersionManifestLatest_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GetMinecraftVersionManifest200ResponseLatest_Type);
+                        Value : in .Models.VersionManifestLatest_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GetMinecraftVersionManifest200ResponseLatest_Type_Vectors.Vector);
+                        Value : in VersionManifestLatest_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GetMinecraftVersionManifest200ResponseLatest_Type);
+                          Value : out .Models.VersionManifestLatest_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GetMinecraftVersionManifest200ResponseLatest_Type_Vectors.Vector);
+                          Value : in out VersionManifestLatest_Type_Vectors.Vector);
 
 
 
-   type GetMinecraftVersionManifest200ResponseVersionsInner_Type is
-     record
-       Id : Swagger.Nullable_UString;
-       P_Type : Swagger.Nullable_UString;
-       Url : Swagger.Nullable_UString;
-       Time : Swagger.Nullable_Date;
-       Release_Time : Swagger.Nullable_Date;
-     end record;
-
-
-   package GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors is
-      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type);
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector);
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type);
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : in out GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector);
-
-
-
-   type V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type is
+   type VersionPackageInfoAssetIndex_Type is
      record
        Id : Swagger.Nullable_UString;
        Sha_1 : Swagger.Nullable_UString;
@@ -80,141 +78,143 @@ package .Models is
      end record;
 
 
-   package V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type_Vectors is
+   package VersionPackageInfoAssetIndex_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type);
+                                  Element_Type => .Models.VersionPackageInfoAssetIndex_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type);
+                        Value : in .Models.VersionPackageInfoAssetIndex_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type_Vectors.Vector);
+                        Value : in VersionPackageInfoAssetIndex_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type);
+                          Value : out .Models.VersionPackageInfoAssetIndex_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type_Vectors.Vector);
+                          Value : in out VersionPackageInfoAssetIndex_Type_Vectors.Vector);
 
 
 
-   type V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type is
-     record
-       Sha_1 : Swagger.Nullable_UString;
-       Size : Swagger.Nullable_Integer;
-       Url : Swagger.Nullable_UString;
-     end record;
-
-
-   package V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type_Vectors is
-      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type);
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type_Vectors.Vector);
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type);
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : in out V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type_Vectors.Vector);
-
-
-
-   type V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type is
+   type VersionPackageInfoJavaVersion_Type is
      record
        Component : Swagger.Nullable_UString;
        Major_Version : Swagger.Nullable_Integer;
      end record;
 
 
-   package V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type_Vectors is
+   package VersionPackageInfoJavaVersion_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type);
+                                  Element_Type => .Models.VersionPackageInfoJavaVersion_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type);
+                        Value : in .Models.VersionPackageInfoJavaVersion_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type_Vectors.Vector);
+                        Value : in VersionPackageInfoJavaVersion_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type);
+                          Value : out .Models.VersionPackageInfoJavaVersion_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type_Vectors.Vector);
+                          Value : in out VersionPackageInfoJavaVersion_Type_Vectors.Vector);
 
 
 
-   type V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type is
+   type Version_Type is
      record
-       Client : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type;
-       Client_Mappings : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type;
-       Server : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type;
-       Server_Mappings : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type;
+       Id : Swagger.Nullable_UString;
+       P_Type : Swagger.Nullable_UString;
+       Url : Swagger.Nullable_UString;
+       Time : Swagger.Nullable_Date;
+       Release_Time : Swagger.Nullable_Date;
      end record;
 
 
-   package V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type_Vectors is
+   package Version_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type);
+                                  Element_Type => .Models.Version_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type);
+                        Value : in .Models.Version_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type_Vectors.Vector);
+                        Value : in Version_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type);
+                          Value : out .Models.Version_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type_Vectors.Vector);
+                          Value : in out Version_Type_Vectors.Vector);
 
 
 
-   type GetMinecraftVersionManifest200Response_Type is
+   type VersionPackageInfoDownloads_Type is
      record
-       Latest : .Models.GetMinecraftVersionManifest200ResponseLatest_Type;
-       Versions : .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector;
+       Client : .Models.Download_Type;
+       Client_Mappings : .Models.Download_Type;
+       Server : .Models.Download_Type;
+       Server_Mappings : .Models.Download_Type;
      end record;
 
 
-   package GetMinecraftVersionManifest200Response_Type_Vectors is
+   package VersionPackageInfoDownloads_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.GetMinecraftVersionManifest200Response_Type);
+                                  Element_Type => .Models.VersionPackageInfoDownloads_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.GetMinecraftVersionManifest200Response_Type);
+                        Value : in .Models.VersionPackageInfoDownloads_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in GetMinecraftVersionManifest200Response_Type_Vectors.Vector);
+                        Value : in VersionPackageInfoDownloads_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.GetMinecraftVersionManifest200Response_Type);
+                          Value : out .Models.VersionPackageInfoDownloads_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out GetMinecraftVersionManifest200Response_Type_Vectors.Vector);
+                          Value : in out VersionPackageInfoDownloads_Type_Vectors.Vector);
 
 
 
-   type V1PackagesPackageIdVersionIdJsonGet200Response_Type is
+   type VersionManifest_Type is
+     record
+       Latest : .Models.VersionManifestLatest_Type;
+       Versions : .Models.Version_Type_Vectors.Vector;
+     end record;
+
+
+   package VersionManifest_Type_Vectors is
+      new Ada.Containers.Vectors (Index_Type   => Positive,
+                                  Element_Type => .Models.VersionManifest_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in .Models.VersionManifest_Type);
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in VersionManifest_Type_Vectors.Vector);
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out .Models.VersionManifest_Type);
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : in out VersionManifest_Type_Vectors.Vector);
+
+
+
+   type VersionPackageInfo_Type is
      record
        Version : Swagger.Nullable_UString;
-       Asset_Index : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type;
+       Asset_Index : .Models.VersionPackageInfoAssetIndex_Type;
        Assets : Swagger.Nullable_Integer;
        Compliance_Level : Swagger.Nullable_Integer;
-       Downloads : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type;
+       Downloads : .Models.VersionPackageInfoDownloads_Type;
        Id : Swagger.Nullable_UString;
-       Java_Version : .Models.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type;
+       Java_Version : .Models.VersionPackageInfoJavaVersion_Type;
        Main_Class : Swagger.Nullable_UString;
        Minimum_Launcher_Version : Swagger.Nullable_Integer;
        Time : Swagger.Nullable_Date;
@@ -223,22 +223,22 @@ package .Models is
      end record;
 
 
-   package V1PackagesPackageIdVersionIdJsonGet200Response_Type_Vectors is
+   package VersionPackageInfo_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type);
+                                  Element_Type => .Models.VersionPackageInfo_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type);
+                        Value : in .Models.VersionPackageInfo_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in V1PackagesPackageIdVersionIdJsonGet200Response_Type_Vectors.Vector);
+                        Value : in VersionPackageInfo_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type);
+                          Value : out .Models.VersionPackageInfo_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out V1PackagesPackageIdVersionIdJsonGet200Response_Type_Vectors.Vector);
+                          Value : in out VersionPackageInfo_Type_Vectors.Vector);
 
 
 end .Models;

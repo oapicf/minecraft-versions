@@ -26,7 +26,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response"
+                  "$ref" : "#/components/schemas/VersionManifest"
                 }
               }
             },
@@ -38,6 +38,7 @@
     },
     "/v1/packages/{packageId}/{versionId}.json" : {
       "get" : {
+        "operationId" : "getMinecraftVersionPackageInfo",
         "parameters" : [ {
           "example" : "177e49d3233cb6eac42f0495c0a48e719870c2ae",
           "explode" : false,
@@ -64,20 +65,87 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response"
+                  "$ref" : "#/components/schemas/VersionPackageInfo"
                 }
               }
             },
             "description" : "Get package version details"
           }
         },
-        "summary" : "Get Minecraft version package details"
+        "summary" : "Get Minecraft version package info"
       }
     }
   },
   "components" : {
     "schemas" : {
-      "_v1_packages__packageId___versionId__json_get_200_response" : {
+      "VersionManifest" : {
+        "example" : {
+          "versions" : [ {
+            "releaseTime" : "2024-04-01T11:07:19Z",
+            "id" : "24w14potato",
+            "time" : "2024-04-01T11:14:41Z",
+            "type" : "snapshot",
+            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
+          }, {
+            "releaseTime" : "2024-04-01T11:07:19Z",
+            "id" : "24w14potato",
+            "time" : "2024-04-01T11:14:41Z",
+            "type" : "snapshot",
+            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
+          } ],
+          "latest" : {
+            "release" : "1.21",
+            "snapshot" : "24w14potato"
+          }
+        },
+        "properties" : {
+          "latest" : {
+            "$ref" : "#/components/schemas/VersionManifest_latest"
+          },
+          "versions" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Version"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "Version" : {
+        "example" : {
+          "releaseTime" : "2024-04-01T11:07:19Z",
+          "id" : "24w14potato",
+          "time" : "2024-04-01T11:14:41Z",
+          "type" : "snapshot",
+          "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
+        },
+        "properties" : {
+          "id" : {
+            "example" : "24w14potato",
+            "type" : "string"
+          },
+          "type" : {
+            "example" : "snapshot",
+            "type" : "string"
+          },
+          "url" : {
+            "example" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+            "type" : "string"
+          },
+          "time" : {
+            "example" : "2024-04-01T11:14:41Z",
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "releaseTime" : {
+            "example" : "2024-04-01T11:07:19Z",
+            "format" : "date-time",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "VersionPackageInfo" : {
         "example" : {
           "assets" : 1,
           "releaseTime" : "2024-04-01T11:07:19Z",
@@ -127,7 +195,7 @@
             "type" : "string"
           },
           "assetIndex" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_assetIndex"
+            "$ref" : "#/components/schemas/VersionPackageInfo_assetIndex"
           },
           "assets" : {
             "type" : "integer"
@@ -136,13 +204,13 @@
             "type" : "integer"
           },
           "downloads" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads"
+            "$ref" : "#/components/schemas/VersionPackageInfo_downloads"
           },
           "id" : {
             "type" : "string"
           },
           "javaVersion" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_javaVersion"
+            "$ref" : "#/components/schemas/VersionPackageInfo_javaVersion"
           },
           "mainClass" : {
             "example" : "net.minecraft.client.main.Main",
@@ -169,80 +237,43 @@
         },
         "type" : "object"
       },
-      "_v1_packages__packageId___versionId__json_get_200_response_downloads" : {
+      "Download" : {
         "example" : {
-          "server" : {
-            "sha1" : "sha1",
-            "size" : 5,
-            "url" : "url"
-          },
-          "server_mappings" : {
-            "sha1" : "sha1",
-            "size" : 5,
-            "url" : "url"
-          },
-          "client" : {
-            "sha1" : "sha1",
-            "size" : 5,
-            "url" : "url"
-          },
-          "client_mappings" : {
-            "sha1" : "sha1",
-            "size" : 5,
-            "url" : "url"
-          }
+          "sha1" : "sha1",
+          "size" : 5,
+          "url" : "url"
         },
         "properties" : {
-          "client" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
-          },
-          "client_mappings" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
-          },
-          "server" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
-          },
-          "server_mappings" : {
-            "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
-          }
-        },
-        "type" : "object"
-      },
-      "getMinecraftVersionManifest_200_response_versions_inner" : {
-        "example" : {
-          "releaseTime" : "2024-04-01T11:07:19Z",
-          "id" : "24w14potato",
-          "time" : "2024-04-01T11:14:41Z",
-          "type" : "snapshot",
-          "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-        },
-        "properties" : {
-          "id" : {
-            "example" : "24w14potato",
+          "sha1" : {
             "type" : "string"
           },
-          "type" : {
-            "example" : "snapshot",
-            "type" : "string"
+          "size" : {
+            "type" : "integer"
           },
           "url" : {
-            "example" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
-            "type" : "string"
-          },
-          "time" : {
-            "example" : "2024-04-01T11:14:41Z",
-            "format" : "date-time",
-            "type" : "string"
-          },
-          "releaseTime" : {
-            "example" : "2024-04-01T11:07:19Z",
-            "format" : "date-time",
             "type" : "string"
           }
         },
         "type" : "object"
       },
-      "_v1_packages__packageId___versionId__json_get_200_response_assetIndex" : {
+      "VersionManifest_latest" : {
+        "example" : {
+          "release" : "1.21",
+          "snapshot" : "24w14potato"
+        },
+        "properties" : {
+          "release" : {
+            "example" : "1.21",
+            "type" : "string"
+          },
+          "snapshot" : {
+            "example" : "24w14potato",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "VersionPackageInfo_assetIndex" : {
         "example" : {
           "sha1" : "sha1",
           "totalSize" : 6,
@@ -269,76 +300,46 @@
         },
         "type" : "object"
       },
-      "_v1_packages__packageId___versionId__json_get_200_response_downloads_client" : {
+      "VersionPackageInfo_downloads" : {
         "example" : {
-          "sha1" : "sha1",
-          "size" : 5,
-          "url" : "url"
+          "server" : {
+            "sha1" : "sha1",
+            "size" : 5,
+            "url" : "url"
+          },
+          "server_mappings" : {
+            "sha1" : "sha1",
+            "size" : 5,
+            "url" : "url"
+          },
+          "client" : {
+            "sha1" : "sha1",
+            "size" : 5,
+            "url" : "url"
+          },
+          "client_mappings" : {
+            "sha1" : "sha1",
+            "size" : 5,
+            "url" : "url"
+          }
         },
         "properties" : {
-          "sha1" : {
-            "type" : "string"
+          "client" : {
+            "$ref" : "#/components/schemas/Download"
           },
-          "size" : {
-            "type" : "integer"
+          "client_mappings" : {
+            "$ref" : "#/components/schemas/Download"
           },
-          "url" : {
-            "type" : "string"
+          "server" : {
+            "$ref" : "#/components/schemas/Download"
+          },
+          "server_mappings" : {
+            "$ref" : "#/components/schemas/Download"
           }
         },
         "type" : "object"
       },
-      "getMinecraftVersionManifest_200_response" : {
-        "example" : {
-          "versions" : [ {
-            "releaseTime" : "2024-04-01T11:07:19Z",
-            "id" : "24w14potato",
-            "time" : "2024-04-01T11:14:41Z",
-            "type" : "snapshot",
-            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-          }, {
-            "releaseTime" : "2024-04-01T11:07:19Z",
-            "id" : "24w14potato",
-            "time" : "2024-04-01T11:14:41Z",
-            "type" : "snapshot",
-            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-          } ],
-          "latest" : {
-            "release" : "1.21",
-            "snapshot" : "24w14potato"
-          }
-        },
-        "properties" : {
-          "latest" : {
-            "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_latest"
-          },
-          "versions" : {
-            "items" : {
-              "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_versions_inner"
-            },
-            "type" : "array"
-          }
-        },
-        "type" : "object"
-      },
-      "getMinecraftVersionManifest_200_response_latest" : {
-        "example" : {
-          "release" : "1.21",
-          "snapshot" : "24w14potato"
-        },
-        "properties" : {
-          "release" : {
-            "example" : "1.21",
-            "type" : "string"
-          },
-          "snapshot" : {
-            "example" : "24w14potato",
-            "type" : "string"
-          }
-        },
-        "type" : "object"
-      },
-      "_v1_packages__packageId___versionId__json_get_200_response_javaVersion" : {
+      "VersionPackageInfo_javaVersion" : {
         "example" : {
           "component" : "component",
           "majorVersion" : 2

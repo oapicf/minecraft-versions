@@ -26,8 +26,8 @@ import io.ktor.server.resources.head
 import io.ktor.server.resources.patch
 import io.ktor.server.routing.*
 import org.openapitools.server.infrastructure.ApiPrincipal
-import org.openapitools.server.models.GetMinecraftVersionManifest200Response
-import org.openapitools.server.models.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.server.models.VersionManifest
+import org.openapitools.server.models.VersionPackageInfo
 
 fun Route.DefaultApi() {
     val gson = Gson()
@@ -63,7 +63,7 @@ fun Route.DefaultApi() {
         
     }
 
-    get<Paths.v1PackagesPackageIdVersionIdJsonGet> {
+    get<Paths.getMinecraftVersionPackageInfo> {
         val exampleContentType = "application/json"
         val exampleContentString = """{
           "assets" : 1,

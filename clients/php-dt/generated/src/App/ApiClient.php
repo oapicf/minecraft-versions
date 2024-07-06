@@ -51,7 +51,7 @@ class ApiClient extends OAGAC\AbstractApiClient
         {
             case 200:
                 /* A list of Minecraft versions with the latest and snapshot releases */
-                $responseContent = new \App\DTO\GetMinecraftVersionManifest200Response();
+                $responseContent = new \App\DTO\VersionManifest();
                 break;
         }
         $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
@@ -61,7 +61,7 @@ class ApiClient extends OAGAC\AbstractApiClient
     /**
      * Get Minecraft version manifest
      * @param string $responseMediaType
-     * @return \App\DTO\GetMinecraftVersionManifest200Response
+     * @return \App\DTO\VersionManifest
      * @throws ClientExceptionInterface
      * @throws DT\Exception\InvalidData
      * @throws OAGAC\Exception\InvalidResponseBodySchema
@@ -69,23 +69,23 @@ class ApiClient extends OAGAC\AbstractApiClient
      */
     public function getMinecraftVersionManifestResult(
         string $responseMediaType = 'application/json'
-    ): \App\DTO\GetMinecraftVersionManifest200Response
+    ): \App\DTO\VersionManifest
     {
         return $this->getSuccessfulContent(...$this->getMinecraftVersionManifest($responseMediaType));
     }
     //endregion
 
-    //region v1PackagesPackageIdVersionIdJsonGet
+    //region getMinecraftVersionPackageInfo
     /**
-     * Get Minecraft version package details
-     * @param \App\DTO\V1PackagesPackageIdVersionIdJsonGETParameterData $parameters
+     * Get Minecraft version package info
+     * @param \App\DTO\GetMinecraftVersionPackageInfoParameterData $parameters
      * @param string $responseMediaType
      * @return ResponseInterface
      * @throws ClientExceptionInterface
      * @throws DT\Exception\InvalidData
      */
-    public function v1PackagesPackageIdVersionIdJsonGetRaw(
-        \App\DTO\V1PackagesPackageIdVersionIdJsonGETParameterData $parameters,
+    public function getMinecraftVersionPackageInfoRaw(
+        \App\DTO\GetMinecraftVersionPackageInfoParameterData $parameters,
         string $responseMediaType = 'application/json'
     ): ResponseInterface
     {
@@ -95,20 +95,20 @@ class ApiClient extends OAGAC\AbstractApiClient
     }
 
     /**
-     * Get Minecraft version package details
-     * @param \App\DTO\V1PackagesPackageIdVersionIdJsonGETParameterData $parameters
+     * Get Minecraft version package info
+     * @param \App\DTO\GetMinecraftVersionPackageInfoParameterData $parameters
      * @param string $responseMediaType
      * @return array
      * @throws ClientExceptionInterface
      * @throws DT\Exception\InvalidData
      * @throws OAGAC\Exception\InvalidResponseBodySchema
      */
-    public function v1PackagesPackageIdVersionIdJsonGet(
-        \App\DTO\V1PackagesPackageIdVersionIdJsonGETParameterData $parameters,
+    public function getMinecraftVersionPackageInfo(
+        \App\DTO\GetMinecraftVersionPackageInfoParameterData $parameters,
         string $responseMediaType = 'application/json'
     ): array
     {
-        $response = $this->v1PackagesPackageIdVersionIdJsonGetRaw($parameters, $responseMediaType);
+        $response = $this->getMinecraftVersionPackageInfoRaw($parameters, $responseMediaType);
         $responseContent = null;
         $contentStrategy = null;
         $contentValidator = null;
@@ -116,7 +116,7 @@ class ApiClient extends OAGAC\AbstractApiClient
         {
             case 200:
                 /* Get package version details */
-                $responseContent = new \App\DTO\V1PackagesPackageIdVersionIdJsonGet200Response();
+                $responseContent = new \App\DTO\VersionPackageInfo();
                 break;
         }
         $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
@@ -124,21 +124,21 @@ class ApiClient extends OAGAC\AbstractApiClient
     }
 
     /**
-     * Get Minecraft version package details
-     * @param \App\DTO\V1PackagesPackageIdVersionIdJsonGETParameterData $parameters
+     * Get Minecraft version package info
+     * @param \App\DTO\GetMinecraftVersionPackageInfoParameterData $parameters
      * @param string $responseMediaType
-     * @return \App\DTO\V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return \App\DTO\VersionPackageInfo
      * @throws ClientExceptionInterface
      * @throws DT\Exception\InvalidData
      * @throws OAGAC\Exception\InvalidResponseBodySchema
      * @throws OAGAC\Exception\UnsuccessfulResponse
      */
-    public function v1PackagesPackageIdVersionIdJsonGetResult(
-        \App\DTO\V1PackagesPackageIdVersionIdJsonGETParameterData $parameters,
+    public function getMinecraftVersionPackageInfoResult(
+        \App\DTO\GetMinecraftVersionPackageInfoParameterData $parameters,
         string $responseMediaType = 'application/json'
-    ): \App\DTO\V1PackagesPackageIdVersionIdJsonGet200Response
+    ): \App\DTO\VersionPackageInfo
     {
-        return $this->getSuccessfulContent(...$this->v1PackagesPackageIdVersionIdJsonGet($parameters, $responseMediaType));
+        return $this->getSuccessfulContent(...$this->getMinecraftVersionPackageInfo($parameters, $responseMediaType));
     }
     //endregion
 }

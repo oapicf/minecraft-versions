@@ -7,8 +7,8 @@ open FSharp.Control.Tasks.V2.ContextInsensitive
 open DefaultApiHandlerParams
 open DefaultApiServiceInterface
 open DefaultApiServiceImplementation
-open OpenAPI.Model.GetMinecraftVersionManifest200Response
-open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
+open OpenAPI.Model.VersionManifest
+open OpenAPI.Model.VersionPackageInfo
 
 module DefaultApiHandler =
 
@@ -32,18 +32,18 @@ module DefaultApiHandler =
         }
     //#endregion
 
-    //#region V1PackagesPackageIdVersionIdJsonGet
+    //#region GetMinecraftVersionPackageInfo
     /// <summary>
-    /// Get Minecraft version package details
+    /// Get Minecraft version package info
     /// </summary>
 
-    let V1PackagesPackageIdVersionIdJsonGet (pathParams:V1PackagesPackageIdVersionIdJsonGetPathParams) : HttpHandler =
+    let GetMinecraftVersionPackageInfo (pathParams:GetMinecraftVersionPackageInfoPathParams) : HttpHandler =
       fun (next : HttpFunc) (ctx : HttpContext) ->
         task {
-          let serviceArgs = {    pathParams=pathParams;  } : V1PackagesPackageIdVersionIdJsonGetArgs
-          let result = DefaultApiService.V1PackagesPackageIdVersionIdJsonGet ctx serviceArgs
+          let serviceArgs = {    pathParams=pathParams;  } : GetMinecraftVersionPackageInfoArgs
+          let result = DefaultApiService.GetMinecraftVersionPackageInfo ctx serviceArgs
           return! (match result with
-                      | V1PackagesPackageIdVersionIdJsonGetStatusCode200 resolved ->
+                      | GetMinecraftVersionPackageInfoStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content
           ) next ctx
         }

@@ -10,9 +10,9 @@ import java.util.List;
 
 import org.openapitools.model.*;
 
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionPackageInfo;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T08:44:30.733727206Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T11:27:12.920229044Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Controller  {
   /**
    * Uncomment and implement as you see fit.  These operations will map
@@ -21,7 +21,7 @@ public class V1Controller  {
    **/
 
   /*
-    public ResponseContext v1PackagesPackageIdVersionIdJsonGET(RequestContext request , String packageId, String versionId) {
+    public ResponseContext getMinecraftVersionPackageInfo(RequestContext request , String packageId, String versionId) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */

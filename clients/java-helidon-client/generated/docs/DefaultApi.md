@@ -5,13 +5,13 @@ All URIs are relative to *https://launchermeta.mojang.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
-| [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
+| [**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 
 ## getMinecraftVersionManifest
 
-> GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
+> VersionManifest getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -21,7 +21,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](VersionManifest.md)
 
 ### Authorization
 
@@ -39,11 +39,11 @@ No authorization required
 | **200** | A list of Minecraft versions with the latest and snapshot releases |  -  |
 
 
-## v1PackagesPackageIdVersionIdJsonGet
+## getMinecraftVersionPackageInfo
 
-> V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet(packageId, versionId)
+> VersionPackageInfo getMinecraftVersionPackageInfo(packageId, versionId)
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Parameters
 
@@ -55,7 +55,7 @@ Get Minecraft version package details
 
 ### Return type
 
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](VersionPackageInfo.md)
 
 ### Authorization
 

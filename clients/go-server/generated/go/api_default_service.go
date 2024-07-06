@@ -31,19 +31,19 @@ func (s *DefaultAPIService) GetMinecraftVersionManifest(ctx context.Context) (Im
 	// TODO - update GetMinecraftVersionManifest with the required logic for this service method.
 	// Add api_default_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	// TODO: Uncomment the next line to return response Response(200, GetMinecraftVersionManifest200Response{}) or use other options such as http.Ok ...
-	// return Response(200, GetMinecraftVersionManifest200Response{}), nil
+	// TODO: Uncomment the next line to return response Response(200, VersionManifest{}) or use other options such as http.Ok ...
+	// return Response(200, VersionManifest{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("GetMinecraftVersionManifest method not implemented")
 }
 
-// V1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details
-func (s *DefaultAPIService) V1PackagesPackageIdVersionIdJsonGet(ctx context.Context, packageId string, versionId string) (ImplResponse, error) {
-	// TODO - update V1PackagesPackageIdVersionIdJsonGet with the required logic for this service method.
+// GetMinecraftVersionPackageInfo - Get Minecraft version package info
+func (s *DefaultAPIService) GetMinecraftVersionPackageInfo(ctx context.Context, packageId string, versionId string) (ImplResponse, error) {
+	// TODO - update GetMinecraftVersionPackageInfo with the required logic for this service method.
 	// Add api_default_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	// TODO: Uncomment the next line to return response Response(200, V1PackagesPackageIdVersionIdJsonGet200Response{}) or use other options such as http.Ok ...
-	// return Response(200, V1PackagesPackageIdVersionIdJsonGet200Response{}), nil
+	// TODO: Uncomment the next line to return response Response(200, VersionPackageInfo{}) or use other options such as http.Ok ...
+	// return Response(200, VersionPackageInfo{}), nil
 
-	return Response(http.StatusNotImplemented, nil), errors.New("V1PackagesPackageIdVersionIdJsonGet method not implemented")
+	return Response(http.StatusNotImplemented, nil), errors.New("GetMinecraftVersionPackageInfo method not implemented")
 }

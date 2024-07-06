@@ -18,7 +18,7 @@ feature -- Test routines
             --
             -- 
         local
-            l_response: GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE
+            l_response: VERSION_MANIFEST
         do
             -- TODO: Initialize required params.
 
@@ -26,12 +26,12 @@ feature -- Test routines
             assert ("not_implemented", False)
         end
 
-    test_v1_packages_package_id_version_id_json_get
-            -- Get Minecraft version package details
+    test_minecraft_version_package_info
+            -- Get Minecraft version package info
             --
             -- 
         local
-            l_response: MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE
+            l_response: VERSION_PACKAGE_INFO
             l_package_id: STRING_32
             l_version_id: STRING_32
         do
@@ -39,7 +39,7 @@ feature -- Test routines
             -- l_package_id
             -- l_version_id
 
-            -- l_response := api.v1_packages_package_id_version_id_json_get(l_package_id, l_version_id)
+            -- l_response := api.minecraft_version_package_info(l_package_id, l_version_id)
             assert ("not_implemented", False)
         end
 

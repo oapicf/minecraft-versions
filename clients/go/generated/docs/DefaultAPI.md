@@ -5,13 +5,13 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetMinecraftVersionManifest**](DefaultAPI.md#GetMinecraftVersionManifest) | **Get** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**V1PackagesPackageIdVersionIdJsonGet**](DefaultAPI.md#V1PackagesPackageIdVersionIdJsonGet) | **Get** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**GetMinecraftVersionPackageInfo**](DefaultAPI.md#GetMinecraftVersionPackageInfo) | **Get** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 
 ## GetMinecraftVersionManifest
 
-> GetMinecraftVersionManifest200Response GetMinecraftVersionManifest(ctx).Execute()
+> VersionManifest GetMinecraftVersionManifest(ctx).Execute()
 
 Get Minecraft version manifest
 
@@ -36,7 +36,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetMinecraftVersionManifest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetMinecraftVersionManifest`: GetMinecraftVersionManifest200Response
+	// response from `GetMinecraftVersionManifest`: VersionManifest
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetMinecraftVersionManifest`: %v\n", resp)
 }
 ```
@@ -52,7 +52,7 @@ Other parameters are passed through a pointer to a apiGetMinecraftVersionManifes
 
 ### Return type
 
-[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](VersionManifest.md)
 
 ### Authorization
 
@@ -68,11 +68,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## V1PackagesPackageIdVersionIdJsonGet
+## GetMinecraftVersionPackageInfo
 
-> V1PackagesPackageIdVersionIdJsonGet200Response V1PackagesPackageIdVersionIdJsonGet(ctx, packageId, versionId).Execute()
+> VersionPackageInfo GetMinecraftVersionPackageInfo(ctx, packageId, versionId).Execute()
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 
@@ -92,13 +92,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.V1PackagesPackageIdVersionIdJsonGet(context.Background(), packageId, versionId).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetMinecraftVersionPackageInfo(context.Background(), packageId, versionId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.V1PackagesPackageIdVersionIdJsonGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetMinecraftVersionPackageInfo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1PackagesPackageIdVersionIdJsonGet`: V1PackagesPackageIdVersionIdJsonGet200Response
-	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.V1PackagesPackageIdVersionIdJsonGet`: %v\n", resp)
+	// response from `GetMinecraftVersionPackageInfo`: VersionPackageInfo
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetMinecraftVersionPackageInfo`: %v\n", resp)
 }
 ```
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1PackagesPackageIdVersionIdJsonGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMinecraftVersionPackageInfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](VersionPackageInfo.md)
 
 ### Authorization
 

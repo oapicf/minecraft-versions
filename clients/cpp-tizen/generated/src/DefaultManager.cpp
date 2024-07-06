@@ -51,14 +51,14 @@ static gpointer __DefaultManagerthreadFunc(gpointer data)
 static bool getMinecraftVersionManifestProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
-	= reinterpret_cast<void(*)(GetMinecraftVersionManifest_200_response, Error, void* )> (voidHandler);
+	void(* handler)(VersionManifest, Error, void* )
+	= reinterpret_cast<void(*)(VersionManifest, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
 	
-	GetMinecraftVersionManifest_200_response out;
+	VersionManifest out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
@@ -66,12 +66,12 @@ static bool getMinecraftVersionManifestProcessor(MemoryStruct_s p_chunk, long co
 
 
 
-		if (isprimitive("GetMinecraftVersionManifest_200_response")) {
+		if (isprimitive("VersionManifest")) {
 			pJson = json_from_string(data, NULL);
-			jsonToValue(&out, pJson, "GetMinecraftVersionManifest_200_response", "GetMinecraftVersionManifest_200_response");
+			jsonToValue(&out, pJson, "VersionManifest", "VersionManifest");
 			json_node_free(pJson);
 
-			if ("GetMinecraftVersionManifest_200_response" == "std::string") {
+			if ("VersionManifest" == "std::string") {
 				string* val = (std::string*)(&out);
 				if (val->empty() && p_chunk.size>4) {
 					*val = string(p_chunk.memory, p_chunk.size);
@@ -105,7 +105,7 @@ static bool getMinecraftVersionManifestProcessor(MemoryStruct_s p_chunk, long co
 
 static bool getMinecraftVersionManifestHelper(char * accessToken,
 	
-	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
+	void(* handler)(VersionManifest, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -176,7 +176,7 @@ static bool getMinecraftVersionManifestHelper(char * accessToken,
 
 bool DefaultManager::getMinecraftVersionManifestAsync(char * accessToken,
 	
-	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
+	void(* handler)(VersionManifest, Error, void* )
 	, void* userData)
 {
 	return getMinecraftVersionManifestHelper(accessToken,
@@ -186,7 +186,7 @@ bool DefaultManager::getMinecraftVersionManifestAsync(char * accessToken,
 
 bool DefaultManager::getMinecraftVersionManifestSync(char * accessToken,
 	
-	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
+	void(* handler)(VersionManifest, Error, void* )
 	, void* userData)
 {
 	return getMinecraftVersionManifestHelper(accessToken,
@@ -194,17 +194,17 @@ bool DefaultManager::getMinecraftVersionManifestSync(char * accessToken,
 	handler, userData, false);
 }
 
-static bool v1PackagesPackageIdVersionIdJsonGetProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
+static bool getMinecraftVersionPackageInfoProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )
-	= reinterpret_cast<void(*)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )> (voidHandler);
+	void(* handler)(VersionPackageInfo, Error, void* )
+	= reinterpret_cast<void(*)(VersionPackageInfo, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
 	
-	_v1_packages__packageId___versionId__json_get_200_response out;
+	VersionPackageInfo out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
@@ -212,12 +212,12 @@ static bool v1PackagesPackageIdVersionIdJsonGetProcessor(MemoryStruct_s p_chunk,
 
 
 
-		if (isprimitive("_v1_packages__packageId___versionId__json_get_200_response")) {
+		if (isprimitive("VersionPackageInfo")) {
 			pJson = json_from_string(data, NULL);
-			jsonToValue(&out, pJson, "_v1_packages__packageId___versionId__json_get_200_response", "_v1_packages__packageId___versionId__json_get_200_response");
+			jsonToValue(&out, pJson, "VersionPackageInfo", "VersionPackageInfo");
 			json_node_free(pJson);
 
-			if ("_v1_packages__packageId___versionId__json_get_200_response" == "std::string") {
+			if ("VersionPackageInfo" == "std::string") {
 				string* val = (std::string*)(&out);
 				if (val->empty() && p_chunk.size>4) {
 					*val = string(p_chunk.memory, p_chunk.size);
@@ -249,9 +249,9 @@ static bool v1PackagesPackageIdVersionIdJsonGetProcessor(MemoryStruct_s p_chunk,
 			}
 }
 
-static bool v1PackagesPackageIdVersionIdJsonGetHelper(char * accessToken,
+static bool getMinecraftVersionPackageInfoHelper(char * accessToken,
 	std::string packageId, std::string versionId, 
-	void(* handler)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )
+	void(* handler)(VersionPackageInfo, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -302,7 +302,7 @@ static bool v1PackagesPackageIdVersionIdJsonGetHelper(char * accessToken,
 	if(!isAsync){
 		NetClient::easycurl(DefaultManager::getBasePath(), url, myhttpmethod, queryParams,
 			mBody, headerList, p_chunk, &code, errormsg);
-		bool retval = v1PackagesPackageIdVersionIdJsonGetProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
+		bool retval = getMinecraftVersionPackageInfoProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
 
 		curl_slist_free_all(headerList);
 		if (p_chunk) {
@@ -320,7 +320,7 @@ static bool v1PackagesPackageIdVersionIdJsonGetHelper(char * accessToken,
 		RequestInfo *requestInfo = NULL;
 
 		requestInfo = new(nothrow) RequestInfo (DefaultManager::getBasePath(), url, myhttpmethod, queryParams,
-			mBody, headerList, p_chunk, &code, errormsg, userData, reinterpret_cast<void(*)()>(handler), v1PackagesPackageIdVersionIdJsonGetProcessor);;
+			mBody, headerList, p_chunk, &code, errormsg, userData, reinterpret_cast<void(*)()>(handler), getMinecraftVersionPackageInfoProcessor);;
 		if(requestInfo == NULL)
 			return false;
 
@@ -332,22 +332,22 @@ static bool v1PackagesPackageIdVersionIdJsonGetHelper(char * accessToken,
 
 
 
-bool DefaultManager::v1PackagesPackageIdVersionIdJsonGetAsync(char * accessToken,
+bool DefaultManager::getMinecraftVersionPackageInfoAsync(char * accessToken,
 	std::string packageId, std::string versionId, 
-	void(* handler)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )
+	void(* handler)(VersionPackageInfo, Error, void* )
 	, void* userData)
 {
-	return v1PackagesPackageIdVersionIdJsonGetHelper(accessToken,
+	return getMinecraftVersionPackageInfoHelper(accessToken,
 	packageId, versionId, 
 	handler, userData, true);
 }
 
-bool DefaultManager::v1PackagesPackageIdVersionIdJsonGetSync(char * accessToken,
+bool DefaultManager::getMinecraftVersionPackageInfoSync(char * accessToken,
 	std::string packageId, std::string versionId, 
-	void(* handler)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )
+	void(* handler)(VersionPackageInfo, Error, void* )
 	, void* userData)
 {
-	return v1PackagesPackageIdVersionIdJsonGetHelper(accessToken,
+	return getMinecraftVersionPackageInfoHelper(accessToken,
 	packageId, versionId, 
 	handler, userData, false);
 }

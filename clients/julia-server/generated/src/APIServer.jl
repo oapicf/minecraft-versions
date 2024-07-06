@@ -9,10 +9,10 @@ The following server methods must be implemented:
 
 - **get_minecraft_version_manifest**
     - *invocation:* GET /mc/game/version_manifest.json
-    - *signature:* get_minecraft_version_manifest(req::HTTP.Request;) -> GetMinecraftVersionManifest200Response
-- **v1_packages_package_id_version_id_json_get**
+    - *signature:* get_minecraft_version_manifest(req::HTTP.Request;) -> VersionManifest
+- **get_minecraft_version_package_info**
     - *invocation:* GET /v1/packages/{packageId}/{versionId}.json
-    - *signature:* v1_packages_package_id_version_id_json_get(req::HTTP.Request, package_id::String, version_id::String;) -> V1PackagesPackageIdVersionIdJsonGet200Response
+    - *signature:* get_minecraft_version_package_info(req::HTTP.Request, package_id::String, version_id::String;) -> VersionPackageInfo
 """
 module APIServer
 

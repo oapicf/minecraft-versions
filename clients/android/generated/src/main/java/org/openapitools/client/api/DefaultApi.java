@@ -23,8 +23,8 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.client.model.VersionManifest;
+import org.openapitools.client.model.VersionPackageInfo;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -59,9 +59,9 @@ public class DefaultApi {
   /**
   * Get Minecraft version manifest
   * 
-   * @return GetMinecraftVersionManifest200Response
+   * @return VersionManifest
   */
-  public GetMinecraftVersionManifest200Response getMinecraftVersionManifest () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public VersionManifest getMinecraftVersionManifest () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -91,7 +91,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetMinecraftVersionManifest200Response) ApiInvoker.deserialize(localVarResponse, "", GetMinecraftVersionManifest200Response.class);
+         return (VersionManifest) ApiInvoker.deserialize(localVarResponse, "", VersionManifest.class);
       } else {
          return null;
       }
@@ -117,7 +117,7 @@ public class DefaultApi {
    * 
 
   */
-  public void getMinecraftVersionManifest (final Response.Listener<GetMinecraftVersionManifest200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getMinecraftVersionManifest (final Response.Listener<VersionManifest> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -157,7 +157,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetMinecraftVersionManifest200Response) ApiInvoker.deserialize(localVarResponse,  "", GetMinecraftVersionManifest200Response.class));
+              responseListener.onResponse((VersionManifest) ApiInvoker.deserialize(localVarResponse,  "", VersionManifest.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -173,23 +173,23 @@ public class DefaultApi {
     }
   }
   /**
-  * Get Minecraft version package details
+  * Get Minecraft version package info
   * 
    * @param packageId 
    * @param versionId 
-   * @return V1PackagesPackageIdVersionIdJsonGet200Response
+   * @return VersionPackageInfo
   */
-  public V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet (String packageId, String versionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public VersionPackageInfo getMinecraftVersionPackageInfo (String packageId, String versionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'packageId' is set
     if (packageId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet",
-        new ApiException(400, "Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet"));
+      VolleyError error = new VolleyError("Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo",
+        new ApiException(400, "Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo"));
     }
     // verify the required parameter 'versionId' is set
     if (versionId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet",
-        new ApiException(400, "Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet"));
+      VolleyError error = new VolleyError("Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo",
+        new ApiException(400, "Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo"));
     }
 
     // create path and map variables
@@ -219,7 +219,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (V1PackagesPackageIdVersionIdJsonGet200Response) ApiInvoker.deserialize(localVarResponse, "", V1PackagesPackageIdVersionIdJsonGet200Response.class);
+         return (VersionPackageInfo) ApiInvoker.deserialize(localVarResponse, "", VersionPackageInfo.class);
       } else {
          return null;
       }
@@ -241,22 +241,22 @@ public class DefaultApi {
   }
 
       /**
-   * Get Minecraft version package details
+   * Get Minecraft version package info
    * 
    * @param packageId    * @param versionId 
   */
-  public void v1PackagesPackageIdVersionIdJsonGet (String packageId, String versionId, final Response.Listener<V1PackagesPackageIdVersionIdJsonGet200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getMinecraftVersionPackageInfo (String packageId, String versionId, final Response.Listener<VersionPackageInfo> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'packageId' is set
     if (packageId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet",
-        new ApiException(400, "Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet"));
+      VolleyError error = new VolleyError("Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo",
+        new ApiException(400, "Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo"));
     }
     // verify the required parameter 'versionId' is set
     if (versionId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet",
-        new ApiException(400, "Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet"));
+      VolleyError error = new VolleyError("Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo",
+        new ApiException(400, "Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo"));
     }
 
     // create path and map variables
@@ -295,7 +295,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((V1PackagesPackageIdVersionIdJsonGet200Response) ApiInvoker.deserialize(localVarResponse,  "", V1PackagesPackageIdVersionIdJsonGet200Response.class));
+              responseListener.onResponse((VersionPackageInfo) ApiInvoker.deserialize(localVarResponse,  "", VersionPackageInfo.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

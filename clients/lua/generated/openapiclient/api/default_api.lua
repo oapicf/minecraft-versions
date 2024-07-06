@@ -14,8 +14,8 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local openapiclient__v1_packages__package_id___version_id__json_get_200_response = require "openapiclient.model._v1_packages__package_id___version_id__json_get_200_response"
-local openapiclient_get_minecraft_version_manifest_200_response = require "openapiclient.model.get_minecraft_version_manifest_200_response"
+local openapiclient_version_manifest = require "openapiclient.model.version_manifest"
+local openapiclient_version_package_info = require "openapiclient.model.version_package_info"
 
 local default_api = {}
 local default_api_mt = {
@@ -77,7 +77,7 @@ function default_api:get_minecraft_version_manifest()
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_get_minecraft_version_manifest_200_response.cast(result), headers
+		return openapiclient_version_manifest.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -89,7 +89,7 @@ function default_api:get_minecraft_version_manifest()
 	end
 end
 
-function default_api:v1_packages_package_id_version_id_json_get(package_id, version_id)
+function default_api:get_minecraft_version_package_info(package_id, version_id)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -123,7 +123,7 @@ function default_api:v1_packages_package_id_version_id_json_get(package_id, vers
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient__v1_packages__package_id___version_id__json_get_200_response.cast(result), headers
+		return openapiclient_version_package_info.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

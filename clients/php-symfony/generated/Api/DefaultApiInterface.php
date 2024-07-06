@@ -28,8 +28,8 @@
 namespace OpenAPI\Server\Api;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use OpenAPI\Server\Model\GetMinecraftVersionManifest200Response;
-use OpenAPI\Server\Model\V1PackagesPackageIdVersionIdJsonGet200Response;
+use OpenAPI\Server\Model\VersionManifest;
+use OpenAPI\Server\Model\VersionPackageInfo;
 
 /**
  * DefaultApiInterface Interface Doc Comment
@@ -58,9 +58,9 @@ interface DefaultApiInterface
     ): array|object|null;
 
     /**
-     * Operation v1PackagesPackageIdVersionIdJsonGet
+     * Operation getMinecraftVersionPackageInfo
      *
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param  string $packageId   (required)
      * @param  string $versionId   (required)
@@ -69,7 +69,7 @@ interface DefaultApiInterface
      *
      * @return array|object|null
      */
-    public function v1PackagesPackageIdVersionIdJsonGet(
+    public function getMinecraftVersionPackageInfo(
         string $packageId,
         string $versionId,
         int &$responseCode,

@@ -1,7 +1,7 @@
 package org.openapitools.vertxweb.server.api;
 
-import org.openapitools.vertxweb.server.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.vertxweb.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.vertxweb.server.model.VersionManifest;
+import org.openapitools.vertxweb.server.model.VersionPackageInfo;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.vertx.core.json.jackson.DatabindCodec;
@@ -34,7 +34,7 @@ public class DefaultApiHandler {
 
     public void mount(RouterBuilder builder) {
         builder.operation("getMinecraftVersionManifest").handler(this::getMinecraftVersionManifest);
-        builder.operation("v1PackagesPackageIdVersionIdJsonGet").handler(this::v1PackagesPackageIdVersionIdJsonGet);
+        builder.operation("getMinecraftVersionPackageInfo").handler(this::getMinecraftVersionPackageInfo);
     }
 
     private void getMinecraftVersionManifest(RoutingContext routingContext) {
@@ -57,8 +57,8 @@ public class DefaultApiHandler {
             .onFailure(routingContext::fail);
     }
 
-    private void v1PackagesPackageIdVersionIdJsonGet(RoutingContext routingContext) {
-        logger.info("v1PackagesPackageIdVersionIdJsonGet()");
+    private void getMinecraftVersionPackageInfo(RoutingContext routingContext) {
+        logger.info("getMinecraftVersionPackageInfo()");
 
         // Param extraction
         RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
@@ -69,7 +69,7 @@ public class DefaultApiHandler {
         logger.debug("Parameter packageId is {}", packageId);
         logger.debug("Parameter versionId is {}", versionId);
 
-        api.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId)
+        api.getMinecraftVersionPackageInfo(packageId, versionId)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

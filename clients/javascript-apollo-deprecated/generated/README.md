@@ -122,19 +122,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OpenapiJsClient.DefaultApi* | [**getMinecraftVersionManifest**](docs/DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*OpenapiJsClient.DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*OpenapiJsClient.DefaultApi* | [**getMinecraftVersionPackageInfo**](docs/DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation for Models
 
- - [OpenapiJsClient.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [OpenapiJsClient.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [OpenapiJsClient.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [OpenapiJsClient.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [OpenapiJsClient.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [OpenapiJsClient.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [OpenapiJsClient.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [OpenapiJsClient.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [OpenapiJsClient.Download](docs/Download.md)
+ - [OpenapiJsClient.Version](docs/Version.md)
+ - [OpenapiJsClient.VersionManifest](docs/VersionManifest.md)
+ - [OpenapiJsClient.VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [OpenapiJsClient.VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [OpenapiJsClient.VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [OpenapiJsClient.VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [OpenapiJsClient.VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 ## Documentation for Authorization

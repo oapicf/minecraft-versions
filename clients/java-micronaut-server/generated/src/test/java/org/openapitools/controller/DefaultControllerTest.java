@@ -1,7 +1,7 @@
 package org.openapitools.controller;
 
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
@@ -60,7 +60,7 @@ public class DefaultControllerTest {
         // given
 
         // when
-        GetMinecraftVersionManifest200Response result = controller.getMinecraftVersionManifest().block();
+        VersionManifest result = controller.getMinecraftVersionManifest().block();
 
         // then
         Assertions.assertTrue(true);
@@ -78,31 +78,31 @@ public class DefaultControllerTest {
         // given
         String uri = UriTemplate.of("/mc/game/version_manifest.json").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@bb095");
+            .accept("[Ljava.lang.String;@27aae97b");
 
         // when
-        HttpResponse<?> response = client.toBlocking().exchange(request, GetMinecraftVersionManifest200Response.class);
+        HttpResponse<?> response = client.toBlocking().exchange(request, VersionManifest.class);
 
         // then
         Assertions.assertEquals(HttpStatus.OK, response.status());
     }
 
     /**
-     * This test is used to validate the implementation of v1PackagesPackageIdVersionIdJsonGet() method
+     * This test is used to validate the implementation of getMinecraftVersionPackageInfo() method
      *
-     * The method should: Get Minecraft version package details
+     * The method should: Get Minecraft version package info
      *
      * TODO fill in the parameters and test return value.
      */
     @Test
     @Disabled("Not Implemented")
-    void v1PackagesPackageIdVersionIdJsonGetMethodTest() {
+    void getMinecraftVersionPackageInfoMethodTest() {
         // given
         String packageId = "177e49d3233cb6eac42f0495c0a48e719870c2ae";
         String versionId = "1.21";
 
         // when
-        V1PackagesPackageIdVersionIdJsonGet200Response result = controller.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId).block();
+        VersionPackageInfo result = controller.getMinecraftVersionPackageInfo(packageId, versionId).block();
 
         // then
         Assertions.assertTrue(true);
@@ -110,13 +110,13 @@ public class DefaultControllerTest {
 
     /**
      * This test is used to check that the api available to client through
-     * '/v1/packages/{packageId}/{versionId}.json' to the features of v1PackagesPackageIdVersionIdJsonGet() works as desired.
+     * '/v1/packages/{packageId}/{versionId}.json' to the features of getMinecraftVersionPackageInfo() works as desired.
      *
      * TODO fill in the request parameters and test response.
      */
     @Test
     @Disabled("Not Implemented")
-    void v1PackagesPackageIdVersionIdJsonGetClientApiTest() throws IOException {
+    void getMinecraftVersionPackageInfoClientApiTest() throws IOException {
         // given
         String uri = UriTemplate.of("/v1/packages/{packageId}/{versionId}.json").expand(new HashMap<String, Object>(){{
             // Fill in the path variables
@@ -124,10 +124,10 @@ public class DefaultControllerTest {
             put("versionId", "1.21");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@777c350f");
+            .accept("[Ljava.lang.String;@4c9e38");
 
         // when
-        HttpResponse<?> response = client.toBlocking().exchange(request, V1PackagesPackageIdVersionIdJsonGet200Response.class);
+        HttpResponse<?> response = client.toBlocking().exchange(request, VersionPackageInfo.class);
 
         // then
         Assertions.assertEquals(HttpStatus.OK, response.status());

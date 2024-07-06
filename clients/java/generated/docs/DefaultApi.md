@@ -5,12 +5,12 @@ All URIs are relative to *https://launchermeta.mojang.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
-| [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
+| [**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 <a id="getMinecraftVersionManifest"></a>
 # **getMinecraftVersionManifest**
-> GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
+> VersionManifest getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -30,7 +30,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      GetMinecraftVersionManifest200Response result = apiInstance.getMinecraftVersionManifest();
+      VersionManifest result = apiInstance.getMinecraftVersionManifest();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](VersionManifest.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | A list of Minecraft versions with the latest and snapshot releases |  -  |
 
-<a id="v1PackagesPackageIdVersionIdJsonGet"></a>
-# **v1PackagesPackageIdVersionIdJsonGet**
-> V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet(packageId, versionId)
+<a id="getMinecraftVersionPackageInfo"></a>
+# **getMinecraftVersionPackageInfo**
+> VersionPackageInfo getMinecraftVersionPackageInfo(packageId, versionId)
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 ```java
@@ -88,10 +88,10 @@ public class Example {
     String packageId = "177e49d3233cb6eac42f0495c0a48e719870c2ae"; // String | 
     String versionId = "1.21"; // String | 
     try {
-      V1PackagesPackageIdVersionIdJsonGet200Response result = apiInstance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+      VersionPackageInfo result = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#v1PackagesPackageIdVersionIdJsonGet");
+      System.err.println("Exception when calling DefaultApi#getMinecraftVersionPackageInfo");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -110,7 +110,7 @@ public class Example {
 
 ### Return type
 
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](VersionPackageInfo.md)
 
 ### Authorization
 

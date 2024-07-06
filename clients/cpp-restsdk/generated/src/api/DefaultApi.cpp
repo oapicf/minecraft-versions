@@ -36,7 +36,7 @@ DefaultApi::~DefaultApi()
 {
 }
 
-pplx::task<std::shared_ptr<GetMinecraftVersionManifest_200_response>> DefaultApi::getMinecraftVersionManifest() const
+pplx::task<std::shared_ptr<VersionManifest>> DefaultApi::getMinecraftVersionManifest() const
 {
 
 
@@ -137,7 +137,7 @@ pplx::task<std::shared_ptr<GetMinecraftVersionManifest_200_response>> DefaultApi
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<GetMinecraftVersionManifest_200_response> localVarResult(new GetMinecraftVersionManifest_200_response());
+        std::shared_ptr<VersionManifest> localVarResult(new VersionManifest());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -158,7 +158,7 @@ pplx::task<std::shared_ptr<GetMinecraftVersionManifest_200_response>> DefaultApi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_response>> DefaultApi::v1PackagesPackageIdVersionIdJsonGet(utility::string_t packageId, utility::string_t versionId) const
+pplx::task<std::shared_ptr<VersionPackageInfo>> DefaultApi::getMinecraftVersionPackageInfo(utility::string_t packageId, utility::string_t versionId) const
 {
 
 
@@ -194,7 +194,7 @@ pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_res
     }
     else
     {
-        throw ApiException(400, utility::conversions::to_string_t("DefaultApi->v1PackagesPackageIdVersionIdJsonGet does not produce any supported media type"));
+        throw ApiException(400, utility::conversions::to_string_t("DefaultApi->getMinecraftVersionPackageInfo does not produce any supported media type"));
     }
 
     localVarHeaderParams[utility::conversions::to_string_t("Accept")] = localVarResponseHttpContentType;
@@ -221,7 +221,7 @@ pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_res
     }
     else
     {
-        throw ApiException(415, utility::conversions::to_string_t("DefaultApi->v1PackagesPackageIdVersionIdJsonGet does not consume any supported media type"));
+        throw ApiException(415, utility::conversions::to_string_t("DefaultApi->getMinecraftVersionPackageInfo does not consume any supported media type"));
     }
 
 
@@ -241,7 +241,7 @@ pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_res
         if (localVarResponse.status_code() >= 400)
         {
             throw ApiException(localVarResponse.status_code()
-                , utility::conversions::to_string_t("error calling v1PackagesPackageIdVersionIdJsonGet: ") + localVarResponse.reason_phrase()
+                , utility::conversions::to_string_t("error calling getMinecraftVersionPackageInfo: ") + localVarResponse.reason_phrase()
                 , std::make_shared<std::stringstream>(localVarResponse.extract_utf8string(true).get()));
         }
 
@@ -252,7 +252,7 @@ pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_res
             if( localVarContentType.find(localVarResponseHttpContentType) == std::string::npos )
             {
                 throw ApiException(500
-                    , utility::conversions::to_string_t("error calling v1PackagesPackageIdVersionIdJsonGet: unexpected response type: ") + localVarContentType
+                    , utility::conversions::to_string_t("error calling getMinecraftVersionPackageInfo: unexpected response type: ") + localVarContentType
                     , std::make_shared<std::stringstream>(localVarResponse.extract_utf8string(true).get()));
             }
         }
@@ -261,7 +261,7 @@ pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_res
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_response> localVarResult(new _v1_packages__packageId___versionId__json_get_200_response());
+        std::shared_ptr<VersionPackageInfo> localVarResult(new VersionPackageInfo());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -276,7 +276,7 @@ pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_res
         else
         {
             throw ApiException(500
-                , utility::conversions::to_string_t("error calling v1PackagesPackageIdVersionIdJsonGet: unsupported response type"));
+                , utility::conversions::to_string_t("error calling getMinecraftVersionPackageInfo: unsupported response type"));
         }
 
         return localVarResult;

@@ -1,13 +1,13 @@
 import localVarRequest from 'request';
 
-export * from './getMinecraftVersionManifest200Response';
-export * from './getMinecraftVersionManifest200ResponseLatest';
-export * from './getMinecraftVersionManifest200ResponseVersionsInner';
-export * from './v1PackagesPackageIdVersionIdJsonGet200Response';
-export * from './v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
-export * from './v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
-export * from './v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
-export * from './v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
+export * from './download';
+export * from './version';
+export * from './versionManifest';
+export * from './versionManifestLatest';
+export * from './versionPackageInfo';
+export * from './versionPackageInfoAssetIndex';
+export * from './versionPackageInfoDownloads';
+export * from './versionPackageInfoJavaVersion';
 
 import * as fs from 'fs';
 
@@ -22,14 +22,14 @@ export interface RequestDetailedFile {
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
-import { GetMinecraftVersionManifest200Response } from './getMinecraftVersionManifest200Response';
-import { GetMinecraftVersionManifest200ResponseLatest } from './getMinecraftVersionManifest200ResponseLatest';
-import { GetMinecraftVersionManifest200ResponseVersionsInner } from './getMinecraftVersionManifest200ResponseVersionsInner';
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from './v1PackagesPackageIdVersionIdJsonGet200Response';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from './v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from './v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient } from './v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion } from './v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
+import { Download } from './download';
+import { Version } from './version';
+import { VersionManifest } from './versionManifest';
+import { VersionManifestLatest } from './versionManifestLatest';
+import { VersionPackageInfo } from './versionPackageInfo';
+import { VersionPackageInfoAssetIndex } from './versionPackageInfoAssetIndex';
+import { VersionPackageInfoDownloads } from './versionPackageInfoDownloads';
+import { VersionPackageInfoJavaVersion } from './versionPackageInfoJavaVersion';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -47,14 +47,14 @@ let enumsMap: {[index: string]: any} = {
 }
 
 let typeMap: {[index: string]: any} = {
-    "GetMinecraftVersionManifest200Response": GetMinecraftVersionManifest200Response,
-    "GetMinecraftVersionManifest200ResponseLatest": GetMinecraftVersionManifest200ResponseLatest,
-    "GetMinecraftVersionManifest200ResponseVersionsInner": GetMinecraftVersionManifest200ResponseVersionsInner,
-    "V1PackagesPackageIdVersionIdJsonGet200Response": V1PackagesPackageIdVersionIdJsonGet200Response,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex": V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads": V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient": V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient,
-    "V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion": V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion,
+    "Download": Download,
+    "Version": Version,
+    "VersionManifest": VersionManifest,
+    "VersionManifestLatest": VersionManifestLatest,
+    "VersionPackageInfo": VersionPackageInfo,
+    "VersionPackageInfoAssetIndex": VersionPackageInfoAssetIndex,
+    "VersionPackageInfoDownloads": VersionPackageInfoDownloads,
+    "VersionPackageInfoJavaVersion": VersionPackageInfoJavaVersion,
 }
 
 export class ObjectSerializer {

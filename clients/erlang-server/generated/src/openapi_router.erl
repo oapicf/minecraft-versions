@@ -60,7 +60,7 @@ get_operations() ->
             method => <<"GET">>,
             handler => 'openapi_default_handler'
         },
-        'V1PackagesPackageIdVersionIdJsonGet' => #{
+        'GetMinecraftVersionPackageInfo' => #{
             path => "/v1/packages/:packageId/:versionId.json",
             method => <<"GET">>,
             handler => 'openapi_default_handler'

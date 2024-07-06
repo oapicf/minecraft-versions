@@ -25,15 +25,15 @@ package .Skeletons is
    procedure Get_Minecraft_Version_Manifest
       (Server : in out Server_Type
        ;
-       Result  : out .Models.GetMinecraftVersionManifest200Response_Type;
+       Result  : out .Models.VersionManifest_Type;
        Context : in out Swagger.Servers.Context_Type) is abstract;
 
-   --  Get Minecraft version package details
-   procedure V_1Packages_Package_Id_Version_Id_Json_Get
+   --  Get Minecraft version package info
+   procedure Get_Minecraft_Version_Package_Info
       (Server : in out Server_Type;
        Package_Id : in Swagger.UString;
        Version_Id : in Swagger.UString;
-       Result  : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type;
+       Result  : out .Models.VersionPackageInfo_Type;
        Context : in out Swagger.Servers.Context_Type) is abstract;
 
    generic
@@ -52,8 +52,8 @@ package .Skeletons is
           Context : in out Swagger.Servers.Context_Type);
 
 
-      --  Get Minecraft version package details
-      procedure V_1Packages_Package_Id_Version_Id_Json_Get
+      --  Get Minecraft version package info
+      procedure Get_Minecraft_Version_Package_Info
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
@@ -77,8 +77,8 @@ package .Skeletons is
           Context : in out Swagger.Servers.Context_Type);
 
 
-      --  Get Minecraft version package details
-      procedure V_1Packages_Package_Id_Version_Id_Json_Get
+      --  Get Minecraft version package info
+      procedure Get_Minecraft_Version_Package_Info
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
@@ -90,14 +90,14 @@ package .Skeletons is
 
          --  Get Minecraft version manifest
          procedure Get_Minecraft_Version_Manifest
-            (Result  : out .Models.GetMinecraftVersionManifest200Response_Type;
+            (Result  : out .Models.VersionManifest_Type;
              Context : in out Swagger.Servers.Context_Type);
 
-         --  Get Minecraft version package details
-         procedure V_1Packages_Package_Id_Version_Id_Json_Get
+         --  Get Minecraft version package info
+         procedure Get_Minecraft_Version_Package_Info
             (Package_Id : in Swagger.UString;
              Version_Id : in Swagger.UString;
-       Result  : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type;
+       Result  : out .Models.VersionPackageInfo_Type;
              Context : in out Swagger.Servers.Context_Type);
 
       private

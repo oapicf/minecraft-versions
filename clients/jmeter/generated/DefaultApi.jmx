@@ -48,9 +48,9 @@
             <stringProp name="Argument.value">${__P(testData.getMinecraftVersionManifestFile,DefaultApi.csv)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="testData.v1PackagesPackageIdVersionIdJsonGetFile" elementType="Argument">
-            <stringProp name="Argument.name">testData.v1PackagesPackageIdVersionIdJsonGetFile</stringProp>
-            <stringProp name="Argument.value">${__P(testData.v1PackagesPackageIdVersionIdJsonGetFile,DefaultApi.csv)}</stringProp>
+          <elementProp name="testData.getMinecraftVersionPackageInfoFile" elementType="Argument">
+            <stringProp name="Argument.name">testData.getMinecraftVersionPackageInfoFile</stringProp>
+            <stringProp name="Argument.value">${__P(testData.getMinecraftVersionPackageInfoFile,DefaultApi.csv)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -141,7 +141,7 @@
         </ResponseAssertion>
         <hashTree/>
       </hashTree>
-<ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - v1PackagesPackageIdVersionIdJsonGet" enabled="true">
+<ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - getMinecraftVersionPackageInfo" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -165,7 +165,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="v1PackagesPackageIdVersionIdJsonGet - ${testCase}" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getMinecraftVersionPackageInfo - ${testCase}" enabled="true">
           
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -186,13 +186,13 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Get Minecraft version package details </stringProp>
+          <stringProp name="TestPlan.comments">Get Minecraft version package info </stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - v1PackagesPackageIdVersionIdJsonGet" enabled="true">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - getMinecraftVersionPackageInfo" enabled="true">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">${testData.v1PackagesPackageIdVersionIdJsonGetFile}</stringProp>
+            <stringProp name="filename">${testData.getMinecraftVersionPackageInfoFile}</stringProp>
             <boolProp name="quotedData">true</boolProp>
             <boolProp name="recycle">true</boolProp>
             <stringProp name="shareMode">shareMode.group</stringProp>

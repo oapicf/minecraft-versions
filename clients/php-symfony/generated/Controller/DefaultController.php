@@ -34,8 +34,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Validator\Constraints as Assert;
 use OpenAPI\Server\Api\DefaultApiInterface;
-use OpenAPI\Server\Model\GetMinecraftVersionManifest200Response;
-use OpenAPI\Server\Model\V1PackagesPackageIdVersionIdJsonGet200Response;
+use OpenAPI\Server\Model\VersionManifest;
+use OpenAPI\Server\Model\VersionPackageInfo;
 
 /**
  * DefaultController Class Doc Comment
@@ -108,14 +108,14 @@ class DefaultController extends Controller
     }
 
     /**
-     * Operation v1PackagesPackageIdVersionIdJsonGet
+     * Operation getMinecraftVersionPackageInfo
      *
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param Request $request The Symfony request to handle.
      * @return Response The Symfony response.
      */
-    public function v1PackagesPackageIdVersionIdJsonGetAction(Request $request, $packageId, $versionId)
+    public function getMinecraftVersionPackageInfoAction(Request $request, $packageId, $versionId)
     {
         // Figure out what data format to return to the client
         $produces = ['application/json'];
@@ -165,7 +165,7 @@ class DefaultController extends Controller
             $responseCode = 200;
             $responseHeaders = [];
 
-            $result = $handler->v1PackagesPackageIdVersionIdJsonGet($packageId, $versionId, $responseCode, $responseHeaders);
+            $result = $handler->getMinecraftVersionPackageInfo($packageId, $versionId, $responseCode, $responseHeaders);
 
             $message = match($responseCode) {
                 200 => 'Get package version details',

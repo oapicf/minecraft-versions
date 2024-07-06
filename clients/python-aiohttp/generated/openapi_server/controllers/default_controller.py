@@ -1,8 +1,8 @@
 from typing import List, Dict
 from aiohttp import web
 
-from openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
-from openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
+from openapi_server.models.version_manifest import VersionManifest
+from openapi_server.models.version_package_info import VersionPackageInfo
 from openapi_server import util
 
 
@@ -16,8 +16,8 @@ async def get_minecraft_version_manifest(request: web.Request, ) -> web.Response
     return web.Response(status=200)
 
 
-async def v1_packages_package_id_version_id_json_get(request: web.Request, package_id, version_id) -> web.Response:
-    """Get Minecraft version package details
+async def get_minecraft_version_package_info(request: web.Request, package_id, version_id) -> web.Response:
+    """Get Minecraft version package info
 
     
 

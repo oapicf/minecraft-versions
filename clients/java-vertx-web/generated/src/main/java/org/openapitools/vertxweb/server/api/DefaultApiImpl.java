@@ -1,7 +1,7 @@
 package org.openapitools.vertxweb.server.api;
 
-import org.openapitools.vertxweb.server.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.vertxweb.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.vertxweb.server.model.VersionManifest;
+import org.openapitools.vertxweb.server.model.VersionPackageInfo;
 
 import org.openapitools.vertxweb.server.ApiResponse;
 
@@ -15,11 +15,11 @@ import java.util.Map;
 // Implement this class
 
 public class DefaultApiImpl implements DefaultApi {
-    public Future<ApiResponse<GetMinecraftVersionManifest200Response>> getMinecraftVersionManifest() {
+    public Future<ApiResponse<VersionManifest>> getMinecraftVersionManifest() {
         return Future.failedFuture(new HttpException(501));
     }
 
-    public Future<ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response>> v1PackagesPackageIdVersionIdJsonGet(String packageId, String versionId) {
+    public Future<ApiResponse<VersionPackageInfo>> getMinecraftVersionPackageInfo(String packageId, String versionId) {
         return Future.failedFuture(new HttpException(501));
     }
 

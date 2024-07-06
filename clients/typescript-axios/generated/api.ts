@@ -26,266 +26,266 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface GetMinecraftVersionManifest200Response
+ * @interface Download
  */
-export interface GetMinecraftVersionManifest200Response {
+export interface Download {
     /**
      * 
-     * @type {GetMinecraftVersionManifest200ResponseLatest}
-     * @memberof GetMinecraftVersionManifest200Response
+     * @type {string}
+     * @memberof Download
      */
-    'latest'?: GetMinecraftVersionManifest200ResponseLatest;
+    'sha1'?: string;
     /**
      * 
-     * @type {Array<GetMinecraftVersionManifest200ResponseVersionsInner>}
-     * @memberof GetMinecraftVersionManifest200Response
+     * @type {number}
+     * @memberof Download
      */
-    'versions'?: Array<GetMinecraftVersionManifest200ResponseVersionsInner>;
+    'size'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Download
+     */
+    'url'?: string;
 }
 /**
  * 
  * @export
- * @interface GetMinecraftVersionManifest200ResponseLatest
+ * @interface Version
  */
-export interface GetMinecraftVersionManifest200ResponseLatest {
+export interface Version {
     /**
      * 
      * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseLatest
+     * @memberof Version
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Version
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Version
+     */
+    'url'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Version
+     */
+    'time'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Version
+     */
+    'releaseTime'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface VersionManifest
+ */
+export interface VersionManifest {
+    /**
+     * 
+     * @type {VersionManifestLatest}
+     * @memberof VersionManifest
+     */
+    'latest'?: VersionManifestLatest;
+    /**
+     * 
+     * @type {Array<Version>}
+     * @memberof VersionManifest
+     */
+    'versions'?: Array<Version>;
+}
+/**
+ * 
+ * @export
+ * @interface VersionManifestLatest
+ */
+export interface VersionManifestLatest {
+    /**
+     * 
+     * @type {string}
+     * @memberof VersionManifestLatest
      */
     'release'?: string;
     /**
      * 
      * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseLatest
+     * @memberof VersionManifestLatest
      */
     'snapshot'?: string;
 }
 /**
  * 
  * @export
- * @interface GetMinecraftVersionManifest200ResponseVersionsInner
+ * @interface VersionPackageInfo
  */
-export interface GetMinecraftVersionManifest200ResponseVersionsInner {
+export interface VersionPackageInfo {
     /**
      * 
      * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    'time'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    'releaseTime'?: string;
-}
-/**
- * 
- * @export
- * @interface V1PackagesPackageIdVersionIdJsonGet200Response
- */
-export interface V1PackagesPackageIdVersionIdJsonGet200Response {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'version'?: string;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @type {VersionPackageInfoAssetIndex}
+     * @memberof VersionPackageInfo
      */
-    'assetIndex'?: V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
+    'assetIndex'?: VersionPackageInfoAssetIndex;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'assets'?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'complianceLevel'?: number;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @type {VersionPackageInfoDownloads}
+     * @memberof VersionPackageInfo
      */
-    'downloads'?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
+    'downloads'?: VersionPackageInfoDownloads;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'id'?: string;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @type {VersionPackageInfoJavaVersion}
+     * @memberof VersionPackageInfo
      */
-    'javaVersion'?: V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion;
+    'javaVersion'?: VersionPackageInfoJavaVersion;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'mainClass'?: string;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'minimumLauncherVersion'?: number;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'time'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'releaseTime'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     'type'?: string;
 }
 /**
  * 
  * @export
- * @interface V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+ * @interface VersionPackageInfoAssetIndex
  */
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+export interface VersionPackageInfoAssetIndex {
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     'sha1'?: string;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     'size'?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     'totalSize'?: number;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     'url'?: string;
 }
 /**
  * 
  * @export
- * @interface V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+ * @interface VersionPackageInfoDownloads
  */
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+export interface VersionPackageInfoDownloads {
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    'client'?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    'client'?: Download;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    'client_mappings'?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    'client_mappings'?: Download;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    'server'?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    'server'?: Download;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    'server_mappings'?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    'server_mappings'?: Download;
 }
 /**
  * 
  * @export
- * @interface V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+ * @interface VersionPackageInfoJavaVersion
  */
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
+export interface VersionPackageInfoJavaVersion {
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-     */
-    'sha1'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-     */
-    'size'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-     */
-    'url'?: string;
-}
-/**
- * 
- * @export
- * @interface V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
- */
-export interface V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+     * @memberof VersionPackageInfoJavaVersion
      */
     'component'?: string;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+     * @memberof VersionPackageInfoJavaVersion
      */
     'majorVersion'?: number;
 }
@@ -328,17 +328,17 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @summary Get Minecraft version package details
+         * @summary Get Minecraft version package info
          * @param {string} packageId 
          * @param {string} versionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        v1PackagesPackageIdVersionIdJsonGet: async (packageId: string, versionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMinecraftVersionPackageInfo: async (packageId: string, versionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'packageId' is not null or undefined
-            assertParamExists('v1PackagesPackageIdVersionIdJsonGet', 'packageId', packageId)
+            assertParamExists('getMinecraftVersionPackageInfo', 'packageId', packageId)
             // verify required parameter 'versionId' is not null or undefined
-            assertParamExists('v1PackagesPackageIdVersionIdJsonGet', 'versionId', versionId)
+            assertParamExists('getMinecraftVersionPackageInfo', 'versionId', versionId)
             const localVarPath = `/v1/packages/{packageId}/{versionId}.json`
                 .replace(`{${"packageId"}}`, encodeURIComponent(String(packageId)))
                 .replace(`{${"versionId"}}`, encodeURIComponent(String(versionId)));
@@ -380,7 +380,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMinecraftVersionManifest(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetMinecraftVersionManifest200Response>> {
+        async getMinecraftVersionManifest(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VersionManifest>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMinecraftVersionManifest(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getMinecraftVersionManifest']?.[localVarOperationServerIndex]?.url;
@@ -388,16 +388,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Get Minecraft version package details
+         * @summary Get Minecraft version package info
          * @param {string} packageId 
          * @param {string} versionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1PackagesPackageIdVersionIdJsonGet200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, options);
+        async getMinecraftVersionPackageInfo(packageId: string, versionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VersionPackageInfo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMinecraftVersionPackageInfo(packageId, versionId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.v1PackagesPackageIdVersionIdJsonGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getMinecraftVersionPackageInfo']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -416,19 +416,19 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMinecraftVersionManifest(options?: any): AxiosPromise<GetMinecraftVersionManifest200Response> {
+        getMinecraftVersionManifest(options?: any): AxiosPromise<VersionManifest> {
             return localVarFp.getMinecraftVersionManifest(options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @summary Get Minecraft version package details
+         * @summary Get Minecraft version package info
          * @param {string} packageId 
          * @param {string} versionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options?: any): AxiosPromise<V1PackagesPackageIdVersionIdJsonGet200Response> {
-            return localVarFp.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, options).then((request) => request(axios, basePath));
+        getMinecraftVersionPackageInfo(packageId: string, versionId: string, options?: any): AxiosPromise<VersionPackageInfo> {
+            return localVarFp.getMinecraftVersionPackageInfo(packageId, versionId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -453,15 +453,15 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @summary Get Minecraft version package details
+     * @summary Get Minecraft version package info
      * @param {string} packageId 
      * @param {string} versionId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, options).then((request) => request(this.axios, this.basePath));
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getMinecraftVersionPackageInfo(packageId, versionId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -18,13 +18,13 @@ package .Clients is
    --  Get Minecraft version manifest
    procedure Get_Minecraft_Version_Manifest
       (Client : in out Client_Type;
-       Result : out .Models.GetMinecraftVersionManifest200Response_Type);
+       Result : out .Models.VersionManifest_Type);
 
-   --  Get Minecraft version package details
-   procedure V_1Packages_Package_Id_Version_Id_Json_Get
+   --  Get Minecraft version package info
+   procedure Get_Minecraft_Version_Package_Info
       (Client : in out Client_Type;
        Package_Id : in Swagger.UString;
        Version_Id : in Swagger.UString;
-       Result : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type);
+       Result : out .Models.VersionPackageInfo_Type);
 
 end .Clients;

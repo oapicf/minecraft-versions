@@ -77,19 +77,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *MinecraftVersionsClient::DefaultApi* | [**get_minecraft_version_manifest**](docs/DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*MinecraftVersionsClient::DefaultApi* | [**v1_packages_package_id_version_id_json_get**](docs/DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*MinecraftVersionsClient::DefaultApi* | [**get_minecraft_version_package_info**](docs/DefaultApi.md#get_minecraft_version_package_info) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation for Models
 
- - [MinecraftVersionsClient::GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [MinecraftVersionsClient::GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [MinecraftVersionsClient::GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [MinecraftVersionsClient::Download](docs/Download.md)
+ - [MinecraftVersionsClient::Version](docs/Version.md)
+ - [MinecraftVersionsClient::VersionManifest](docs/VersionManifest.md)
+ - [MinecraftVersionsClient::VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [MinecraftVersionsClient::VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [MinecraftVersionsClient::VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [MinecraftVersionsClient::VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [MinecraftVersionsClient::VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 ## Documentation for Authorization

@@ -5,11 +5,11 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_minecraft_version_manifest**](DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1_packages_package_id_version_id_json_get**](DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**get_minecraft_version_package_info**](DefaultApi.md#get_minecraft_version_package_info) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 # **get_minecraft_version_manifest**
-> GetMinecraftVersionManifest200Response get_minecraft_version_manifest()
+> VersionManifest get_minecraft_version_manifest()
 
 Get Minecraft version manifest
 
@@ -19,7 +19,7 @@ Get Minecraft version manifest
 import time
 import os
 import openapi_client
-from openapi_client.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
+from openapi_client.models.version_manifest import VersionManifest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](VersionManifest.md)
 
 ### Authorization
 
@@ -69,10 +69,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_packages_package_id_version_id_json_get**
-> V1PackagesPackageIdVersionIdJsonGet200Response v1_packages_package_id_version_id_json_get(package_id, version_id)
+# **get_minecraft_version_package_info**
+> VersionPackageInfo get_minecraft_version_package_info(package_id, version_id)
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 
@@ -80,7 +80,7 @@ Get Minecraft version package details
 import time
 import os
 import openapi_client
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
+from openapi_client.models.version_package_info import VersionPackageInfo
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -99,12 +99,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     version_id = '1.21' # str | 
 
     try:
-        # Get Minecraft version package details
-        api_response = api_instance.v1_packages_package_id_version_id_json_get(package_id, version_id)
-        print("The response of DefaultApi->v1_packages_package_id_version_id_json_get:\n")
+        # Get Minecraft version package info
+        api_response = api_instance.get_minecraft_version_package_info(package_id, version_id)
+        print("The response of DefaultApi->get_minecraft_version_package_info:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->v1_packages_package_id_version_id_json_get: %s\n" % e)
+        print("Exception when calling DefaultApi->get_minecraft_version_package_info: %s\n" % e)
 ```
 
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](VersionPackageInfo.md)
 
 ### Authorization
 

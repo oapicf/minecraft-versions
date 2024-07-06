@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.client.model.VersionManifest;
+import org.openapitools.client.model.VersionPackageInfo;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -137,7 +137,7 @@ public class DefaultApi {
     /**
      * Get Minecraft version manifest
      * 
-     * @return GetMinecraftVersionManifest200Response
+     * @return VersionManifest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -145,15 +145,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest() throws ApiException {
-        ApiResponse<GetMinecraftVersionManifest200Response> localVarResp = getMinecraftVersionManifestWithHttpInfo();
+    public VersionManifest getMinecraftVersionManifest() throws ApiException {
+        ApiResponse<VersionManifest> localVarResp = getMinecraftVersionManifestWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get Minecraft version manifest
      * 
-     * @return ApiResponse&lt;GetMinecraftVersionManifest200Response&gt;
+     * @return ApiResponse&lt;VersionManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -161,9 +161,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetMinecraftVersionManifest200Response> getMinecraftVersionManifestWithHttpInfo() throws ApiException {
+    public ApiResponse<VersionManifest> getMinecraftVersionManifestWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getMinecraftVersionManifestValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<GetMinecraftVersionManifest200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionManifest>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -179,15 +179,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMinecraftVersionManifestAsync(final ApiCallback<GetMinecraftVersionManifest200Response> _callback) throws ApiException {
+    public okhttp3.Call getMinecraftVersionManifestAsync(final ApiCallback<VersionManifest> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMinecraftVersionManifestValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<GetMinecraftVersionManifest200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionManifest>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for v1PackagesPackageIdVersionIdJsonGet
+     * Build call for getMinecraftVersionPackageInfo
      * @param packageId  (required)
      * @param versionId  (required)
      * @param _callback Callback for upload/download progress
@@ -199,7 +199,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Get package version details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1PackagesPackageIdVersionIdJsonGetCall(String packageId, String versionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMinecraftVersionPackageInfoCall(String packageId, String versionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -246,27 +246,27 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v1PackagesPackageIdVersionIdJsonGetValidateBeforeCall(String packageId, String versionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMinecraftVersionPackageInfoValidateBeforeCall(String packageId, String versionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'packageId' is set
         if (packageId == null) {
-            throw new ApiException("Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet(Async)");
+            throw new ApiException("Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo(Async)");
         }
 
         // verify the required parameter 'versionId' is set
         if (versionId == null) {
-            throw new ApiException("Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet(Async)");
+            throw new ApiException("Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo(Async)");
         }
 
-        return v1PackagesPackageIdVersionIdJsonGetCall(packageId, versionId, _callback);
+        return getMinecraftVersionPackageInfoCall(packageId, versionId, _callback);
 
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId  (required)
      * @param versionId  (required)
-     * @return V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return VersionPackageInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -274,17 +274,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Get package version details </td><td>  -  </td></tr>
      </table>
      */
-    public V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet(String packageId, String versionId) throws ApiException {
-        ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response> localVarResp = v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(packageId, versionId);
+    public VersionPackageInfo getMinecraftVersionPackageInfo(String packageId, String versionId) throws ApiException {
+        ApiResponse<VersionPackageInfo> localVarResp = getMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId);
         return localVarResp.getData();
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId  (required)
      * @param versionId  (required)
-     * @return ApiResponse&lt;V1PackagesPackageIdVersionIdJsonGet200Response&gt;
+     * @return ApiResponse&lt;VersionPackageInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -292,14 +292,14 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Get package version details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(String packageId, String versionId) throws ApiException {
-        okhttp3.Call localVarCall = v1PackagesPackageIdVersionIdJsonGetValidateBeforeCall(packageId, versionId, null);
-        Type localVarReturnType = new TypeToken<V1PackagesPackageIdVersionIdJsonGet200Response>(){}.getType();
+    public ApiResponse<VersionPackageInfo> getMinecraftVersionPackageInfoWithHttpInfo(String packageId, String versionId) throws ApiException {
+        okhttp3.Call localVarCall = getMinecraftVersionPackageInfoValidateBeforeCall(packageId, versionId, null);
+        Type localVarReturnType = new TypeToken<VersionPackageInfo>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get Minecraft version package details (asynchronously)
+     * Get Minecraft version package info (asynchronously)
      * 
      * @param packageId  (required)
      * @param versionId  (required)
@@ -312,10 +312,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Get package version details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1PackagesPackageIdVersionIdJsonGetAsync(String packageId, String versionId, final ApiCallback<V1PackagesPackageIdVersionIdJsonGet200Response> _callback) throws ApiException {
+    public okhttp3.Call getMinecraftVersionPackageInfoAsync(String packageId, String versionId, final ApiCallback<VersionPackageInfo> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v1PackagesPackageIdVersionIdJsonGetValidateBeforeCall(packageId, versionId, _callback);
-        Type localVarReturnType = new TypeToken<V1PackagesPackageIdVersionIdJsonGet200Response>(){}.getType();
+        okhttp3.Call localVarCall = getMinecraftVersionPackageInfoValidateBeforeCall(packageId, versionId, _callback);
+        Type localVarReturnType = new TypeToken<VersionPackageInfo>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

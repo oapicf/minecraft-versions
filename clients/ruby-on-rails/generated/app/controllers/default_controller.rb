@@ -14,7 +14,7 @@ class DefaultController < ApplicationController
     render json: {"message" => "yes, it worked"}
   end
 
-  def v1_packages_package_id_version_id_json_get
+  def get_minecraft_version_package_info
     # Your code here
 
     render json: {"message" => "yes, it worked"}

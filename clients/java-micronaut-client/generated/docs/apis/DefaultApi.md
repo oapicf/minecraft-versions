@@ -5,7 +5,7 @@ All URIs are relative to *https://launchermeta.mojang.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
-| [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
+| [**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 ## Creating DefaultApi
@@ -39,7 +39,7 @@ More information can be found inside [Inversion of Control guide section](https:
 <a id="getMinecraftVersionManifest"></a>
 # **getMinecraftVersionManifest**
 ```java
-Mono<GetMinecraftVersionManifest200Response> DefaultApi.getMinecraftVersionManifest()
+Mono<VersionManifest> DefaultApi.getMinecraftVersionManifest()
 ```
 
 Get Minecraft version manifest
@@ -47,7 +47,7 @@ Get Minecraft version manifest
 
 
 ### Return type
-[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
+[**VersionManifest**](VersionManifest.md)
 
 
 
@@ -55,13 +55,13 @@ Get Minecraft version manifest
  - **Content-Type**: Not defined
  - **Accept**: `application/json`
 
-<a id="v1PackagesPackageIdVersionIdJsonGet"></a>
-# **v1PackagesPackageIdVersionIdJsonGet**
+<a id="getMinecraftVersionPackageInfo"></a>
+# **getMinecraftVersionPackageInfo**
 ```java
-Mono<V1PackagesPackageIdVersionIdJsonGet200Response> DefaultApi.v1PackagesPackageIdVersionIdJsonGet(packageIdversionId)
+Mono<VersionPackageInfo> DefaultApi.getMinecraftVersionPackageInfo(packageIdversionId)
 ```
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Parameters
 | Name | Type | Description  | Notes |
@@ -71,7 +71,7 @@ Get Minecraft version package details
 
 
 ### Return type
-[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**VersionPackageInfo**](VersionPackageInfo.md)
 
 
 

@@ -18,14 +18,14 @@ pub const API_VERSION: &str = "0.9.0-pre.0";
 pub enum GetMinecraftVersionManifestResponse {
     /// A list of Minecraft versions with the latest and snapshot releases
     AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
-    (models::GetMinecraftVersionManifest200Response)
+    (models::VersionManifest)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum V1PackagesPackageIdVersionIdJsonGetResponse {
+pub enum GetMinecraftVersionPackageInfoResponse {
     /// Get package version details
     GetPackageVersionDetails
-    (models::V1PackagesPackageIdVersionIdJsonGet200Response)
+    (models::VersionPackageInfo)
 }
 
 /// API
@@ -41,12 +41,12 @@ pub trait Api<C: Send + Sync> {
         &self,
         context: &C) -> Result<GetMinecraftVersionManifestResponse, ApiError>;
 
-    /// Get Minecraft version package details
-    async fn v1_packages_package_id_version_id_json_get(
+    /// Get Minecraft version package info
+    async fn get_minecraft_version_package_info(
         &self,
         package_id: String,
         version_id: String,
-        context: &C) -> Result<V1PackagesPackageIdVersionIdJsonGetResponse, ApiError>;
+        context: &C) -> Result<GetMinecraftVersionPackageInfoResponse, ApiError>;
 
 }
 
@@ -64,12 +64,12 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         ) -> Result<GetMinecraftVersionManifestResponse, ApiError>;
 
-    /// Get Minecraft version package details
-    async fn v1_packages_package_id_version_id_json_get(
+    /// Get Minecraft version package info
+    async fn get_minecraft_version_package_info(
         &self,
         package_id: String,
         version_id: String,
-        ) -> Result<V1PackagesPackageIdVersionIdJsonGetResponse, ApiError>;
+        ) -> Result<GetMinecraftVersionPackageInfoResponse, ApiError>;
 
 }
 
@@ -105,15 +105,15 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         self.api().get_minecraft_version_manifest(&context).await
     }
 
-    /// Get Minecraft version package details
-    async fn v1_packages_package_id_version_id_json_get(
+    /// Get Minecraft version package info
+    async fn get_minecraft_version_package_info(
         &self,
         package_id: String,
         version_id: String,
-        ) -> Result<V1PackagesPackageIdVersionIdJsonGetResponse, ApiError>
+        ) -> Result<GetMinecraftVersionPackageInfoResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().v1_packages_package_id_version_id_json_get(package_id, version_id, &context).await
+        self.api().get_minecraft_version_package_info(package_id, version_id, &context).await
     }
 
 }

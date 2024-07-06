@@ -11,14 +11,14 @@ include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
 add_library(${PROJECT_NAME}
-  OAIGetMinecraftVersionManifest_200_response.h
-  OAIGetMinecraftVersionManifest_200_response_latest.h
-  OAIGetMinecraftVersionManifest_200_response_versions_inner.h
-  OAI_v1_packages__packageId___versionId__json_get_200_response.h
-  OAI_v1_packages__packageId___versionId__json_get_200_response_assetIndex.h
-  OAI_v1_packages__packageId___versionId__json_get_200_response_downloads.h
-  OAI_v1_packages__packageId___versionId__json_get_200_response_downloads_client.h
-  OAI_v1_packages__packageId___versionId__json_get_200_response_javaVersion.h
+  OAIDownload.h
+  OAIVersion.h
+  OAIVersionManifest.h
+  OAIVersionManifest_latest.h
+  OAIVersionPackageInfo.h
+  OAIVersionPackageInfo_assetIndex.h
+  OAIVersionPackageInfo_downloads.h
+  OAIVersionPackageInfo_javaVersion.h
   OAIDefaultApi.h
   OAIHelpers.h
   OAIHttpRequest.h
@@ -28,14 +28,14 @@ add_library(${PROJECT_NAME}
   OAIServerConfiguration.h
   OAIServerVariable.h
   OAIOauth.h
-  OAIGetMinecraftVersionManifest_200_response.cpp
-  OAIGetMinecraftVersionManifest_200_response_latest.cpp
-  OAIGetMinecraftVersionManifest_200_response_versions_inner.cpp
-  OAI_v1_packages__packageId___versionId__json_get_200_response.cpp
-  OAI_v1_packages__packageId___versionId__json_get_200_response_assetIndex.cpp
-  OAI_v1_packages__packageId___versionId__json_get_200_response_downloads.cpp
-  OAI_v1_packages__packageId___versionId__json_get_200_response_downloads_client.cpp
-  OAI_v1_packages__packageId___versionId__json_get_200_response_javaVersion.cpp
+  OAIDownload.cpp
+  OAIVersion.cpp
+  OAIVersionManifest.cpp
+  OAIVersionManifest_latest.cpp
+  OAIVersionPackageInfo.cpp
+  OAIVersionPackageInfo_assetIndex.cpp
+  OAIVersionPackageInfo_downloads.cpp
+  OAIVersionPackageInfo_javaVersion.cpp
   OAIDefaultApi.cpp
   OAIHelpers.cpp
   OAIHttpRequest.cpp

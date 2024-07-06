@@ -19,8 +19,8 @@ from pydantic import validate_arguments, ValidationError
 
 from pydantic import StrictStr
 
-from openapi_client.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
+from openapi_client.models.version_manifest import VersionManifest
+from openapi_client.models.version_package_info import VersionPackageInfo
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
@@ -43,7 +43,7 @@ class DefaultApi:
         self.api_client = api_client
 
     @validate_arguments
-    def get_minecraft_version_manifest(self, **kwargs) -> GetMinecraftVersionManifest200Response:  # noqa: E501
+    def get_minecraft_version_manifest(self, **kwargs) -> VersionManifest:  # noqa: E501
         """Get Minecraft version manifest  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -61,7 +61,7 @@ class DefaultApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: GetMinecraftVersionManifest200Response
+        :rtype: VersionManifest
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -101,7 +101,7 @@ class DefaultApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(GetMinecraftVersionManifest200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(VersionManifest, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -152,7 +152,7 @@ class DefaultApi:
         _auth_settings = []  # noqa: E501
 
         _response_types_map = {
-            '200': "GetMinecraftVersionManifest200Response",
+            '200': "VersionManifest",
         }
 
         return self.api_client.call_api(
@@ -173,13 +173,13 @@ class DefaultApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v1_packages_package_id_version_id_json_get(self, package_id : StrictStr, version_id : StrictStr, **kwargs) -> V1PackagesPackageIdVersionIdJsonGet200Response:  # noqa: E501
-        """Get Minecraft version package details  # noqa: E501
+    def get_minecraft_version_package_info(self, package_id : StrictStr, version_id : StrictStr, **kwargs) -> VersionPackageInfo:  # noqa: E501
+        """Get Minecraft version package info  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v1_packages_package_id_version_id_json_get(package_id, version_id, async_req=True)
+        >>> thread = api.get_minecraft_version_package_info(package_id, version_id, async_req=True)
         >>> result = thread.get()
 
         :param package_id: (required)
@@ -195,22 +195,22 @@ class DefaultApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: V1PackagesPackageIdVersionIdJsonGet200Response
+        :rtype: VersionPackageInfo
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v1_packages_package_id_version_id_json_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_minecraft_version_package_info_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v1_packages_package_id_version_id_json_get_with_http_info(package_id, version_id, **kwargs)  # noqa: E501
+        return self.get_minecraft_version_package_info_with_http_info(package_id, version_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v1_packages_package_id_version_id_json_get_with_http_info(self, package_id : StrictStr, version_id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get Minecraft version package details  # noqa: E501
+    def get_minecraft_version_package_info_with_http_info(self, package_id : StrictStr, version_id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+        """Get Minecraft version package info  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v1_packages_package_id_version_id_json_get_with_http_info(package_id, version_id, async_req=True)
+        >>> thread = api.get_minecraft_version_package_info_with_http_info(package_id, version_id, async_req=True)
         >>> result = thread.get()
 
         :param package_id: (required)
@@ -239,7 +239,7 @@ class DefaultApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(V1PackagesPackageIdVersionIdJsonGet200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(VersionPackageInfo, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -265,7 +265,7 @@ class DefaultApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_packages_package_id_version_id_json_get" % _key
+                    " to method get_minecraft_version_package_info" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -298,7 +298,7 @@ class DefaultApi:
         _auth_settings = []  # noqa: E501
 
         _response_types_map = {
-            '200': "V1PackagesPackageIdVersionIdJsonGet200Response",
+            '200': "VersionPackageInfo",
         }
 
         return self.api_client.call_api(

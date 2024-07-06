@@ -57,36 +57,36 @@ public class JsonUtil {
   public static Type getListTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
-    if ("GetMinecraftVersionManifest200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<GetMinecraftVersionManifest200Response>>(){}.getType();
+    if ("Download".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Download>>(){}.getType();
     }
     
-    if ("GetMinecraftVersionManifest200ResponseLatest".equalsIgnoreCase(className)) {
-      return new TypeToken<List<GetMinecraftVersionManifest200ResponseLatest>>(){}.getType();
+    if ("Version".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Version>>(){}.getType();
     }
     
-    if ("GetMinecraftVersionManifest200ResponseVersionsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<GetMinecraftVersionManifest200ResponseVersionsInner>>(){}.getType();
+    if ("VersionManifest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<VersionManifest>>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<V1PackagesPackageIdVersionIdJsonGet200Response>>(){}.getType();
+    if ("VersionManifestLatest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<VersionManifestLatest>>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex".equalsIgnoreCase(className)) {
-      return new TypeToken<List<V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex>>(){}.getType();
+    if ("VersionPackageInfo".equalsIgnoreCase(className)) {
+      return new TypeToken<List<VersionPackageInfo>>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads".equalsIgnoreCase(className)) {
-      return new TypeToken<List<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads>>(){}.getType();
+    if ("VersionPackageInfoAssetIndex".equalsIgnoreCase(className)) {
+      return new TypeToken<List<VersionPackageInfoAssetIndex>>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient".equalsIgnoreCase(className)) {
-      return new TypeToken<List<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>>(){}.getType();
+    if ("VersionPackageInfoDownloads".equalsIgnoreCase(className)) {
+      return new TypeToken<List<VersionPackageInfoDownloads>>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion".equalsIgnoreCase(className)) {
-      return new TypeToken<List<V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion>>(){}.getType();
+    if ("VersionPackageInfoJavaVersion".equalsIgnoreCase(className)) {
+      return new TypeToken<List<VersionPackageInfoJavaVersion>>(){}.getType();
     }
     
     return new TypeToken<List<Object>>(){}.getType();
@@ -95,36 +95,36 @@ public class JsonUtil {
   public static Type getTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
-    if ("GetMinecraftVersionManifest200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<GetMinecraftVersionManifest200Response>(){}.getType();
+    if ("Download".equalsIgnoreCase(className)) {
+      return new TypeToken<Download>(){}.getType();
     }
     
-    if ("GetMinecraftVersionManifest200ResponseLatest".equalsIgnoreCase(className)) {
-      return new TypeToken<GetMinecraftVersionManifest200ResponseLatest>(){}.getType();
+    if ("Version".equalsIgnoreCase(className)) {
+      return new TypeToken<Version>(){}.getType();
     }
     
-    if ("GetMinecraftVersionManifest200ResponseVersionsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<GetMinecraftVersionManifest200ResponseVersionsInner>(){}.getType();
+    if ("VersionManifest".equalsIgnoreCase(className)) {
+      return new TypeToken<VersionManifest>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<V1PackagesPackageIdVersionIdJsonGet200Response>(){}.getType();
+    if ("VersionManifestLatest".equalsIgnoreCase(className)) {
+      return new TypeToken<VersionManifestLatest>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex".equalsIgnoreCase(className)) {
-      return new TypeToken<V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex>(){}.getType();
+    if ("VersionPackageInfo".equalsIgnoreCase(className)) {
+      return new TypeToken<VersionPackageInfo>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads".equalsIgnoreCase(className)) {
-      return new TypeToken<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads>(){}.getType();
+    if ("VersionPackageInfoAssetIndex".equalsIgnoreCase(className)) {
+      return new TypeToken<VersionPackageInfoAssetIndex>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient".equalsIgnoreCase(className)) {
-      return new TypeToken<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>(){}.getType();
+    if ("VersionPackageInfoDownloads".equalsIgnoreCase(className)) {
+      return new TypeToken<VersionPackageInfoDownloads>(){}.getType();
     }
     
-    if ("V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion".equalsIgnoreCase(className)) {
-      return new TypeToken<V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion>(){}.getType();
+    if ("VersionPackageInfoJavaVersion".equalsIgnoreCase(className)) {
+      return new TypeToken<VersionPackageInfoJavaVersion>(){}.getType();
     }
     
     return new TypeToken<Object>(){}.getType();

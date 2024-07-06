@@ -93,19 +93,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get_Minecraft_Version_Manifest**](DefaultApi.md#Get_Minecraft_Version_Manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**V_1Packages_Package_Id_Version_Id_Json_Get**](DefaultApi.md#V_1Packages_Package_Id_Version_Id_Json_Get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**Get_Minecraft_Version_Package_Info**](DefaultApi.md#Get_Minecraft_Version_Package_Info) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ### Models
 
- - [.Models.GetMinecraftVersionManifest200ResponseLatest_Type](GetMinecraftVersionManifest200ResponseLatest_Type.md)
- - [.Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type](GetMinecraftVersionManifest200ResponseVersionsInner_Type.md)
- - [.Models.GetMinecraftVersionManifest200Response_Type](GetMinecraftVersionManifest200Response_Type.md)
- - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type.md)
- - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type.md)
- - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type.md)
- - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_Type.md)
- - [.Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type](V1PackagesPackageIdVersionIdJsonGet200Response_Type.md)
+ - [.Models.Download_Type](Download_Type.md)
+ - [.Models.VersionManifestLatest_Type](VersionManifestLatest_Type.md)
+ - [.Models.VersionManifest_Type](VersionManifest_Type.md)
+ - [.Models.VersionPackageInfoAssetIndex_Type](VersionPackageInfoAssetIndex_Type.md)
+ - [.Models.VersionPackageInfoDownloads_Type](VersionPackageInfoDownloads_Type.md)
+ - [.Models.VersionPackageInfoJavaVersion_Type](VersionPackageInfoJavaVersion_Type.md)
+ - [.Models.VersionPackageInfo_Type](VersionPackageInfo_Type.md)
+ - [.Models.Version_Type](Version_Type.md)
 
 
 ### Authorization

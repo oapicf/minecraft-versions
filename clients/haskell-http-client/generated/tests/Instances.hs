@@ -113,96 +113,96 @@ arbitraryReducedMaybeValue n = do
 
 -- * Models
 
-instance Arbitrary GetMinecraftVersionManifest200Response where
-  arbitrary = sized genGetMinecraftVersionManifest200Response
+instance Arbitrary Download where
+  arbitrary = sized genDownload
 
-genGetMinecraftVersionManifest200Response :: Int -> Gen GetMinecraftVersionManifest200Response
-genGetMinecraftVersionManifest200Response n =
-  GetMinecraftVersionManifest200Response
-    <$> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseLatest :: Maybe GetMinecraftVersionManifest200ResponseLatest
-    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersions :: Maybe [GetMinecraftVersionManifest200ResponseVersionsInner]
+genDownload :: Int -> Gen Download
+genDownload n =
+  Download
+    <$> arbitraryReducedMaybe n -- downloadSha1 :: Maybe Text
+    <*> arbitraryReducedMaybe n -- downloadSize :: Maybe Int
+    <*> arbitraryReducedMaybe n -- downloadUrl :: Maybe Text
   
-instance Arbitrary GetMinecraftVersionManifest200ResponseLatest where
-  arbitrary = sized genGetMinecraftVersionManifest200ResponseLatest
+instance Arbitrary Version where
+  arbitrary = sized genVersion
 
-genGetMinecraftVersionManifest200ResponseLatest :: Int -> Gen GetMinecraftVersionManifest200ResponseLatest
-genGetMinecraftVersionManifest200ResponseLatest n =
-  GetMinecraftVersionManifest200ResponseLatest
-    <$> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseLatestRelease :: Maybe Text
-    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseLatestSnapshot :: Maybe Text
+genVersion :: Int -> Gen Version
+genVersion n =
+  Version
+    <$> arbitraryReducedMaybe n -- versionId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionType :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionUrl :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- versionReleaseTime :: Maybe DateTime
   
-instance Arbitrary GetMinecraftVersionManifest200ResponseVersionsInner where
-  arbitrary = sized genGetMinecraftVersionManifest200ResponseVersionsInner
+instance Arbitrary VersionManifest where
+  arbitrary = sized genVersionManifest
 
-genGetMinecraftVersionManifest200ResponseVersionsInner :: Int -> Gen GetMinecraftVersionManifest200ResponseVersionsInner
-genGetMinecraftVersionManifest200ResponseVersionsInner n =
-  GetMinecraftVersionManifest200ResponseVersionsInner
-    <$> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerUrl :: Maybe Text
-    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerTime :: Maybe DateTime
-    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerReleaseTime :: Maybe DateTime
+genVersionManifest :: Int -> Gen VersionManifest
+genVersionManifest n =
+  VersionManifest
+    <$> arbitraryReducedMaybe n -- versionManifestLatest :: Maybe VersionManifestLatest
+    <*> arbitraryReducedMaybe n -- versionManifestVersions :: Maybe [Version]
   
-instance Arbitrary V1PackagesPackageIdVersionIdJsonGet200Response where
-  arbitrary = sized genV1PackagesPackageIdVersionIdJsonGet200Response
+instance Arbitrary VersionManifestLatest where
+  arbitrary = sized genVersionManifestLatest
 
-genV1PackagesPackageIdVersionIdJsonGet200Response :: Int -> Gen V1PackagesPackageIdVersionIdJsonGet200Response
-genV1PackagesPackageIdVersionIdJsonGet200Response n =
-  V1PackagesPackageIdVersionIdJsonGet200Response
-    <$> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseVersion :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssets :: Maybe Int
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseComplianceLevel :: Maybe Int
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseMainClass :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseMinimumLauncherVersion :: Maybe Int
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseTime :: Maybe DateTime
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseReleaseTime :: Maybe DateTime
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseType :: Maybe Text
+genVersionManifestLatest :: Int -> Gen VersionManifestLatest
+genVersionManifestLatest n =
+  VersionManifestLatest
+    <$> arbitraryReducedMaybe n -- versionManifestLatestRelease :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionManifestLatestSnapshot :: Maybe Text
   
-instance Arbitrary V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex where
-  arbitrary = sized genV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+instance Arbitrary VersionPackageInfo where
+  arbitrary = sized genVersionPackageInfo
 
-genV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex :: Int -> Gen V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-genV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex n =
-  V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-    <$> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexSha1 :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexSize :: Maybe Int
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexTotalSize :: Maybe Int
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexUrl :: Maybe Text
+genVersionPackageInfo :: Int -> Gen VersionPackageInfo
+genVersionPackageInfo n =
+  VersionPackageInfo
+    <$> arbitraryReducedMaybe n -- versionPackageInfoVersion :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssetIndex :: Maybe VersionPackageInfoAssetIndex
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssets :: Maybe Int
+    <*> arbitraryReducedMaybe n -- versionPackageInfoComplianceLevel :: Maybe Int
+    <*> arbitraryReducedMaybe n -- versionPackageInfoDownloads :: Maybe VersionPackageInfoDownloads
+    <*> arbitraryReducedMaybe n -- versionPackageInfoId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionPackageInfoJavaVersion :: Maybe VersionPackageInfoJavaVersion
+    <*> arbitraryReducedMaybe n -- versionPackageInfoMainClass :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionPackageInfoMinimumLauncherVersion :: Maybe Int
+    <*> arbitraryReducedMaybe n -- versionPackageInfoTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- versionPackageInfoReleaseTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- versionPackageInfoType :: Maybe Text
   
-instance Arbitrary V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads where
-  arbitrary = sized genV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+instance Arbitrary VersionPackageInfoAssetIndex where
+  arbitrary = sized genVersionPackageInfoAssetIndex
 
-genV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads :: Int -> Gen V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-genV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads n =
-  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-    <$> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientMappings :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsServer :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsServerMappings :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+genVersionPackageInfoAssetIndex :: Int -> Gen VersionPackageInfoAssetIndex
+genVersionPackageInfoAssetIndex n =
+  VersionPackageInfoAssetIndex
+    <$> arbitraryReducedMaybe n -- versionPackageInfoAssetIndexId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssetIndexSha1 :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssetIndexSize :: Maybe Int
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssetIndexTotalSize :: Maybe Int
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssetIndexUrl :: Maybe Text
   
-instance Arbitrary V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient where
-  arbitrary = sized genV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+instance Arbitrary VersionPackageInfoDownloads where
+  arbitrary = sized genVersionPackageInfoDownloads
 
-genV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient :: Int -> Gen V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-genV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient n =
-  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    <$> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientSha1 :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientSize :: Maybe Int
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientUrl :: Maybe Text
+genVersionPackageInfoDownloads :: Int -> Gen VersionPackageInfoDownloads
+genVersionPackageInfoDownloads n =
+  VersionPackageInfoDownloads
+    <$> arbitraryReducedMaybe n -- versionPackageInfoDownloadsClient :: Maybe Download
+    <*> arbitraryReducedMaybe n -- versionPackageInfoDownloadsClientMappings :: Maybe Download
+    <*> arbitraryReducedMaybe n -- versionPackageInfoDownloadsServer :: Maybe Download
+    <*> arbitraryReducedMaybe n -- versionPackageInfoDownloadsServerMappings :: Maybe Download
   
-instance Arbitrary V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion where
-  arbitrary = sized genV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+instance Arbitrary VersionPackageInfoJavaVersion where
+  arbitrary = sized genVersionPackageInfoJavaVersion
 
-genV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion :: Int -> Gen V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-genV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion n =
-  V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-    <$> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionComponent :: Maybe Text
-    <*> arbitraryReducedMaybe n -- v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionMajorVersion :: Maybe Int
+genVersionPackageInfoJavaVersion :: Int -> Gen VersionPackageInfoJavaVersion
+genVersionPackageInfoJavaVersion n =
+  VersionPackageInfoJavaVersion
+    <$> arbitraryReducedMaybe n -- versionPackageInfoJavaVersionComponent :: Maybe Text
+    <*> arbitraryReducedMaybe n -- versionPackageInfoJavaVersionMajorVersion :: Maybe Int
   
 
 

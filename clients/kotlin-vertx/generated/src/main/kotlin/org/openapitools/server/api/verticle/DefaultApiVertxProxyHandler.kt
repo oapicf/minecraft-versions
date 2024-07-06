@@ -16,8 +16,8 @@ import io.vertx.core.json.Json
 import io.vertx.core.json.JsonArray
 import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
-import org.openapitools.server.api.model.GetMinecraftVersionManifest200Response
-import org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.server.api.model.VersionManifest
+import org.openapitools.server.api.model.VersionPackageInfo
 
 class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service: DefaultApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
     private lateinit var timerID: Long
@@ -68,7 +68,7 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
                 "getMinecraftVersionManifest" -> {
                 }
         
-                "v1PackagesPackageIdVersionIdJsonGet" -> {
+                "getMinecraftVersionPackageInfo" -> {
                     val params = context.params
                     val packageId = ApiHandlerUtils.searchStringInJson(params,"packageId")
                     if(packageId == null){
@@ -79,7 +79,7 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
                         throw IllegalArgumentException("versionId is required")
                     }
                     GlobalScope.launch(vertx.dispatcher()){
-                        val result = service.v1PackagesPackageIdVersionIdJsonGet(packageId,versionId,context)
+                        val result = service.getMinecraftVersionPackageInfo(packageId,versionId,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())

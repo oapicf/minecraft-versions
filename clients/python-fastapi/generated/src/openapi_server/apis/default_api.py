@@ -22,8 +22,8 @@ from fastapi import (  # noqa: F401
 )
 
 from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
-from openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
+from openapi_server.models.version_manifest import VersionManifest
+from openapi_server.models.version_package_info import VersionPackageInfo
 
 
 router = APIRouter()
@@ -36,28 +36,28 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
 @router.get(
     "/mc/game/version_manifest.json",
     responses={
-        200: {"model": GetMinecraftVersionManifest200Response, "description": "A list of Minecraft versions with the latest and snapshot releases"},
+        200: {"model": VersionManifest, "description": "A list of Minecraft versions with the latest and snapshot releases"},
     },
     tags=["default"],
     summary="Get Minecraft version manifest",
     response_model_by_alias=True,
 )
 async def get_minecraft_version_manifest(
-) -> GetMinecraftVersionManifest200Response:
+) -> VersionManifest:
     ...
 
 
 @router.get(
     "/v1/packages/{packageId}/{versionId}.json",
     responses={
-        200: {"model": V1PackagesPackageIdVersionIdJsonGet200Response, "description": "Get package version details"},
+        200: {"model": VersionPackageInfo, "description": "Get package version details"},
     },
     tags=["default"],
-    summary="Get Minecraft version package details",
+    summary="Get Minecraft version package info",
     response_model_by_alias=True,
 )
-async def v1_packages_package_id_version_id_json_get(
+async def get_minecraft_version_package_info(
     packageId: str = Path(..., description=""),
     versionId: str = Path(..., description=""),
-) -> V1PackagesPackageIdVersionIdJsonGet200Response:
+) -> VersionPackageInfo:
     ...

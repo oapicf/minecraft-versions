@@ -1,6 +1,6 @@
 package org.openapitools.api
 
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.model.VersionPackageInfo
 import io.swagger.v3.oas.annotations.*
 import io.swagger.v3.oas.annotations.enums.*
 import io.swagger.v3.oas.annotations.media.*
@@ -34,18 +34,18 @@ import kotlin.collections.Map
 class V1ApiController() {
 
     @Operation(
-        summary = "Get Minecraft version package details",
-        operationId = "v1PackagesPackageIdVersionIdJsonGet",
+        summary = "Get Minecraft version package info",
+        operationId = "getMinecraftVersionPackageInfo",
         description = """""",
         responses = [
-            ApiResponse(responseCode = "200", description = "Get package version details", content = [Content(schema = Schema(implementation = V1PackagesPackageIdVersionIdJsonGet200Response::class))]) ]
+            ApiResponse(responseCode = "200", description = "Get package version details", content = [Content(schema = Schema(implementation = VersionPackageInfo::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
         value = ["/v1/packages/{packageId}/{versionId}.json"],
         produces = ["application/json"]
     )
-    fun v1PackagesPackageIdVersionIdJsonGet(@Parameter(description = "", required = true) @PathVariable("packageId") packageId: kotlin.String,@Parameter(description = "", required = true) @PathVariable("versionId") versionId: kotlin.String): ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response> {
+    fun getMinecraftVersionPackageInfo(@Parameter(description = "", required = true) @PathVariable("packageId") packageId: kotlin.String,@Parameter(description = "", required = true) @PathVariable("versionId") versionId: kotlin.String): ResponseEntity<VersionPackageInfo> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

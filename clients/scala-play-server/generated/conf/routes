@@ -6,7 +6,7 @@
 # Routes for Default API
 
 GET /mc/game/version_manifest.json             api.DefaultApiController.getMinecraftVersionManifest()
-GET /v1/packages/:packageId/:versionId.json    api.DefaultApiController.v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String)
+GET /v1/packages/:packageId/:versionId.json    api.DefaultApiController.getMinecraftVersionPackageInfo(packageId: String, versionId: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/*file           controllers.Assets.at(file)

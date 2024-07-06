@@ -14,8 +14,8 @@
 
 goog.provide('API.Client.DefaultApi');
 
-goog.require('API.Client._v1_packages__packageId___versionId__json_get_200_response');
-goog.require('API.Client.getMinecraftVersionManifest_200_response');
+goog.require('API.Client.VersionManifest');
+goog.require('API.Client.VersionPackageInfo');
 
 /**
  * @constructor
@@ -48,7 +48,7 @@ API.Client.DefaultApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
  * Get Minecraft version manifest
  * 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.getMinecraftVersionManifest_200_response>}
+ * @return {!angular.$q.Promise<!API.Client.VersionManifest>}
  */
 API.Client.DefaultApi.prototype.getMinecraftVersionManifest = function(opt_extraHttpRequestParams) {
   /** @const {string} */
@@ -76,14 +76,14 @@ API.Client.DefaultApi.prototype.getMinecraftVersionManifest = function(opt_extra
 }
 
 /**
- * Get Minecraft version package details
+ * Get Minecraft version package info
  * 
  * @param {!string} packageId 
  * @param {!string} versionId 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client._v1_packages__packageId___versionId__json_get_200_response>}
+ * @return {!angular.$q.Promise<!API.Client.VersionPackageInfo>}
  */
-API.Client.DefaultApi.prototype.v1PackagesPackageIdVersionIdJsonGet = function(packageId, versionId, opt_extraHttpRequestParams) {
+API.Client.DefaultApi.prototype.getMinecraftVersionPackageInfo = function(packageId, versionId, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v1/packages/{packageId}/{versionId}.json'
       .replace('{' + 'packageId' + '}', String(packageId))
@@ -96,11 +96,11 @@ API.Client.DefaultApi.prototype.v1PackagesPackageIdVersionIdJsonGet = function(p
   var headerParams = angular.extend({}, this.defaultHeaders_);
   // verify required parameter 'packageId' is set
   if (!packageId) {
-    throw new Error('Missing required parameter packageId when calling v1PackagesPackageIdVersionIdJsonGet');
+    throw new Error('Missing required parameter packageId when calling getMinecraftVersionPackageInfo');
   }
   // verify required parameter 'versionId' is set
   if (!versionId) {
-    throw new Error('Missing required parameter versionId when calling v1PackagesPackageIdVersionIdJsonGet');
+    throw new Error('Missing required parameter versionId when calling getMinecraftVersionPackageInfo');
   }
   /** @type {!Object} */
   var httpRequestParams = {

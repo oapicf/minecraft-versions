@@ -62,7 +62,7 @@
                 "description": "",
                  "item": [
                             {
-                                "name": "Get Minecraft version package details",
+                                "name": "Get Minecraft version package info",
                                 "request": {
                                     "method": "GET",
                                     "header": [

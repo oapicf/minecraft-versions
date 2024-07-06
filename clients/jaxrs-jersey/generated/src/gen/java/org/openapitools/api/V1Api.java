@@ -6,7 +6,7 @@ import org.openapitools.api.factories.V1ApiServiceFactory;
 import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
 
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionPackageInfo;
 
 import java.util.Map;
 import java.util.List;
@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the v1 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T08:45:05.905032694Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T11:27:47.555730347Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Api  {
    private final V1ApiService delegate;
 
@@ -58,12 +58,12 @@ public class V1Api  {
     
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get Minecraft version package details", notes = "", response = V1PackagesPackageIdVersionIdJsonGet200Response.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "Get Minecraft version package info", notes = "", response = VersionPackageInfo.class, tags={  })
     @io.swagger.annotations.ApiResponses(value = {
-        @io.swagger.annotations.ApiResponse(code = 200, message = "Get package version details", response = V1PackagesPackageIdVersionIdJsonGet200Response.class)
+        @io.swagger.annotations.ApiResponse(code = 200, message = "Get package version details", response = VersionPackageInfo.class)
     })
-    public Response v1PackagesPackageIdVersionIdJsonGet(@ApiParam(value = "", required = true) @PathParam("packageId") @NotNull  String packageId,@ApiParam(value = "", required = true) @PathParam("versionId") @NotNull  String versionId,@Context SecurityContext securityContext)
+    public Response getMinecraftVersionPackageInfo(@ApiParam(value = "", required = true) @PathParam("packageId") @NotNull  String packageId,@ApiParam(value = "", required = true) @PathParam("versionId") @NotNull  String versionId,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return delegate.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, securityContext);
+        return delegate.getMinecraftVersionPackageInfo(packageId, versionId, securityContext);
     }
 }

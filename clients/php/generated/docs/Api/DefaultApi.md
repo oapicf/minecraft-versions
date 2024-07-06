@@ -5,13 +5,13 @@ All URIs are relative to https://launchermeta.mojang.com, except if the operatio
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getMinecraftVersionManifest()**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
-| [**v1PackagesPackageIdVersionIdJsonGet()**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
+| [**getMinecraftVersionPackageInfo()**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 ## `getMinecraftVersionManifest()`
 
 ```php
-getMinecraftVersionManifest(): \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response
+getMinecraftVersionManifest(): \OpenAPI\Client\Model\VersionManifest
 ```
 
 Get Minecraft version manifest
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response**](../Model/GetMinecraftVersionManifest200Response.md)
+[**\OpenAPI\Client\Model\VersionManifest**](../Model/VersionManifest.md)
 
 ### Authorization
 
@@ -59,13 +59,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `v1PackagesPackageIdVersionIdJsonGet()`
+## `getMinecraftVersionPackageInfo()`
 
 ```php
-v1PackagesPackageIdVersionIdJsonGet($package_id, $version_id): \OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response
+getMinecraftVersionPackageInfo($package_id, $version_id): \OpenAPI\Client\Model\VersionPackageInfo
 ```
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 
@@ -84,10 +84,10 @@ $package_id = 177e49d3233cb6eac42f0495c0a48e719870c2ae; // string
 $version_id = 1.21; // string
 
 try {
-    $result = $apiInstance->v1PackagesPackageIdVersionIdJsonGet($package_id, $version_id);
+    $result = $apiInstance->getMinecraftVersionPackageInfo($package_id, $version_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->v1PackagesPackageIdVersionIdJsonGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getMinecraftVersionPackageInfo: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -100,7 +100,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\V1PackagesPackageIdVersionIdJsonGet200Response**](../Model/V1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**\OpenAPI\Client\Model\VersionPackageInfo**](../Model/VersionPackageInfo.md)
 
 ### Authorization
 

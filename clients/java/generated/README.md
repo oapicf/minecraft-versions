@@ -2,7 +2,7 @@
 
 
 - API version: 0.9.0-pre.0
-  - Build date: 2024-07-06T08:44:16.570061129Z[Etc/UTC]
+  - Build date: 2024-07-06T11:26:59.170924933Z[Etc/UTC]
   - Generator version: 7.6.0
 
 SDK for Minecraft versions info
@@ -95,7 +95,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      GetMinecraftVersionManifest200Response result = apiInstance.getMinecraftVersionManifest();
+      VersionManifest result = apiInstance.getMinecraftVersionManifest();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
@@ -116,19 +116,19 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**getMinecraftVersionManifest**](docs/DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApi* | [**getMinecraftVersionPackageInfo**](docs/DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Documentation for Models
 
- - [GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [Download](docs/Download.md)
+ - [Version](docs/Version.md)
+ - [VersionManifest](docs/VersionManifest.md)
+ - [VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 <a id="documentation-for-authorization"></a>

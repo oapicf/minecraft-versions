@@ -33,14 +33,14 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DefaultAPIService V1PackagesPackageIdVersionIdJsonGet", func(t *testing.T) {
+	t.Run("Test DefaultAPIService GetMinecraftVersionPackageInfo", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var packageId string
 		var versionId string
 
-		resp, httpRes, err := apiClient.DefaultAPI.V1PackagesPackageIdVersionIdJsonGet(context.Background(), packageId, versionId).Execute()
+		resp, httpRes, err := apiClient.DefaultAPI.GetMinecraftVersionPackageInfo(context.Background(), packageId, versionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

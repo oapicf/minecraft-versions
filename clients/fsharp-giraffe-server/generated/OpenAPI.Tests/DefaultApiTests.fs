@@ -16,8 +16,8 @@ open TestHelper
 open DefaultApiHandlerTestsHelper
 open OpenAPI.DefaultApiHandler
 open OpenAPI.DefaultApiHandlerParams
-open OpenAPI.Model.GetMinecraftVersionManifest200Response
-open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
+open OpenAPI.Model.VersionManifest
+open OpenAPI.Model.VersionPackageInfo
 
 module DefaultApiHandlerTests =
 
@@ -43,7 +43,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``V1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details returns 200 where Get package version details`` () =
+  let ``GetMinecraftVersionPackageInfo - Get Minecraft version package info returns 200 where Get package version details`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()

@@ -19,8 +19,8 @@ import java.io.IOException
 import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
-import org.openapitools.client.models.GetMinecraftVersionManifest200Response
-import org.openapitools.client.models.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.client.models.VersionManifest
+import org.openapitools.client.models.VersionPackageInfo
 
 import com.squareup.moshi.Json
 
@@ -49,7 +49,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Minecraft version manifest
      * 
-     * @return GetMinecraftVersionManifest200Response
+     * @return VersionManifest
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -58,11 +58,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMinecraftVersionManifest() : GetMinecraftVersionManifest200Response {
+    fun getMinecraftVersionManifest() : VersionManifest {
         val localVarResponse = getMinecraftVersionManifestWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetMinecraftVersionManifest200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as VersionManifest
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -79,16 +79,16 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Minecraft version manifest
      * 
-     * @return ApiResponse<GetMinecraftVersionManifest200Response?>
+     * @return ApiResponse<VersionManifest?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMinecraftVersionManifestWithHttpInfo() : ApiResponse<GetMinecraftVersionManifest200Response?> {
+    fun getMinecraftVersionManifestWithHttpInfo() : ApiResponse<VersionManifest?> {
         val localVariableConfig = getMinecraftVersionManifestRequestConfig()
 
-        return request<Unit, GetMinecraftVersionManifest200Response>(
+        return request<Unit, VersionManifest>(
             localVariableConfig
         )
     }
@@ -115,11 +115,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId 
      * @param versionId 
-     * @return V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return VersionPackageInfo
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -128,11 +128,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1PackagesPackageIdVersionIdJsonGet(packageId: kotlin.String, versionId: kotlin.String) : V1PackagesPackageIdVersionIdJsonGet200Response {
-        val localVarResponse = v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(packageId = packageId, versionId = versionId)
+    fun getMinecraftVersionPackageInfo(packageId: kotlin.String, versionId: kotlin.String) : VersionPackageInfo {
+        val localVarResponse = getMinecraftVersionPackageInfoWithHttpInfo(packageId = packageId, versionId = versionId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as V1PackagesPackageIdVersionIdJsonGet200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as VersionPackageInfo
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -147,32 +147,32 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId 
      * @param versionId 
-     * @return ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response?>
+     * @return ApiResponse<VersionPackageInfo?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(packageId: kotlin.String, versionId: kotlin.String) : ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response?> {
-        val localVariableConfig = v1PackagesPackageIdVersionIdJsonGetRequestConfig(packageId = packageId, versionId = versionId)
+    fun getMinecraftVersionPackageInfoWithHttpInfo(packageId: kotlin.String, versionId: kotlin.String) : ApiResponse<VersionPackageInfo?> {
+        val localVariableConfig = getMinecraftVersionPackageInfoRequestConfig(packageId = packageId, versionId = versionId)
 
-        return request<Unit, V1PackagesPackageIdVersionIdJsonGet200Response>(
+        return request<Unit, VersionPackageInfo>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation v1PackagesPackageIdVersionIdJsonGet
+     * To obtain the request config of the operation getMinecraftVersionPackageInfo
      *
      * @param packageId 
      * @param versionId 
      * @return RequestConfig
      */
-    fun v1PackagesPackageIdVersionIdJsonGetRequestConfig(packageId: kotlin.String, versionId: kotlin.String) : RequestConfig<Unit> {
+    fun getMinecraftVersionPackageInfoRequestConfig(packageId: kotlin.String, versionId: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

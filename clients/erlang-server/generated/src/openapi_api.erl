@@ -19,7 +19,7 @@ request_params('GetMinecraftVersionManifest') ->
     [
     ];
 
-request_params('V1PackagesPackageIdVersionIdJsonGet') ->
+request_params('GetMinecraftVersionPackageInfo') ->
     [
         'packageId',
         'versionId'
@@ -55,7 +55,7 @@ request_params(_) ->
 
 
 
-request_param_info('V1PackagesPackageIdVersionIdJsonGet', 'packageId') ->
+request_param_info('GetMinecraftVersionPackageInfo', 'packageId') ->
     #{
         source =>  binding ,
         rules => [
@@ -64,7 +64,7 @@ request_param_info('V1PackagesPackageIdVersionIdJsonGet', 'packageId') ->
         ]
     };
 
-request_param_info('V1PackagesPackageIdVersionIdJsonGet', 'versionId') ->
+request_param_info('GetMinecraftVersionPackageInfo', 'versionId') ->
     #{
         source =>  binding ,
         rules => [
@@ -121,10 +121,10 @@ populate_request_param(OperationID, Name, Req0, ValidatorState) ->
 
 
 validate_response('GetMinecraftVersionManifest', 200, Body, ValidatorState) ->
-    validate_response_body('getMinecraftVersionManifest_200_response', 'getMinecraftVersionManifest_200_response', Body, ValidatorState);
+    validate_response_body('VersionManifest', 'VersionManifest', Body, ValidatorState);
 
-validate_response('V1PackagesPackageIdVersionIdJsonGet', 200, Body, ValidatorState) ->
-    validate_response_body('_v1_packages__packageId___versionId__json_get_200_response', '_v1_packages__packageId___versionId__json_get_200_response', Body, ValidatorState);
+validate_response('GetMinecraftVersionPackageInfo', 200, Body, ValidatorState) ->
+    validate_response_body('VersionPackageInfo', 'VersionPackageInfo', Body, ValidatorState);
 
 
 validate_response(_OperationID, _Code, _Body, _ValidatorState) ->

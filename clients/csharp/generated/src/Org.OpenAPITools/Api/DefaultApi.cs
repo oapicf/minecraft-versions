@@ -30,8 +30,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMinecraftVersionManifest200Response</returns>
-        GetMinecraftVersionManifest200Response GetMinecraftVersionManifest(int operationIndex = 0);
+        /// <returns>VersionManifest</returns>
+        VersionManifest GetMinecraftVersionManifest(int operationIndex = 0);
 
         /// <summary>
         /// Get Minecraft version manifest
@@ -41,20 +41,20 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMinecraftVersionManifest200Response</returns>
-        ApiResponse<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of VersionManifest</returns>
+        ApiResponse<VersionManifest> GetMinecraftVersionManifestWithHttpInfo(int operationIndex = 0);
         /// <summary>
-        /// Get Minecraft version package details
+        /// Get Minecraft version package info
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>V1PackagesPackageIdVersionIdJsonGet200Response</returns>
-        V1PackagesPackageIdVersionIdJsonGet200Response V1PackagesPackageIdVersionIdJsonGet(string packageId, string versionId, int operationIndex = 0);
+        /// <returns>VersionPackageInfo</returns>
+        VersionPackageInfo GetMinecraftVersionPackageInfo(string packageId, string versionId, int operationIndex = 0);
 
         /// <summary>
-        /// Get Minecraft version package details
+        /// Get Minecraft version package info
         /// </summary>
         /// <remarks>
         /// 
@@ -63,8 +63,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of V1PackagesPackageIdVersionIdJsonGet200Response</returns>
-        ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response> V1PackagesPackageIdVersionIdJsonGetWithHttpInfo(string packageId, string versionId, int operationIndex = 0);
+        /// <returns>ApiResponse of VersionPackageInfo</returns>
+        ApiResponse<VersionPackageInfo> GetMinecraftVersionPackageInfoWithHttpInfo(string packageId, string versionId, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -83,8 +83,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMinecraftVersionManifest200Response</returns>
-        System.Threading.Tasks.Task<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of VersionManifest</returns>
+        System.Threading.Tasks.Task<VersionManifest> GetMinecraftVersionManifestAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Minecraft version manifest
@@ -95,10 +95,10 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMinecraftVersionManifest200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMinecraftVersionManifest200Response>> GetMinecraftVersionManifestWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (VersionManifest)</returns>
+        System.Threading.Tasks.Task<ApiResponse<VersionManifest>> GetMinecraftVersionManifestWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Minecraft version package details
+        /// Get Minecraft version package info
         /// </summary>
         /// <remarks>
         /// 
@@ -108,11 +108,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of V1PackagesPackageIdVersionIdJsonGet200Response</returns>
-        System.Threading.Tasks.Task<V1PackagesPackageIdVersionIdJsonGet200Response> V1PackagesPackageIdVersionIdJsonGetAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of VersionPackageInfo</returns>
+        System.Threading.Tasks.Task<VersionPackageInfo> GetMinecraftVersionPackageInfoAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Minecraft version package details
+        /// Get Minecraft version package info
         /// </summary>
         /// <remarks>
         /// 
@@ -122,8 +122,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (V1PackagesPackageIdVersionIdJsonGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response>> V1PackagesPackageIdVersionIdJsonGetWithHttpInfoAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (VersionPackageInfo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<VersionPackageInfo>> GetMinecraftVersionPackageInfoWithHttpInfoAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -249,10 +249,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMinecraftVersionManifest200Response</returns>
-        public GetMinecraftVersionManifest200Response GetMinecraftVersionManifest(int operationIndex = 0)
+        /// <returns>VersionManifest</returns>
+        public VersionManifest GetMinecraftVersionManifest(int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response> localVarResponse = GetMinecraftVersionManifestWithHttpInfo();
+            Org.OpenAPITools.Client.ApiResponse<VersionManifest> localVarResponse = GetMinecraftVersionManifestWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -261,8 +261,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMinecraftVersionManifest200Response</returns>
-        public Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of VersionManifest</returns>
+        public Org.OpenAPITools.Client.ApiResponse<VersionManifest> GetMinecraftVersionManifestWithHttpInfo(int operationIndex = 0)
         {
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
 
@@ -292,7 +292,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetMinecraftVersionManifest200Response>("/mc/game/version_manifest.json", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VersionManifest>("/mc/game/version_manifest.json", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMinecraftVersionManifest", localVarResponse);
@@ -311,10 +311,10 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMinecraftVersionManifest200Response</returns>
-        public async System.Threading.Tasks.Task<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of VersionManifest</returns>
+        public async System.Threading.Tasks.Task<VersionManifest> GetMinecraftVersionManifestAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response> localVarResponse = await GetMinecraftVersionManifestWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<VersionManifest> localVarResponse = await GetMinecraftVersionManifestWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -324,8 +324,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMinecraftVersionManifest200Response)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response>> GetMinecraftVersionManifestWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (VersionManifest)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<VersionManifest>> GetMinecraftVersionManifestWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -356,7 +356,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMinecraftVersionManifest200Response>("/mc/game/version_manifest.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VersionManifest>("/mc/game/version_manifest.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -371,39 +371,39 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get Minecraft version package details 
+        /// Get Minecraft version package info 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>V1PackagesPackageIdVersionIdJsonGet200Response</returns>
-        public V1PackagesPackageIdVersionIdJsonGet200Response V1PackagesPackageIdVersionIdJsonGet(string packageId, string versionId, int operationIndex = 0)
+        /// <returns>VersionPackageInfo</returns>
+        public VersionPackageInfo GetMinecraftVersionPackageInfo(string packageId, string versionId, int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response> localVarResponse = V1PackagesPackageIdVersionIdJsonGetWithHttpInfo(packageId, versionId);
+            Org.OpenAPITools.Client.ApiResponse<VersionPackageInfo> localVarResponse = GetMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Minecraft version package details 
+        /// Get Minecraft version package info 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of V1PackagesPackageIdVersionIdJsonGet200Response</returns>
-        public Org.OpenAPITools.Client.ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response> V1PackagesPackageIdVersionIdJsonGetWithHttpInfo(string packageId, string versionId, int operationIndex = 0)
+        /// <returns>ApiResponse of VersionPackageInfo</returns>
+        public Org.OpenAPITools.Client.ApiResponse<VersionPackageInfo> GetMinecraftVersionPackageInfoWithHttpInfo(string packageId, string versionId, int operationIndex = 0)
         {
             // verify the required parameter 'packageId' is set
             if (packageId == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'packageId' when calling DefaultApi->V1PackagesPackageIdVersionIdJsonGet");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'packageId' when calling DefaultApi->GetMinecraftVersionPackageInfo");
             }
 
             // verify the required parameter 'versionId' is set
             if (versionId == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'versionId' when calling DefaultApi->V1PackagesPackageIdVersionIdJsonGet");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'versionId' when calling DefaultApi->GetMinecraftVersionPackageInfo");
             }
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -431,15 +431,15 @@ namespace Org.OpenAPITools.Api
             localVarRequestOptions.PathParameters.Add("packageId", Org.OpenAPITools.Client.ClientUtils.ParameterToString(packageId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", Org.OpenAPITools.Client.ClientUtils.ParameterToString(versionId)); // path parameter
 
-            localVarRequestOptions.Operation = "DefaultApi.V1PackagesPackageIdVersionIdJsonGet";
+            localVarRequestOptions.Operation = "DefaultApi.GetMinecraftVersionPackageInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<V1PackagesPackageIdVersionIdJsonGet200Response>("/v1/packages/{packageId}/{versionId}.json", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VersionPackageInfo>("/v1/packages/{packageId}/{versionId}.json", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("V1PackagesPackageIdVersionIdJsonGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMinecraftVersionPackageInfo", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -450,41 +450,41 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get Minecraft version package details 
+        /// Get Minecraft version package info 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of V1PackagesPackageIdVersionIdJsonGet200Response</returns>
-        public async System.Threading.Tasks.Task<V1PackagesPackageIdVersionIdJsonGet200Response> V1PackagesPackageIdVersionIdJsonGetAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of VersionPackageInfo</returns>
+        public async System.Threading.Tasks.Task<VersionPackageInfo> GetMinecraftVersionPackageInfoAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response> localVarResponse = await V1PackagesPackageIdVersionIdJsonGetWithHttpInfoAsync(packageId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<VersionPackageInfo> localVarResponse = await GetMinecraftVersionPackageInfoWithHttpInfoAsync(packageId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Minecraft version package details 
+        /// Get Minecraft version package info 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (V1PackagesPackageIdVersionIdJsonGet200Response)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<V1PackagesPackageIdVersionIdJsonGet200Response>> V1PackagesPackageIdVersionIdJsonGetWithHttpInfoAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (VersionPackageInfo)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<VersionPackageInfo>> GetMinecraftVersionPackageInfoWithHttpInfoAsync(string packageId, string versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'packageId' is set
             if (packageId == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'packageId' when calling DefaultApi->V1PackagesPackageIdVersionIdJsonGet");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'packageId' when calling DefaultApi->GetMinecraftVersionPackageInfo");
             }
 
             // verify the required parameter 'versionId' is set
             if (versionId == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'versionId' when calling DefaultApi->V1PackagesPackageIdVersionIdJsonGet");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'versionId' when calling DefaultApi->GetMinecraftVersionPackageInfo");
             }
 
 
@@ -513,16 +513,16 @@ namespace Org.OpenAPITools.Api
             localVarRequestOptions.PathParameters.Add("packageId", Org.OpenAPITools.Client.ClientUtils.ParameterToString(packageId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", Org.OpenAPITools.Client.ClientUtils.ParameterToString(versionId)); // path parameter
 
-            localVarRequestOptions.Operation = "DefaultApi.V1PackagesPackageIdVersionIdJsonGet";
+            localVarRequestOptions.Operation = "DefaultApi.GetMinecraftVersionPackageInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<V1PackagesPackageIdVersionIdJsonGet200Response>("/v1/packages/{packageId}/{versionId}.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VersionPackageInfo>("/v1/packages/{packageId}/{versionId}.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("V1PackagesPackageIdVersionIdJsonGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMinecraftVersionPackageInfo", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

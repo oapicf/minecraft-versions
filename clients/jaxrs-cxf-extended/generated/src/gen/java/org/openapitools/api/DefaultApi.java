@@ -1,7 +1,7 @@
 package org.openapitools.api;
 
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -33,18 +33,18 @@ public interface DefaultApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Get Minecraft version manifest", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = GetMinecraftVersionManifest200Response.class) })
-    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest();
+        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = VersionManifest.class) })
+    public VersionManifest getMinecraftVersionManifest();
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      */
     @GET
     @Path("/v1/packages/{packageId}/{versionId}.json")
     @Produces({ "application/json" })
-    @ApiOperation(value = "Get Minecraft version package details", tags={  })
+    @ApiOperation(value = "Get Minecraft version package info", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Get package version details", response = V1PackagesPackageIdVersionIdJsonGet200Response.class) })
-    public V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet(@PathParam("packageId") String packageId, @PathParam("versionId") String versionId);
+        @ApiResponse(code = 200, message = "Get package version details", response = VersionPackageInfo.class) })
+    public VersionPackageInfo getMinecraftVersionPackageInfo(@PathParam("packageId") String packageId, @PathParam("versionId") String versionId);
 }

@@ -14,8 +14,8 @@
 package com.prokarma.pkmst.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prokarma.pkmst.model.GetMinecraftVersionManifest200Response;
-import com.prokarma.pkmst.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import com.prokarma.pkmst.model.VersionManifest;
+import com.prokarma.pkmst.model.VersionPackageInfo;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -50,13 +50,13 @@ public class DefaultApiTest {
      */
     @Test
     public void getMinecraftVersionManifestTest() throws Exception {
-    ResponseEntity<GetMinecraftVersionManifest200Response> response = api.getMinecraftVersionManifest(  accept);
+    ResponseEntity<VersionManifest> response = api.getMinecraftVersionManifest(  accept);
 
         // TODO: test validations
     }
     
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * 
      *
@@ -64,10 +64,10 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1PackagesPackageIdVersionIdJsonGetTest() throws Exception {
+    public void getMinecraftVersionPackageInfoTest() throws Exception {
         String packageId = null;
         String versionId = null;
-    ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response> response = api.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId , accept);
+    ResponseEntity<VersionPackageInfo> response = api.getMinecraftVersionPackageInfo(packageId, versionId , accept);
 
         // TODO: test validations
     }

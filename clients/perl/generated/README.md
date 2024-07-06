@@ -238,14 +238,14 @@ use WWW::OpenAPIClient::DefaultApi;
 
 To load the models:
 ```perl
-use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200Response;
-use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseLatest;
-use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseVersionsInner;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200Response;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion;
+use WWW::OpenAPIClient::Object::Download;
+use WWW::OpenAPIClient::Object::Version;
+use WWW::OpenAPIClient::Object::VersionManifest;
+use WWW::OpenAPIClient::Object::VersionManifestLatest;
+use WWW::OpenAPIClient::Object::VersionPackageInfo;
+use WWW::OpenAPIClient::Object::VersionPackageInfoAssetIndex;
+use WWW::OpenAPIClient::Object::VersionPackageInfoDownloads;
+use WWW::OpenAPIClient::Object::VersionPackageInfoJavaVersion;
 
 ````
 
@@ -260,14 +260,14 @@ use warnings;
 use WWW::OpenAPIClient::DefaultApi;
 
 # load the models
-use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200Response;
-use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseLatest;
-use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseVersionsInner;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200Response;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
-use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion;
+use WWW::OpenAPIClient::Object::Download;
+use WWW::OpenAPIClient::Object::Version;
+use WWW::OpenAPIClient::Object::VersionManifest;
+use WWW::OpenAPIClient::Object::VersionManifestLatest;
+use WWW::OpenAPIClient::Object::VersionPackageInfo;
+use WWW::OpenAPIClient::Object::VersionPackageInfoAssetIndex;
+use WWW::OpenAPIClient::Object::VersionPackageInfoDownloads;
+use WWW::OpenAPIClient::Object::VersionPackageInfoJavaVersion;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -294,18 +294,18 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**get_minecraft_version_manifest**](docs/DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | [**v1_packages_package_id_version_id_json_get**](docs/DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApi* | [**get_minecraft_version_package_info**](docs/DefaultApi.md#get_minecraft_version_package_info) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 # DOCUMENTATION FOR MODELS
- - [WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [WWW::OpenAPIClient::Object::Download](docs/Download.md)
+ - [WWW::OpenAPIClient::Object::Version](docs/Version.md)
+ - [WWW::OpenAPIClient::Object::VersionManifest](docs/VersionManifest.md)
+ - [WWW::OpenAPIClient::Object::VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [WWW::OpenAPIClient::Object::VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [WWW::OpenAPIClient::Object::VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [WWW::OpenAPIClient::Object::VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [WWW::OpenAPIClient::Object::VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

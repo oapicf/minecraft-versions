@@ -80,7 +80,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
                 QString packageId = match.captured(QString("packageId").toLower());
                 QString versionId = match.captured(QString("versionId").toLower());
                 auto reqObj = new OAIDefaultApiRequest(socket, mOAIDefaultApiHandler);
-                reqObj->v1PackagesPackageIdVersionIdJsonGetRequest(packageId, versionId);
+                reqObj->getMinecraftVersionPackageInfoRequest(packageId, versionId);
                 return true;
             }
         }

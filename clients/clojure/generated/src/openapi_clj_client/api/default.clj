@@ -3,14 +3,14 @@
             [clojure.spec.alpha :as s]
             [spec-tools.core :as st]
             [orchestra.core :refer [defn-spec]]
-            [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-asset-index :refer :all]
-            [openapi-clj-client.specs.get-minecraft-version-manifest-200-response-latest :refer :all]
-            [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-downloads :refer :all]
-            [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-downloads-client :refer :all]
-            [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-java-version :refer :all]
-            [openapi-clj-client.specs.get-minecraft-version-manifest-200-response-versions-inner :refer :all]
-            [openapi-clj-client.specs.get-minecraft-version-manifest-200-response :refer :all]
-            [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response :refer :all]
+            [openapi-clj-client.specs.version-package-info-java-version :refer :all]
+            [openapi-clj-client.specs.download :refer :all]
+            [openapi-clj-client.specs.version-manifest-latest :refer :all]
+            [openapi-clj-client.specs.version-manifest :refer :all]
+            [openapi-clj-client.specs.version-package-info :refer :all]
+            [openapi-clj-client.specs.version-package-info-downloads :refer :all]
+            [openapi-clj-client.specs.version :refer :all]
+            [openapi-clj-client.specs.version-package-info-asset-index :refer :all]
             )
   (:import (java.io File)))
 
@@ -27,17 +27,17 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn-spec get-minecraft-version-manifest get-minecraft-version-manifest-200-response-spec
+(defn-spec get-minecraft-version-manifest version-manifest-spec
   "Get Minecraft version manifest"
   []
   (let [res (:data (get-minecraft-version-manifest-with-http-info))]
     (if (:decode-models *api-context*)
-       (st/decode get-minecraft-version-manifest-200-response-spec res st/string-transformer)
+       (st/decode version-manifest-spec res st/string-transformer)
        res)))
 
 
-(defn-spec v1-packages-package-id-version-id-json-get-with-http-info any?
-  "Get Minecraft version package details"
+(defn-spec get-minecraft-version-package-info-with-http-info any?
+  "Get Minecraft version package info"
   [packageId string?, versionId string?]
   (check-required-params packageId versionId)
   (call-api "/v1/packages/{packageId}/{versionId}.json" :get
@@ -49,12 +49,12 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn-spec v1-packages-package-id-version-id-json-get -v1-packages-package-id-version-id-json-get-200-response-spec
-  "Get Minecraft version package details"
+(defn-spec get-minecraft-version-package-info version-package-info-spec
+  "Get Minecraft version package info"
   [packageId string?, versionId string?]
-  (let [res (:data (v1-packages-package-id-version-id-json-get-with-http-info packageId versionId))]
+  (let [res (:data (get-minecraft-version-package-info-with-http-info packageId versionId))]
     (if (:decode-models *api-context*)
-       (st/decode -v1-packages-package-id-version-id-json-get-200-response-spec res st/string-transformer)
+       (st/decode version-package-info-spec res st/string-transformer)
        res)))
 
 

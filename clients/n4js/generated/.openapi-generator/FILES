@@ -1,4 +1,8 @@
 .openapi-generator-ignore
 ApiHelper.n4js
 DefaultApi.n4js
+Download.n4jsd
 README.md
+Version.n4jsd
+VersionManifest.n4jsd
+VersionPackageInfo.n4jsd

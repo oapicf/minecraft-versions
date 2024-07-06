@@ -15,29 +15,29 @@
 #' \strong{ GetMinecraftVersionManifest } \emph{ Get Minecraft version manifest }
 #'
 #' \itemize{
-#' \item \emph{ @returnType } \link{GetMinecraftVersionManifest200Response} \cr
+#' \item \emph{ @returnType } \link{VersionManifest} \cr
 #'
 #'
 #' \item status code : 200 | A list of Minecraft versions with the latest and snapshot releases
 #'
-#' \item return type : GetMinecraftVersionManifest200Response
+#' \item return type : VersionManifest
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' }
 #'
-#' \strong{ V1PackagesPackageIdVersionIdJsonGet } \emph{ Get Minecraft version package details }
+#' \strong{ GetMinecraftVersionPackageInfo } \emph{ Get Minecraft version package info }
 #'
 #' \itemize{
 #' \item \emph{ @param } package_id character
 #' \item \emph{ @param } version_id character
-#' \item \emph{ @returnType } \link{V1PackagesPackageIdVersionIdJsonGet200Response} \cr
+#' \item \emph{ @returnType } \link{VersionPackageInfo} \cr
 #'
 #'
 #' \item status code : 200 | Get package version details
 #'
-#' \item return type : V1PackagesPackageIdVersionIdJsonGet200Response
+#' \item return type : VersionPackageInfo
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -62,18 +62,18 @@
 #' dput(result)
 #'
 #'
-#' ####################  V1PackagesPackageIdVersionIdJsonGet  ####################
+#' ####################  GetMinecraftVersionPackageInfo  ####################
 #'
 #' library(openapi)
 #' var_package_id <- "177e49d3233cb6eac42f0495c0a48e719870c2ae" # character | 
 #' var_version_id <- "1.21" # character | 
 #'
-#' #Get Minecraft version package details
+#' #Get Minecraft version package info
 #' api_instance <- DefaultApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$V1PackagesPackageIdVersionIdJsonGet(var_package_id, var_version_iddata_file = "result.txt")
-#' result <- api_instance$V1PackagesPackageIdVersionIdJsonGet(var_package_id, var_version_id)
+#' # result <- api_instance$GetMinecraftVersionPackageInfo(var_package_id, var_version_iddata_file = "result.txt")
+#' result <- api_instance$GetMinecraftVersionPackageInfo(var_package_id, var_version_id)
 #' dput(result)
 #'
 #'
@@ -106,7 +106,7 @@ DefaultApi <- R6::R6Class(
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return GetMinecraftVersionManifest200Response
+    #' @return VersionManifest
     #' @export
     GetMinecraftVersionManifest = function(data_file = NULL, ...) {
       local_var_response <- self$GetMinecraftVersionManifestWithHttpInfo(data_file = data_file, ...)
@@ -127,7 +127,7 @@ DefaultApi <- R6::R6Class(
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return API response (GetMinecraftVersionManifest200Response) with additional information such as HTTP status code, headers
+    #' @return API response (VersionManifest) with additional information such as HTTP status code, headers
     #' @export
     GetMinecraftVersionManifestWithHttpInfo = function(data_file = NULL, ...) {
       args <- list(...)
@@ -167,7 +167,7 @@ DefaultApi <- R6::R6Class(
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response_as_text(), "GetMinecraftVersionManifest200Response", loadNamespace("openapi")),
+          self$api_client$deserialize(local_var_resp$response_as_text(), "VersionManifest", loadNamespace("openapi")),
           error = function(e) {
             stop("Failed to deserialize response")
           }
@@ -185,19 +185,19 @@ DefaultApi <- R6::R6Class(
         local_var_resp
       }
     },
-    #' Get Minecraft version package details
+    #' Get Minecraft version package info
     #'
     #' @description
-    #' Get Minecraft version package details
+    #' Get Minecraft version package info
     #'
     #' @param package_id 
     #' @param version_id 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return V1PackagesPackageIdVersionIdJsonGet200Response
+    #' @return VersionPackageInfo
     #' @export
-    V1PackagesPackageIdVersionIdJsonGet = function(package_id, version_id, data_file = NULL, ...) {
-      local_var_response <- self$V1PackagesPackageIdVersionIdJsonGetWithHttpInfo(package_id, version_id, data_file = data_file, ...)
+    GetMinecraftVersionPackageInfo = function(package_id, version_id, data_file = NULL, ...) {
+      local_var_response <- self$GetMinecraftVersionPackageInfoWithHttpInfo(package_id, version_id, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         local_var_response$content
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -208,18 +208,18 @@ DefaultApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' Get Minecraft version package details
+    #' Get Minecraft version package info
     #'
     #' @description
-    #' Get Minecraft version package details
+    #' Get Minecraft version package info
     #'
     #' @param package_id 
     #' @param version_id 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return API response (V1PackagesPackageIdVersionIdJsonGet200Response) with additional information such as HTTP status code, headers
+    #' @return API response (VersionPackageInfo) with additional information such as HTTP status code, headers
     #' @export
-    V1PackagesPackageIdVersionIdJsonGetWithHttpInfo = function(package_id, version_id, data_file = NULL, ...) {
+    GetMinecraftVersionPackageInfoWithHttpInfo = function(package_id, version_id, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -275,7 +275,7 @@ DefaultApi <- R6::R6Class(
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response_as_text(), "V1PackagesPackageIdVersionIdJsonGet200Response", loadNamespace("openapi")),
+          self$api_client$deserialize(local_var_resp$response_as_text(), "VersionPackageInfo", loadNamespace("openapi")),
           error = function(e) {
             stop("Failed to deserialize response")
           }

@@ -1,7 +1,7 @@
 package org.openapitools.api;
 
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -33,7 +33,7 @@ public class DefaultApiTest {
         // given
 
         // when
-        GetMinecraftVersionManifest200Response body = api.getMinecraftVersionManifest().block();
+        VersionManifest body = api.getMinecraftVersionManifest().block();
 
         // then
         // TODO implement the getMinecraftVersionManifestTest()
@@ -41,20 +41,20 @@ public class DefaultApiTest {
 
     
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      */
     @Test
     @Disabled("Not Implemented")
-    public void v1PackagesPackageIdVersionIdJsonGetTest() {
+    public void getMinecraftVersionPackageInfoTest() {
         // given
         String packageId = "177e49d3233cb6eac42f0495c0a48e719870c2ae";
         String versionId = "1.21";
 
         // when
-        V1PackagesPackageIdVersionIdJsonGet200Response body = api.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId).block();
+        VersionPackageInfo body = api.getMinecraftVersionPackageInfo(packageId, versionId).block();
 
         // then
-        // TODO implement the v1PackagesPackageIdVersionIdJsonGetTest()
+        // TODO implement the getMinecraftVersionPackageInfoTest()
     }
 
     

@@ -54,7 +54,7 @@ bool OpenAPIDefaultApi::GetMinecraftVersionManifestResponse::FromJson(const TSha
 	return TryGetJsonValue(JsonValue, Content);
 }
 
-FString OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetRequest::ComputePath() const
+FString OpenAPIDefaultApi::GetMinecraftVersionPackageInfoRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
 	{ TEXT("packageId"), FStringFormatArg(ToUrlString(PackageId)) },
@@ -65,7 +65,7 @@ FString OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetRequest::ComputePa
 	return Path;
 }
 
-void OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetRequest::SetupHttpRequest(const FHttpRequestRef& HttpRequest) const
+void OpenAPIDefaultApi::GetMinecraftVersionPackageInfoRequest::SetupHttpRequest(const FHttpRequestRef& HttpRequest) const
 {
 	static const TArray<FString> Consumes = {  };
 	//static const TArray<FString> Produces = { TEXT("application/json") };
@@ -74,7 +74,7 @@ void OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetRequest::SetupHttpReq
 
 }
 
-void OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetResponse::SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode)
+void OpenAPIDefaultApi::GetMinecraftVersionPackageInfoResponse::SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode)
 {
 	Response::SetHttpResponseCode(InHttpResponseCode);
 	switch ((int)InHttpResponseCode)
@@ -85,7 +85,7 @@ void OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetResponse::SetHttpResp
 	}
 }
 
-bool OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGetResponse::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
+bool OpenAPIDefaultApi::GetMinecraftVersionPackageInfoResponse::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
 {
 	return TryGetJsonValue(JsonValue, Content);
 }

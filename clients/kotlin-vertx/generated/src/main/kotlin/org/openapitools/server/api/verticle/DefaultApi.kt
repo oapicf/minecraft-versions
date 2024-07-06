@@ -1,7 +1,7 @@
 package org.openapitools.server.api.verticle
 
-import org.openapitools.server.api.model.GetMinecraftVersionManifest200Response
-import org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.server.api.model.VersionManifest
+import org.openapitools.server.api.model.VersionPackageInfo
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import io.vertx.core.json.JsonArray
@@ -20,10 +20,10 @@ interface DefaultApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* getMinecraftVersionManifest
      * Get Minecraft version manifest */
-    suspend fun getMinecraftVersionManifest(context:OperationRequest):Response<GetMinecraftVersionManifest200Response>
-    /* v1PackagesPackageIdVersionIdJsonGet
-     * Get Minecraft version package details */
-    suspend fun v1PackagesPackageIdVersionIdJsonGet(packageId:kotlin.String?,versionId:kotlin.String?,context:OperationRequest):Response<V1PackagesPackageIdVersionIdJsonGet200Response>
+    suspend fun getMinecraftVersionManifest(context:OperationRequest):Response<VersionManifest>
+    /* getMinecraftVersionPackageInfo
+     * Get Minecraft version package info */
+    suspend fun getMinecraftVersionPackageInfo(packageId:kotlin.String?,versionId:kotlin.String?,context:OperationRequest):Response<VersionPackageInfo>
     companion object {
         const val address = "DefaultApi-service"
         suspend fun createRouterFactory(vertx: Vertx,path:String): io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory {

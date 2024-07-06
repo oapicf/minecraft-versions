@@ -33,14 +33,14 @@ h4. Responses
 
     	|| Status Code | {status:colour=Green|title=200|subtle=false} |
     	|| Message | A list of Minecraft versions with the latest and snapshot releases |
-    	|| Response Type | getMinecraftVersionManifest_200_response |
-    	|| Response Model | [getMinecraftVersionManifest_200_response Model|#getMinecraftVersionManifest_200_responseModelAnchor|Jump to model] |
+    	|| Response Type | VersionManifest |
+    	|| Response Model | [VersionManifest Model|#VersionManifestModelAnchor|Jump to model] |
     	|| Response Schema | {code:collapse=true}{
   "description" : "A list of Minecraft versions with the latest and snapshot releases",
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response"
+        "$ref" : "#/components/schemas/VersionManifest"
       }
     }
   }
@@ -51,9 +51,9 @@ h4. Responses
 
 
 
-h3. v1PackagesPackageIdVersionIdJsonGet
-{panel:title=v1PackagesPackageIdVersionIdJsonGet|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
-    *Summary:* Get Minecraft version package details
+h3. getMinecraftVersionPackageInfo
+{panel:title=getMinecraftVersionPackageInfo|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+    *Summary:* Get Minecraft version package info
     *Description:* *No Description*
 
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
@@ -74,14 +74,14 @@ h4. Responses
 
     	|| Status Code | {status:colour=Green|title=200|subtle=false} |
     	|| Message | Get package version details |
-    	|| Response Type | _v1_packages__packageId___versionId__json_get_200_response |
-    	|| Response Model | [_v1_packages__packageId___versionId__json_get_200_response Model|#_v1_packages__packageId___versionId__json_get_200_responseModelAnchor|Jump to model] |
+    	|| Response Type | VersionPackageInfo |
+    	|| Response Model | [VersionPackageInfo Model|#VersionPackageInfoModelAnchor|Jump to model] |
     	|| Response Schema | {code:collapse=true}{
   "description" : "Get package version details",
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response"
+        "$ref" : "#/components/schemas/VersionPackageInfo"
       }
     }
   }
@@ -94,28 +94,19 @@ h4. Responses
 {anchor:models}
 h2. Models
 
-        {anchor:GetMinecraftVersionManifest200ResponseModelAnchor}
-        h3. GetMinecraftVersionManifest200Response
+        {anchor:DownloadModelAnchor}
+        h3. Download
 
         
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
-         |latest |(x) |{noformat:nopanel=true}getMinecraftVersionManifest_200_response_latest{noformat} |  |  | null
-         |versions |(x) |{noformat:nopanel=true}array[getMinecraftVersionManifest_200_response_versions_inner]{noformat} |  |  | null
+         |sha1 |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |size |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          
-        {anchor:GetMinecraftVersionManifest200ResponseLatestModelAnchor}
-        h3. GetMinecraftVersionManifest200ResponseLatest
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |release |(x) |{noformat:nopanel=true}String{noformat} |  |  | 1.21
-         |snapshot |(x) |{noformat:nopanel=true}String{noformat} |  |  | 24w14potato
-         
-        {anchor:GetMinecraftVersionManifest200ResponseVersionsInnerModelAnchor}
-        h3. GetMinecraftVersionManifest200ResponseVersionsInner
+        {anchor:VersionModelAnchor}
+        h3. Version
 
         
 
@@ -127,28 +118,48 @@ h2. Models
          |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41Z
          |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19Z
          
-        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseModelAnchor}
-        h3. V1PackagesPackageIdVersionIdJsonGet200Response
+        {anchor:VersionManifestModelAnchor}
+        h3. VersionManifest
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |latest |(x) |{noformat:nopanel=true}VersionManifest_latest{noformat} |  |  | null
+         |versions |(x) |{noformat:nopanel=true}array[Version]{noformat} |  |  | null
+         
+        {anchor:VersionManifestLatestModelAnchor}
+        h3. VersionManifestLatest
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |release |(x) |{noformat:nopanel=true}String{noformat} |  |  | 1.21
+         |snapshot |(x) |{noformat:nopanel=true}String{noformat} |  |  | 24w14potato
+         
+        {anchor:VersionPackageInfoModelAnchor}
+        h3. VersionPackageInfo
 
         
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
          |version |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |assetIndex |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_assetIndex{noformat} |  |  | null
+         |assetIndex |(x) |{noformat:nopanel=true}VersionPackageInfo_assetIndex{noformat} |  |  | null
          |assets |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
          |complianceLevel |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
-         |downloads |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads{noformat} |  |  | null
+         |downloads |(x) |{noformat:nopanel=true}VersionPackageInfo_downloads{noformat} |  |  | null
          |id |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |javaVersion |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_javaVersion{noformat} |  |  | null
+         |javaVersion |(x) |{noformat:nopanel=true}VersionPackageInfo_javaVersion{noformat} |  |  | null
          |mainClass |(x) |{noformat:nopanel=true}String{noformat} |  |  | net.minecraft.client.main.Main
          |minimumLauncherVersion |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | 21
          |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41Z
          |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19Z
          |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | snapshot
          
-        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexModelAnchor}
-        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+        {anchor:VersionPackageInfoAssetIndexModelAnchor}
+        h3. VersionPackageInfoAssetIndex
 
         
 
@@ -160,31 +171,20 @@ h2. Models
          |totalSize |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
          |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          
-        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsModelAnchor}
-        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+        {anchor:VersionPackageInfoDownloadsModelAnchor}
+        h3. VersionPackageInfoDownloads
 
         
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
-         |client |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
-         |client_mappings |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
-         |server |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
-         |server_mappings |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
+         |client |(x) |{noformat:nopanel=true}Download{noformat} |  |  | null
+         |client_mappings |(x) |{noformat:nopanel=true}Download{noformat} |  |  | null
+         |server |(x) |{noformat:nopanel=true}Download{noformat} |  |  | null
+         |server_mappings |(x) |{noformat:nopanel=true}Download{noformat} |  |  | null
          
-        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientModelAnchor}
-        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |sha1 |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         |size |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
-         |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
-         
-        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionModelAnchor}
-        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+        {anchor:VersionPackageInfoJavaVersionModelAnchor}
+        h3. VersionPackageInfoJavaVersion
 
         
 

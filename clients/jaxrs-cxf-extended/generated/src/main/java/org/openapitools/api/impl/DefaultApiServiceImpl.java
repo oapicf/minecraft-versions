@@ -1,8 +1,8 @@
 package org.openapitools.api.impl;
 
 import org.openapitools.api.*;
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -23,17 +23,17 @@ public class DefaultApiServiceImpl implements DefaultApi {
      *
      */
     @Override
-    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest() {
+    public VersionManifest getMinecraftVersionManifest() {
         // TODO: Implement...
         return null;
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      */
     @Override
-    public V1PackagesPackageIdVersionIdJsonGet200Response v1PackagesPackageIdVersionIdJsonGet(String packageId, String versionId) {
+    public VersionPackageInfo getMinecraftVersionPackageInfo(String packageId, String versionId) {
         // TODO: Implement...
         return null;
     }

@@ -28,14 +28,14 @@ public class OASDefaultApi {
     /**
      * Get Minecraft version manifest
      * 
-     * @return OASGetMinecraftVersionManifest200Res
+     * @return OASVersionManifest
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASGetMinecraftVersionManifest200Res getMinecraftVersionManifest() {
+    public OASVersionManifest getMinecraftVersionManifest() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASGetMinecraftVersionManifest200Res) client.invoke(
+        return (OASVersionManifest) client.invoke(
             'GET', '/mc/game/version_manifest.json', '',
             query, form,
             new Map<String, Object>(),
@@ -43,24 +43,24 @@ public class OASDefaultApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            OASGetMinecraftVersionManifest200Res.class
+            OASVersionManifest.class
         );
     }
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * 
      * @param packageId  (required)
      * @param versionId  (required)
-     * @return OASV1PackagesPackageIdVersionIdJsonG
+     * @return OASVersionPackageInfo
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASV1PackagesPackageIdVersionIdJsonG v1PackagesPackageIdVersionIdJsonGet(Map<String, Object> params) {
+    public OASVersionPackageInfo getMinecraftVersionPackageInfo(Map<String, Object> params) {
         client.assertNotNull(params.get('packageId'), 'packageId');
         client.assertNotNull(params.get('versionId'), 'versionId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASV1PackagesPackageIdVersionIdJsonG) client.invoke(
+        return (OASVersionPackageInfo) client.invoke(
             'GET', '/v1/packages/{packageId}/{versionId}.json', '',
             query, form,
             new Map<String, Object>{
@@ -71,7 +71,7 @@ public class OASDefaultApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            OASV1PackagesPackageIdVersionIdJsonG.class
+            OASVersionPackageInfo.class
         );
     }
 }

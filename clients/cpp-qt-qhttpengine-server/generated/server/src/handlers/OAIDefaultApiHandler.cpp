@@ -33,18 +33,18 @@ void OAIDefaultApiHandler::getMinecraftVersionManifest() {
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr )
     {
-        OAIGetMinecraftVersionManifest_200_response res;
+        OAIVersionManifest res;
         reqObj->getMinecraftVersionManifestResponse(res);
     }
 }
-void OAIDefaultApiHandler::v1PackagesPackageIdVersionIdJsonGet(QString package_id, QString version_id) {
+void OAIDefaultApiHandler::getMinecraftVersionPackageInfo(QString package_id, QString version_id) {
     Q_UNUSED(package_id);
     Q_UNUSED(version_id);
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr )
     {
-        OAI_v1_packages__packageId___versionId__json_get_200_response res;
-        reqObj->v1PackagesPackageIdVersionIdJsonGetResponse(res);
+        OAIVersionPackageInfo res;
+        reqObj->getMinecraftVersionPackageInfoResponse(res);
     }
 }
 

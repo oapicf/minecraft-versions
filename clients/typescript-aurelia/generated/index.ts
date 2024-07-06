@@ -14,12 +14,12 @@ export { Api } from './Api';
 export { AuthStorage } from './AuthStorage';
 export { DefaultApi } from './DefaultApi';
 export {
-  GetMinecraftVersionManifest200Response,
-  GetMinecraftVersionManifest200ResponseLatest,
-  GetMinecraftVersionManifest200ResponseVersionsInner,
-  V1PackagesPackageIdVersionIdJsonGet200Response,
-  V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
-  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,
-  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient,
-  V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion,
+  Download,
+  Version,
+  VersionManifest,
+  VersionManifestLatest,
+  VersionPackageInfo,
+  VersionPackageInfoAssetIndex,
+  VersionPackageInfoDownloads,
+  VersionPackageInfoJavaVersion,
 } from './models';

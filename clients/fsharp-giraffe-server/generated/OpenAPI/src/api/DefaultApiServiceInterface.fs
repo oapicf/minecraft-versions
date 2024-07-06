@@ -10,5 +10,5 @@ module DefaultApiServiceInterface =
     //#region Service interface
     type IDefaultApiService =
       abstract member GetMinecraftVersionManifest:HttpContext ->GetMinecraftVersionManifestResult
-      abstract member V1PackagesPackageIdVersionIdJsonGet:HttpContext -> V1PackagesPackageIdVersionIdJsonGetArgs->V1PackagesPackageIdVersionIdJsonGetResult
+      abstract member GetMinecraftVersionPackageInfo:HttpContext -> GetMinecraftVersionPackageInfoArgs->GetMinecraftVersionPackageInfoResult
     //#endregion

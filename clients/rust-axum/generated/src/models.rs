@@ -11,7 +11,7 @@ use crate::{models, types::*};
       
     #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
     #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))] 
-    pub struct V1PackagesPackageIdVersionIdJsonGetPathParams {
+    pub struct GetMinecraftVersionPackageInfoPathParams {
                 pub package_id: String,
                 pub version_id: String,
     }
@@ -24,37 +24,62 @@ use crate::{models, types::*};
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct GetMinecraftVersionManifest200Response {
-    #[serde(rename = "latest")]
+pub struct Download {
+    #[serde(rename = "sha1")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub latest: Option<models::GetMinecraftVersionManifest200ResponseLatest>,
+    pub sha1: Option<String>,
 
-    #[serde(rename = "versions")]
+    #[serde(rename = "size")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub versions: Option<Vec<models::GetMinecraftVersionManifest200ResponseVersionsInner>>,
+    pub size: Option<i32>,
+
+    #[serde(rename = "url")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub url: Option<String>,
 
 }
 
 
-impl GetMinecraftVersionManifest200Response {
+impl Download {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> GetMinecraftVersionManifest200Response {
-        GetMinecraftVersionManifest200Response {
-            latest: None,
-            versions: None,
+    pub fn new() -> Download {
+        Download {
+            sha1: None,
+            size: None,
+            url: None,
         }
     }
 }
 
-/// Converts the GetMinecraftVersionManifest200Response value to the Query Parameters representation (style=form, explode=false)
+/// Converts the Download value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for GetMinecraftVersionManifest200Response {
+impl std::fmt::Display for Download {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
-            // Skipping latest in query parameter serialization
 
-            // Skipping versions in query parameter serialization
+            self.sha1.as_ref().map(|sha1| {
+                [
+                    "sha1".to_string(),
+                    sha1.to_string(),
+                ].join(",")
+            }),
+
+
+            self.size.as_ref().map(|size| {
+                [
+                    "size".to_string(),
+                    size.to_string(),
+                ].join(",")
+            }),
+
+
+            self.url.as_ref().map(|url| {
+                [
+                    "url".to_string(),
+                    url.to_string(),
+                ].join(",")
+            }),
 
         ];
 
@@ -62,10 +87,10 @@ impl std::fmt::Display for GetMinecraftVersionManifest200Response {
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a GetMinecraftVersionManifest200Response value
+/// Converts Query Parameters representation (style=form, explode=false) to a Download value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for GetMinecraftVersionManifest200Response {
+impl std::str::FromStr for Download {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -73,8 +98,9 @@ impl std::str::FromStr for GetMinecraftVersionManifest200Response {
         #[derive(Default)]
         #[allow(dead_code)]
         struct IntermediateRep {
-            pub latest: Vec<models::GetMinecraftVersionManifest200ResponseLatest>,
-            pub versions: Vec<Vec<models::GetMinecraftVersionManifest200ResponseVersionsInner>>,
+            pub sha1: Vec<String>,
+            pub size: Vec<i32>,
+            pub url: Vec<String>,
         }
 
         let mut intermediate_rep = IntermediateRep::default();
@@ -86,16 +112,19 @@ impl std::str::FromStr for GetMinecraftVersionManifest200Response {
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing GetMinecraftVersionManifest200Response".to_string())
+                None => return std::result::Result::Err("Missing value while parsing Download".to_string())
             };
 
             if let Some(key) = key_result {
                 #[allow(clippy::match_single_binding)]
                 match key {
                     #[allow(clippy::redundant_clone)]
-                    "latest" => intermediate_rep.latest.push(<models::GetMinecraftVersionManifest200ResponseLatest as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    "versions" => return std::result::Result::Err("Parsing a container in this style is not supported in GetMinecraftVersionManifest200Response".to_string()),
-                    _ => return std::result::Result::Err("Unexpected key while parsing GetMinecraftVersionManifest200Response".to_string())
+                    "sha1" => intermediate_rep.sha1.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "size" => intermediate_rep.size.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "url" => intermediate_rep.url.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    _ => return std::result::Result::Err("Unexpected key while parsing Download".to_string())
                 }
             }
 
@@ -104,41 +133,42 @@ impl std::str::FromStr for GetMinecraftVersionManifest200Response {
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(GetMinecraftVersionManifest200Response {
-            latest: intermediate_rep.latest.into_iter().next(),
-            versions: intermediate_rep.versions.into_iter().next(),
+        std::result::Result::Ok(Download {
+            sha1: intermediate_rep.sha1.into_iter().next(),
+            size: intermediate_rep.size.into_iter().next(),
+            url: intermediate_rep.url.into_iter().next(),
         })
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<GetMinecraftVersionManifest200Response> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<Download> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<GetMinecraftVersionManifest200Response>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<Download>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<GetMinecraftVersionManifest200Response>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<Download>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for GetMinecraftVersionManifest200Response - value: {} is invalid {}",
+                 format!("Invalid header value for Download - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraftVersionManifest200Response> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Download> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <GetMinecraftVersionManifest200Response as std::str::FromStr>::from_str(value) {
+                    match <Download as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into GetMinecraftVersionManifest200Response - {}",
+                            format!("Unable to convert header value '{}' into Download - {}",
                                 value, err))
                     }
              },
@@ -157,153 +187,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraft
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct GetMinecraftVersionManifest200ResponseLatest {
-    #[serde(rename = "release")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub release: Option<String>,
-
-    #[serde(rename = "snapshot")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub snapshot: Option<String>,
-
-}
-
-
-impl GetMinecraftVersionManifest200ResponseLatest {
-    #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> GetMinecraftVersionManifest200ResponseLatest {
-        GetMinecraftVersionManifest200ResponseLatest {
-            release: None,
-            snapshot: None,
-        }
-    }
-}
-
-/// Converts the GetMinecraftVersionManifest200ResponseLatest value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
-/// Should be implemented in a serde serializer
-impl std::fmt::Display for GetMinecraftVersionManifest200ResponseLatest {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let params: Vec<Option<String>> = vec![
-
-            self.release.as_ref().map(|release| {
-                [
-                    "release".to_string(),
-                    release.to_string(),
-                ].join(",")
-            }),
-
-
-            self.snapshot.as_ref().map(|snapshot| {
-                [
-                    "snapshot".to_string(),
-                    snapshot.to_string(),
-                ].join(",")
-            }),
-
-        ];
-
-        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
-    }
-}
-
-/// Converts Query Parameters representation (style=form, explode=false) to a GetMinecraftVersionManifest200ResponseLatest value
-/// as specified in https://swagger.io/docs/specification/serialization/
-/// Should be implemented in a serde deserializer
-impl std::str::FromStr for GetMinecraftVersionManifest200ResponseLatest {
-    type Err = String;
-
-    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
-        /// An intermediate representation of the struct to use for parsing.
-        #[derive(Default)]
-        #[allow(dead_code)]
-        struct IntermediateRep {
-            pub release: Vec<String>,
-            pub snapshot: Vec<String>,
-        }
-
-        let mut intermediate_rep = IntermediateRep::default();
-
-        // Parse into intermediate representation
-        let mut string_iter = s.split(',');
-        let mut key_result = string_iter.next();
-
-        while key_result.is_some() {
-            let val = match string_iter.next() {
-                Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing GetMinecraftVersionManifest200ResponseLatest".to_string())
-            };
-
-            if let Some(key) = key_result {
-                #[allow(clippy::match_single_binding)]
-                match key {
-                    #[allow(clippy::redundant_clone)]
-                    "release" => intermediate_rep.release.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
-                    "snapshot" => intermediate_rep.snapshot.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing GetMinecraftVersionManifest200ResponseLatest".to_string())
-                }
-            }
-
-            // Get the next key
-            key_result = string_iter.next();
-        }
-
-        // Use the intermediate representation to return the struct
-        std::result::Result::Ok(GetMinecraftVersionManifest200ResponseLatest {
-            release: intermediate_rep.release.into_iter().next(),
-            snapshot: intermediate_rep.snapshot.into_iter().next(),
-        })
-    }
-}
-
-// Methods for converting between header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest> and HeaderValue
-
-#[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest>> for HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for GetMinecraftVersionManifest200ResponseLatest - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest> {
-    type Error = String;
-
-    fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <GetMinecraftVersionManifest200ResponseLatest as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into GetMinecraftVersionManifest200ResponseLatest - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-
-
-
-
-
-
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
-#[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct GetMinecraftVersionManifest200ResponseVersionsInner {
+pub struct Version {
     #[serde(rename = "id")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
@@ -327,10 +211,10 @@ pub struct GetMinecraftVersionManifest200ResponseVersionsInner {
 }
 
 
-impl GetMinecraftVersionManifest200ResponseVersionsInner {
+impl Version {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> GetMinecraftVersionManifest200ResponseVersionsInner {
-        GetMinecraftVersionManifest200ResponseVersionsInner {
+    pub fn new() -> Version {
+        Version {
             id: None,
             r#type: None,
             url: None,
@@ -340,10 +224,10 @@ impl GetMinecraftVersionManifest200ResponseVersionsInner {
     }
 }
 
-/// Converts the GetMinecraftVersionManifest200ResponseVersionsInner value to the Query Parameters representation (style=form, explode=false)
+/// Converts the Version value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for GetMinecraftVersionManifest200ResponseVersionsInner {
+impl std::fmt::Display for Version {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
@@ -380,10 +264,10 @@ impl std::fmt::Display for GetMinecraftVersionManifest200ResponseVersionsInner {
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a GetMinecraftVersionManifest200ResponseVersionsInner value
+/// Converts Query Parameters representation (style=form, explode=false) to a Version value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for GetMinecraftVersionManifest200ResponseVersionsInner {
+impl std::str::FromStr for Version {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -407,7 +291,7 @@ impl std::str::FromStr for GetMinecraftVersionManifest200ResponseVersionsInner {
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing GetMinecraftVersionManifest200ResponseVersionsInner".to_string())
+                None => return std::result::Result::Err("Missing value while parsing Version".to_string())
             };
 
             if let Some(key) = key_result {
@@ -423,7 +307,7 @@ impl std::str::FromStr for GetMinecraftVersionManifest200ResponseVersionsInner {
                     "time" => intermediate_rep.time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "releaseTime" => intermediate_rep.release_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing GetMinecraftVersionManifest200ResponseVersionsInner".to_string())
+                    _ => return std::result::Result::Err("Unexpected key while parsing Version".to_string())
                 }
             }
 
@@ -432,7 +316,7 @@ impl std::str::FromStr for GetMinecraftVersionManifest200ResponseVersionsInner {
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(GetMinecraftVersionManifest200ResponseVersionsInner {
+        std::result::Result::Ok(Version {
             id: intermediate_rep.id.into_iter().next(),
             r#type: intermediate_rep.r#type.into_iter().next(),
             url: intermediate_rep.url.into_iter().next(),
@@ -442,34 +326,34 @@ impl std::str::FromStr for GetMinecraftVersionManifest200ResponseVersionsInner {
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<Version> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<Version>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<Version>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for GetMinecraftVersionManifest200ResponseVersionsInner - value: {} is invalid {}",
+                 format!("Invalid header value for Version - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Version> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <GetMinecraftVersionManifest200ResponseVersionsInner as std::str::FromStr>::from_str(value) {
+                    match <Version as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into GetMinecraftVersionManifest200ResponseVersionsInner - {}",
+                            format!("Unable to convert header value '{}' into Version - {}",
                                 value, err))
                     }
              },
@@ -488,14 +372,293 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraft
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct V1PackagesPackageIdVersionIdJsonGet200Response {
+pub struct VersionManifest {
+    #[serde(rename = "latest")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub latest: Option<models::VersionManifestLatest>,
+
+    #[serde(rename = "versions")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub versions: Option<Vec<models::Version>>,
+
+}
+
+
+impl VersionManifest {
+    #[allow(clippy::new_without_default, clippy::too_many_arguments)]
+    pub fn new() -> VersionManifest {
+        VersionManifest {
+            latest: None,
+            versions: None,
+        }
+    }
+}
+
+/// Converts the VersionManifest value to the Query Parameters representation (style=form, explode=false)
+/// specified in https://swagger.io/docs/specification/serialization/
+/// Should be implemented in a serde serializer
+impl std::fmt::Display for VersionManifest {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let params: Vec<Option<String>> = vec![
+            // Skipping latest in query parameter serialization
+
+            // Skipping versions in query parameter serialization
+
+        ];
+
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
+    }
+}
+
+/// Converts Query Parameters representation (style=form, explode=false) to a VersionManifest value
+/// as specified in https://swagger.io/docs/specification/serialization/
+/// Should be implemented in a serde deserializer
+impl std::str::FromStr for VersionManifest {
+    type Err = String;
+
+    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
+        /// An intermediate representation of the struct to use for parsing.
+        #[derive(Default)]
+        #[allow(dead_code)]
+        struct IntermediateRep {
+            pub latest: Vec<models::VersionManifestLatest>,
+            pub versions: Vec<Vec<models::Version>>,
+        }
+
+        let mut intermediate_rep = IntermediateRep::default();
+
+        // Parse into intermediate representation
+        let mut string_iter = s.split(',');
+        let mut key_result = string_iter.next();
+
+        while key_result.is_some() {
+            let val = match string_iter.next() {
+                Some(x) => x,
+                None => return std::result::Result::Err("Missing value while parsing VersionManifest".to_string())
+            };
+
+            if let Some(key) = key_result {
+                #[allow(clippy::match_single_binding)]
+                match key {
+                    #[allow(clippy::redundant_clone)]
+                    "latest" => intermediate_rep.latest.push(<models::VersionManifestLatest as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "versions" => return std::result::Result::Err("Parsing a container in this style is not supported in VersionManifest".to_string()),
+                    _ => return std::result::Result::Err("Unexpected key while parsing VersionManifest".to_string())
+                }
+            }
+
+            // Get the next key
+            key_result = string_iter.next();
+        }
+
+        // Use the intermediate representation to return the struct
+        std::result::Result::Ok(VersionManifest {
+            latest: intermediate_rep.latest.into_iter().next(),
+            versions: intermediate_rep.versions.into_iter().next(),
+        })
+    }
+}
+
+// Methods for converting between header::IntoHeaderValue<VersionManifest> and HeaderValue
+
+#[cfg(feature = "server")]
+impl std::convert::TryFrom<header::IntoHeaderValue<VersionManifest>> for HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<VersionManifest>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for VersionManifest - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(feature = "server")]
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManifest> {
+    type Error = String;
+
+    fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <VersionManifest as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into VersionManifest - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+
+
+
+
+
+
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
+pub struct VersionManifestLatest {
+    #[serde(rename = "release")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub release: Option<String>,
+
+    #[serde(rename = "snapshot")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub snapshot: Option<String>,
+
+}
+
+
+impl VersionManifestLatest {
+    #[allow(clippy::new_without_default, clippy::too_many_arguments)]
+    pub fn new() -> VersionManifestLatest {
+        VersionManifestLatest {
+            release: None,
+            snapshot: None,
+        }
+    }
+}
+
+/// Converts the VersionManifestLatest value to the Query Parameters representation (style=form, explode=false)
+/// specified in https://swagger.io/docs/specification/serialization/
+/// Should be implemented in a serde serializer
+impl std::fmt::Display for VersionManifestLatest {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let params: Vec<Option<String>> = vec![
+
+            self.release.as_ref().map(|release| {
+                [
+                    "release".to_string(),
+                    release.to_string(),
+                ].join(",")
+            }),
+
+
+            self.snapshot.as_ref().map(|snapshot| {
+                [
+                    "snapshot".to_string(),
+                    snapshot.to_string(),
+                ].join(",")
+            }),
+
+        ];
+
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
+    }
+}
+
+/// Converts Query Parameters representation (style=form, explode=false) to a VersionManifestLatest value
+/// as specified in https://swagger.io/docs/specification/serialization/
+/// Should be implemented in a serde deserializer
+impl std::str::FromStr for VersionManifestLatest {
+    type Err = String;
+
+    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
+        /// An intermediate representation of the struct to use for parsing.
+        #[derive(Default)]
+        #[allow(dead_code)]
+        struct IntermediateRep {
+            pub release: Vec<String>,
+            pub snapshot: Vec<String>,
+        }
+
+        let mut intermediate_rep = IntermediateRep::default();
+
+        // Parse into intermediate representation
+        let mut string_iter = s.split(',');
+        let mut key_result = string_iter.next();
+
+        while key_result.is_some() {
+            let val = match string_iter.next() {
+                Some(x) => x,
+                None => return std::result::Result::Err("Missing value while parsing VersionManifestLatest".to_string())
+            };
+
+            if let Some(key) = key_result {
+                #[allow(clippy::match_single_binding)]
+                match key {
+                    #[allow(clippy::redundant_clone)]
+                    "release" => intermediate_rep.release.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    #[allow(clippy::redundant_clone)]
+                    "snapshot" => intermediate_rep.snapshot.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    _ => return std::result::Result::Err("Unexpected key while parsing VersionManifestLatest".to_string())
+                }
+            }
+
+            // Get the next key
+            key_result = string_iter.next();
+        }
+
+        // Use the intermediate representation to return the struct
+        std::result::Result::Ok(VersionManifestLatest {
+            release: intermediate_rep.release.into_iter().next(),
+            snapshot: intermediate_rep.snapshot.into_iter().next(),
+        })
+    }
+}
+
+// Methods for converting between header::IntoHeaderValue<VersionManifestLatest> and HeaderValue
+
+#[cfg(feature = "server")]
+impl std::convert::TryFrom<header::IntoHeaderValue<VersionManifestLatest>> for HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<VersionManifestLatest>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for VersionManifestLatest - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(feature = "server")]
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManifestLatest> {
+    type Error = String;
+
+    fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <VersionManifestLatest as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into VersionManifestLatest - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+
+
+
+
+
+
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
+pub struct VersionPackageInfo {
     #[serde(rename = "version")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub version: Option<String>,
 
     #[serde(rename = "assetIndex")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub asset_index: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex>,
+    pub asset_index: Option<models::VersionPackageInfoAssetIndex>,
 
     #[serde(rename = "assets")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -507,7 +670,7 @@ pub struct V1PackagesPackageIdVersionIdJsonGet200Response {
 
     #[serde(rename = "downloads")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub downloads: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads>,
+    pub downloads: Option<models::VersionPackageInfoDownloads>,
 
     #[serde(rename = "id")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -515,7 +678,7 @@ pub struct V1PackagesPackageIdVersionIdJsonGet200Response {
 
     #[serde(rename = "javaVersion")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub java_version: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion>,
+    pub java_version: Option<models::VersionPackageInfoJavaVersion>,
 
     #[serde(rename = "mainClass")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -540,10 +703,10 @@ pub struct V1PackagesPackageIdVersionIdJsonGet200Response {
 }
 
 
-impl V1PackagesPackageIdVersionIdJsonGet200Response {
+impl VersionPackageInfo {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> V1PackagesPackageIdVersionIdJsonGet200Response {
-        V1PackagesPackageIdVersionIdJsonGet200Response {
+    pub fn new() -> VersionPackageInfo {
+        VersionPackageInfo {
             version: None,
             asset_index: None,
             assets: None,
@@ -560,10 +723,10 @@ impl V1PackagesPackageIdVersionIdJsonGet200Response {
     }
 }
 
-/// Converts the V1PackagesPackageIdVersionIdJsonGet200Response value to the Query Parameters representation (style=form, explode=false)
+/// Converts the VersionPackageInfo value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200Response {
+impl std::fmt::Display for VersionPackageInfo {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
@@ -638,10 +801,10 @@ impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200Response {
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a V1PackagesPackageIdVersionIdJsonGet200Response value
+/// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfo value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
+impl std::str::FromStr for VersionPackageInfo {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -650,12 +813,12 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
         #[allow(dead_code)]
         struct IntermediateRep {
             pub version: Vec<String>,
-            pub asset_index: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex>,
+            pub asset_index: Vec<models::VersionPackageInfoAssetIndex>,
             pub assets: Vec<i32>,
             pub compliance_level: Vec<i32>,
-            pub downloads: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads>,
+            pub downloads: Vec<models::VersionPackageInfoDownloads>,
             pub id: Vec<String>,
-            pub java_version: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion>,
+            pub java_version: Vec<models::VersionPackageInfoJavaVersion>,
             pub main_class: Vec<String>,
             pub minimum_launcher_version: Vec<i32>,
             pub time: Vec<chrono::DateTime::<chrono::Utc>>,
@@ -672,7 +835,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing V1PackagesPackageIdVersionIdJsonGet200Response".to_string())
+                None => return std::result::Result::Err("Missing value while parsing VersionPackageInfo".to_string())
             };
 
             if let Some(key) = key_result {
@@ -681,17 +844,17 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
                     #[allow(clippy::redundant_clone)]
                     "version" => intermediate_rep.version.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "assetIndex" => intermediate_rep.asset_index.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "assetIndex" => intermediate_rep.asset_index.push(<models::VersionPackageInfoAssetIndex as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "assets" => intermediate_rep.assets.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "complianceLevel" => intermediate_rep.compliance_level.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "downloads" => intermediate_rep.downloads.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "downloads" => intermediate_rep.downloads.push(<models::VersionPackageInfoDownloads as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "javaVersion" => intermediate_rep.java_version.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "javaVersion" => intermediate_rep.java_version.push(<models::VersionPackageInfoJavaVersion as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "mainClass" => intermediate_rep.main_class.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
@@ -702,7 +865,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
                     "releaseTime" => intermediate_rep.release_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing V1PackagesPackageIdVersionIdJsonGet200Response".to_string())
+                    _ => return std::result::Result::Err("Unexpected key while parsing VersionPackageInfo".to_string())
                 }
             }
 
@@ -711,7 +874,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(V1PackagesPackageIdVersionIdJsonGet200Response {
+        std::result::Result::Ok(VersionPackageInfo {
             version: intermediate_rep.version.into_iter().next(),
             asset_index: intermediate_rep.asset_index.into_iter().next(),
             assets: intermediate_rep.assets.into_iter().next(),
@@ -728,34 +891,34 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200Response {
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200Response> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<VersionPackageInfo> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200Response>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfo>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200Response>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<VersionPackageInfo>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for V1PackagesPackageIdVersionIdJsonGet200Response - value: {} is invalid {}",
+                 format!("Invalid header value for VersionPackageInfo - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200Response> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPackageInfo> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <V1PackagesPackageIdVersionIdJsonGet200Response as std::str::FromStr>::from_str(value) {
+                    match <VersionPackageInfo as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into V1PackagesPackageIdVersionIdJsonGet200Response - {}",
+                            format!("Unable to convert header value '{}' into VersionPackageInfo - {}",
                                 value, err))
                     }
              },
@@ -774,7 +937,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPa
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+pub struct VersionPackageInfoAssetIndex {
     #[serde(rename = "id")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
@@ -798,10 +961,10 @@ pub struct V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
 }
 
 
-impl V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+impl VersionPackageInfoAssetIndex {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
-        V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+    pub fn new() -> VersionPackageInfoAssetIndex {
+        VersionPackageInfoAssetIndex {
             id: None,
             sha1: None,
             size: None,
@@ -811,10 +974,10 @@ impl V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
     }
 }
 
-/// Converts the V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex value to the Query Parameters representation (style=form, explode=false)
+/// Converts the VersionPackageInfoAssetIndex value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+impl std::fmt::Display for VersionPackageInfoAssetIndex {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
@@ -863,10 +1026,10 @@ impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIn
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex value
+/// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfoAssetIndex value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+impl std::str::FromStr for VersionPackageInfoAssetIndex {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -890,7 +1053,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIn
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex".to_string())
+                None => return std::result::Result::Err("Missing value while parsing VersionPackageInfoAssetIndex".to_string())
             };
 
             if let Some(key) = key_result {
@@ -906,7 +1069,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIn
                     "totalSize" => intermediate_rep.total_size.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "url" => intermediate_rep.url.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex".to_string())
+                    _ => return std::result::Result::Err("Unexpected key while parsing VersionPackageInfoAssetIndex".to_string())
                 }
             }
 
@@ -915,7 +1078,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIn
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+        std::result::Result::Ok(VersionPackageInfoAssetIndex {
             id: intermediate_rep.id.into_iter().next(),
             sha1: intermediate_rep.sha1.into_iter().next(),
             size: intermediate_rep.size.into_iter().next(),
@@ -925,34 +1088,34 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIn
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<VersionPackageInfoAssetIndex> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoAssetIndex>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<VersionPackageInfoAssetIndex>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex - value: {} is invalid {}",
+                 format!("Invalid header value for VersionPackageInfoAssetIndex - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPackageInfoAssetIndex> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex as std::str::FromStr>::from_str(value) {
+                    match <VersionPackageInfoAssetIndex as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex - {}",
+                            format!("Unable to convert header value '{}' into VersionPackageInfoAssetIndex - {}",
                                 value, err))
                     }
              },
@@ -971,30 +1134,30 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPa
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+pub struct VersionPackageInfoDownloads {
     #[serde(rename = "client")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub client: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
+    pub client: Option<models::Download>,
 
     #[serde(rename = "client_mappings")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub client_mappings: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
+    pub client_mappings: Option<models::Download>,
 
     #[serde(rename = "server")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub server: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
+    pub server: Option<models::Download>,
 
     #[serde(rename = "server_mappings")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub server_mappings: Option<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
+    pub server_mappings: Option<models::Download>,
 
 }
 
 
-impl V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+impl VersionPackageInfoDownloads {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
-        V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+    pub fn new() -> VersionPackageInfoDownloads {
+        VersionPackageInfoDownloads {
             client: None,
             client_mappings: None,
             server: None,
@@ -1003,10 +1166,10 @@ impl V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
     }
 }
 
-/// Converts the V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads value to the Query Parameters representation (style=form, explode=false)
+/// Converts the VersionPackageInfoDownloads value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+impl std::fmt::Display for VersionPackageInfoDownloads {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             // Skipping client in query parameter serialization
@@ -1023,10 +1186,10 @@ impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloa
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads value
+/// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfoDownloads value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+impl std::str::FromStr for VersionPackageInfoDownloads {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -1034,10 +1197,10 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloa
         #[derive(Default)]
         #[allow(dead_code)]
         struct IntermediateRep {
-            pub client: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
-            pub client_mappings: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
-            pub server: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
-            pub server_mappings: Vec<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>,
+            pub client: Vec<models::Download>,
+            pub client_mappings: Vec<models::Download>,
+            pub server: Vec<models::Download>,
+            pub server_mappings: Vec<models::Download>,
         }
 
         let mut intermediate_rep = IntermediateRep::default();
@@ -1049,21 +1212,21 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloa
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads".to_string())
+                None => return std::result::Result::Err("Missing value while parsing VersionPackageInfoDownloads".to_string())
             };
 
             if let Some(key) = key_result {
                 #[allow(clippy::match_single_binding)]
                 match key {
                     #[allow(clippy::redundant_clone)]
-                    "client" => intermediate_rep.client.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "client" => intermediate_rep.client.push(<models::Download as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "client_mappings" => intermediate_rep.client_mappings.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "client_mappings" => intermediate_rep.client_mappings.push(<models::Download as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "server" => intermediate_rep.server.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "server" => intermediate_rep.server.push(<models::Download as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "server_mappings" => intermediate_rep.server_mappings.push(<models::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads".to_string())
+                    "server_mappings" => intermediate_rep.server_mappings.push(<models::Download as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    _ => return std::result::Result::Err("Unexpected key while parsing VersionPackageInfoDownloads".to_string())
                 }
             }
 
@@ -1072,7 +1235,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloa
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+        std::result::Result::Ok(VersionPackageInfoDownloads {
             client: intermediate_rep.client.into_iter().next(),
             client_mappings: intermediate_rep.client_mappings.into_iter().next(),
             server: intermediate_rep.server.into_iter().next(),
@@ -1081,34 +1244,34 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloa
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<VersionPackageInfoDownloads> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoDownloads>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<VersionPackageInfoDownloads>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads - value: {} is invalid {}",
+                 format!("Invalid header value for VersionPackageInfoDownloads - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPackageInfoDownloads> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads as std::str::FromStr>::from_str(value) {
+                    match <VersionPackageInfoDownloads as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads - {}",
+                            format!("Unable to convert header value '{}' into VersionPackageInfoDownloads - {}",
                                 value, err))
                     }
              },
@@ -1127,170 +1290,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPa
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-    #[serde(rename = "sha1")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub sha1: Option<String>,
-
-    #[serde(rename = "size")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub size: Option<i32>,
-
-    #[serde(rename = "url")]
-    #[serde(skip_serializing_if="Option::is_none")]
-    pub url: Option<String>,
-
-}
-
-
-impl V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-    #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-        V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-            sha1: None,
-            size: None,
-            url: None,
-        }
-    }
-}
-
-/// Converts the V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
-/// Should be implemented in a serde serializer
-impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let params: Vec<Option<String>> = vec![
-
-            self.sha1.as_ref().map(|sha1| {
-                [
-                    "sha1".to_string(),
-                    sha1.to_string(),
-                ].join(",")
-            }),
-
-
-            self.size.as_ref().map(|size| {
-                [
-                    "size".to_string(),
-                    size.to_string(),
-                ].join(",")
-            }),
-
-
-            self.url.as_ref().map(|url| {
-                [
-                    "url".to_string(),
-                    url.to_string(),
-                ].join(",")
-            }),
-
-        ];
-
-        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
-    }
-}
-
-/// Converts Query Parameters representation (style=form, explode=false) to a V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient value
-/// as specified in https://swagger.io/docs/specification/serialization/
-/// Should be implemented in a serde deserializer
-impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-    type Err = String;
-
-    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
-        /// An intermediate representation of the struct to use for parsing.
-        #[derive(Default)]
-        #[allow(dead_code)]
-        struct IntermediateRep {
-            pub sha1: Vec<String>,
-            pub size: Vec<i32>,
-            pub url: Vec<String>,
-        }
-
-        let mut intermediate_rep = IntermediateRep::default();
-
-        // Parse into intermediate representation
-        let mut string_iter = s.split(',');
-        let mut key_result = string_iter.next();
-
-        while key_result.is_some() {
-            let val = match string_iter.next() {
-                Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient".to_string())
-            };
-
-            if let Some(key) = key_result {
-                #[allow(clippy::match_single_binding)]
-                match key {
-                    #[allow(clippy::redundant_clone)]
-                    "sha1" => intermediate_rep.sha1.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
-                    "size" => intermediate_rep.size.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    #[allow(clippy::redundant_clone)]
-                    "url" => intermediate_rep.url.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient".to_string())
-                }
-            }
-
-            // Get the next key
-            key_result = string_iter.next();
-        }
-
-        // Use the intermediate representation to return the struct
-        std::result::Result::Ok(V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-            sha1: intermediate_rep.sha1.into_iter().next(),
-            size: intermediate_rep.size.into_iter().next(),
-            url: intermediate_rep.url.into_iter().next(),
-        })
-    }
-}
-
-// Methods for converting between header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient> and HeaderValue
-
-#[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>> for HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient> {
-    type Error = String;
-
-    fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-
-
-
-
-
-
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
-#[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+pub struct VersionPackageInfoJavaVersion {
     #[serde(rename = "component")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub component: Option<String>,
@@ -1302,20 +1302,20 @@ pub struct V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
 }
 
 
-impl V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+impl VersionPackageInfoJavaVersion {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
-        V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+    pub fn new() -> VersionPackageInfoJavaVersion {
+        VersionPackageInfoJavaVersion {
             component: None,
             major_version: None,
         }
     }
 }
 
-/// Converts the V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion value to the Query Parameters representation (style=form, explode=false)
+/// Converts the VersionPackageInfoJavaVersion value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+impl std::fmt::Display for VersionPackageInfoJavaVersion {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
@@ -1340,10 +1340,10 @@ impl std::fmt::Display for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVer
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion value
+/// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfoJavaVersion value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+impl std::str::FromStr for VersionPackageInfoJavaVersion {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -1364,7 +1364,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVer
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion".to_string())
+                None => return std::result::Result::Err("Missing value while parsing VersionPackageInfoJavaVersion".to_string())
             };
 
             if let Some(key) = key_result {
@@ -1374,7 +1374,7 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVer
                     "component" => intermediate_rep.component.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "majorVersion" => intermediate_rep.major_version.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion".to_string())
+                    _ => return std::result::Result::Err("Unexpected key while parsing VersionPackageInfoJavaVersion".to_string())
                 }
             }
 
@@ -1383,41 +1383,41 @@ impl std::str::FromStr for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVer
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+        std::result::Result::Ok(VersionPackageInfoJavaVersion {
             component: intermediate_rep.component.into_iter().next(),
             major_version: intermediate_rep.major_version.into_iter().next(),
         })
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<VersionPackageInfoJavaVersion> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoJavaVersion>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<VersionPackageInfoJavaVersion>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion - value: {} is invalid {}",
+                 format!("Invalid header value for VersionPackageInfoJavaVersion - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPackageInfoJavaVersion> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion as std::str::FromStr>::from_str(value) {
+                    match <VersionPackageInfoJavaVersion as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion - {}",
+                            format!("Unable to convert header value '{}' into VersionPackageInfoJavaVersion - {}",
                                 value, err))
                     }
              },

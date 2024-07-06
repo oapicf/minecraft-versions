@@ -5,8 +5,8 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
-#include "GetMinecraftVersionManifest_200_response.h"
-#include "_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "VersionManifest.h"
+#include "VersionPackageInfo.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -34,7 +34,7 @@ public:
  */
 bool getMinecraftVersionManifestSync(char * accessToken,
 	
-	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
+	void(* handler)(VersionManifest, Error, void* )
 	, void* userData);
 
 /*! \brief Get Minecraft version manifest. *Asynchronous*
@@ -46,11 +46,11 @@ bool getMinecraftVersionManifestSync(char * accessToken,
  */
 bool getMinecraftVersionManifestAsync(char * accessToken,
 	
-	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
+	void(* handler)(VersionManifest, Error, void* )
 	, void* userData);
 
 
-/*! \brief Get Minecraft version package details. *Synchronous*
+/*! \brief Get Minecraft version package info. *Synchronous*
  *
  * 
  * \param packageId  *Required*
@@ -59,12 +59,12 @@ bool getMinecraftVersionManifestAsync(char * accessToken,
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
-bool v1PackagesPackageIdVersionIdJsonGetSync(char * accessToken,
+bool getMinecraftVersionPackageInfoSync(char * accessToken,
 	std::string packageId, std::string versionId, 
-	void(* handler)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )
+	void(* handler)(VersionPackageInfo, Error, void* )
 	, void* userData);
 
-/*! \brief Get Minecraft version package details. *Asynchronous*
+/*! \brief Get Minecraft version package info. *Asynchronous*
  *
  * 
  * \param packageId  *Required*
@@ -73,9 +73,9 @@ bool v1PackagesPackageIdVersionIdJsonGetSync(char * accessToken,
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
-bool v1PackagesPackageIdVersionIdJsonGetAsync(char * accessToken,
+bool getMinecraftVersionPackageInfoAsync(char * accessToken,
 	std::string packageId, std::string versionId, 
-	void(* handler)(_v1_packages__packageId___versionId__json_get_200_response, Error, void* )
+	void(* handler)(VersionPackageInfo, Error, void* )
 	, void* userData);
 
 

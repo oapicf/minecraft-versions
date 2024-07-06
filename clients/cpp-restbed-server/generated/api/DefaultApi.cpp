@@ -158,7 +158,7 @@ void McGameVersion_manifest_jsonResource::handler_GET_internal(const std::shared
     const auto request = session->get_request();
     
     int status_code = 500;
-    GetMinecraftVersionManifest_200_response resultObject = GetMinecraftVersionManifest_200_response{};
+    VersionManifest resultObject = VersionManifest{};
     std::string result = "";
     
     try {
@@ -198,7 +198,7 @@ void McGameVersion_manifest_jsonResource::handler_GET_internal(const std::shared
 }
 
 
-std::pair<int, GetMinecraftVersionManifest_200_response> McGameVersion_manifest_jsonResource::handler_GET(
+std::pair<int, VersionManifest> McGameVersion_manifest_jsonResource::handler_GET(
         )
 {
     return handler_GET_func();
@@ -274,7 +274,7 @@ void V1PackagesPackageIdVersionId_jsonResource::handler_GET_internal(const std::
     std::string versionId = request->get_path_parameter("versionId", "");
     
     int status_code = 500;
-    _v1_packages__packageId___versionId__json_get_200_response resultObject = _v1_packages__packageId___versionId__json_get_200_response{};
+    VersionPackageInfo resultObject = VersionPackageInfo{};
     std::string result = "";
     
     try {
@@ -314,7 +314,7 @@ void V1PackagesPackageIdVersionId_jsonResource::handler_GET_internal(const std::
 }
 
 
-std::pair<int, _v1_packages__packageId___versionId__json_get_200_response> V1PackagesPackageIdVersionId_jsonResource::handler_GET(
+std::pair<int, VersionPackageInfo> V1PackagesPackageIdVersionId_jsonResource::handler_GET(
         std::string & packageId, std::string & versionId)
 {
     return handler_GET_func(packageId, versionId);

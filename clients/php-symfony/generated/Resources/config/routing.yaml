@@ -9,11 +9,11 @@ open_api_server_default_getminecraftversionmanifest:
     defaults:
         _controller: open_api_server.controller.default::getMinecraftVersionManifestAction
 
-open_api_server_default_v1packagespackageidversionidjsonget:
+open_api_server_default_getminecraftversionpackageinfo:
     path:     /v1/packages/{packageId}/{versionId}.json
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.default::v1PackagesPackageIdVersionIdJsonGetAction
+        _controller: open_api_server.controller.default::getMinecraftVersionPackageInfoAction
     requirements:
         packageId: '[a-z0-9]+'
         versionId: '[a-z0-9]+'

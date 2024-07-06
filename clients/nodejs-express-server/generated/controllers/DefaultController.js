@@ -12,12 +12,12 @@ const getMinecraftVersionManifest = async (request, response) => {
   await Controller.handleRequest(request, response, service.getMinecraftVersionManifest);
 };
 
-const v1PackagesPackageIdVersionIdJsonGET = async (request, response) => {
-  await Controller.handleRequest(request, response, service.v1PackagesPackageIdVersionIdJsonGET);
+const getMinecraftVersionPackageInfo = async (request, response) => {
+  await Controller.handleRequest(request, response, service.getMinecraftVersionPackageInfo);
 };
 
 
 module.exports = {
   getMinecraftVersionManifest,
-  v1PackagesPackageIdVersionIdJsonGET,
+  getMinecraftVersionPackageInfo,
 };

@@ -137,7 +137,7 @@ void DefaultApiMcGameVersion_manifest.jsonResource::handler_GET_internal(const s
 
 
     int status_code = 500;
-    std::shared_ptr<GetMinecraftVersionManifest_200_response> resultObject = std::make_shared<GetMinecraftVersionManifest_200_response>();
+    std::shared_ptr<VersionManifest> resultObject = std::make_shared<VersionManifest>();
     std::string result = "";
 
     try {
@@ -165,7 +165,7 @@ void DefaultApiMcGameVersion_manifest.jsonResource::handler_GET_internal(const s
 }
 
 
-std::pair<int, std::shared_ptr<GetMinecraftVersionManifest_200_response>> DefaultApiMcGameVersion_manifest.jsonResource::handler_GET(
+std::pair<int, std::shared_ptr<VersionManifest>> DefaultApiMcGameVersion_manifest.jsonResource::handler_GET(
         )
 {
     throw DefaultApiException(501, "Not implemented");
@@ -237,7 +237,7 @@ void DefaultApiV1PackagesPackageId{versionId}.jsonResource::handler_GET_internal
 
 
     int status_code = 500;
-    std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_response> resultObject = std::make_shared<_v1_packages__packageId___versionId__json_get_200_response>();
+    std::shared_ptr<VersionPackageInfo> resultObject = std::make_shared<VersionPackageInfo>();
     std::string result = "";
 
     try {
@@ -265,7 +265,7 @@ void DefaultApiV1PackagesPackageId{versionId}.jsonResource::handler_GET_internal
 }
 
 
-std::pair<int, std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_response>> DefaultApiV1PackagesPackageId{versionId}.jsonResource::handler_GET(
+std::pair<int, std::shared_ptr<VersionPackageInfo>> DefaultApiV1PackagesPackageId{versionId}.jsonResource::handler_GET(
         std::string const & packageId, std::string const & versionId)
 {
     throw DefaultApiException(501, "Not implemented");

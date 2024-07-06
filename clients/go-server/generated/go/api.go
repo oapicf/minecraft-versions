@@ -21,7 +21,7 @@ import (
 // pass the data to a DefaultAPIServicer to perform the required actions, then write the service results to the http response.
 type DefaultAPIRouter interface { 
 	GetMinecraftVersionManifest(http.ResponseWriter, *http.Request)
-	V1PackagesPackageIdVersionIdJsonGet(http.ResponseWriter, *http.Request)
+	GetMinecraftVersionPackageInfo(http.ResponseWriter, *http.Request)
 }
 
 
@@ -31,5 +31,5 @@ type DefaultAPIRouter interface {
 // and updated with the logic required for the API.
 type DefaultAPIServicer interface { 
 	GetMinecraftVersionManifest(context.Context) (ImplResponse, error)
-	V1PackagesPackageIdVersionIdJsonGet(context.Context, string, string) (ImplResponse, error)
+	GetMinecraftVersionPackageInfo(context.Context, string, string) (ImplResponse, error)
 }

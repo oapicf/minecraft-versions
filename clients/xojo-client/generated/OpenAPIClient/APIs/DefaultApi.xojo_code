@@ -6,7 +6,7 @@ Protected Class DefaultApi
 		  // Get Minecraft version manifest
 		  // - 
 		  //
-		  // Invokes DefaultApiCallbackHandler.GetMinecraftVersionManifestCallback(GetMinecraftVersionManifest200Response) on completion. 
+		  // Invokes DefaultApiCallbackHandler.GetMinecraftVersionManifestCallback(VersionManifest) on completion. 
 		  //
 		  // - GET /mc/game/version_manifest.json
 		  // - defaultResponse: Nil
@@ -38,7 +38,7 @@ Protected Class DefaultApi
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function GetMinecraftVersionManifestPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.GetMinecraftVersionManifest200Response) As Boolean
+		Private Function GetMinecraftVersionManifestPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.VersionManifest) As Boolean
 		  Dim contentType As String = Headers.Value("Content-Type")
 		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
 		  Content = DefineEncoding(Content, contentEncoding)
@@ -46,7 +46,7 @@ Protected Class DefaultApi
 		  If HTTPStatus > 199 and HTTPStatus < 300 then
 		    If contentType.LeftB(16) = "application/json" then
 		      
-			  outData = New OpenAPIClient.Models.GetMinecraftVersionManifest200Response
+			  outData = New OpenAPIClient.Models.VersionManifest
 			  Try
 		        Xoson.fromJSON(outData, Content.toText())
 
@@ -99,7 +99,7 @@ Protected Class DefaultApi
 		  If sender <> nil Then sender.Close()
 
 		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
-		  Dim data As OpenAPIClient.Models.GetMinecraftVersionManifest200Response
+		  Dim data As OpenAPIClient.Models.VersionManifest
 		  CallbackHandler.GetMinecraftVersionManifestCallback(error, data)
 		End Sub
 	#tag EndMethod
@@ -113,7 +113,7 @@ Protected Class DefaultApi
 		  
 		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
 		  
-		  Dim data As OpenAPIClient.Models.GetMinecraftVersionManifest200Response
+		  Dim data As OpenAPIClient.Models.VersionManifest
 		  Call GetMinecraftVersionManifestPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
 		  
 		  CallbackHandler.GetMinecraftVersionManifestCallback(error, data)
@@ -124,14 +124,14 @@ Protected Class DefaultApi
 
 
 	#tag Method, Flags = &h0
-		Sub V1PackagesPackageIdVersionIdJsonGet(, packageId As String, versionId As String)
-		  // Operation 
-		  // Get Minecraft version package details
+		Sub GetMinecraftVersionPackageInfo(, packageId As String, versionId As String)
+		  // Operation getMinecraftVersionPackageInfo
+		  // Get Minecraft version package info
 		  // - 
 		  // - parameter packageId: (path)  
 		  // - parameter versionId: (path)  
 		  //
-		  // Invokes DefaultApiCallbackHandler.V1PackagesPackageIdVersionIdJsonGetCallback(V1PackagesPackageIdVersionIdJsonGet200Response) on completion. 
+		  // Invokes DefaultApiCallbackHandler.GetMinecraftVersionPackageInfoCallback(VersionPackageInfo) on completion. 
 		  //
 		  // - GET /v1/packages/{packageId}/{versionId}.json
 		  // - defaultResponse: Nil
@@ -155,8 +155,8 @@ Protected Class DefaultApi
 		  localVarPath = localVarPath.ReplaceAllB("{versionId}", localVarPathStringversionId)
 		  
 		  
-		  AddHandler localVarHTTPSocket.PageReceived, addressof me.V1PackagesPackageIdVersionIdJsonGet_handler
-		  AddHandler localVarHTTPSocket.Error, addressof Me.V1PackagesPackageIdVersionIdJsonGet_error
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.GetMinecraftVersionPackageInfo_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.GetMinecraftVersionPackageInfo_error
 		  
 		  
 		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath)
@@ -169,7 +169,7 @@ Protected Class DefaultApi
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function V1PackagesPackageIdVersionIdJsonGetPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200Response) As Boolean
+		Private Function GetMinecraftVersionPackageInfoPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.VersionPackageInfo) As Boolean
 		  Dim contentType As String = Headers.Value("Content-Type")
 		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
 		  Content = DefineEncoding(Content, contentEncoding)
@@ -177,7 +177,7 @@ Protected Class DefaultApi
 		  If HTTPStatus > 199 and HTTPStatus < 300 then
 		    If contentType.LeftB(16) = "application/json" then
 		      
-			  outData = New OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200Response
+			  outData = New OpenAPIClient.Models.VersionPackageInfo
 			  Try
 		        Xoson.fromJSON(outData, Content.toText())
 
@@ -226,17 +226,17 @@ Protected Class DefaultApi
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub V1PackagesPackageIdVersionIdJsonGet_error(sender As HTTPSecureSocket, Code As Integer)
+		Private Sub GetMinecraftVersionPackageInfo_error(sender As HTTPSecureSocket, Code As Integer)
 		  If sender <> nil Then sender.Close()
 
 		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
-		  Dim data As OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200Response
-		  CallbackHandler.V1PackagesPackageIdVersionIdJsonGetCallback(error, data)
+		  Dim data As OpenAPIClient.Models.VersionPackageInfo
+		  CallbackHandler.GetMinecraftVersionPackageInfoCallback(error, data)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub V1PackagesPackageIdVersionIdJsonGet_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		Private Sub GetMinecraftVersionPackageInfo_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
 		  #Pragma Unused URL
 		  
 
@@ -244,10 +244,10 @@ Protected Class DefaultApi
 		  
 		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
 		  
-		  Dim data As OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200Response
-		  Call V1PackagesPackageIdVersionIdJsonGetPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  Dim data As OpenAPIClient.Models.VersionPackageInfo
+		  Call GetMinecraftVersionPackageInfoPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
 		  
-		  CallbackHandler.V1PackagesPackageIdVersionIdJsonGetCallback(error, data)
+		  CallbackHandler.GetMinecraftVersionPackageInfoCallback(error, data)
 		End Sub
 	#tag EndMethod
 

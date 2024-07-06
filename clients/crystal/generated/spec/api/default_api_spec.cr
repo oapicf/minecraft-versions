@@ -24,20 +24,20 @@ describe "DefaultApi" do
   # unit tests for get_minecraft_version_manifest
   # Get Minecraft version manifest
   # @param [Hash] opts the optional parameters
-  # @return [GetMinecraftVersionManifest200Response]
+  # @return [VersionManifest]
   describe "get_minecraft_version_manifest test" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end
   end
 
-  # unit tests for v1_packages_package_id_version_id_json_get
-  # Get Minecraft version package details
+  # unit tests for get_minecraft_version_package_info
+  # Get Minecraft version package info
   # @param package_id 
   # @param version_id 
   # @param [Hash] opts the optional parameters
-  # @return [V1PackagesPackageIdVersionIdJsonGet200Response]
-  describe "v1_packages_package_id_version_id_json_get test" do
+  # @return [VersionPackageInfo]
+  describe "get_minecraft_version_package_info test" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end

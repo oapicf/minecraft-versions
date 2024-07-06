@@ -4,14 +4,14 @@ swaggerUrl: ./src/main/openapi/openapi.yaml
 modelMappings:
   # to enable explicit mappings, use this syntax:
   DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
-  GetMinecraftVersionManifest200Response : org.openapitools.model.GetMinecraftVersionManifest200Response
-GetMinecraftVersionManifest200ResponseLatest : org.openapitools.model.GetMinecraftVersionManifest200ResponseLatest
-GetMinecraftVersionManifest200ResponseVersionsInner : org.openapitools.model.GetMinecraftVersionManifest200ResponseVersionsInner
-V1PackagesPackageIdVersionIdJsonGet200Response : org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response
-V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex : org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads : org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion : org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+  Download : org.openapitools.model.Download
+Version : org.openapitools.model.Version
+VersionManifest : org.openapitools.model.VersionManifest
+VersionManifestLatest : org.openapitools.model.VersionManifestLatest
+VersionPackageInfo : org.openapitools.model.VersionPackageInfo
+VersionPackageInfoAssetIndex : org.openapitools.model.VersionPackageInfoAssetIndex
+VersionPackageInfoDownloads : org.openapitools.model.VersionPackageInfoDownloads
+VersionPackageInfoJavaVersion : org.openapitools.model.VersionPackageInfoJavaVersion
 
 entityProcessors:
   - json

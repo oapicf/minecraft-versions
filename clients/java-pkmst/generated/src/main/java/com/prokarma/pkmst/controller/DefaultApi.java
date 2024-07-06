@@ -5,8 +5,8 @@
  */
 package com.prokarma.pkmst.controller;
 
-import com.prokarma.pkmst.model.GetMinecraftVersionManifest200Response;
-import com.prokarma.pkmst.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import com.prokarma.pkmst.model.VersionManifest;
+import com.prokarma.pkmst.model.VersionPackageInfo;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -20,29 +20,29 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T08:44:41.983633026Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T11:27:23.989034760Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Api(value = "Default", description = "the Default API")
 public interface DefaultApi {
 
-    @ApiOperation(value = "Get Minecraft version manifest", notes = "", response = GetMinecraftVersionManifest200Response.class, tags={  })
+    @ApiOperation(value = "Get Minecraft version manifest", notes = "", response = VersionManifest.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = GetMinecraftVersionManifest200Response.class) })
+        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = VersionManifest.class) })
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/mc/game/version_manifest.json",
         produces = { "application/json" }
     )
-    ResponseEntity<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest( @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<VersionManifest> getMinecraftVersionManifest( @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get Minecraft version package details", notes = "", response = V1PackagesPackageIdVersionIdJsonGet200Response.class, tags={  })
+    @ApiOperation(value = "Get Minecraft version package info", notes = "", response = VersionPackageInfo.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Get package version details", response = V1PackagesPackageIdVersionIdJsonGet200Response.class) })
+        @ApiResponse(code = 200, message = "Get package version details", response = VersionPackageInfo.class) })
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/v1/packages/{packageId}/{versionId}.json",
         produces = { "application/json" }
     )
-    ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(@ApiParam(value = "",required=true ) @PathVariable("packageId") String packageId,@ApiParam(value = "",required=true ) @PathVariable("versionId") String versionId, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<VersionPackageInfo> getMinecraftVersionPackageInfo(@ApiParam(value = "",required=true ) @PathVariable("packageId") String packageId,@ApiParam(value = "",required=true ) @PathVariable("versionId") String versionId, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 }

@@ -3,7 +3,7 @@ const { searchMiddleware, hasSearchRequisites, isSearchAction } = require('../ut
 
 const actions = {
     [DefaultApi.getMinecraftVersionManifest.key]: DefaultApi.getMinecraftVersionManifest,
-    [DefaultApi.v1PackagesPackageIdVersionIdJsonGet.key]: DefaultApi.v1PackagesPackageIdVersionIdJsonGet,
+    [DefaultApi.getMinecraftVersionPackageInfo.key]: DefaultApi.getMinecraftVersionPackageInfo,
 }
 
 module.exports = {

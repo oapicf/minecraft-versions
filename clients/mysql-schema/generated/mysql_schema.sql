@@ -6,28 +6,20 @@
 -- --------------------------------------------------------
 
 --
--- Table structure for table `getMinecraftVersionManifest_200_response` generated from model 'getMinecraftVersionManifestUnderscore200Underscoreresponse'
+-- Table structure for table `Download` generated from model 'Download'
 --
 
-CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response` (
-  `latest` TEXT DEFAULT NULL,
-  `versions` JSON DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `Download` (
+  `sha1` TEXT DEFAULT NULL,
+  `size` INT DEFAULT NULL,
+  `url` TEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `getMinecraftVersionManifest_200_response_latest` generated from model 'getMinecraftVersionManifestUnderscore200UnderscoreresponseUnderscorelatest'
+-- Table structure for table `Version` generated from model 'Version'
 --
 
-CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_latest` (
-  `release` TEXT DEFAULT NULL,
-  `snapshot` TEXT DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Table structure for table `getMinecraftVersionManifest_200_response_versions_inner` generated from model 'getMinecraftVersionManifestUnderscore200UnderscoreresponseUnderscoreversionsUnderscoreinner'
---
-
-CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_versions_inner` (
+CREATE TABLE IF NOT EXISTS `Version` (
   `id` TEXT DEFAULT NULL,
   `type` TEXT DEFAULT NULL,
   `url` TEXT DEFAULT NULL,
@@ -36,10 +28,28 @@ CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_versions_in
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `_v1_packages__packageId___versionId__json_get_200_response` generated from model 'Underscorev1UnderscorepackagesUnderscoreUnderscorepackageIdUnderscoreUnderscoreUnderscoreversionIdUnderscoreUnderscorejsonUnderscoregetUnderscore200Underscoreresponse'
+-- Table structure for table `VersionManifest` generated from model 'VersionManifest'
 --
 
-CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_response` (
+CREATE TABLE IF NOT EXISTS `VersionManifest` (
+  `latest` TEXT DEFAULT NULL,
+  `versions` JSON DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Table structure for table `VersionManifest_latest` generated from model 'VersionManifestUnderscorelatest'
+--
+
+CREATE TABLE IF NOT EXISTS `VersionManifest_latest` (
+  `release` TEXT DEFAULT NULL,
+  `snapshot` TEXT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Table structure for table `VersionPackageInfo` generated from model 'VersionPackageInfo'
+--
+
+CREATE TABLE IF NOT EXISTS `VersionPackageInfo` (
   `version` TEXT DEFAULT NULL,
   `assetIndex` TEXT DEFAULT NULL,
   `assets` INT DEFAULT NULL,
@@ -55,10 +65,10 @@ CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_re
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `_v1_packages__packageId___versionId__json_get_200_response_asset` generated from model 'Underscorev1UnderscorepackagesUnderscoreUnderscorepackageIdUnderscoreUnderscoreUnderscoreversionIdUnderscoreUnderscorejsonUnderscoregetUnderscore200UnderscoreresponseUnderscoreassetIndex'
+-- Table structure for table `VersionPackageInfo_assetIndex` generated from model 'VersionPackageInfoUnderscoreassetIndex'
 --
 
-CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_response_asset` (
+CREATE TABLE IF NOT EXISTS `VersionPackageInfo_assetIndex` (
   `id` TEXT DEFAULT NULL,
   `sha1` TEXT DEFAULT NULL,
   `size` INT DEFAULT NULL,
@@ -67,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_re
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `_v1_packages__packageId___versionId__json_get_200_response_downl` generated from model 'Underscorev1UnderscorepackagesUnderscoreUnderscorepackageIdUnderscoreUnderscoreUnderscoreversionIdUnderscoreUnderscorejsonUnderscoregetUnderscore200UnderscoreresponseUnderscoredownloads'
+-- Table structure for table `VersionPackageInfo_downloads` generated from model 'VersionPackageInfoUnderscoredownloads'
 --
 
-CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_response_downl` (
+CREATE TABLE IF NOT EXISTS `VersionPackageInfo_downloads` (
   `client` TEXT DEFAULT NULL,
   `client_mappings` TEXT DEFAULT NULL,
   `server` TEXT DEFAULT NULL,
@@ -78,20 +88,10 @@ CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_re
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `_v1_packages__packageId___versionId__json_get_200_response_downl` generated from model 'Underscorev1UnderscorepackagesUnderscoreUnderscorepackageIdUnderscoreUnderscoreUnderscoreversionIdUnderscoreUnderscorejsonUnderscoregetUnderscore200UnderscoreresponseUnderscoredownloadsUnderscoreclient'
+-- Table structure for table `VersionPackageInfo_javaVersion` generated from model 'VersionPackageInfoUnderscorejavaVersion'
 --
 
-CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_response_downl` (
-  `sha1` TEXT DEFAULT NULL,
-  `size` INT DEFAULT NULL,
-  `url` TEXT DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Table structure for table `_v1_packages__packageId___versionId__json_get_200_response_javaV` generated from model 'Underscorev1UnderscorepackagesUnderscoreUnderscorepackageIdUnderscoreUnderscoreUnderscoreversionIdUnderscoreUnderscorejsonUnderscoregetUnderscore200UnderscoreresponseUnderscorejavaVersion'
---
-
-CREATE TABLE IF NOT EXISTS `_v1_packages__packageId___versionId__json_get_200_response_javaV` (
+CREATE TABLE IF NOT EXISTS `VersionPackageInfo_javaVersion` (
   `component` TEXT DEFAULT NULL,
   `majorVersion` INT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

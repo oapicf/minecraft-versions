@@ -11,8 +11,8 @@
  */
 package org.openapitools.client.api
 
-import org.openapitools.client.model.GetMinecraftVersionManifest200Response
-import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.client.model.VersionManifest
+import org.openapitools.client.model.VersionPackageInfo
 import org.openapitools.client.core.JsonSupport._
 import sttp.client4._
 import sttp.model.Method
@@ -25,25 +25,25 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : GetMinecraftVersionManifest200Response (A list of Minecraft versions with the latest and snapshot releases)
+   *   code 200 : VersionManifest (A list of Minecraft versions with the latest and snapshot releases)
    */
-  def getMinecraftVersionManifest(): Request[Either[ResponseException[String, Exception], GetMinecraftVersionManifest200Response]] =
+  def getMinecraftVersionManifest(): Request[Either[ResponseException[String, Exception], VersionManifest]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/mc/game/version_manifest.json")
       .contentType("application/json")
-      .response(asJson[GetMinecraftVersionManifest200Response])
+      .response(asJson[VersionManifest])
 
   /**
    * Expected answers:
-   *   code 200 : V1PackagesPackageIdVersionIdJsonGet200Response (Get package version details)
+   *   code 200 : VersionPackageInfo (Get package version details)
    * 
    * @param packageId 
    * @param versionId 
    */
-  def v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String): Request[Either[ResponseException[String, Exception], V1PackagesPackageIdVersionIdJsonGet200Response]] =
+  def getMinecraftVersionPackageInfo(packageId: String, versionId: String): Request[Either[ResponseException[String, Exception], VersionPackageInfo]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/v1/packages/${packageId}/${versionId}.json")
       .contentType("application/json")
-      .response(asJson[V1PackagesPackageIdVersionIdJsonGet200Response])
+      .response(asJson[VersionPackageInfo])
 
 }

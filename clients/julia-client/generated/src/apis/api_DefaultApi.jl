@@ -12,7 +12,7 @@ This can be used to construct the `OpenAPI.Clients.Client` instance.
 basepath(::Type{ DefaultApi }) = "https://launchermeta.mojang.com"
 
 const _returntypes_get_minecraft_version_manifest_DefaultApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => GetMinecraftVersionManifest200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => VersionManifest,
 )
 
 function _oacinternal_get_minecraft_version_manifest(_api::DefaultApi; _mediaType=nothing)
@@ -26,7 +26,7 @@ end
 
 Params:
 
-Return: GetMinecraftVersionManifest200Response, OpenAPI.Clients.ApiResponse
+Return: VersionManifest, OpenAPI.Clients.ApiResponse
 """
 function get_minecraft_version_manifest(_api::DefaultApi; _mediaType=nothing)
     _ctx = _oacinternal_get_minecraft_version_manifest(_api; _mediaType=_mediaType)
@@ -38,12 +38,12 @@ function get_minecraft_version_manifest(_api::DefaultApi, response_stream::Chann
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
-const _returntypes_v1_packages_package_id_version_id_json_get_DefaultApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => V1PackagesPackageIdVersionIdJsonGet200Response,
+const _returntypes_get_minecraft_version_package_info_DefaultApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => VersionPackageInfo,
 )
 
-function _oacinternal_v1_packages_package_id_version_id_json_get(_api::DefaultApi, package_id::String, version_id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_v1_packages_package_id_version_id_json_get_DefaultApi, "/v1/packages/{packageId}/{versionId}.json", [])
+function _oacinternal_get_minecraft_version_package_info(_api::DefaultApi, package_id::String, version_id::String; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_get_minecraft_version_package_info_DefaultApi, "/v1/packages/{packageId}/{versionId}.json", [])
     OpenAPI.Clients.set_param(_ctx.path, "packageId", package_id)  # type String
     OpenAPI.Clients.set_param(_ctx.path, "versionId", version_id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
@@ -51,23 +51,23 @@ function _oacinternal_v1_packages_package_id_version_id_json_get(_api::DefaultAp
     return _ctx
 end
 
-@doc raw"""Get Minecraft version package details
+@doc raw"""Get Minecraft version package info
 
 Params:
 - package_id::String (required)
 - version_id::String (required)
 
-Return: V1PackagesPackageIdVersionIdJsonGet200Response, OpenAPI.Clients.ApiResponse
+Return: VersionPackageInfo, OpenAPI.Clients.ApiResponse
 """
-function v1_packages_package_id_version_id_json_get(_api::DefaultApi, package_id::String, version_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_v1_packages_package_id_version_id_json_get(_api, package_id, version_id; _mediaType=_mediaType)
+function get_minecraft_version_package_info(_api::DefaultApi, package_id::String, version_id::String; _mediaType=nothing)
+    _ctx = _oacinternal_get_minecraft_version_package_info(_api, package_id, version_id; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function v1_packages_package_id_version_id_json_get(_api::DefaultApi, response_stream::Channel, package_id::String, version_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_v1_packages_package_id_version_id_json_get(_api, package_id, version_id; _mediaType=_mediaType)
+function get_minecraft_version_package_info(_api::DefaultApi, response_stream::Channel, package_id::String, version_id::String; _mediaType=nothing)
+    _ctx = _oacinternal_get_minecraft_version_package_info(_api, package_id, version_id; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
 export get_minecraft_version_manifest
-export v1_packages_package_id_version_id_json_get
+export get_minecraft_version_package_info

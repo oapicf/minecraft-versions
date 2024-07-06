@@ -1,7 +1,7 @@
 namespace OpenAPI
 
-open OpenAPI.Model.GetMinecraftVersionManifest200Response
-open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
+open OpenAPI.Model.VersionManifest
+open OpenAPI.Model.VersionPackageInfo
 open System.Collections.Generic
 open System
 
@@ -10,14 +10,14 @@ module DefaultApiHandlerParams =
 
 
     type GetMinecraftVersionManifestStatusCode200Response = {
-      content:GetMinecraftVersionManifest200Response;
+      content:VersionManifest;
       
     }
     type GetMinecraftVersionManifestResult = GetMinecraftVersionManifestStatusCode200 of GetMinecraftVersionManifestStatusCode200Response
 
     //#region Path parameters
     [<CLIMutable>]
-    type V1PackagesPackageIdVersionIdJsonGetPathParams = {
+    type GetMinecraftVersionPackageInfoPathParams = {
       packageId : string ;
     //#endregion
       versionId : string ;
@@ -25,12 +25,12 @@ module DefaultApiHandlerParams =
     //#endregion
 
 
-    type V1PackagesPackageIdVersionIdJsonGetStatusCode200Response = {
-      content:V1PackagesPackageIdVersionIdJsonGet200Response;
+    type GetMinecraftVersionPackageInfoStatusCode200Response = {
+      content:VersionPackageInfo;
       
     }
-    type V1PackagesPackageIdVersionIdJsonGetResult = V1PackagesPackageIdVersionIdJsonGetStatusCode200 of V1PackagesPackageIdVersionIdJsonGetStatusCode200Response
+    type GetMinecraftVersionPackageInfoResult = GetMinecraftVersionPackageInfoStatusCode200 of GetMinecraftVersionPackageInfoStatusCode200Response
 
-    type V1PackagesPackageIdVersionIdJsonGetArgs = {
-      pathParams:V1PackagesPackageIdVersionIdJsonGetPathParams;
+    type GetMinecraftVersionPackageInfoArgs = {
+      pathParams:GetMinecraftVersionPackageInfoPathParams;
     }

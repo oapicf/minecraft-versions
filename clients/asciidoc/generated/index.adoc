@@ -54,7 +54,7 @@ Get Minecraft version manifest
 
 ===== Return Type
 
-<<getMinecraftVersionManifest_200_response>>
+<<VersionManifest>>
 
 
 ===== Content Type
@@ -71,7 +71,7 @@ Get Minecraft version manifest
 
 | 200
 | A list of Minecraft versions with the latest and snapshot releases
-|  <<getMinecraftVersionManifest_200_response>>
+|  <<VersionManifest>>
 
 |===
 
@@ -97,12 +97,12 @@ ifdef::internal-generation[]
 endif::internal-generation[]
 
 
-[.v1PackagesPackageIdVersionIdJsonGet]
-==== v1PackagesPackageIdVersionIdJsonGet
+[.getMinecraftVersionPackageInfo]
+==== getMinecraftVersionPackageInfo
 
 `GET /v1/packages/{packageId}/{versionId}.json`
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ===== Description
 
@@ -142,7 +142,7 @@ Get Minecraft version package details
 
 ===== Return Type
 
-<<_v1_packages__packageId___versionId__json_get_200_response>>
+<<VersionPackageInfo>>
 
 
 ===== Content Type
@@ -159,7 +159,7 @@ Get Minecraft version package details
 
 | 200
 | Get package version details
-|  <<_v1_packages__packageId___versionId__json_get_200_response>>
+|  <<VersionPackageInfo>>
 
 |===
 
@@ -189,54 +189,32 @@ endif::internal-generation[]
 == Models
 
 
-[#GetMinecraftVersionManifest200Response]
-=== _GetMinecraftVersionManifest200Response_ 
+[#Download]
+=== _Download_ 
 
 
 
 
-[.fields-GetMinecraftVersionManifest200Response]
+[.fields-Download]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
-| latest
-| 
-| 
-| <<getMinecraftVersionManifest_200_response_latest>>    
-| 
-|     
-
-| versions
-| 
-| 
-|   List   of <<getMinecraftVersionManifest_200_response_versions_inner>>
-| 
-|     
-
-|===
-
-
-
-[#GetMinecraftVersionManifest200ResponseLatest]
-=== _GetMinecraftVersionManifest200ResponseLatest_ 
-
-
-
-
-[.fields-GetMinecraftVersionManifest200ResponseLatest]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| release
+| sha1
 | 
 | 
 |   String  
 | 
 |     
 
-| snapshot
+| size
+| 
+| 
+|   Integer  
+| 
+|     
+
+| url
 | 
 | 
 |   String  
@@ -247,13 +225,13 @@ endif::internal-generation[]
 
 
 
-[#GetMinecraftVersionManifest200ResponseVersionsInner]
-=== _GetMinecraftVersionManifest200ResponseVersionsInner_ 
+[#Version]
+=== _Version_ 
 
 
 
 
-[.fields-GetMinecraftVersionManifest200ResponseVersionsInner]
+[.fields-Version]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -297,13 +275,71 @@ endif::internal-generation[]
 
 
 
-[#V1PackagesPackageIdVersionIdJsonGet200Response]
-=== _V1PackagesPackageIdVersionIdJsonGet200Response_ 
+[#VersionManifest]
+=== _VersionManifest_ 
 
 
 
 
-[.fields-V1PackagesPackageIdVersionIdJsonGet200Response]
+[.fields-VersionManifest]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| latest
+| 
+| 
+| <<VersionManifest_latest>>    
+| 
+|     
+
+| versions
+| 
+| 
+|   List   of <<Version>>
+| 
+|     
+
+|===
+
+
+
+[#VersionManifestLatest]
+=== _VersionManifestLatest_ 
+
+
+
+
+[.fields-VersionManifestLatest]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| release
+| 
+| 
+|   String  
+| 
+|     
+
+| snapshot
+| 
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#VersionPackageInfo]
+=== _VersionPackageInfo_ 
+
+
+
+
+[.fields-VersionPackageInfo]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -318,7 +354,7 @@ endif::internal-generation[]
 | assetIndex
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_assetIndex>>    
+| <<VersionPackageInfo_assetIndex>>    
 | 
 |     
 
@@ -339,7 +375,7 @@ endif::internal-generation[]
 | downloads
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_downloads>>    
+| <<VersionPackageInfo_downloads>>    
 | 
 |     
 
@@ -353,7 +389,7 @@ endif::internal-generation[]
 | javaVersion
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_javaVersion>>    
+| <<VersionPackageInfo_javaVersion>>    
 | 
 |     
 
@@ -396,13 +432,13 @@ endif::internal-generation[]
 
 
 
-[#V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex]
-=== _V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_ 
+[#VersionPackageInfoAssetIndex]
+=== _VersionPackageInfoAssetIndex_ 
 
 
 
 
-[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex]
+[.fields-VersionPackageInfoAssetIndex]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -446,13 +482,13 @@ endif::internal-generation[]
 
 
 
-[#V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads]
-=== _V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_ 
+[#VersionPackageInfoDownloads]
+=== _VersionPackageInfoDownloads_ 
 
 
 
 
-[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads]
+[.fields-VersionPackageInfoDownloads]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -460,28 +496,28 @@ endif::internal-generation[]
 | client
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| <<Download>>    
 | 
 |     
 
 | client_mappings
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| <<Download>>    
 | 
 |     
 
 | server
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| <<Download>>    
 | 
 |     
 
 | server_mappings
 | 
 | 
-| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| <<Download>>    
 | 
 |     
 
@@ -489,49 +525,13 @@ endif::internal-generation[]
 
 
 
-[#V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient]
-=== _V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_ 
+[#VersionPackageInfoJavaVersion]
+=== _VersionPackageInfoJavaVersion_ 
 
 
 
 
-[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| sha1
-| 
-| 
-|   String  
-| 
-|     
-
-| size
-| 
-| 
-|   Integer  
-| 
-|     
-
-| url
-| 
-| 
-|   String  
-| 
-|     
-
-|===
-
-
-
-[#V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion]
-=== _V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_ 
-
-
-
-
-[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion]
+[.fields-VersionPackageInfoJavaVersion]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format

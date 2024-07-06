@@ -16,14 +16,14 @@ module OpenAPIClient
       @api_client = api_client
     end
     # Get Minecraft version manifest
-    # @return [GetMinecraftVersionManifest200Response]
+    # @return [VersionManifest]
     def get_minecraft_version_manifest()
       data, _status_code, _headers = get_minecraft_version_manifest_with_http_info()
       data
     end
 
     # Get Minecraft version manifest
-    # @return [Array<(GetMinecraftVersionManifest200Response, Integer, Hash)>] GetMinecraftVersionManifest200Response data, response status code and response headers
+    # @return [Array<(VersionManifest, Integer, Hash)>] VersionManifest data, response status code and response headers
     def get_minecraft_version_manifest_with_http_info()
       if @api_client.config.debugging
         Log.debug {"Calling API: DefaultApi.get_minecraft_version_manifest ..."}
@@ -46,7 +46,7 @@ module OpenAPIClient
       post_body = nil
 
       # return_type
-      return_type = "GetMinecraftVersionManifest200Response"
+      return_type = "VersionManifest"
 
       # auth_names
       auth_names = [] of String
@@ -63,33 +63,33 @@ module OpenAPIClient
       if @api_client.config.debugging
         Log.debug {"API called: DefaultApi#get_minecraft_version_manifest\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"}
       end
-      return GetMinecraftVersionManifest200Response.from_json(data), status_code, headers
+      return VersionManifest.from_json(data), status_code, headers
     end
 
-    # Get Minecraft version package details
+    # Get Minecraft version package info
     # @param package_id [String] 
     # @param version_id [String] 
-    # @return [V1PackagesPackageIdVersionIdJsonGet200Response]
-    def v1_packages_package_id_version_id_json_get(package_id : String, version_id : String)
-      data, _status_code, _headers = v1_packages_package_id_version_id_json_get_with_http_info(package_id, version_id)
+    # @return [VersionPackageInfo]
+    def get_minecraft_version_package_info(package_id : String, version_id : String)
+      data, _status_code, _headers = get_minecraft_version_package_info_with_http_info(package_id, version_id)
       data
     end
 
-    # Get Minecraft version package details
+    # Get Minecraft version package info
     # @param package_id [String] 
     # @param version_id [String] 
-    # @return [Array<(V1PackagesPackageIdVersionIdJsonGet200Response, Integer, Hash)>] V1PackagesPackageIdVersionIdJsonGet200Response data, response status code and response headers
-    def v1_packages_package_id_version_id_json_get_with_http_info(package_id : String, version_id : String)
+    # @return [Array<(VersionPackageInfo, Integer, Hash)>] VersionPackageInfo data, response status code and response headers
+    def get_minecraft_version_package_info_with_http_info(package_id : String, version_id : String)
       if @api_client.config.debugging
-        Log.debug {"Calling API: DefaultApi.v1_packages_package_id_version_id_json_get ..."}
+        Log.debug {"Calling API: DefaultApi.get_minecraft_version_package_info ..."}
       end
       # verify the required parameter "package_id" is set
       if @api_client.config.client_side_validation && package_id.nil?
-        raise ArgumentError.new("Missing the required parameter 'package_id' when calling DefaultApi.v1_packages_package_id_version_id_json_get")
+        raise ArgumentError.new("Missing the required parameter 'package_id' when calling DefaultApi.get_minecraft_version_package_info")
       end
       # verify the required parameter "version_id" is set
       if @api_client.config.client_side_validation && version_id.nil?
-        raise ArgumentError.new("Missing the required parameter 'version_id' when calling DefaultApi.v1_packages_package_id_version_id_json_get")
+        raise ArgumentError.new("Missing the required parameter 'version_id' when calling DefaultApi.get_minecraft_version_package_info")
       end
       # resource path
       local_var_path = "/v1/packages/{packageId}/{versionId}.json".sub("{" + "packageId" + "}", URI.encode_path(package_id.to_s)).sub("{" + "versionId" + "}", URI.encode_path(version_id.to_s))
@@ -109,14 +109,14 @@ module OpenAPIClient
       post_body = nil
 
       # return_type
-      return_type = "V1PackagesPackageIdVersionIdJsonGet200Response"
+      return_type = "VersionPackageInfo"
 
       # auth_names
       auth_names = [] of String
 
       data, status_code, headers = @api_client.call_api(:GET,
                                                         local_var_path,
-                                                        :"DefaultApi.v1_packages_package_id_version_id_json_get",
+                                                        :"DefaultApi.get_minecraft_version_package_info",
                                                         return_type,
                                                         post_body,
                                                         auth_names,
@@ -124,9 +124,9 @@ module OpenAPIClient
                                                         query_params,
                                                         form_params)
       if @api_client.config.debugging
-        Log.debug {"API called: DefaultApi#v1_packages_package_id_version_id_json_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"}
+        Log.debug {"API called: DefaultApi#get_minecraft_version_package_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"}
       end
-      return V1PackagesPackageIdVersionIdJsonGet200Response.from_json(data), status_code, headers
+      return VersionPackageInfo.from_json(data), status_code, headers
     end
   end
 end

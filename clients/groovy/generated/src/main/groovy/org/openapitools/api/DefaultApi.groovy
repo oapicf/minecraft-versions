@@ -1,8 +1,8 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import org.openapitools.model.GetMinecraftVersionManifest200Response
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.model.VersionManifest
+import org.openapitools.model.VersionPackageInfo
 
 class DefaultApi {
     String basePath = "https://launchermeta.mojang.com"
@@ -25,11 +25,11 @@ class DefaultApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    GetMinecraftVersionManifest200Response.class )
+                    VersionManifest.class )
 
     }
 
-    def v1PackagesPackageIdVersionIdJsonGet ( String packageId, String versionId, Closure onSuccess, Closure onFailure)  {
+    def getMinecraftVersionPackageInfo ( String packageId, String versionId, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v1/packages/${packageId}/${versionId}.json"
 
         // params
@@ -53,7 +53,7 @@ class DefaultApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    V1PackagesPackageIdVersionIdJsonGet200Response.class )
+                    VersionPackageInfo.class )
 
     }
 

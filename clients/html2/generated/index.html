@@ -844,34 +844,21 @@ ul.nav-tabs {
   <script>
     // Script section to load models into a JS Var
     var defs = {}
-    defs["getMinecraftVersionManifest_200_response"] = {
+    defs["Download"] = {
   "type" : "object",
   "properties" : {
-    "latest" : {
-      "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_latest"
+    "sha1" : {
+      "type" : "string"
     },
-    "versions" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_versions_inner"
-      }
+    "size" : {
+      "type" : "integer"
+    },
+    "url" : {
+      "type" : "string"
     }
   }
 };
-    defs["getMinecraftVersionManifest_200_response_latest"] = {
-  "type" : "object",
-  "properties" : {
-    "release" : {
-      "type" : "string",
-      "example" : "1.21"
-    },
-    "snapshot" : {
-      "type" : "string",
-      "example" : "24w14potato"
-    }
-  }
-};
-    defs["getMinecraftVersionManifest_200_response_versions_inner"] = {
+    defs["Version"] = {
   "type" : "object",
   "properties" : {
     "id" : {
@@ -898,14 +885,41 @@ ul.nav-tabs {
     }
   }
 };
-    defs["_v1_packages__packageId___versionId__json_get_200_response"] = {
+    defs["VersionManifest"] = {
+  "type" : "object",
+  "properties" : {
+    "latest" : {
+      "$ref" : "#/components/schemas/VersionManifest_latest"
+    },
+    "versions" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Version"
+      }
+    }
+  }
+};
+    defs["VersionManifest_latest"] = {
+  "type" : "object",
+  "properties" : {
+    "release" : {
+      "type" : "string",
+      "example" : "1.21"
+    },
+    "snapshot" : {
+      "type" : "string",
+      "example" : "24w14potato"
+    }
+  }
+};
+    defs["VersionPackageInfo"] = {
   "type" : "object",
   "properties" : {
     "version" : {
       "type" : "string"
     },
     "assetIndex" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_assetIndex"
+      "$ref" : "#/components/schemas/VersionPackageInfo_assetIndex"
     },
     "assets" : {
       "type" : "integer"
@@ -914,13 +928,13 @@ ul.nav-tabs {
       "type" : "integer"
     },
     "downloads" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads"
+      "$ref" : "#/components/schemas/VersionPackageInfo_downloads"
     },
     "id" : {
       "type" : "string"
     },
     "javaVersion" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_javaVersion"
+      "$ref" : "#/components/schemas/VersionPackageInfo_javaVersion"
     },
     "mainClass" : {
       "type" : "string",
@@ -946,7 +960,7 @@ ul.nav-tabs {
     }
   }
 };
-    defs["_v1_packages__packageId___versionId__json_get_200_response_assetIndex"] = {
+    defs["VersionPackageInfo_assetIndex"] = {
   "type" : "object",
   "properties" : {
     "id" : {
@@ -966,38 +980,24 @@ ul.nav-tabs {
     }
   }
 };
-    defs["_v1_packages__packageId___versionId__json_get_200_response_downloads"] = {
+    defs["VersionPackageInfo_downloads"] = {
   "type" : "object",
   "properties" : {
     "client" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
+      "$ref" : "#/components/schemas/Download"
     },
     "client_mappings" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
+      "$ref" : "#/components/schemas/Download"
     },
     "server" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
+      "$ref" : "#/components/schemas/Download"
     },
     "server_mappings" : {
-      "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client"
+      "$ref" : "#/components/schemas/Download"
     }
   }
 };
-    defs["_v1_packages__packageId___versionId__json_get_200_response_downloads_client"] = {
-  "type" : "object",
-  "properties" : {
-    "sha1" : {
-      "type" : "string"
-    },
-    "size" : {
-      "type" : "integer"
-    },
-    "url" : {
-      "type" : "string"
-    }
-  }
-};
-    defs["_v1_packages__packageId___versionId__json_get_200_response_javaVersion"] = {
+    defs["VersionPackageInfo_javaVersion"] = {
   "type" : "object",
   "properties" : {
     "component" : {
@@ -1031,8 +1031,8 @@ ul.nav-tabs {
                     <li data-group="Default" data-name="getMinecraftVersionManifest" class="">
                       <a href="#api-Default-getMinecraftVersionManifest">getMinecraftVersionManifest</a>
                     </li>
-                    <li data-group="Default" data-name="v1PackagesPackageIdVersionIdJsonGet" class="">
-                      <a href="#api-Default-v1PackagesPackageIdVersionIdJsonGet">v1PackagesPackageIdVersionIdJsonGet</a>
+                    <li data-group="Default" data-name="getMinecraftVersionPackageInfo" class="">
+                      <a href="#api-Default-getMinecraftVersionPackageInfo">getMinecraftVersionPackageInfo</a>
                     </li>
           </ul>
         </nav>
@@ -1112,7 +1112,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            getMinecraftVersionManifest_200_response result = apiInstance.getMinecraftVersionManifest();
+            VersionManifest result = apiInstance.getMinecraftVersionManifest();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
@@ -1147,7 +1147,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            getMinecraftVersionManifest_200_response result = apiInstance.getMinecraftVersionManifest();
+            VersionManifest result = apiInstance.getMinecraftVersionManifest();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
@@ -1168,7 +1168,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get Minecraft version manifest
 [apiInstance getMinecraftVersionManifestWithCompletionHandler: 
-              ^(getMinecraftVersionManifest_200_response output, NSError* error) {
+              ^(VersionManifest output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
     }
@@ -1217,7 +1217,7 @@ namespace Example
 
             try {
                 // Get Minecraft version manifest
-                getMinecraftVersionManifest_200_response result = apiInstance.getMinecraftVersionManifest();
+                VersionManifest result = apiInstance.getMinecraftVersionManifest();
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.getMinecraftVersionManifest: " + e.Message );
@@ -1341,7 +1341,7 @@ pub fn main() {
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response"
+        "$ref" : "#/components/schemas/VersionManifest"
       }
     }
   }
@@ -1385,11 +1385,11 @@ pub fn main() {
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-v1PackagesPackageIdVersionIdJsonGet">
-                      <article id="api-Default-v1PackagesPackageIdVersionIdJsonGet-0" data-group="User" data-name="v1PackagesPackageIdVersionIdJsonGet" data-version="0">
+                    <div id="api-Default-getMinecraftVersionPackageInfo">
+                      <article id="api-Default-getMinecraftVersionPackageInfo-0" data-group="User" data-name="getMinecraftVersionPackageInfo" data-version="0">
                         <div class="pull-left">
-                          <h1>v1PackagesPackageIdVersionIdJsonGet</h1>
-                          <p>Get Minecraft version package details</p>
+                          <h1>getMinecraftVersionPackageInfo</h1>
+                          <p>Get Minecraft version package info</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -1402,29 +1402,29 @@ pub fn main() {
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-dart">Dart</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-Default-getMinecraftVersionPackageInfo-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-dart">Dart</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionPackageInfo-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getMinecraftVersionPackageInfo-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
  "https://launchermeta.mojang.com/v1/packages/{packageId}/{versionId}.json"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
@@ -1442,10 +1442,10 @@ public class DefaultApiExample {
         String versionId = 1.21; // String | 
 
         try {
-            _v1_packages__packageId___versionId__json_get_200_response result = apiInstance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+            VersionPackageInfo result = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#v1PackagesPackageIdVersionIdJsonGet");
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionPackageInfo");
             e.printStackTrace();
         }
     }
@@ -1453,7 +1453,7 @@ public class DefaultApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-dart">
+                          <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-dart">
                             <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
@@ -1462,16 +1462,16 @@ final String packageId = new String(); // String |
 final String versionId = new String(); // String | 
 
 try {
-    final result = await api_instance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+    final result = await api_instance.getMinecraftVersionPackageInfo(packageId, versionId);
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->v1PackagesPackageIdVersionIdJsonGet: $e\n');
+    print('Exception when calling DefaultApi->getMinecraftVersionPackageInfo: $e\n');
 }
 
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-android">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1481,20 +1481,20 @@ public class DefaultApiExample {
         String versionId = 1.21; // String | 
 
         try {
-            _v1_packages__packageId___versionId__json_get_200_response result = apiInstance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+            VersionPackageInfo result = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#v1PackagesPackageIdVersionIdJsonGet");
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionPackageInfo");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
@@ -1502,10 +1502,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 String *packageId = 177e49d3233cb6eac42f0495c0a48e719870c2ae; //  (default to null)
 String *versionId = 1.21; //  (default to null)
 
-// Get Minecraft version package details
-[apiInstance v1PackagesPackageIdVersionIdJsonGetWith:packageId
+// Get Minecraft version package info
+[apiInstance getMinecraftVersionPackageInfoWith:packageId
     versionId:versionId
-              completionHandler: ^(_v1_packages__packageId___versionId__json_get_200_response output, NSError* error) {
+              completionHandler: ^(VersionPackageInfo output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
     }
@@ -1516,7 +1516,7 @@ String *versionId = 1.21; //  (default to null)
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var OpenapiJsClient = require('openapi-js-client');
 
 // Create an instance of the API class
@@ -1531,14 +1531,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, callback);
+api.getMinecraftVersionPackageInfo(packageId, versionId, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -1547,7 +1547,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class v1PackagesPackageIdVersionIdJsonGetExample
+    public class getMinecraftVersionPackageInfoExample
     {
         public void main()
         {
@@ -1558,11 +1558,11 @@ namespace Example
             var versionId = 1.21;  // String |  (default to null)
 
             try {
-                // Get Minecraft version package details
-                _v1_packages__packageId___versionId__json_get_200_response result = apiInstance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+                // Get Minecraft version package info
+                VersionPackageInfo result = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId);
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.v1PackagesPackageIdVersionIdJsonGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getMinecraftVersionPackageInfo: " + e.Message );
             }
         }
     }
@@ -1570,7 +1570,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1580,15 +1580,15 @@ $packageId = 177e49d3233cb6eac42f0495c0a48e719870c2ae; // String |
 $versionId = 1.21; // String | 
 
 try {
-    $result = $api_instance->v1PackagesPackageIdVersionIdJsonGet($packageId, $versionId);
+    $result = $api_instance->getMinecraftVersionPackageInfo($packageId, $versionId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->v1PackagesPackageIdVersionIdJsonGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getMinecraftVersionPackageInfo: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
 use WWW::OPenAPIClient::DefaultApi;
@@ -1599,15 +1599,15 @@ my $packageId = 177e49d3233cb6eac42f0495c0a48e719870c2ae; # String |
 my $versionId = 1.21; # String | 
 
 eval {
-    my $result = $api_instance->v1PackagesPackageIdVersionIdJsonGet(packageId => $packageId, versionId => $versionId);
+    my $result = $api_instance->getMinecraftVersionPackageInfo(packageId => $packageId, versionId => $versionId);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->v1PackagesPackageIdVersionIdJsonGet: $@\n";
+    warn "Exception when calling DefaultApi->getMinecraftVersionPackageInfo: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -1620,14 +1620,14 @@ packageId = 177e49d3233cb6eac42f0495c0a48e719870c2ae # String |  (default to nul
 versionId = 1.21 # String |  (default to null)
 
 try:
-    # Get Minecraft version package details
-    api_response = api_instance.v1_packages_package_id_version_id_json_get(packageId, versionId)
+    # Get Minecraft version package info
+    api_response = api_instance.get_minecraft_version_package_info(packageId, versionId)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->v1PackagesPackageIdVersionIdJsonGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getMinecraftVersionPackageInfo: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-0-rust">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionPackageInfo-0-rust">
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
@@ -1635,7 +1635,7 @@ pub fn main() {
     let versionId = 1.21; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, &context).wait();
+    let result = client.getMinecraftVersionPackageInfo(packageId, versionId, &context).wait();
 
     println!("{:?}", result);
 }
@@ -1660,7 +1660,7 @@ pub fn main() {
 <td>
 
 
-    <div id="d2e199_v1PackagesPackageIdVersionIdJsonGet_packageId">
+    <div id="d2e199_getMinecraftVersionPackageInfo_packageId">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -1680,7 +1680,7 @@ pub fn main() {
 <td>
 
 
-    <div id="d2e199_v1PackagesPackageIdVersionIdJsonGet_versionId">
+    <div id="d2e199_getMinecraftVersionPackageInfo_versionId">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -1703,23 +1703,23 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-title-200"></h3>
-                            <p id="examples-Default-v1PackagesPackageIdVersionIdJsonGet-description-200" class="marked"></p>
+                            <h3 id="examples-Default-getMinecraftVersionPackageInfo-title-200"></h3>
+                            <p id="examples-Default-getMinecraftVersionPackageInfo-description-200" class="marked"></p>
                             <script>
                               var responseDefault200_description = `Get package version details`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-v1PackagesPackageIdVersionIdJsonGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                                $("#examples-Default-getMinecraftVersionPackageInfo-title-200").text("Status: 200 - " + responseDefault200_description);
                               } else {
-                                $("#examples-Default-v1PackagesPackageIdVersionIdJsonGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-v1PackagesPackageIdVersionIdJsonGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                                $("#examples-Default-getMinecraftVersionPackageInfo-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getMinecraftVersionPackageInfo-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-Default-v1PackagesPackageIdVersionIdJsonGet-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-Default-getMinecraftVersionPackageInfo-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-v1PackagesPackageIdVersionIdJsonGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-Default-getMinecraftVersionPackageInfo-200-schema">Schema</a>
                                 </li>
 
 
@@ -1728,9 +1728,9 @@ pub fn main() {
                             </ul>
 
 
-                            <div class="tab-content" id="responses-Default-v1PackagesPackageIdVersionIdJsonGet-200-wrapper" style='margin-bottom: 10px;'>
-                              <div class="tab-pane active" id="responses-Default-v1PackagesPackageIdVersionIdJsonGet-200-schema">
-                                <div id="responses-Default-v1PackagesPackageIdVersionIdJsonGet-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-Default-getMinecraftVersionPackageInfo-200-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getMinecraftVersionPackageInfo-200-schema">
+                                <div id="responses-Default-getMinecraftVersionPackageInfo-schema-200" class="exampleStyle">
                                   <script>
                                     $(document).ready(function() {
                                       var schemaWrapper = {
@@ -1738,7 +1738,7 @@ pub fn main() {
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response"
+        "$ref" : "#/components/schemas/VersionPackageInfo"
       }
     }
   }
@@ -1769,14 +1769,14 @@ pub fn main() {
                                       }
 
                                       var view = new JSONSchemaView(schema, 3);
-                                      $('#responses-Default-v1PackagesPackageIdVersionIdJsonGet-200-schema-data').val(JSON.stringify(schema));
-                                      var result = $('#responses-Default-v1PackagesPackageIdVersionIdJsonGet-schema-200');
+                                      $('#responses-Default-getMinecraftVersionPackageInfo-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getMinecraftVersionPackageInfo-schema-200');
                                       result.empty();
                                       result.append(view.render());
                                     });
                                   </script>
                                 </div>
-                                <input id='responses-Default-v1PackagesPackageIdVersionIdJsonGet-200-schema-data' type='hidden' value=''></input>
+                                <input id='responses-Default-getMinecraftVersionPackageInfo-200-schema-data' type='hidden' value=''></input>
                               </div>
                             </div>
                         </article>

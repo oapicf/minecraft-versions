@@ -30,8 +30,8 @@ open class DefaultAPI {
 
     /// Get Minecraft version manifest
     /// - GET /mc/game/version_manifest.json
-    /// - returns: AnyPublisher<GetMinecraftVersionManifest200Response, Error> 
-    open func getMinecraftVersionManifest() -> AnyPublisher<GetMinecraftVersionManifest200Response, Error> {
+    /// - returns: AnyPublisher<VersionManifest, Error> 
+    open func getMinecraftVersionManifest() -> AnyPublisher<VersionManifest, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -47,22 +47,22 @@ open class DefaultAPI {
                 request.httpMethod = "GET"
                 return request
             }.publisher
-        }.flatMap { request -> AnyPublisher<GetMinecraftVersionManifest200Response, Error> in 
+        }.flatMap { request -> AnyPublisher<VersionManifest, Error> in 
             return self.transport.send(request: request)
                 .tryMap { response in
-                    try self.decoder.decode(GetMinecraftVersionManifest200Response.self, from: response.data)
+                    try self.decoder.decode(VersionManifest.self, from: response.data)
                 }
                 .eraseToAnyPublisher()
         }.eraseToAnyPublisher()
     }
 
 
-    /// Get Minecraft version package details
+    /// Get Minecraft version package info
     /// - GET /v1/packages/{packageId}/{versionId}.json
     /// - parameter packageId: (path)  
     /// - parameter versionId: (path)  
-    /// - returns: AnyPublisher<V1PackagesPackageIdVersionIdJsonGet200Response, Error> 
-    open func v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String) -> AnyPublisher<V1PackagesPackageIdVersionIdJsonGet200Response, Error> {
+    /// - returns: AnyPublisher<VersionPackageInfo, Error> 
+    open func getMinecraftVersionPackageInfo(packageId: String, versionId: String) -> AnyPublisher<VersionPackageInfo, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -80,10 +80,10 @@ open class DefaultAPI {
                 request.httpMethod = "GET"
                 return request
             }.publisher
-        }.flatMap { request -> AnyPublisher<V1PackagesPackageIdVersionIdJsonGet200Response, Error> in 
+        }.flatMap { request -> AnyPublisher<VersionPackageInfo, Error> in 
             return self.transport.send(request: request)
                 .tryMap { response in
-                    try self.decoder.decode(V1PackagesPackageIdVersionIdJsonGet200Response.self, from: response.data)
+                    try self.decoder.decode(VersionPackageInfo.self, from: response.data)
                 }
                 .eraseToAnyPublisher()
         }.eraseToAnyPublisher()

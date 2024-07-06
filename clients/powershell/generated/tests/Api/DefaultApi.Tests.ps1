@@ -14,9 +14,9 @@ Describe -tag 'PSOpenAPITools' -name 'DefaultApi' {
         }
     }
 
-    Context 'Invoke-V1PackagesPackageIdVersionIdJsonGet' {
-        It 'Test Invoke-V1PackagesPackageIdVersionIdJsonGet' {
-            #$TestResult = Invoke-V1PackagesPackageIdVersionIdJsonGet -PackageId "TEST_VALUE" -VersionId "TEST_VALUE"
+    Context 'Get-MinecraftVersionPackageInfo' {
+        It 'Test Get-MinecraftVersionPackageInfo' {
+            #$TestResult = Get-MinecraftVersionPackageInfo -PackageId "TEST_VALUE" -VersionId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

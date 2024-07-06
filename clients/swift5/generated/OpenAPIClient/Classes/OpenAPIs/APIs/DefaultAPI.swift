@@ -19,7 +19,7 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func getMinecraftVersionManifest(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: GetMinecraftVersionManifest200Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func getMinecraftVersionManifest(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: VersionManifest?, _ error: Error?) -> Void)) -> RequestTask {
         return getMinecraftVersionManifestWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -33,9 +33,9 @@ open class DefaultAPI {
     /**
      Get Minecraft version manifest
      - GET /mc/game/version_manifest.json
-     - returns: RequestBuilder<GetMinecraftVersionManifest200Response> 
+     - returns: RequestBuilder<VersionManifest> 
      */
-    open class func getMinecraftVersionManifestWithRequestBuilder() -> RequestBuilder<GetMinecraftVersionManifest200Response> {
+    open class func getMinecraftVersionManifestWithRequestBuilder() -> RequestBuilder<VersionManifest> {
         let localVariablePath = "/mc/game/version_manifest.json"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -48,13 +48,13 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<GetMinecraftVersionManifest200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<VersionManifest>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
 
     /**
-     Get Minecraft version package details
+     Get Minecraft version package info
      
      - parameter packageId: (path)  
      - parameter versionId: (path)  
@@ -62,8 +62,8 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: V1PackagesPackageIdVersionIdJsonGet200Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return v1PackagesPackageIdVersionIdJsonGetWithRequestBuilder(packageId: packageId, versionId: versionId).execute(apiResponseQueue) { result in
+    open class func getMinecraftVersionPackageInfo(packageId: String, versionId: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: VersionPackageInfo?, _ error: Error?) -> Void)) -> RequestTask {
+        return getMinecraftVersionPackageInfoWithRequestBuilder(packageId: packageId, versionId: versionId).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -74,13 +74,13 @@ open class DefaultAPI {
     }
 
     /**
-     Get Minecraft version package details
+     Get Minecraft version package info
      - GET /v1/packages/{packageId}/{versionId}.json
      - parameter packageId: (path)  
      - parameter versionId: (path)  
-     - returns: RequestBuilder<V1PackagesPackageIdVersionIdJsonGet200Response> 
+     - returns: RequestBuilder<VersionPackageInfo> 
      */
-    open class func v1PackagesPackageIdVersionIdJsonGetWithRequestBuilder(packageId: String, versionId: String) -> RequestBuilder<V1PackagesPackageIdVersionIdJsonGet200Response> {
+    open class func getMinecraftVersionPackageInfoWithRequestBuilder(packageId: String, versionId: String) -> RequestBuilder<VersionPackageInfo> {
         var localVariablePath = "/v1/packages/{packageId}/{versionId}.json"
         let packageIdPreEscape = "\(APIHelper.mapValueToPathItem(packageId))"
         let packageIdPostEscape = packageIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -99,7 +99,7 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<V1PackagesPackageIdVersionIdJsonGet200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<VersionPackageInfo>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }

@@ -15,8 +15,8 @@
 
 #include <QObject>
 
-#include "OAIGetMinecraftVersionManifest_200_response.h"
-#include "OAI_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "OAIVersionManifest.h"
+#include "OAIVersionPackageInfo.h"
 #include <QString>
 
 namespace OpenAPI {
@@ -32,7 +32,7 @@ public:
 
 public Q_SLOTS:
     virtual void getMinecraftVersionManifest();
-    virtual void v1PackagesPackageIdVersionIdJsonGet(QString package_id, QString version_id);
+    virtual void getMinecraftVersionPackageInfo(QString package_id, QString version_id);
     
 
 };

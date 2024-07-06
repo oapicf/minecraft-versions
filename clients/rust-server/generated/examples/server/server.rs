@@ -95,7 +95,7 @@ impl<C> Server<C> {
 use openapi_client::{
     Api,
     GetMinecraftVersionManifestResponse,
-    V1PackagesPackageIdVersionIdJsonGetResponse,
+    GetMinecraftVersionPackageInfoResponse,
 };
 use openapi_client::server::MakeService;
 use std::error::Error;
@@ -113,14 +113,14 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         Err(ApiError("Generic failure".into()))
     }
 
-    /// Get Minecraft version package details
-    async fn v1_packages_package_id_version_id_json_get(
+    /// Get Minecraft version package info
+    async fn get_minecraft_version_package_info(
         &self,
         package_id: String,
         version_id: String,
-        context: &C) -> Result<V1PackagesPackageIdVersionIdJsonGetResponse, ApiError>
+        context: &C) -> Result<GetMinecraftVersionPackageInfoResponse, ApiError>
     {
-        info!("v1_packages_package_id_version_id_json_get(\"{}\", \"{}\") - X-Span-ID: {:?}", package_id, version_id, context.get().0.clone());
+        info!("get_minecraft_version_package_info(\"{}\", \"{}\") - X-Span-ID: {:?}", package_id, version_id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
 

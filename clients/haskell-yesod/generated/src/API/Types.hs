@@ -4,14 +4,14 @@
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module API.Types (
-  GetMinecraftVersionManifest200Response (..),
-  GetMinecraftVersionManifest200ResponseLatest (..),
-  GetMinecraftVersionManifest200ResponseVersionsInner (..),
-  V1PackagesPackageIdVersionIdJsonGet200Response (..),
-  V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex (..),
-  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads (..),
-  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient (..),
-  V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion (..),
+  Download (..),
+  Version (..),
+  VersionManifest (..),
+  VersionManifestLatest (..),
+  VersionPackageInfo (..),
+  VersionPackageInfoAssetIndex (..),
+  VersionPackageInfoDownloads (..),
+  VersionPackageInfoJavaVersion (..),
   ) where
 
 import ClassyPrelude.Yesod
@@ -27,231 +27,231 @@ import GHC.Generics (Generic)
 
 
 -- | 
-data GetMinecraftVersionManifest200Response = GetMinecraftVersionManifest200Response
-  { getMinecraftVersionManifest200ResponseLatest :: Maybe GetMinecraftVersionManifest200ResponseLatest -- ^ 
-  , getMinecraftVersionManifest200ResponseVersions :: Maybe [GetMinecraftVersionManifest200ResponseVersionsInner] -- ^ 
+data Download = Download
+  { downloadSha1 :: Maybe Text -- ^ 
+  , downloadSize :: Maybe Int -- ^ 
+  , downloadUrl :: Maybe Text -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON GetMinecraftVersionManifest200Response where
-  parseJSON = genericParseJSON optionsGetMinecraftVersionManifest200Response
-instance ToJSON GetMinecraftVersionManifest200Response where
-  toJSON = genericToJSON optionsGetMinecraftVersionManifest200Response
+instance FromJSON Download where
+  parseJSON = genericParseJSON optionsDownload
+instance ToJSON Download where
+  toJSON = genericToJSON optionsDownload
 
-optionsGetMinecraftVersionManifest200Response :: Options
-optionsGetMinecraftVersionManifest200Response =
+optionsDownload :: Options
+optionsDownload =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("getMinecraftVersionManifest200ResponseLatest", "latest")
-      , ("getMinecraftVersionManifest200ResponseVersions", "versions")
+      [ ("downloadSha1", "sha1")
+      , ("downloadSize", "size")
+      , ("downloadUrl", "url")
       ]
 
 
 -- | 
-data GetMinecraftVersionManifest200ResponseLatest = GetMinecraftVersionManifest200ResponseLatest
-  { getMinecraftVersionManifest200ResponseLatestRelease :: Maybe Text -- ^ 
-  , getMinecraftVersionManifest200ResponseLatestSnapshot :: Maybe Text -- ^ 
+data Version = Version
+  { versionId :: Maybe Text -- ^ 
+  , versionType :: Maybe Text -- ^ 
+  , versionUrl :: Maybe Text -- ^ 
+  , versionTime :: Maybe UTCTime -- ^ 
+  , versionReleaseTime :: Maybe UTCTime -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON GetMinecraftVersionManifest200ResponseLatest where
-  parseJSON = genericParseJSON optionsGetMinecraftVersionManifest200ResponseLatest
-instance ToJSON GetMinecraftVersionManifest200ResponseLatest where
-  toJSON = genericToJSON optionsGetMinecraftVersionManifest200ResponseLatest
+instance FromJSON Version where
+  parseJSON = genericParseJSON optionsVersion
+instance ToJSON Version where
+  toJSON = genericToJSON optionsVersion
 
-optionsGetMinecraftVersionManifest200ResponseLatest :: Options
-optionsGetMinecraftVersionManifest200ResponseLatest =
+optionsVersion :: Options
+optionsVersion =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("getMinecraftVersionManifest200ResponseLatestRelease", "release")
-      , ("getMinecraftVersionManifest200ResponseLatestSnapshot", "snapshot")
+      [ ("versionId", "id")
+      , ("versionType", "type")
+      , ("versionUrl", "url")
+      , ("versionTime", "time")
+      , ("versionReleaseTime", "releaseTime")
       ]
 
 
 -- | 
-data GetMinecraftVersionManifest200ResponseVersionsInner = GetMinecraftVersionManifest200ResponseVersionsInner
-  { getMinecraftVersionManifest200ResponseVersionsInnerId :: Maybe Text -- ^ 
-  , getMinecraftVersionManifest200ResponseVersionsInnerType :: Maybe Text -- ^ 
-  , getMinecraftVersionManifest200ResponseVersionsInnerUrl :: Maybe Text -- ^ 
-  , getMinecraftVersionManifest200ResponseVersionsInnerTime :: Maybe UTCTime -- ^ 
-  , getMinecraftVersionManifest200ResponseVersionsInnerReleaseTime :: Maybe UTCTime -- ^ 
+data VersionManifest = VersionManifest
+  { versionManifestLatest :: Maybe VersionManifestLatest -- ^ 
+  , versionManifestVersions :: Maybe [Version] -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON GetMinecraftVersionManifest200ResponseVersionsInner where
-  parseJSON = genericParseJSON optionsGetMinecraftVersionManifest200ResponseVersionsInner
-instance ToJSON GetMinecraftVersionManifest200ResponseVersionsInner where
-  toJSON = genericToJSON optionsGetMinecraftVersionManifest200ResponseVersionsInner
+instance FromJSON VersionManifest where
+  parseJSON = genericParseJSON optionsVersionManifest
+instance ToJSON VersionManifest where
+  toJSON = genericToJSON optionsVersionManifest
 
-optionsGetMinecraftVersionManifest200ResponseVersionsInner :: Options
-optionsGetMinecraftVersionManifest200ResponseVersionsInner =
+optionsVersionManifest :: Options
+optionsVersionManifest =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("getMinecraftVersionManifest200ResponseVersionsInnerId", "id")
-      , ("getMinecraftVersionManifest200ResponseVersionsInnerType", "type")
-      , ("getMinecraftVersionManifest200ResponseVersionsInnerUrl", "url")
-      , ("getMinecraftVersionManifest200ResponseVersionsInnerTime", "time")
-      , ("getMinecraftVersionManifest200ResponseVersionsInnerReleaseTime", "releaseTime")
+      [ ("versionManifestLatest", "latest")
+      , ("versionManifestVersions", "versions")
       ]
 
 
 -- | 
-data V1PackagesPackageIdVersionIdJsonGet200Response = V1PackagesPackageIdVersionIdJsonGet200Response
-  { v1PackagesPackageIdVersionIdJsonGet200ResponseVersion :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseAssets :: Maybe Int -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseComplianceLevel :: Maybe Int -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseId :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseMainClass :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseMinimumLauncherVersion :: Maybe Int -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseTime :: Maybe UTCTime -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseReleaseTime :: Maybe UTCTime -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseType :: Maybe Text -- ^ 
+data VersionManifestLatest = VersionManifestLatest
+  { versionManifestLatestRelease :: Maybe Text -- ^ 
+  , versionManifestLatestSnapshot :: Maybe Text -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON V1PackagesPackageIdVersionIdJsonGet200Response where
-  parseJSON = genericParseJSON optionsV1PackagesPackageIdVersionIdJsonGet200Response
-instance ToJSON V1PackagesPackageIdVersionIdJsonGet200Response where
-  toJSON = genericToJSON optionsV1PackagesPackageIdVersionIdJsonGet200Response
+instance FromJSON VersionManifestLatest where
+  parseJSON = genericParseJSON optionsVersionManifestLatest
+instance ToJSON VersionManifestLatest where
+  toJSON = genericToJSON optionsVersionManifestLatest
 
-optionsV1PackagesPackageIdVersionIdJsonGet200Response :: Options
-optionsV1PackagesPackageIdVersionIdJsonGet200Response =
+optionsVersionManifestLatest :: Options
+optionsVersionManifestLatest =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("v1PackagesPackageIdVersionIdJsonGet200ResponseVersion", "version")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex", "assetIndex")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssets", "assets")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseComplianceLevel", "complianceLevel")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads", "downloads")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseId", "id")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion", "javaVersion")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseMainClass", "mainClass")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseMinimumLauncherVersion", "minimumLauncherVersion")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseTime", "time")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseReleaseTime", "releaseTime")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseType", "type")
+      [ ("versionManifestLatestRelease", "release")
+      , ("versionManifestLatestSnapshot", "snapshot")
       ]
 
 
 -- | 
-data V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex = V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-  { v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexId :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexSha1 :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexSize :: Maybe Int -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexTotalSize :: Maybe Int -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexUrl :: Maybe Text -- ^ 
+data VersionPackageInfo = VersionPackageInfo
+  { versionPackageInfoVersion :: Maybe Text -- ^ 
+  , versionPackageInfoAssetIndex :: Maybe VersionPackageInfoAssetIndex -- ^ 
+  , versionPackageInfoAssets :: Maybe Int -- ^ 
+  , versionPackageInfoComplianceLevel :: Maybe Int -- ^ 
+  , versionPackageInfoDownloads :: Maybe VersionPackageInfoDownloads -- ^ 
+  , versionPackageInfoId :: Maybe Text -- ^ 
+  , versionPackageInfoJavaVersion :: Maybe VersionPackageInfoJavaVersion -- ^ 
+  , versionPackageInfoMainClass :: Maybe Text -- ^ 
+  , versionPackageInfoMinimumLauncherVersion :: Maybe Int -- ^ 
+  , versionPackageInfoTime :: Maybe UTCTime -- ^ 
+  , versionPackageInfoReleaseTime :: Maybe UTCTime -- ^ 
+  , versionPackageInfoType :: Maybe Text -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex where
-  parseJSON = genericParseJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-instance ToJSON V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex where
-  toJSON = genericToJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+instance FromJSON VersionPackageInfo where
+  parseJSON = genericParseJSON optionsVersionPackageInfo
+instance ToJSON VersionPackageInfo where
+  toJSON = genericToJSON optionsVersionPackageInfo
 
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex :: Options
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex =
+optionsVersionPackageInfo :: Options
+optionsVersionPackageInfo =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexId", "id")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexSha1", "sha1")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexSize", "size")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexTotalSize", "totalSize")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexUrl", "url")
+      [ ("versionPackageInfoVersion", "version")
+      , ("versionPackageInfoAssetIndex", "assetIndex")
+      , ("versionPackageInfoAssets", "assets")
+      , ("versionPackageInfoComplianceLevel", "complianceLevel")
+      , ("versionPackageInfoDownloads", "downloads")
+      , ("versionPackageInfoId", "id")
+      , ("versionPackageInfoJavaVersion", "javaVersion")
+      , ("versionPackageInfoMainClass", "mainClass")
+      , ("versionPackageInfoMinimumLauncherVersion", "minimumLauncherVersion")
+      , ("versionPackageInfoTime", "time")
+      , ("versionPackageInfoReleaseTime", "releaseTime")
+      , ("versionPackageInfoType", "type")
       ]
 
 
 -- | 
-data V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-  { v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientUnderscoremappings :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsServer :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsServerUnderscoremappings :: Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -- ^ 
+data VersionPackageInfoAssetIndex = VersionPackageInfoAssetIndex
+  { versionPackageInfoAssetIndexId :: Maybe Text -- ^ 
+  , versionPackageInfoAssetIndexSha1 :: Maybe Text -- ^ 
+  , versionPackageInfoAssetIndexSize :: Maybe Int -- ^ 
+  , versionPackageInfoAssetIndexTotalSize :: Maybe Int -- ^ 
+  , versionPackageInfoAssetIndexUrl :: Maybe Text -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads where
-  parseJSON = genericParseJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-instance ToJSON V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads where
-  toJSON = genericToJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+instance FromJSON VersionPackageInfoAssetIndex where
+  parseJSON = genericParseJSON optionsVersionPackageInfoAssetIndex
+instance ToJSON VersionPackageInfoAssetIndex where
+  toJSON = genericToJSON optionsVersionPackageInfoAssetIndex
 
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads :: Options
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads =
+optionsVersionPackageInfoAssetIndex :: Options
+optionsVersionPackageInfoAssetIndex =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient", "client")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientUnderscoremappings", "client_mappings")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsServer", "server")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsServerUnderscoremappings", "server_mappings")
+      [ ("versionPackageInfoAssetIndexId", "id")
+      , ("versionPackageInfoAssetIndexSha1", "sha1")
+      , ("versionPackageInfoAssetIndexSize", "size")
+      , ("versionPackageInfoAssetIndexTotalSize", "totalSize")
+      , ("versionPackageInfoAssetIndexUrl", "url")
       ]
 
 
 -- | 
-data V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-  { v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientSha1 :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientSize :: Maybe Int -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientUrl :: Maybe Text -- ^ 
+data VersionPackageInfoDownloads = VersionPackageInfoDownloads
+  { versionPackageInfoDownloadsClient :: Maybe Download -- ^ 
+  , versionPackageInfoDownloadsClientUnderscoremappings :: Maybe Download -- ^ 
+  , versionPackageInfoDownloadsServer :: Maybe Download -- ^ 
+  , versionPackageInfoDownloadsServerUnderscoremappings :: Maybe Download -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient where
-  parseJSON = genericParseJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-instance ToJSON V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient where
-  toJSON = genericToJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+instance FromJSON VersionPackageInfoDownloads where
+  parseJSON = genericParseJSON optionsVersionPackageInfoDownloads
+instance ToJSON VersionPackageInfoDownloads where
+  toJSON = genericToJSON optionsVersionPackageInfoDownloads
 
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient :: Options
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient =
+optionsVersionPackageInfoDownloads :: Options
+optionsVersionPackageInfoDownloads =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientSha1", "sha1")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientSize", "size")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientUrl", "url")
+      [ ("versionPackageInfoDownloadsClient", "client")
+      , ("versionPackageInfoDownloadsClientUnderscoremappings", "client_mappings")
+      , ("versionPackageInfoDownloadsServer", "server")
+      , ("versionPackageInfoDownloadsServerUnderscoremappings", "server_mappings")
       ]
 
 
 -- | 
-data V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion = V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-  { v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionComponent :: Maybe Text -- ^ 
-  , v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionMajorVersion :: Maybe Int -- ^ 
+data VersionPackageInfoJavaVersion = VersionPackageInfoJavaVersion
+  { versionPackageInfoJavaVersionComponent :: Maybe Text -- ^ 
+  , versionPackageInfoJavaVersionMajorVersion :: Maybe Int -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion where
-  parseJSON = genericParseJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-instance ToJSON V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion where
-  toJSON = genericToJSON optionsV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+instance FromJSON VersionPackageInfoJavaVersion where
+  parseJSON = genericParseJSON optionsVersionPackageInfoJavaVersion
+instance ToJSON VersionPackageInfoJavaVersion where
+  toJSON = genericToJSON optionsVersionPackageInfoJavaVersion
 
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion :: Options
-optionsV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion =
+optionsVersionPackageInfoJavaVersion :: Options
+optionsVersionPackageInfoJavaVersion =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionComponent", "component")
-      , ("v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionMajorVersion", "majorVersion")
+      [ ("versionPackageInfoJavaVersionComponent", "component")
+      , ("versionPackageInfoJavaVersionMajorVersion", "majorVersion")
       ]
 

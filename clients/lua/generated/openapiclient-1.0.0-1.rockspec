@@ -24,13 +24,13 @@ build = {
 	type = "builtin",
 	modules = {
 		["openapiclient.api.default_api"] = "openapiclient/api/default_api.lua";
-		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response.lua";
-		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_asset_index"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_asset_index.lua";
-		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_downloads"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_downloads.lua";
-		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_downloads_client"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_downloads_client.lua";
-		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_java_version"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_java_version.lua";
-		["openapiclient.model.get_minecraft_version_manifest_200_response"] = "openapiclient/model/get_minecraft_version_manifest_200_response.lua";
-		["openapiclient.model.get_minecraft_version_manifest_200_response_latest"] = "openapiclient/model/get_minecraft_version_manifest_200_response_latest.lua";
-		["openapiclient.model.get_minecraft_version_manifest_200_response_versions_inner"] = "openapiclient/model/get_minecraft_version_manifest_200_response_versions_inner.lua";
+		["openapiclient.model.download"] = "openapiclient/model/download.lua";
+		["openapiclient.model.version"] = "openapiclient/model/version.lua";
+		["openapiclient.model.version_manifest"] = "openapiclient/model/version_manifest.lua";
+		["openapiclient.model.version_manifest_latest"] = "openapiclient/model/version_manifest_latest.lua";
+		["openapiclient.model.version_package_info"] = "openapiclient/model/version_package_info.lua";
+		["openapiclient.model.version_package_info_asset_index"] = "openapiclient/model/version_package_info_asset_index.lua";
+		["openapiclient.model.version_package_info_downloads"] = "openapiclient/model/version_package_info_downloads.lua";
+		["openapiclient.model.version_package_info_java_version"] = "openapiclient/model/version_package_info_java_version.lua";
 	}
 }

@@ -160,7 +160,7 @@ void OpenAPIDefaultApi::OnGetMinecraftVersionManifestResponse(FHttpRequestPtr Ht
 	Delegate.ExecuteIfBound(Response);
 }
 
-FHttpRequestPtr OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGet(const V1PackagesPackageIdVersionIdJsonGetRequest& Request, const FV1PackagesPackageIdVersionIdJsonGetDelegate& Delegate /*= FV1PackagesPackageIdVersionIdJsonGetDelegate()*/) const
+FHttpRequestPtr OpenAPIDefaultApi::GetMinecraftVersionPackageInfo(const GetMinecraftVersionPackageInfoRequest& Request, const FGetMinecraftVersionPackageInfoDelegate& Delegate /*= FGetMinecraftVersionPackageInfoDelegate()*/) const
 {
 	if (!IsValid())
 		return nullptr;
@@ -175,14 +175,14 @@ FHttpRequestPtr OpenAPIDefaultApi::V1PackagesPackageIdVersionIdJsonGet(const V1P
 
 	Request.SetupHttpRequest(HttpRequest);
 
-	HttpRequest->OnProcessRequestComplete().BindRaw(this, &OpenAPIDefaultApi::OnV1PackagesPackageIdVersionIdJsonGetResponse, Delegate);
+	HttpRequest->OnProcessRequestComplete().BindRaw(this, &OpenAPIDefaultApi::OnGetMinecraftVersionPackageInfoResponse, Delegate);
 	HttpRequest->ProcessRequest();
 	return HttpRequest;
 }
 
-void OpenAPIDefaultApi::OnV1PackagesPackageIdVersionIdJsonGetResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FV1PackagesPackageIdVersionIdJsonGetDelegate Delegate) const
+void OpenAPIDefaultApi::OnGetMinecraftVersionPackageInfoResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetMinecraftVersionPackageInfoDelegate Delegate) const
 {
-	V1PackagesPackageIdVersionIdJsonGetResponse Response;
+	GetMinecraftVersionPackageInfoResponse Response;
 	HandleResponse(HttpResponse, bSucceeded, Response);
 	Delegate.ExecuteIfBound(Response);
 }

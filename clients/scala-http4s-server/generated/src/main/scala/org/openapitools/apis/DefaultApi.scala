@@ -3,8 +3,8 @@ package org.openapitools.apis
 import org.openapitools.apis.path._
 import org.openapitools.apis.query._
 
-import org.openapitools.models.GetMinecraftVersionManifest200Response
-import org.openapitools.models.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.models.VersionManifest
+import org.openapitools.models.VersionPackageInfo
 
 
 import cats.Monad
@@ -32,37 +32,37 @@ final case class DefaultApiRoutes[
 
 
     val responses: getMinecraftVersionManifestResponses[F] = new getMinecraftVersionManifestResponses[F] {
-      def resp200(value: GetMinecraftVersionManifest200Response): F[Response[F]] = Ok(value)
+      def resp200(value: VersionManifest): F[Response[F]] = Ok(value)
     }
   }
-  object v1PackagesPackageIdVersionIdJsonGet {
-    import DefaultApiDelegate.v1PackagesPackageIdVersionIdJsonGetResponses
+  object getMinecraftVersionPackageInfo {
+    import DefaultApiDelegate.getMinecraftVersionPackageInfoResponses
 
 
     val route = HttpRoutes.of[F] {
       case req @ GET -> Root / "v1" / "packages" / packageId / "{versionId}.json" =>
-        delegate.v1PackagesPackageIdVersionIdJsonGet.handle(req, packageId, versionId, responses)
+        delegate.getMinecraftVersionPackageInfo.handle(req, packageId, versionId, responses)
 
     }
 
 
-    val responses: v1PackagesPackageIdVersionIdJsonGetResponses[F] = new v1PackagesPackageIdVersionIdJsonGetResponses[F] {
-      def resp200(value: V1PackagesPackageIdVersionIdJsonGet200Response): F[Response[F]] = Ok(value)
+    val responses: getMinecraftVersionPackageInfoResponses[F] = new getMinecraftVersionPackageInfoResponses[F] {
+      def resp200(value: VersionPackageInfo): F[Response[F]] = Ok(value)
     }
   }
 
   val routes =
     getMinecraftVersionManifest.route <+>
-    v1PackagesPackageIdVersionIdJsonGet.route
+    getMinecraftVersionPackageInfo.route
 }
 
 object DefaultApiDelegate {
   trait getMinecraftVersionManifestResponses[F[_]] {
-    def resp200(value: GetMinecraftVersionManifest200Response): F[Response[F]]
+    def resp200(value: VersionManifest): F[Response[F]]
   }
 
-  trait v1PackagesPackageIdVersionIdJsonGetResponses[F[_]] {
-    def resp200(value: V1PackagesPackageIdVersionIdJsonGet200Response): F[Response[F]]
+  trait getMinecraftVersionPackageInfoResponses[F[_]] {
+    def resp200(value: VersionPackageInfo): F[Response[F]]
   }
 
 }
@@ -81,17 +81,17 @@ trait DefaultApiDelegate[F[_]] {
   def getMinecraftVersionManifest: getMinecraftVersionManifest
 
 
-  trait v1PackagesPackageIdVersionIdJsonGet {
-    import DefaultApiDelegate.v1PackagesPackageIdVersionIdJsonGetResponses
+  trait getMinecraftVersionPackageInfo {
+    import DefaultApiDelegate.getMinecraftVersionPackageInfoResponses
 
     def handle(
       req: Request[F],
       packageId: String,
       versionId: ,
-      responses: v1PackagesPackageIdVersionIdJsonGetResponses[F]
+      responses: getMinecraftVersionPackageInfoResponses[F]
     ): F[Response[F]]
 
   }
-  def v1PackagesPackageIdVersionIdJsonGet: v1PackagesPackageIdVersionIdJsonGet
+  def getMinecraftVersionPackageInfo: getMinecraftVersionPackageInfo
 
 }

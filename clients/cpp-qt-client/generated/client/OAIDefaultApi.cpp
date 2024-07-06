@@ -42,8 +42,8 @@ void OAIDefaultApi::initializeServerConfigs() {
     QMap<QString, OAIServerVariable>()));
     _serverConfigs.insert("getMinecraftVersionManifest", defaultConf);
     _serverIndices.insert("getMinecraftVersionManifest", 0);
-    _serverConfigs.insert("v1PackagesPackageIdVersionIdJsonGet", defaultConf);
-    _serverIndices.insert("v1PackagesPackageIdVersionIdJsonGet", 0);
+    _serverConfigs.insert("getMinecraftVersionPackageInfo", defaultConf);
+    _serverIndices.insert("getMinecraftVersionPackageInfo", 0);
 }
 
 /**
@@ -256,7 +256,7 @@ void OAIDefaultApi::getMinecraftVersionManifestCallback(OAIHttpRequestWorker *wo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGetMinecraftVersionManifest_200_response output(QString(worker->response));
+    OAIVersionManifest output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -294,8 +294,8 @@ void OAIDefaultApi::getMinecraftVersionManifestCallback(OAIHttpRequestWorker *wo
     }
 }
 
-void OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGet(const QString &package_id, const QString &version_id) {
-    QString fullPath = QString(_serverConfigs["v1PackagesPackageIdVersionIdJsonGet"][_serverIndices.value("v1PackagesPackageIdVersionIdJsonGet")].URL()+"/v1/packages/{packageId}/{versionId}.json");
+void OAIDefaultApi::getMinecraftVersionPackageInfo(const QString &package_id, const QString &version_id) {
+    QString fullPath = QString(_serverConfigs["getMinecraftVersionPackageInfo"][_serverIndices.value("getMinecraftVersionPackageInfo")].URL()+"/v1/packages/{packageId}/{versionId}.json");
     
     
     {
@@ -341,7 +341,7 @@ void OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGet(const QString &package_i
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGetCallback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::getMinecraftVersionPackageInfoCallback);
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
@@ -352,19 +352,19 @@ void OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGet(const QString &package_i
     worker->execute(&input);
 }
 
-void OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGetCallback(OAIHttpRequestWorker *worker) {
+void OAIDefaultApi::getMinecraftVersionPackageInfoCallback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAI_v1_packages__packageId___versionId__json_get_200_response output(QString(worker->response));
+    OAIVersionPackageInfo output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT v1PackagesPackageIdVersionIdJsonGetSignal(output);
-        Q_EMIT v1PackagesPackageIdVersionIdJsonGetSignalFull(worker, output);
+        Q_EMIT getMinecraftVersionPackageInfoSignal(output);
+        Q_EMIT getMinecraftVersionPackageInfoSignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -381,8 +381,8 @@ void OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGetCallback(OAIHttpRequestWo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT v1PackagesPackageIdVersionIdJsonGetSignalE(output, error_type, error_str);
-        Q_EMIT v1PackagesPackageIdVersionIdJsonGetSignalEFull(worker, error_type, error_str);
+        Q_EMIT getMinecraftVersionPackageInfoSignalE(output, error_type, error_str);
+        Q_EMIT getMinecraftVersionPackageInfoSignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -392,8 +392,8 @@ void OAIDefaultApi::v1PackagesPackageIdVersionIdJsonGetCallback(OAIHttpRequestWo
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT v1PackagesPackageIdVersionIdJsonGetSignalError(output, error_type, error_str);
-        Q_EMIT v1PackagesPackageIdVersionIdJsonGetSignalErrorFull(worker, error_type, error_str);
+        Q_EMIT getMinecraftVersionPackageInfoSignalError(output, error_type, error_str);
+        Q_EMIT getMinecraftVersionPackageInfoSignalErrorFull(worker, error_type, error_str);
     }
 }
 

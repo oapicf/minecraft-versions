@@ -13,8 +13,8 @@
 
 package org.openapitools.client.api;
 
-import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.client.model.VersionManifest;
+import org.openapitools.client.model.VersionPackageInfo;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -54,19 +54,19 @@ public class DefaultApiTest {
      */
     @Test
     public void getMinecraftVersionManifestTest() throws Exception {
-        //GetMinecraftVersionManifest200Response response = client.getMinecraftVersionManifest();
+        //VersionManifest response = client.getMinecraftVersionManifest();
         //assertNotNull(response);
     }
     
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void v1PackagesPackageIdVersionIdJsonGetTest() throws Exception {
-        //V1PackagesPackageIdVersionIdJsonGet200Response response = client.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
+    public void getMinecraftVersionPackageInfoTest() throws Exception {
+        //VersionPackageInfo response = client.getMinecraftVersionPackageInfo(packageId, versionId);
         //assertNotNull(response);
     }
     

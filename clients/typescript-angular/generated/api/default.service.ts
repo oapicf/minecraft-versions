@@ -19,9 +19,9 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { GetMinecraftVersionManifest200Response } from '../model/getMinecraftVersionManifest200Response';
+import { VersionManifest } from '../model/versionManifest';
 // @ts-ignore
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../model/v1PackagesPackageIdVersionIdJsonGet200Response';
+import { VersionPackageInfo } from '../model/versionPackageInfo';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -99,9 +99,9 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMinecraftVersionManifest(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetMinecraftVersionManifest200Response>;
-    public getMinecraftVersionManifest(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetMinecraftVersionManifest200Response>>;
-    public getMinecraftVersionManifest(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetMinecraftVersionManifest200Response>>;
+    public getMinecraftVersionManifest(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<VersionManifest>;
+    public getMinecraftVersionManifest(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<VersionManifest>>;
+    public getMinecraftVersionManifest(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<VersionManifest>>;
     public getMinecraftVersionManifest(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
@@ -141,7 +141,7 @@ export class DefaultService {
         }
 
         let localVarPath = `/mc/game/version_manifest.json`;
-        return this.httpClient.request<GetMinecraftVersionManifest200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<VersionManifest>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -155,21 +155,21 @@ export class DefaultService {
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @param packageId 
      * @param versionId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<V1PackagesPackageIdVersionIdJsonGet200Response>;
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<V1PackagesPackageIdVersionIdJsonGet200Response>>;
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<V1PackagesPackageIdVersionIdJsonGet200Response>>;
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<VersionPackageInfo>;
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<VersionPackageInfo>>;
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<VersionPackageInfo>>;
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (packageId === null || packageId === undefined) {
-            throw new Error('Required parameter packageId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter packageId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
         if (versionId === null || versionId === undefined) {
-            throw new Error('Required parameter versionId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter versionId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -209,7 +209,7 @@ export class DefaultService {
         }
 
         let localVarPath = `/v1/packages/${this.configuration.encodeParam({name: "packageId", value: packageId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "versionId", value: versionId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}.json`;
-        return this.httpClient.request<V1PackagesPackageIdVersionIdJsonGet200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<VersionPackageInfo>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

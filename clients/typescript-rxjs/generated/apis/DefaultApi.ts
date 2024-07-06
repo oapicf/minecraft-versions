@@ -16,11 +16,11 @@ import type { AjaxResponse } from 'rxjs/ajax';
 import { BaseAPI, throwIfNullOrUndefined, encodeURI } from '../runtime';
 import type { OperationOpts } from '../runtime';
 import type {
-    GetMinecraftVersionManifest200Response,
-    V1PackagesPackageIdVersionIdJsonGet200Response,
+    VersionManifest,
+    VersionPackageInfo,
 } from '../models';
 
-export interface V1PackagesPackageIdVersionIdJsonGetRequest {
+export interface GetMinecraftVersionPackageInfoRequest {
     packageId: string;
     versionId: string;
 }
@@ -33,25 +33,25 @@ export class DefaultApi extends BaseAPI {
     /**
      * Get Minecraft version manifest
      */
-    getMinecraftVersionManifest(): Observable<GetMinecraftVersionManifest200Response>
-    getMinecraftVersionManifest(opts?: OperationOpts): Observable<AjaxResponse<GetMinecraftVersionManifest200Response>>
-    getMinecraftVersionManifest(opts?: OperationOpts): Observable<GetMinecraftVersionManifest200Response | AjaxResponse<GetMinecraftVersionManifest200Response>> {
-        return this.request<GetMinecraftVersionManifest200Response>({
+    getMinecraftVersionManifest(): Observable<VersionManifest>
+    getMinecraftVersionManifest(opts?: OperationOpts): Observable<AjaxResponse<VersionManifest>>
+    getMinecraftVersionManifest(opts?: OperationOpts): Observable<VersionManifest | AjaxResponse<VersionManifest>> {
+        return this.request<VersionManifest>({
             url: '/mc/game/version_manifest.json',
             method: 'GET',
         }, opts?.responseOpts);
     };
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      */
-    v1PackagesPackageIdVersionIdJsonGet({ packageId, versionId }: V1PackagesPackageIdVersionIdJsonGetRequest): Observable<V1PackagesPackageIdVersionIdJsonGet200Response>
-    v1PackagesPackageIdVersionIdJsonGet({ packageId, versionId }: V1PackagesPackageIdVersionIdJsonGetRequest, opts?: OperationOpts): Observable<AjaxResponse<V1PackagesPackageIdVersionIdJsonGet200Response>>
-    v1PackagesPackageIdVersionIdJsonGet({ packageId, versionId }: V1PackagesPackageIdVersionIdJsonGetRequest, opts?: OperationOpts): Observable<V1PackagesPackageIdVersionIdJsonGet200Response | AjaxResponse<V1PackagesPackageIdVersionIdJsonGet200Response>> {
-        throwIfNullOrUndefined(packageId, 'packageId', 'v1PackagesPackageIdVersionIdJsonGet');
-        throwIfNullOrUndefined(versionId, 'versionId', 'v1PackagesPackageIdVersionIdJsonGet');
+    getMinecraftVersionPackageInfo({ packageId, versionId }: GetMinecraftVersionPackageInfoRequest): Observable<VersionPackageInfo>
+    getMinecraftVersionPackageInfo({ packageId, versionId }: GetMinecraftVersionPackageInfoRequest, opts?: OperationOpts): Observable<AjaxResponse<VersionPackageInfo>>
+    getMinecraftVersionPackageInfo({ packageId, versionId }: GetMinecraftVersionPackageInfoRequest, opts?: OperationOpts): Observable<VersionPackageInfo | AjaxResponse<VersionPackageInfo>> {
+        throwIfNullOrUndefined(packageId, 'packageId', 'getMinecraftVersionPackageInfo');
+        throwIfNullOrUndefined(versionId, 'versionId', 'getMinecraftVersionPackageInfo');
 
-        return this.request<V1PackagesPackageIdVersionIdJsonGet200Response>({
+        return this.request<VersionPackageInfo>({
             url: '/v1/packages/{packageId}/{versionId}.json'.replace('{packageId}', encodeURI(packageId)).replace('{versionId}', encodeURI(versionId)),
             method: 'GET',
         }, opts?.responseOpts);

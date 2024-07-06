@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**getMinecraftVersionManifestWithHttpInfo**](DefaultApi.md#getMinecraftVersionManifestWithHttpInfo) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
-[**v1PackagesPackageIdVersionIdJsonGetWithHttpInfo**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGetWithHttpInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
+[**getMinecraftVersionPackageInfoWithHttpInfo**](DefaultApi.md#getMinecraftVersionPackageInfoWithHttpInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 
 ## getMinecraftVersionManifest
 
-> getMinecraftVersionManifest(): ApiRequest[GetMinecraftVersionManifest200Response]
+> getMinecraftVersionManifest(): ApiRequest[VersionManifest]
 
 Get Minecraft version manifest
 
@@ -66,7 +66,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)]
+ApiRequest[[**VersionManifest**](VersionManifest.md)]
 
 
 ### Authorization
@@ -84,11 +84,11 @@ No authorization required
 | **200** | A list of Minecraft versions with the latest and snapshot releases |  -  |
 
 
-## v1PackagesPackageIdVersionIdJsonGet
+## getMinecraftVersionPackageInfo
 
-> v1PackagesPackageIdVersionIdJsonGet(v1PackagesPackageIdVersionIdJsonGetRequest): ApiRequest[V1PackagesPackageIdVersionIdJsonGet200Response]
+> getMinecraftVersionPackageInfo(getMinecraftVersionPackageInfoRequest): ApiRequest[VersionPackageInfo]
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 
@@ -114,7 +114,7 @@ object Example extends App {
 
     val versionId: String = 1.21 // String | 
     
-    val request = apiInstance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId)
+    val request = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -124,14 +124,14 @@ object Example extends App {
             System.out.println(s"Response body: $content")
         
         case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling DefaultApi#v1PackagesPackageIdVersionIdJsonGet")
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionPackageInfo")
             System.err.println(s"Status code: $code}")
             System.err.println(s"Reason: $responseContent")
             System.err.println(s"Response headers: ${headers.mkString(", ")}")
             error.printStackTrace();
 
         case Failure(exception) => 
-            System.err.println("Exception when calling DefaultApi#v1PackagesPackageIdVersionIdJsonGet")
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionPackageInfo")
             exception.printStackTrace();
     }
 }
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-ApiRequest[[**V1PackagesPackageIdVersionIdJsonGet200Response**](V1PackagesPackageIdVersionIdJsonGet200Response.md)]
+ApiRequest[[**VersionPackageInfo**](VersionPackageInfo.md)]
 
 
 ### Authorization

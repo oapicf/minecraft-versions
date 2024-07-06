@@ -19,15 +19,15 @@ void main() {
   group('tests for DefaultApi', () {
     // Get Minecraft version manifest
     //
-    //Future<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest() async
+    //Future<VersionManifest> getMinecraftVersionManifest() async
     test('test getMinecraftVersionManifest', () async {
       // TODO
     });
 
-    // Get Minecraft version package details
+    // Get Minecraft version package info
     //
-    //Future<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(String packageId, String versionId) async
-    test('test v1PackagesPackageIdVersionIdJsonGet', () async {
+    //Future<VersionPackageInfo> getMinecraftVersionPackageInfo(String packageId, String versionId) async
+    test('test getMinecraftVersionPackageInfo', () async {
       // TODO
     });
 

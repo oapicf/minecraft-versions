@@ -13,8 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
-import GetMinecraftVersionManifest200Response from '../model/GetMinecraftVersionManifest200Response';
-import V1PackagesPackageIdVersionIdJsonGet200Response from '../model/V1PackagesPackageIdVersionIdJsonGet200Response';
+import VersionManifest from '../model/VersionManifest';
+import VersionPackageInfo from '../model/VersionPackageInfo';
 
 /**
 * Default service.
@@ -39,14 +39,14 @@ export default class DefaultApi {
      * Callback function to receive the result of the getMinecraftVersionManifest operation.
      * @callback module:api/DefaultApi~getMinecraftVersionManifestCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetMinecraftVersionManifest200Response} data The data returned by the service call.
+     * @param {module:model/VersionManifest} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Minecraft version manifest
      * @param {module:api/DefaultApi~getMinecraftVersionManifestCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetMinecraftVersionManifest200Response}
+     * data is of type: {@link module:model/VersionManifest}
      */
     getMinecraftVersionManifest(callback) {
       let postBody = null;
@@ -63,7 +63,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetMinecraftVersionManifest200Response;
+      let returnType = VersionManifest;
       return this.apiClient.callApi(
         '/mc/game/version_manifest.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -72,29 +72,29 @@ export default class DefaultApi {
     }
 
     /**
-     * Callback function to receive the result of the v1PackagesPackageIdVersionIdJsonGet operation.
-     * @callback module:api/DefaultApi~v1PackagesPackageIdVersionIdJsonGetCallback
+     * Callback function to receive the result of the getMinecraftVersionPackageInfo operation.
+     * @callback module:api/DefaultApi~getMinecraftVersionPackageInfoCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1PackagesPackageIdVersionIdJsonGet200Response} data The data returned by the service call.
+     * @param {module:model/VersionPackageInfo} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @param {String} packageId 
      * @param {String} versionId 
-     * @param {module:api/DefaultApi~v1PackagesPackageIdVersionIdJsonGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1PackagesPackageIdVersionIdJsonGet200Response}
+     * @param {module:api/DefaultApi~getMinecraftVersionPackageInfoCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/VersionPackageInfo}
      */
-    v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, callback) {
+    getMinecraftVersionPackageInfo(packageId, versionId, callback) {
       let postBody = null;
       // verify the required parameter 'packageId' is set
       if (packageId === undefined || packageId === null) {
-        throw new Error("Missing the required parameter 'packageId' when calling v1PackagesPackageIdVersionIdJsonGet");
+        throw new Error("Missing the required parameter 'packageId' when calling getMinecraftVersionPackageInfo");
       }
       // verify the required parameter 'versionId' is set
       if (versionId === undefined || versionId === null) {
-        throw new Error("Missing the required parameter 'versionId' when calling v1PackagesPackageIdVersionIdJsonGet");
+        throw new Error("Missing the required parameter 'versionId' when calling getMinecraftVersionPackageInfo");
       }
 
       let pathParams = {
@@ -111,7 +111,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = V1PackagesPackageIdVersionIdJsonGet200Response;
+      let returnType = VersionPackageInfo;
       return this.apiClient.callApi(
         '/v1/packages/{packageId}/{versionId}.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

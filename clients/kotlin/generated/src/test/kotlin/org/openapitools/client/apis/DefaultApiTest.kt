@@ -19,8 +19,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.DefaultApi
-import org.openapitools.client.models.GetMinecraftVersionManifest200Response
-import org.openapitools.client.models.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.client.models.VersionManifest
+import org.openapitools.client.models.VersionPackageInfo
 
 class DefaultApiTest : ShouldSpec() {
     init {
@@ -30,16 +30,16 @@ class DefaultApiTest : ShouldSpec() {
         // to test getMinecraftVersionManifest
         should("test getMinecraftVersionManifest") {
             // uncomment below to test getMinecraftVersionManifest
-            //val result : GetMinecraftVersionManifest200Response = apiInstance.getMinecraftVersionManifest()
+            //val result : VersionManifest = apiInstance.getMinecraftVersionManifest()
             //result shouldBe ("TODO")
         }
 
-        // to test v1PackagesPackageIdVersionIdJsonGet
-        should("test v1PackagesPackageIdVersionIdJsonGet") {
-            // uncomment below to test v1PackagesPackageIdVersionIdJsonGet
+        // to test getMinecraftVersionPackageInfo
+        should("test getMinecraftVersionPackageInfo") {
+            // uncomment below to test getMinecraftVersionPackageInfo
             //val packageId : kotlin.String = 177e49d3233cb6eac42f0495c0a48e719870c2ae // kotlin.String | 
             //val versionId : kotlin.String = 1.21 // kotlin.String | 
-            //val result : V1PackagesPackageIdVersionIdJsonGet200Response = apiInstance.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId)
+            //val result : VersionPackageInfo = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId)
             //result shouldBe ("TODO")
         }
 

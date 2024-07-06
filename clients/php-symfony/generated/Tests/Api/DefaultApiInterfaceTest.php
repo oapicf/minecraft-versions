@@ -91,12 +91,12 @@ class DefaultApiInterfaceTest extends WebTestCase
     }
 
     /**
-     * Test case for v1PackagesPackageIdVersionIdJsonGet
+     * Test case for getMinecraftVersionPackageInfo
      *
-     * Get Minecraft version package details.
+     * Get Minecraft version package info.
      *
      */
-    public function testV1PackagesPackageIdVersionIdJsonGet(): void
+    public function testGetMinecraftVersionPackageInfo(): void
     {
         $client = self::$client;
 
@@ -109,7 +109,7 @@ class DefaultApiInterfaceTest extends WebTestCase
         $path = str_replace($pattern, $data, $path);
 
         $crawler = $client->request('GET', $path);
-        $this->markTestSkipped('Test for v1PackagesPackageIdVersionIdJsonGet not implemented');
+        $this->markTestSkipped('Test for getMinecraftVersionPackageInfo not implemented');
     }
 
     /**

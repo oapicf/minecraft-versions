@@ -24,7 +24,7 @@ public interface PathHandlerInterface {
      * <p><b>Endpoint</b>: {@link Methods#GET GET} "/mc/game/version_manifest.json" (<i>privileged: false</i>)</p>
      *
      * <p><b>Produces</b>: [{isJson=true, mediaType=application/json}]</p>
-     * <p><b>Returns</b>: {@link GetMinecraftVersionManifest200Response}</p>
+     * <p><b>Returns</b>: {@link VersionManifest}</p>
      *
      * <p><b>Responses</b>:</p>
      * <ul>
@@ -35,7 +35,7 @@ public interface PathHandlerInterface {
     HttpHandler getMinecraftVersionManifest();
 
     /**
-     * <p>Get Minecraft version package details</p>
+     * <p>Get Minecraft version package info</p>
      *
      * <p><b>Endpoint</b>: {@link Methods#GET GET} "/v1/packages/{packageId}/{versionId}.json" (<i>privileged: false</i>)</p>
      *
@@ -60,7 +60,7 @@ public interface PathHandlerInterface {
      * </ul>
      *
      * <p><b>Produces</b>: [{isJson=true, mediaType=application/json}]</p>
-     * <p><b>Returns</b>: {@link V1PackagesPackageIdVersionIdJsonGet200Response}</p>
+     * <p><b>Returns</b>: {@link VersionPackageInfo}</p>
      *
      * <p><b>Responses</b>:</p>
      * <ul>
@@ -68,5 +68,5 @@ public interface PathHandlerInterface {
      * </ul>
      */
     @javax.annotation.Nonnull
-    HttpHandler v1PackagesPackageIdVersionIdJsonGet();
+    HttpHandler getMinecraftVersionPackageInfo();
 }

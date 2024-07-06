@@ -27,7 +27,7 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Module | Proc | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 api_default | getMinecraftVersionManifest | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-api_default | v1PackagesPackageIdVersionIdJsonGet | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+api_default | getMinecraftVersionPackageInfo | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 To generate documentation with Nim DocGen, use:

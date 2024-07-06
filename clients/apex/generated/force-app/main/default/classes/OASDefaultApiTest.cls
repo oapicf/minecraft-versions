@@ -14,27 +14,27 @@ private class OASDefaultApiTest {
 
         OASClient client;
         OASDefaultApi api;
-        OASGetMinecraftVersionManifest200Res response;
-        OASGetMinecraftVersionManifest200Res expectedResponse;
+        OASVersionManifest response;
+        OASVersionManifest expectedResponse;
         String js = '';
 
         api = new OASDefaultApi(new OASClient());
 
-        js = JSON.serialize(OASGetMinecraftVersionManifest200Res.getExample());
+        js = JSON.serialize(OASVersionManifest.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASGetMinecraftVersionManifest200Res.getExample();
-        response = (OASGetMinecraftVersionManifest200Res) api.getMinecraftVersionManifest();
+        expectedResponse = OASVersionManifest.getExample();
+        response = (OASVersionManifest) api.getMinecraftVersionManifest();
         System.assertEquals(expectedResponse, response);
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * 
      */
     @isTest
-    private static void v1PackagesPackageIdVersionIdJsonGetTest() {
+    private static void getMinecraftVersionPackageInfoTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
         res.setStatus('OK');
@@ -47,17 +47,17 @@ private class OASDefaultApiTest {
 
         OASClient client;
         OASDefaultApi api;
-        OASV1PackagesPackageIdVersionIdJsonG response;
-        OASV1PackagesPackageIdVersionIdJsonG expectedResponse;
+        OASVersionPackageInfo response;
+        OASVersionPackageInfo expectedResponse;
         String js = '';
 
         api = new OASDefaultApi(new OASClient());
 
-        js = JSON.serialize(OASV1PackagesPackageIdVersionIdJsonG.getExample());
+        js = JSON.serialize(OASVersionPackageInfo.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASV1PackagesPackageIdVersionIdJsonG.getExample();
-        response = (OASV1PackagesPackageIdVersionIdJsonG) api.v1PackagesPackageIdVersionIdJsonGet(params);
+        expectedResponse = OASVersionPackageInfo.getExample();
+        response = (OASVersionPackageInfo) api.getMinecraftVersionPackageInfo(params);
         System.assertEquals(expectedResponse, response);
     }
 }

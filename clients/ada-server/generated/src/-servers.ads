@@ -24,16 +24,16 @@ package .Servers is
    procedure Get_Minecraft_Version_Manifest
       (Server : in out Server_Type
        ;
-       Result  : out .Models.GetMinecraftVersionManifest200Response_Type;
+       Result  : out .Models.VersionManifest_Type;
        Context : in out Swagger.Servers.Context_Type);
 
-   --  Get Minecraft version package details
+   --  Get Minecraft version package info
    overriding
-   procedure V_1Packages_Package_Id_Version_Id_Json_Get
+   procedure Get_Minecraft_Version_Package_Info
       (Server : in out Server_Type;
        Package_Id : in Swagger.UString;
        Version_Id : in Swagger.UString;
-       Result  : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type;
+       Result  : out .Models.VersionPackageInfo_Type;
        Context : in out Swagger.Servers.Context_Type);
 
    package Server_Impl is

@@ -28,8 +28,8 @@ function get_minecraft_version_manifest_invoke(impl; post_invoke=nothing)
     end
 end
 
-function v1_packages_package_id_version_id_json_get_read(handler)
-    function v1_packages_package_id_version_id_json_get_read_handler(req::HTTP.Request)
+function get_minecraft_version_package_info_read(handler)
+    function get_minecraft_version_package_info_read_handler(req::HTTP.Request)
         openapi_params = Dict{String,Any}()
         path_params = HTTP.getparams(req)
         openapi_params["packageId"] = OpenAPI.Servers.to_param(String, path_params, "packageId", required=true, )
@@ -40,18 +40,18 @@ function v1_packages_package_id_version_id_json_get_read(handler)
     end
 end
 
-function v1_packages_package_id_version_id_json_get_validate(handler)
-    function v1_packages_package_id_version_id_json_get_validate_handler(req::HTTP.Request)
+function get_minecraft_version_package_info_validate(handler)
+    function get_minecraft_version_package_info_validate_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
         
         return handler(req)
     end
 end
 
-function v1_packages_package_id_version_id_json_get_invoke(impl; post_invoke=nothing)
-    function v1_packages_package_id_version_id_json_get_invoke_handler(req::HTTP.Request)
+function get_minecraft_version_package_info_invoke(impl; post_invoke=nothing)
+    function get_minecraft_version_package_info_invoke_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
-        ret = impl.v1_packages_package_id_version_id_json_get(req::HTTP.Request, openapi_params["packageId"], openapi_params["versionId"];)
+        ret = impl.get_minecraft_version_package_info(req::HTTP.Request, openapi_params["packageId"], openapi_params["versionId"];)
         resp = OpenAPI.Servers.server_response(ret)
         return (post_invoke === nothing) ? resp : post_invoke(req, resp)
     end
@@ -60,6 +60,6 @@ end
 
 function registerDefaultApi(router::HTTP.Router, impl; path_prefix::String="", optional_middlewares...)
     HTTP.register!(router, "GET", path_prefix * "/mc/game/version_manifest.json", OpenAPI.Servers.middleware(impl, get_minecraft_version_manifest_read, get_minecraft_version_manifest_validate, get_minecraft_version_manifest_invoke; optional_middlewares...))
-    HTTP.register!(router, "GET", path_prefix * "/v1/packages/{packageId}/{versionId}.json", OpenAPI.Servers.middleware(impl, v1_packages_package_id_version_id_json_get_read, v1_packages_package_id_version_id_json_get_validate, v1_packages_package_id_version_id_json_get_invoke; optional_middlewares...))
+    HTTP.register!(router, "GET", path_prefix * "/v1/packages/{packageId}/{versionId}.json", OpenAPI.Servers.middleware(impl, get_minecraft_version_package_info_read, get_minecraft_version_package_info_validate, get_minecraft_version_package_info_invoke; optional_middlewares...))
     return router
 end

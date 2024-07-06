@@ -23,8 +23,8 @@
 
 #include "CppRestOpenAPIClient/ApiClient.h"
 
-#include "CppRestOpenAPIClient/model/GetMinecraftVersionManifest_200_response.h"
-#include "CppRestOpenAPIClient/model/_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "CppRestOpenAPIClient/model/VersionManifest.h"
+#include "CppRestOpenAPIClient/model/VersionPackageInfo.h"
 #include <cpprest/details/basic_types.h>
 #include <boost/optional.hpp>
 
@@ -51,17 +51,17 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    pplx::task<std::shared_ptr<GetMinecraftVersionManifest_200_response>> getMinecraftVersionManifest(
+    pplx::task<std::shared_ptr<VersionManifest>> getMinecraftVersionManifest(
     ) const;
     /// <summary>
-    /// Get Minecraft version package details
+    /// Get Minecraft version package info
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
     /// <param name="packageId"></param>
     /// <param name="versionId"></param>
-    pplx::task<std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_response>> v1PackagesPackageIdVersionIdJsonGet(
+    pplx::task<std::shared_ptr<VersionPackageInfo>> getMinecraftVersionPackageInfo(
         utility::string_t packageId,
         utility::string_t versionId
     ) const;

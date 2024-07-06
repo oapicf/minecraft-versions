@@ -20,12 +20,12 @@ This runs all tests and packages the library.
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [org.openapitools.database.models.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [org.openapitools.database.models.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [org.openapitools.database.models.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [org.openapitools.database.models.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [org.openapitools.database.models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [org.openapitools.database.models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [org.openapitools.database.models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [org.openapitools.database.models.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [org.openapitools.database.models.Download](docs/Download.md)
+ - [org.openapitools.database.models.Version](docs/Version.md)
+ - [org.openapitools.database.models.VersionManifest](docs/VersionManifest.md)
+ - [org.openapitools.database.models.VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [org.openapitools.database.models.VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [org.openapitools.database.models.VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [org.openapitools.database.models.VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [org.openapitools.database.models.VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 

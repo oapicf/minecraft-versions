@@ -2,17 +2,13 @@
 
 title  Schemas Diagram
 
-entity GetMinecraftVersionManifest200Response {
-    latest: GetMinecraftVersionManifest200ResponseLatest
-    versions: List<GetMinecraftVersionManifest200ResponseVersionsInner>
+entity Download {
+    sha1: String
+    size: Integer
+    url: String
 }
 
-entity GetMinecraftVersionManifest200ResponseLatest {
-    release: String
-    snapshot: String
-}
-
-entity GetMinecraftVersionManifest200ResponseVersionsInner {
+entity Version {
     id: String
     type: String
     url: String
@@ -20,14 +16,24 @@ entity GetMinecraftVersionManifest200ResponseVersionsInner {
     releaseTime: Date
 }
 
-entity V1PackagesPackageIdVersionIdJsonGet200Response {
+entity VersionManifest {
+    latest: VersionManifestLatest
+    versions: List<Version>
+}
+
+entity VersionManifestLatest {
+    release: String
+    snapshot: String
+}
+
+entity VersionPackageInfo {
     version: String
-    assetIndex: V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+    assetIndex: VersionPackageInfoAssetIndex
     assets: Integer
     complianceLevel: Integer
-    downloads: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    downloads: VersionPackageInfoDownloads
     id: String
-    javaVersion: V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+    javaVersion: VersionPackageInfoJavaVersion
     mainClass: String
     minimumLauncherVersion: Integer
     time: Date
@@ -35,7 +41,7 @@ entity V1PackagesPackageIdVersionIdJsonGet200Response {
     type: String
 }
 
-entity V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+entity VersionPackageInfoAssetIndex {
     id: String
     sha1: String
     size: Integer
@@ -43,33 +49,27 @@ entity V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
     url: String
 }
 
-entity V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
-    client: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    client_mappings: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    server: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    server_mappings: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+entity VersionPackageInfoDownloads {
+    client: Download
+    client_mappings: Download
+    server: Download
+    server_mappings: Download
 }
 
-entity V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
-    sha1: String
-    size: Integer
-    url: String
-}
-
-entity V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+entity VersionPackageInfoJavaVersion {
     component: String
     majorVersion: Integer
 }
 
 
-GetMinecraftVersionManifest200Response -- GetMinecraftVersionManifest200ResponseLatest : latest
-GetMinecraftVersionManifest200Response -- "0..*" GetMinecraftVersionManifest200ResponseVersionsInner : versions
-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : client
-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : client_mappings
-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : server
-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : server_mappings
-V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex : assetIndex
-V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads : downloads
-V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion : javaVersion
+VersionPackageInfoDownloads -- Download : client
+VersionPackageInfoDownloads -- Download : client_mappings
+VersionPackageInfoDownloads -- Download : server
+VersionPackageInfoDownloads -- Download : server_mappings
+VersionPackageInfo -- VersionPackageInfoAssetIndex : assetIndex
+VersionPackageInfo -- VersionPackageInfoDownloads : downloads
+VersionPackageInfo -- VersionPackageInfoJavaVersion : javaVersion
+VersionManifest -- VersionManifestLatest : latest
+VersionManifest -- "0..*" Version : versions
 
 @enduml

@@ -2,14 +2,14 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
-import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
-import { GetMinecraftVersionManifest200ResponseLatest } from '../models/GetMinecraftVersionManifest200ResponseLatest';
-import { GetMinecraftVersionManifest200ResponseVersionsInner } from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
-import { V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
+import { Download } from '../models/Download';
+import { Version } from '../models/Version';
+import { VersionManifest } from '../models/VersionManifest';
+import { VersionManifestLatest } from '../models/VersionManifestLatest';
+import { VersionPackageInfo } from '../models/VersionPackageInfo';
+import { VersionPackageInfoAssetIndex } from '../models/VersionPackageInfoAssetIndex';
+import { VersionPackageInfoDownloads } from '../models/VersionPackageInfoDownloads';
+import { VersionPackageInfoJavaVersion } from '../models/VersionPackageInfoJavaVersion';
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
 export class ObservableDefaultApi {
@@ -30,7 +30,7 @@ export class ObservableDefaultApi {
     /**
      * Get Minecraft version manifest
      */
-    public getMinecraftVersionManifestWithHttpInfo(_options?: Configuration): Observable<HttpInfo<GetMinecraftVersionManifest200Response>> {
+    public getMinecraftVersionManifestWithHttpInfo(_options?: Configuration): Observable<HttpInfo<VersionManifest>> {
         const requestContextPromise = this.requestFactory.getMinecraftVersionManifest(_options);
 
         // build promise chain
@@ -52,17 +52,17 @@ export class ObservableDefaultApi {
     /**
      * Get Minecraft version manifest
      */
-    public getMinecraftVersionManifest(_options?: Configuration): Observable<GetMinecraftVersionManifest200Response> {
-        return this.getMinecraftVersionManifestWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<GetMinecraftVersionManifest200Response>) => apiResponse.data));
+    public getMinecraftVersionManifest(_options?: Configuration): Observable<VersionManifest> {
+        return this.getMinecraftVersionManifestWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<VersionManifest>) => apiResponse.data));
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @param packageId 
      * @param versionId 
      */
-    public v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(packageId: string, versionId: string, _options?: Configuration): Observable<HttpInfo<V1PackagesPackageIdVersionIdJsonGet200Response>> {
-        const requestContextPromise = this.requestFactory.v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, _options);
+    public getMinecraftVersionPackageInfoWithHttpInfo(packageId: string, versionId: string, _options?: Configuration): Observable<HttpInfo<VersionPackageInfo>> {
+        const requestContextPromise = this.requestFactory.getMinecraftVersionPackageInfo(packageId, versionId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -76,17 +76,17 @@ export class ObservableDefaultApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getMinecraftVersionPackageInfoWithHttpInfo(rsp)));
             }));
     }
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @param packageId 
      * @param versionId 
      */
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, _options?: Configuration): Observable<V1PackagesPackageIdVersionIdJsonGet200Response> {
-        return this.v1PackagesPackageIdVersionIdJsonGetWithHttpInfo(packageId, versionId, _options).pipe(map((apiResponse: HttpInfo<V1PackagesPackageIdVersionIdJsonGet200Response>) => apiResponse.data));
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, _options?: Configuration): Observable<VersionPackageInfo> {
+        return this.getMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId, _options).pipe(map((apiResponse: HttpInfo<VersionPackageInfo>) => apiResponse.data));
     }
 
 }

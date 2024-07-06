@@ -20,15 +20,15 @@ pub enum GetMinecraftVersionManifestError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v1_packages_package_id_version_id_json_get`]
+/// struct for typed errors of method [`get_minecraft_version_package_info`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V1PackagesPackageIdVersionIdJsonGetError {
+pub enum GetMinecraftVersionPackageInfoError {
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn get_minecraft_version_manifest(configuration: &configuration::Configuration, ) -> Result<models::GetMinecraftVersionManifest200Response, Error<GetMinecraftVersionManifestError>> {
+pub async fn get_minecraft_version_manifest(configuration: &configuration::Configuration, ) -> Result<models::VersionManifest, Error<GetMinecraftVersionManifestError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -55,7 +55,7 @@ pub async fn get_minecraft_version_manifest(configuration: &configuration::Confi
     }
 }
 
-pub async fn v1_packages_package_id_version_id_json_get(configuration: &configuration::Configuration, package_id: &str, version_id: &str) -> Result<models::V1PackagesPackageIdVersionIdJsonGet200Response, Error<V1PackagesPackageIdVersionIdJsonGetError>> {
+pub async fn get_minecraft_version_package_info(configuration: &configuration::Configuration, package_id: &str, version_id: &str) -> Result<models::VersionPackageInfo, Error<GetMinecraftVersionPackageInfoError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -76,7 +76,7 @@ pub async fn v1_packages_package_id_version_id_json_get(configuration: &configur
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<V1PackagesPackageIdVersionIdJsonGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMinecraftVersionPackageInfoError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

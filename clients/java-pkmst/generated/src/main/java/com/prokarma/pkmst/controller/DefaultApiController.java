@@ -1,7 +1,7 @@
 package com.prokarma.pkmst.controller;
 
-import com.prokarma.pkmst.model.GetMinecraftVersionManifest200Response;
-import com.prokarma.pkmst.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import com.prokarma.pkmst.model.VersionManifest;
+import com.prokarma.pkmst.model.VersionPackageInfo;
 
 import io.swagger.annotations.*;
 
@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T08:44:41.983633026Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T11:27:23.989034760Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 public class DefaultApiController implements DefaultApi {
     private final ObjectMapper objectMapper;
@@ -33,26 +33,26 @@ public class DefaultApiController implements DefaultApi {
         this.objectMapper = objectMapper;
     }
 
-    public ResponseEntity<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
+    public ResponseEntity<VersionManifest> getMinecraftVersionManifest(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 
         if (accept != null && accept.contains("application/json")) {
-            return new ResponseEntity<GetMinecraftVersionManifest200Response>(objectMapper.readValue("", GetMinecraftVersionManifest200Response.class), HttpStatus.OK);
+            return new ResponseEntity<VersionManifest>(objectMapper.readValue("", VersionManifest.class), HttpStatus.OK);
         }
 
-        return new ResponseEntity<GetMinecraftVersionManifest200Response>(HttpStatus.OK);
+        return new ResponseEntity<VersionManifest>(HttpStatus.OK);
     }
 
-    public ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(@ApiParam(value = "",required=true ) @PathVariable("packageId") String packageId,
+    public ResponseEntity<VersionPackageInfo> getMinecraftVersionPackageInfo(@ApiParam(value = "",required=true ) @PathVariable("packageId") String packageId,
         @ApiParam(value = "",required=true ) @PathVariable("versionId") String versionId,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 
         if (accept != null && accept.contains("application/json")) {
-            return new ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response>(objectMapper.readValue("", V1PackagesPackageIdVersionIdJsonGet200Response.class), HttpStatus.OK);
+            return new ResponseEntity<VersionPackageInfo>(objectMapper.readValue("", VersionPackageInfo.class), HttpStatus.OK);
         }
 
-        return new ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response>(HttpStatus.OK);
+        return new ResponseEntity<VersionPackageInfo>(HttpStatus.OK);
     }
 
 }

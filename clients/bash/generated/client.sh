@@ -96,8 +96,8 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
-operation_parameters_minimum_occurrences["v1PackagesPackageIdVersionIdJsonGet:::packageId"]=1
-operation_parameters_minimum_occurrences["v1PackagesPackageIdVersionIdJsonGet:::versionId"]=1
+operation_parameters_minimum_occurrences["getMinecraftVersionPackageInfo:::packageId"]=1
+operation_parameters_minimum_occurrences["getMinecraftVersionPackageInfo:::versionId"]=1
 
 ##
 # This array stores the maximum number of allowed occurrences for parameter
@@ -106,15 +106,15 @@ operation_parameters_minimum_occurrences["v1PackagesPackageIdVersionIdJsonGet:::
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
-operation_parameters_maximum_occurrences["v1PackagesPackageIdVersionIdJsonGet:::packageId"]=0
-operation_parameters_maximum_occurrences["v1PackagesPackageIdVersionIdJsonGet:::versionId"]=0
+operation_parameters_maximum_occurrences["getMinecraftVersionPackageInfo:::packageId"]=0
+operation_parameters_maximum_occurrences["getMinecraftVersionPackageInfo:::versionId"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
-operation_parameters_collection_type["v1PackagesPackageIdVersionIdJsonGet:::packageId"]=""
-operation_parameters_collection_type["v1PackagesPackageIdVersionIdJsonGet:::versionId"]=""
+operation_parameters_collection_type["getMinecraftVersionPackageInfo:::packageId"]=""
+operation_parameters_collection_type["getMinecraftVersionPackageInfo:::versionId"]=""
 
 
 ##
@@ -504,7 +504,7 @@ EOF
     echo -e "${BOLD}${WHITE}[default]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}getMinecraftVersionManifest${OFF};Get Minecraft version manifest
-  ${CYAN}v1PackagesPackageIdVersionIdJsonGet${OFF};Get Minecraft version package details
+  ${CYAN}getMinecraftVersionPackageInfo${OFF};Get Minecraft version package info
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -574,12 +574,12 @@ print_getMinecraftVersionManifest_help() {
 }
 ##############################################################################
 #
-# Print help for v1PackagesPackageIdVersionIdJsonGet operation
+# Print help for getMinecraftVersionPackageInfo operation
 #
 ##############################################################################
-print_v1PackagesPackageIdVersionIdJsonGet_help() {
+print_getMinecraftVersionPackageInfo_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getMinecraftVersionPackageInfo - Get Minecraft version package info${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}packageId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: packageId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -629,10 +629,10 @@ call_getMinecraftVersionManifest() {
 
 ##############################################################################
 #
-# Call v1PackagesPackageIdVersionIdJsonGet operation
+# Call getMinecraftVersionPackageInfo operation
 #
 ##############################################################################
-call_v1PackagesPackageIdVersionIdJsonGet() {
+call_getMinecraftVersionPackageInfo() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(packageId versionId)
@@ -763,8 +763,8 @@ case $key in
     getMinecraftVersionManifest)
     operation="getMinecraftVersionManifest"
     ;;
-    v1PackagesPackageIdVersionIdJsonGet)
-    operation="v1PackagesPackageIdVersionIdJsonGet"
+    getMinecraftVersionPackageInfo)
+    operation="getMinecraftVersionPackageInfo"
     ;;
     *==*)
     # Parse body arguments and convert them into top level
@@ -856,8 +856,8 @@ case $operation in
     getMinecraftVersionManifest)
     call_getMinecraftVersionManifest
     ;;
-    v1PackagesPackageIdVersionIdJsonGet)
-    call_v1PackagesPackageIdVersionIdJsonGet
+    getMinecraftVersionPackageInfo)
+    call_getMinecraftVersionPackageInfo
     ;;
     *)
     ERROR_MSG="ERROR: Unknown operation: $operation"

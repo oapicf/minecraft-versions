@@ -17,8 +17,8 @@ import io.micronaut.core.annotation.*;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.core.convert.format.Format;
 import reactor.core.publisher.Mono;
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,28 +27,28 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-06T08:44:33.176951613Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-06T11:27:15.286724610Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Client("${openapi-micronaut-client-base-path}")
 public interface DefaultApi {
     /**
      * Get Minecraft version manifest
      *
-     * @return GetMinecraftVersionManifest200Response
+     * @return VersionManifest
      */
     @Get(uri="/mc/game/version_manifest.json")
     @Consumes({"application/json"})
-    Mono<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest();
+    Mono<VersionManifest> getMinecraftVersionManifest();
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param packageId  (required)
      * @param versionId  (required)
-     * @return V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return VersionPackageInfo
      */
     @Get(uri="/v1/packages/{packageId}/{versionId}.json")
     @Consumes({"application/json"})
-    Mono<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(
+    Mono<VersionPackageInfo> getMinecraftVersionPackageInfo(
         @PathVariable(name="packageId") @NotNull String packageId, 
         @PathVariable(name="versionId") @NotNull String versionId
     );

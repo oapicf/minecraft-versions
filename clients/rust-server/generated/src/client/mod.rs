@@ -37,7 +37,7 @@ const ID_ENCODE_SET: &AsciiSet = &FRAGMENT_ENCODE_SET.add(b'|');
 
 use crate::{Api,
      GetMinecraftVersionManifestResponse,
-     V1PackagesPackageIdVersionIdJsonGetResponse
+     GetMinecraftVersionPackageInfoResponse
      };
 
 /// Convert input into a base path, e.g. "http://example:123". Also checks the scheme as it goes.
@@ -431,7 +431,7 @@ impl<S, C> Api<C> for Client<S, C> where
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
-                let body = serde_json::from_str::<models::GetMinecraftVersionManifest200Response>(body).map_err(|e| {
+                let body = serde_json::from_str::<models::VersionManifest>(body).map_err(|e| {
                     ApiError(format!("Response body did not match the schema: {}", e))
                 })?;
                 Ok(GetMinecraftVersionManifestResponse::AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
@@ -458,11 +458,11 @@ impl<S, C> Api<C> for Client<S, C> where
         }
     }
 
-    async fn v1_packages_package_id_version_id_json_get(
+    async fn get_minecraft_version_package_info(
         &self,
         param_package_id: String,
         param_version_id: String,
-        context: &C) -> Result<V1PackagesPackageIdVersionIdJsonGetResponse, ApiError>
+        context: &C) -> Result<GetMinecraftVersionPackageInfoResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
         let mut uri = format!(
@@ -512,10 +512,10 @@ impl<S, C> Api<C> for Client<S, C> where
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
-                let body = serde_json::from_str::<models::V1PackagesPackageIdVersionIdJsonGet200Response>(body).map_err(|e| {
+                let body = serde_json::from_str::<models::VersionPackageInfo>(body).map_err(|e| {
                     ApiError(format!("Response body did not match the schema: {}", e))
                 })?;
-                Ok(V1PackagesPackageIdVersionIdJsonGetResponse::GetPackageVersionDetails
+                Ok(GetMinecraftVersionPackageInfoResponse::GetPackageVersionDetails
                     (body)
                 )
             }

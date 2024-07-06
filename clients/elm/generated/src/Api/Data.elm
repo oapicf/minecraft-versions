@@ -15,30 +15,30 @@
 
 
 module Api.Data exposing
-    ( GetMinecraftVersionManifest200Response
-    , GetMinecraftVersionManifest200ResponseLatest
-    , GetMinecraftVersionManifest200ResponseVersionsInner
-    , V1PackagesPackageIdVersionIdJsonGet200Response
-    , V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-    , V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-    , V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    , V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-    , encodeGetMinecraftVersionManifest200Response
-    , encodeGetMinecraftVersionManifest200ResponseLatest
-    , encodeGetMinecraftVersionManifest200ResponseVersionsInner
-    , encodeV1PackagesPackageIdVersionIdJsonGet200Response
-    , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-    , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-    , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-    , getMinecraftVersionManifest200ResponseDecoder
-    , getMinecraftVersionManifest200ResponseLatestDecoder
-    , getMinecraftVersionManifest200ResponseVersionsInnerDecoder
-    , v1PackagesPackageIdVersionIdJsonGet200ResponseDecoder
-    , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexDecoder
-    , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsDecoder
-    , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder
-    , v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionDecoder
+    ( Download
+    , Version
+    , VersionManifest
+    , VersionManifestLatest
+    , VersionPackageInfo
+    , VersionPackageInfoAssetIndex
+    , VersionPackageInfoDownloads
+    , VersionPackageInfoJavaVersion
+    , encodeDownload
+    , encodeVersion
+    , encodeVersionManifest
+    , encodeVersionManifestLatest
+    , encodeVersionPackageInfo
+    , encodeVersionPackageInfoAssetIndex
+    , encodeVersionPackageInfoDownloads
+    , encodeVersionPackageInfoJavaVersion
+    , downloadDecoder
+    , versionDecoder
+    , versionManifestDecoder
+    , versionManifestLatestDecoder
+    , versionPackageInfoDecoder
+    , versionPackageInfoAssetIndexDecoder
+    , versionPackageInfoDownloadsDecoder
+    , versionPackageInfoJavaVersionDecoder
     )
 
 import Api
@@ -51,19 +51,14 @@ import Json.Encode
 -- MODEL
 
 
-type alias GetMinecraftVersionManifest200Response =
-    { latest : Maybe GetMinecraftVersionManifest200ResponseLatest
-    , versions : Maybe ( List GetMinecraftVersionManifest200ResponseVersionsInner )
+type alias Download =
+    { sha1 : Maybe String
+    , size : Maybe Int
+    , url : Maybe String
     }
 
 
-type alias GetMinecraftVersionManifest200ResponseLatest =
-    { release : Maybe String
-    , snapshot : Maybe String
-    }
-
-
-type alias GetMinecraftVersionManifest200ResponseVersionsInner =
+type alias Version =
     { id : Maybe String
     , type_ : Maybe String
     , url : Maybe String
@@ -72,14 +67,26 @@ type alias GetMinecraftVersionManifest200ResponseVersionsInner =
     }
 
 
-type alias V1PackagesPackageIdVersionIdJsonGet200Response =
+type alias VersionManifest =
+    { latest : Maybe VersionManifestLatest
+    , versions : Maybe ( List Version )
+    }
+
+
+type alias VersionManifestLatest =
+    { release : Maybe String
+    , snapshot : Maybe String
+    }
+
+
+type alias VersionPackageInfo =
     { version : Maybe String
-    , assetIndex : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+    , assetIndex : Maybe VersionPackageInfoAssetIndex
     , assets : Maybe Int
     , complianceLevel : Maybe Int
-    , downloads : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    , downloads : Maybe VersionPackageInfoDownloads
     , id : Maybe String
-    , javaVersion : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+    , javaVersion : Maybe VersionPackageInfoJavaVersion
     , mainClass : Maybe String
     , minimumLauncherVersion : Maybe Int
     , time : Maybe Posix
@@ -88,7 +95,7 @@ type alias V1PackagesPackageIdVersionIdJsonGet200Response =
     }
 
 
-type alias V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex =
+type alias VersionPackageInfoAssetIndex =
     { id : Maybe String
     , sha1 : Maybe String
     , size : Maybe Int
@@ -97,22 +104,15 @@ type alias V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex =
     }
 
 
-type alias V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads =
-    { client : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    , clientMappings : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    , server : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-    , serverMappings : Maybe V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+type alias VersionPackageInfoDownloads =
+    { client : Maybe Download
+    , clientMappings : Maybe Download
+    , server : Maybe Download
+    , serverMappings : Maybe Download
     }
 
 
-type alias V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient =
-    { sha1 : Maybe String
-    , size : Maybe Int
-    , url : Maybe String
-    }
-
-
-type alias V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion =
+type alias VersionPackageInfoJavaVersion =
     { component : Maybe String
     , majorVersion : Maybe Int
     }
@@ -121,60 +121,40 @@ type alias V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion =
 -- ENCODER
 
 
-encodeGetMinecraftVersionManifest200Response : GetMinecraftVersionManifest200Response -> Json.Encode.Value
-encodeGetMinecraftVersionManifest200Response =
-    encodeObject << encodeGetMinecraftVersionManifest200ResponsePairs
+encodeDownload : Download -> Json.Encode.Value
+encodeDownload =
+    encodeObject << encodeDownloadPairs
 
 
-encodeGetMinecraftVersionManifest200ResponseWithTag : ( String, String ) -> GetMinecraftVersionManifest200Response -> Json.Encode.Value
-encodeGetMinecraftVersionManifest200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetMinecraftVersionManifest200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeDownloadWithTag : ( String, String ) -> Download -> Json.Encode.Value
+encodeDownloadWithTag (tagField, tag) model =
+    encodeObject (encodeDownloadPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeGetMinecraftVersionManifest200ResponsePairs : GetMinecraftVersionManifest200Response -> List EncodedField
-encodeGetMinecraftVersionManifest200ResponsePairs model =
+encodeDownloadPairs : Download -> List EncodedField
+encodeDownloadPairs model =
     let
         pairs =
-            [ maybeEncode "latest" encodeGetMinecraftVersionManifest200ResponseLatest model.latest
-            , maybeEncode "versions" (Json.Encode.list encodeGetMinecraftVersionManifest200ResponseVersionsInner) model.versions
+            [ maybeEncode "sha1" Json.Encode.string model.sha1
+            , maybeEncode "size" Json.Encode.int model.size
+            , maybeEncode "url" Json.Encode.string model.url
             ]
     in
     pairs
 
 
-encodeGetMinecraftVersionManifest200ResponseLatest : GetMinecraftVersionManifest200ResponseLatest -> Json.Encode.Value
-encodeGetMinecraftVersionManifest200ResponseLatest =
-    encodeObject << encodeGetMinecraftVersionManifest200ResponseLatestPairs
+encodeVersion : Version -> Json.Encode.Value
+encodeVersion =
+    encodeObject << encodeVersionPairs
 
 
-encodeGetMinecraftVersionManifest200ResponseLatestWithTag : ( String, String ) -> GetMinecraftVersionManifest200ResponseLatest -> Json.Encode.Value
-encodeGetMinecraftVersionManifest200ResponseLatestWithTag (tagField, tag) model =
-    encodeObject (encodeGetMinecraftVersionManifest200ResponseLatestPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeVersionWithTag : ( String, String ) -> Version -> Json.Encode.Value
+encodeVersionWithTag (tagField, tag) model =
+    encodeObject (encodeVersionPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeGetMinecraftVersionManifest200ResponseLatestPairs : GetMinecraftVersionManifest200ResponseLatest -> List EncodedField
-encodeGetMinecraftVersionManifest200ResponseLatestPairs model =
-    let
-        pairs =
-            [ maybeEncode "release" Json.Encode.string model.release
-            , maybeEncode "snapshot" Json.Encode.string model.snapshot
-            ]
-    in
-    pairs
-
-
-encodeGetMinecraftVersionManifest200ResponseVersionsInner : GetMinecraftVersionManifest200ResponseVersionsInner -> Json.Encode.Value
-encodeGetMinecraftVersionManifest200ResponseVersionsInner =
-    encodeObject << encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs
-
-
-encodeGetMinecraftVersionManifest200ResponseVersionsInnerWithTag : ( String, String ) -> GetMinecraftVersionManifest200ResponseVersionsInner -> Json.Encode.Value
-encodeGetMinecraftVersionManifest200ResponseVersionsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs : GetMinecraftVersionManifest200ResponseVersionsInner -> List EncodedField
-encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs model =
+encodeVersionPairs : Version -> List EncodedField
+encodeVersionPairs model =
     let
         pairs =
             [ maybeEncode "id" Json.Encode.string model.id
@@ -187,27 +167,69 @@ encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs model =
     pairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200Response : V1PackagesPackageIdVersionIdJsonGet200Response -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200Response =
-    encodeObject << encodeV1PackagesPackageIdVersionIdJsonGet200ResponsePairs
+encodeVersionManifest : VersionManifest -> Json.Encode.Value
+encodeVersionManifest =
+    encodeObject << encodeVersionManifestPairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseWithTag : ( String, String ) -> V1PackagesPackageIdVersionIdJsonGet200Response -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeV1PackagesPackageIdVersionIdJsonGet200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeVersionManifestWithTag : ( String, String ) -> VersionManifest -> Json.Encode.Value
+encodeVersionManifestWithTag (tagField, tag) model =
+    encodeObject (encodeVersionManifestPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponsePairs : V1PackagesPackageIdVersionIdJsonGet200Response -> List EncodedField
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponsePairs model =
+encodeVersionManifestPairs : VersionManifest -> List EncodedField
+encodeVersionManifestPairs model =
+    let
+        pairs =
+            [ maybeEncode "latest" encodeVersionManifestLatest model.latest
+            , maybeEncode "versions" (Json.Encode.list encodeVersion) model.versions
+            ]
+    in
+    pairs
+
+
+encodeVersionManifestLatest : VersionManifestLatest -> Json.Encode.Value
+encodeVersionManifestLatest =
+    encodeObject << encodeVersionManifestLatestPairs
+
+
+encodeVersionManifestLatestWithTag : ( String, String ) -> VersionManifestLatest -> Json.Encode.Value
+encodeVersionManifestLatestWithTag (tagField, tag) model =
+    encodeObject (encodeVersionManifestLatestPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeVersionManifestLatestPairs : VersionManifestLatest -> List EncodedField
+encodeVersionManifestLatestPairs model =
+    let
+        pairs =
+            [ maybeEncode "release" Json.Encode.string model.release
+            , maybeEncode "snapshot" Json.Encode.string model.snapshot
+            ]
+    in
+    pairs
+
+
+encodeVersionPackageInfo : VersionPackageInfo -> Json.Encode.Value
+encodeVersionPackageInfo =
+    encodeObject << encodeVersionPackageInfoPairs
+
+
+encodeVersionPackageInfoWithTag : ( String, String ) -> VersionPackageInfo -> Json.Encode.Value
+encodeVersionPackageInfoWithTag (tagField, tag) model =
+    encodeObject (encodeVersionPackageInfoPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeVersionPackageInfoPairs : VersionPackageInfo -> List EncodedField
+encodeVersionPackageInfoPairs model =
     let
         pairs =
             [ maybeEncode "version" Json.Encode.string model.version
-            , maybeEncode "assetIndex" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex model.assetIndex
+            , maybeEncode "assetIndex" encodeVersionPackageInfoAssetIndex model.assetIndex
             , maybeEncode "assets" Json.Encode.int model.assets
             , maybeEncode "complianceLevel" Json.Encode.int model.complianceLevel
-            , maybeEncode "downloads" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads model.downloads
+            , maybeEncode "downloads" encodeVersionPackageInfoDownloads model.downloads
             , maybeEncode "id" Json.Encode.string model.id
-            , maybeEncode "javaVersion" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion model.javaVersion
+            , maybeEncode "javaVersion" encodeVersionPackageInfoJavaVersion model.javaVersion
             , maybeEncode "mainClass" Json.Encode.string model.mainClass
             , maybeEncode "minimumLauncherVersion" Json.Encode.int model.minimumLauncherVersion
             , maybeEncode "time" Api.Time.encodeDateTime model.time
@@ -218,18 +240,18 @@ encodeV1PackagesPackageIdVersionIdJsonGet200ResponsePairs model =
     pairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex : V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex =
-    encodeObject << encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexPairs
+encodeVersionPackageInfoAssetIndex : VersionPackageInfoAssetIndex -> Json.Encode.Value
+encodeVersionPackageInfoAssetIndex =
+    encodeObject << encodeVersionPackageInfoAssetIndexPairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexWithTag : ( String, String ) -> V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexWithTag (tagField, tag) model =
-    encodeObject (encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeVersionPackageInfoAssetIndexWithTag : ( String, String ) -> VersionPackageInfoAssetIndex -> Json.Encode.Value
+encodeVersionPackageInfoAssetIndexWithTag (tagField, tag) model =
+    encodeObject (encodeVersionPackageInfoAssetIndexPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexPairs : V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex -> List EncodedField
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexPairs model =
+encodeVersionPackageInfoAssetIndexPairs : VersionPackageInfoAssetIndex -> List EncodedField
+encodeVersionPackageInfoAssetIndexPairs model =
     let
         pairs =
             [ maybeEncode "id" Json.Encode.string model.id
@@ -242,63 +264,41 @@ encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexPairs model =
     pairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads : V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads =
-    encodeObject << encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsPairs
+encodeVersionPackageInfoDownloads : VersionPackageInfoDownloads -> Json.Encode.Value
+encodeVersionPackageInfoDownloads =
+    encodeObject << encodeVersionPackageInfoDownloadsPairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsWithTag : ( String, String ) -> V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsWithTag (tagField, tag) model =
-    encodeObject (encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeVersionPackageInfoDownloadsWithTag : ( String, String ) -> VersionPackageInfoDownloads -> Json.Encode.Value
+encodeVersionPackageInfoDownloadsWithTag (tagField, tag) model =
+    encodeObject (encodeVersionPackageInfoDownloadsPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsPairs : V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -> List EncodedField
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsPairs model =
+encodeVersionPackageInfoDownloadsPairs : VersionPackageInfoDownloads -> List EncodedField
+encodeVersionPackageInfoDownloadsPairs model =
     let
         pairs =
-            [ maybeEncode "client" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient model.client
-            , maybeEncode "client_mappings" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient model.clientMappings
-            , maybeEncode "server" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient model.server
-            , maybeEncode "server_mappings" encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient model.serverMappings
+            [ maybeEncode "client" encodeDownload model.client
+            , maybeEncode "client_mappings" encodeDownload model.clientMappings
+            , maybeEncode "server" encodeDownload model.server
+            , maybeEncode "server_mappings" encodeDownload model.serverMappings
             ]
     in
     pairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient =
-    encodeObject << encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientPairs
+encodeVersionPackageInfoJavaVersion : VersionPackageInfoJavaVersion -> Json.Encode.Value
+encodeVersionPackageInfoJavaVersion =
+    encodeObject << encodeVersionPackageInfoJavaVersionPairs
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientWithTag : ( String, String ) -> V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientWithTag (tagField, tag) model =
-    encodeObject (encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeVersionPackageInfoJavaVersionWithTag : ( String, String ) -> VersionPackageInfoJavaVersion -> Json.Encode.Value
+encodeVersionPackageInfoJavaVersionWithTag (tagField, tag) model =
+    encodeObject (encodeVersionPackageInfoJavaVersionPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientPairs : V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient -> List EncodedField
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientPairs model =
-    let
-        pairs =
-            [ maybeEncode "sha1" Json.Encode.string model.sha1
-            , maybeEncode "size" Json.Encode.int model.size
-            , maybeEncode "url" Json.Encode.string model.url
-            ]
-    in
-    pairs
-
-
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion : V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion =
-    encodeObject << encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionPairs
-
-
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionWithTag : ( String, String ) -> V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion -> Json.Encode.Value
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionWithTag (tagField, tag) model =
-    encodeObject (encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionPairs : V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion -> List EncodedField
-encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionPairs model =
+encodeVersionPackageInfoJavaVersionPairs : VersionPackageInfoJavaVersion -> List EncodedField
+encodeVersionPackageInfoJavaVersionPairs model =
     let
         pairs =
             [ maybeEncode "component" Json.Encode.string model.component
@@ -311,23 +311,17 @@ encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionPairs model =
 -- DECODER
 
 
-getMinecraftVersionManifest200ResponseDecoder : Json.Decode.Decoder GetMinecraftVersionManifest200Response
-getMinecraftVersionManifest200ResponseDecoder =
-    Json.Decode.succeed GetMinecraftVersionManifest200Response
-        |> maybeDecode "latest" getMinecraftVersionManifest200ResponseLatestDecoder Nothing
-        |> maybeDecode "versions" (Json.Decode.list getMinecraftVersionManifest200ResponseVersionsInnerDecoder) Nothing
+downloadDecoder : Json.Decode.Decoder Download
+downloadDecoder =
+    Json.Decode.succeed Download
+        |> maybeDecode "sha1" Json.Decode.string Nothing
+        |> maybeDecode "size" Json.Decode.int Nothing
+        |> maybeDecode "url" Json.Decode.string Nothing
 
 
-getMinecraftVersionManifest200ResponseLatestDecoder : Json.Decode.Decoder GetMinecraftVersionManifest200ResponseLatest
-getMinecraftVersionManifest200ResponseLatestDecoder =
-    Json.Decode.succeed GetMinecraftVersionManifest200ResponseLatest
-        |> maybeDecode "release" Json.Decode.string Nothing
-        |> maybeDecode "snapshot" Json.Decode.string Nothing
-
-
-getMinecraftVersionManifest200ResponseVersionsInnerDecoder : Json.Decode.Decoder GetMinecraftVersionManifest200ResponseVersionsInner
-getMinecraftVersionManifest200ResponseVersionsInnerDecoder =
-    Json.Decode.succeed GetMinecraftVersionManifest200ResponseVersionsInner
+versionDecoder : Json.Decode.Decoder Version
+versionDecoder =
+    Json.Decode.succeed Version
         |> maybeDecode "id" Json.Decode.string Nothing
         |> maybeDecode "type" Json.Decode.string Nothing
         |> maybeDecode "url" Json.Decode.string Nothing
@@ -335,16 +329,30 @@ getMinecraftVersionManifest200ResponseVersionsInnerDecoder =
         |> maybeDecode "releaseTime" Api.Time.dateTimeDecoder Nothing
 
 
-v1PackagesPackageIdVersionIdJsonGet200ResponseDecoder : Json.Decode.Decoder V1PackagesPackageIdVersionIdJsonGet200Response
-v1PackagesPackageIdVersionIdJsonGet200ResponseDecoder =
-    Json.Decode.succeed V1PackagesPackageIdVersionIdJsonGet200Response
+versionManifestDecoder : Json.Decode.Decoder VersionManifest
+versionManifestDecoder =
+    Json.Decode.succeed VersionManifest
+        |> maybeDecode "latest" versionManifestLatestDecoder Nothing
+        |> maybeDecode "versions" (Json.Decode.list versionDecoder) Nothing
+
+
+versionManifestLatestDecoder : Json.Decode.Decoder VersionManifestLatest
+versionManifestLatestDecoder =
+    Json.Decode.succeed VersionManifestLatest
+        |> maybeDecode "release" Json.Decode.string Nothing
+        |> maybeDecode "snapshot" Json.Decode.string Nothing
+
+
+versionPackageInfoDecoder : Json.Decode.Decoder VersionPackageInfo
+versionPackageInfoDecoder =
+    Json.Decode.succeed VersionPackageInfo
         |> maybeDecode "version" Json.Decode.string Nothing
-        |> maybeDecode "assetIndex" v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexDecoder Nothing
+        |> maybeDecode "assetIndex" versionPackageInfoAssetIndexDecoder Nothing
         |> maybeDecode "assets" Json.Decode.int Nothing
         |> maybeDecode "complianceLevel" Json.Decode.int Nothing
-        |> maybeDecode "downloads" v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsDecoder Nothing
+        |> maybeDecode "downloads" versionPackageInfoDownloadsDecoder Nothing
         |> maybeDecode "id" Json.Decode.string Nothing
-        |> maybeDecode "javaVersion" v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionDecoder Nothing
+        |> maybeDecode "javaVersion" versionPackageInfoJavaVersionDecoder Nothing
         |> maybeDecode "mainClass" Json.Decode.string Nothing
         |> maybeDecode "minimumLauncherVersion" Json.Decode.int Nothing
         |> maybeDecode "time" Api.Time.dateTimeDecoder Nothing
@@ -352,9 +360,9 @@ v1PackagesPackageIdVersionIdJsonGet200ResponseDecoder =
         |> maybeDecode "type" Json.Decode.string Nothing
 
 
-v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexDecoder : Json.Decode.Decoder V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexDecoder =
-    Json.Decode.succeed V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+versionPackageInfoAssetIndexDecoder : Json.Decode.Decoder VersionPackageInfoAssetIndex
+versionPackageInfoAssetIndexDecoder =
+    Json.Decode.succeed VersionPackageInfoAssetIndex
         |> maybeDecode "id" Json.Decode.string Nothing
         |> maybeDecode "sha1" Json.Decode.string Nothing
         |> maybeDecode "size" Json.Decode.int Nothing
@@ -362,26 +370,18 @@ v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexDecoder =
         |> maybeDecode "url" Json.Decode.string Nothing
 
 
-v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsDecoder : Json.Decode.Decoder V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsDecoder =
-    Json.Decode.succeed V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-        |> maybeDecode "client" v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder Nothing
-        |> maybeDecode "client_mappings" v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder Nothing
-        |> maybeDecode "server" v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder Nothing
-        |> maybeDecode "server_mappings" v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder Nothing
+versionPackageInfoDownloadsDecoder : Json.Decode.Decoder VersionPackageInfoDownloads
+versionPackageInfoDownloadsDecoder =
+    Json.Decode.succeed VersionPackageInfoDownloads
+        |> maybeDecode "client" downloadDecoder Nothing
+        |> maybeDecode "client_mappings" downloadDecoder Nothing
+        |> maybeDecode "server" downloadDecoder Nothing
+        |> maybeDecode "server_mappings" downloadDecoder Nothing
 
 
-v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder : Json.Decode.Decoder V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientDecoder =
-    Json.Decode.succeed V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-        |> maybeDecode "sha1" Json.Decode.string Nothing
-        |> maybeDecode "size" Json.Decode.int Nothing
-        |> maybeDecode "url" Json.Decode.string Nothing
-
-
-v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionDecoder : Json.Decode.Decoder V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionDecoder =
-    Json.Decode.succeed V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+versionPackageInfoJavaVersionDecoder : Json.Decode.Decoder VersionPackageInfoJavaVersion
+versionPackageInfoJavaVersionDecoder =
+    Json.Decode.succeed VersionPackageInfoJavaVersion
         |> maybeDecode "component" Json.Decode.string Nothing
         |> maybeDecode "majorVersion" Json.Decode.int Nothing
 

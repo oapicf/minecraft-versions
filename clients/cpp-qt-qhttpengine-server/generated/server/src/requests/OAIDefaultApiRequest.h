@@ -20,8 +20,8 @@
 #include <QSharedPointer>
 
 #include <qhttpengine/socket.h>
-#include "OAIGetMinecraftVersionManifest_200_response.h"
-#include "OAI_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "OAIVersionManifest.h"
+#include "OAIVersionPackageInfo.h"
 #include <QString>
 #include "OAIDefaultApiHandler.h"
 
@@ -36,15 +36,15 @@ public:
     virtual ~OAIDefaultApiRequest();
 
     void getMinecraftVersionManifestRequest();
-    void v1PackagesPackageIdVersionIdJsonGetRequest(const QString& package_id, const QString& version_id);
+    void getMinecraftVersionPackageInfoRequest(const QString& package_id, const QString& version_id);
     
 
-    void getMinecraftVersionManifestResponse(const OAIGetMinecraftVersionManifest_200_response& res);
-    void v1PackagesPackageIdVersionIdJsonGetResponse(const OAI_v1_packages__packageId___versionId__json_get_200_response& res);
+    void getMinecraftVersionManifestResponse(const OAIVersionManifest& res);
+    void getMinecraftVersionPackageInfoResponse(const OAIVersionPackageInfo& res);
     
 
-    void getMinecraftVersionManifestError(const OAIGetMinecraftVersionManifest_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str);
-    void v1PackagesPackageIdVersionIdJsonGetError(const OAI_v1_packages__packageId___versionId__json_get_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getMinecraftVersionManifestError(const OAIVersionManifest& res, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getMinecraftVersionPackageInfoError(const OAIVersionPackageInfo& res, QNetworkReply::NetworkError error_type, QString& error_str);
     
 
     void sendCustomResponse(QByteArray & res, QNetworkReply::NetworkError error_type);
@@ -59,7 +59,7 @@ public:
 
 Q_SIGNALS:
     void getMinecraftVersionManifest();
-    void v1PackagesPackageIdVersionIdJsonGet(QString package_id, QString version_id);
+    void getMinecraftVersionPackageInfo(QString package_id, QString version_id);
     
 
 private:

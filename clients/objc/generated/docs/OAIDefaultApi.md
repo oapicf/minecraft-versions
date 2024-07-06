@@ -5,13 +5,13 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMinecraftVersionManifest**](OAIDefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**v1PackagesPackageIdVersionIdJsonGet**](OAIDefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+[**getMinecraftVersionPackageInfo**](OAIDefaultApi.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 # **getMinecraftVersionManifest**
 ```objc
 -(NSURLSessionTask*) getMinecraftVersionManifestWithCompletionHandler: 
-        (void (^)(OAIGetMinecraftVersionManifest200Response* output, NSError* error)) handler;
+        (void (^)(OAIVersionManifest* output, NSError* error)) handler;
 ```
 
 Get Minecraft version manifest
@@ -24,7 +24,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Get Minecraft version manifest
 [apiInstance getMinecraftVersionManifestWithCompletionHandler: 
-          ^(OAIGetMinecraftVersionManifest200Response* output, NSError* error) {
+          ^(OAIVersionManifest* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIGetMinecraftVersionManifest200Response***](OAIGetMinecraftVersionManifest200Response.md)
+[**OAIVersionManifest***](OAIVersionManifest.md)
 
 ### Authorization
 
@@ -52,14 +52,14 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1PackagesPackageIdVersionIdJsonGet**
+# **getMinecraftVersionPackageInfo**
 ```objc
--(NSURLSessionTask*) v1PackagesPackageIdVersionIdJsonGetWithPackageId: (NSString*) packageId
+-(NSURLSessionTask*) getMinecraftVersionPackageInfoWithPackageId: (NSString*) packageId
     versionId: (NSString*) versionId
-        completionHandler: (void (^)(OAIV1PackagesPackageIdVersionIdJsonGet200Response* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIVersionPackageInfo* output, NSError* error)) handler;
 ```
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 ### Example
 ```objc
@@ -69,15 +69,15 @@ NSString* versionId = 1.21; //
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-// Get Minecraft version package details
-[apiInstance v1PackagesPackageIdVersionIdJsonGetWithPackageId:packageId
+// Get Minecraft version package info
+[apiInstance getMinecraftVersionPackageInfoWithPackageId:packageId
               versionId:versionId
-          completionHandler: ^(OAIV1PackagesPackageIdVersionIdJsonGet200Response* output, NSError* error) {
+          completionHandler: ^(OAIVersionPackageInfo* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->v1PackagesPackageIdVersionIdJsonGet: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->getMinecraftVersionPackageInfo: %@", error);
                         }
                     }];
 ```
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIV1PackagesPackageIdVersionIdJsonGet200Response***](OAIV1PackagesPackageIdVersionIdJsonGet200Response.md)
+[**OAIVersionPackageInfo***](OAIVersionPackageInfo.md)
 
 ### Authorization
 

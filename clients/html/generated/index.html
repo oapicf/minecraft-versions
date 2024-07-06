@@ -197,7 +197,7 @@ font-style: italic;
   <h4><a href="#Default">Default</a></h4>
   <ul>
   <li><a href="#getMinecraftVersionManifest"><code><span class="http-method">get</span> /mc/game/version_manifest.json</code></a></li>
-  <li><a href="#v1PackagesPackageIdVersionIdJsonGet"><code><span class="http-method">get</span> /v1/packages/{packageId}/{versionId}.json</code></a></li>
+  <li><a href="#getMinecraftVersionPackageInfo"><code><span class="http-method">get</span> /v1/packages/{packageId}/{versionId}.json</code></a></li>
   </ul>
 
   <h1><a name="Default">Default</a></h1>
@@ -216,7 +216,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#getMinecraftVersionManifest_200_response">getMinecraftVersionManifest_200_response</a>
+      <a href="#VersionManifest">VersionManifest</a>
       
     </div>
 
@@ -254,14 +254,14 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     A list of Minecraft versions with the latest and snapshot releases
-        <a href="#getMinecraftVersionManifest_200_response">getMinecraftVersionManifest_200_response</a>
+        <a href="#VersionManifest">VersionManifest</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="v1PackagesPackageIdVersionIdJsonGet"/>
+  <div class="method"><a name="getMinecraftVersionPackageInfo"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/packages/{packageId}/{versionId}.json</code></pre></div>
-    <div class="method-summary">Get Minecraft version package details (<span class="nickname">v1PackagesPackageIdVersionIdJsonGet</span>)</div>
+    <div class="method-summary">Get Minecraft version package info (<span class="nickname">getMinecraftVersionPackageInfo</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
@@ -280,7 +280,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#_v1_packages__packageId___versionId__json_get_200_response">_v1_packages__packageId___versionId__json_get_200_response</a>
+      <a href="#VersionPackageInfo">VersionPackageInfo</a>
       
     </div>
 
@@ -343,7 +343,7 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Get package version details
-        <a href="#_v1_packages__packageId___versionId__json_get_200_response">_v1_packages__packageId___versionId__json_get_200_response</a>
+        <a href="#VersionPackageInfo">VersionPackageInfo</a>
   </div> <!-- method -->
   <hr/>
 
@@ -352,27 +352,63 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#_v1_packages__packageId___versionId__json_get_200_response"><code>_v1_packages__packageId___versionId__json_get_200_response</code> - </a></li>
-    <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_assetIndex"><code>_v1_packages__packageId___versionId__json_get_200_response_assetIndex</code> - </a></li>
-    <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads"><code>_v1_packages__packageId___versionId__json_get_200_response_downloads</code> - </a></li>
-    <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads_client"><code>_v1_packages__packageId___versionId__json_get_200_response_downloads_client</code> - </a></li>
-    <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_javaVersion"><code>_v1_packages__packageId___versionId__json_get_200_response_javaVersion</code> - </a></li>
-    <li><a href="#getMinecraftVersionManifest_200_response"><code>getMinecraftVersionManifest_200_response</code> - </a></li>
-    <li><a href="#getMinecraftVersionManifest_200_response_latest"><code>getMinecraftVersionManifest_200_response_latest</code> - </a></li>
-    <li><a href="#getMinecraftVersionManifest_200_response_versions_inner"><code>getMinecraftVersionManifest_200_response_versions_inner</code> - </a></li>
+    <li><a href="#Download"><code>Download</code> - </a></li>
+    <li><a href="#Version"><code>Version</code> - </a></li>
+    <li><a href="#VersionManifest"><code>VersionManifest</code> - </a></li>
+    <li><a href="#VersionManifest_latest"><code>VersionManifest_latest</code> - </a></li>
+    <li><a href="#VersionPackageInfo"><code>VersionPackageInfo</code> - </a></li>
+    <li><a href="#VersionPackageInfo_assetIndex"><code>VersionPackageInfo_assetIndex</code> - </a></li>
+    <li><a href="#VersionPackageInfo_downloads"><code>VersionPackageInfo_downloads</code> - </a></li>
+    <li><a href="#VersionPackageInfo_javaVersion"><code>VersionPackageInfo_javaVersion</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="_v1_packages__packageId___versionId__json_get_200_response"><code>_v1_packages__packageId___versionId__json_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Download"><code>Download</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">sha1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Version"><code>Version</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">releaseTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VersionManifest"><code>VersionManifest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#VersionManifest_latest">VersionManifest_latest</a></span>  </div>
+<div class="param">versions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Version">array[Version]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VersionManifest_latest"><code>VersionManifest_latest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">release (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">snapshot (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VersionPackageInfo"><code>VersionPackageInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">assetIndex (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_assetIndex">_v1_packages__packageId___versionId__json_get_200_response_assetIndex</a></span>  </div>
+<div class="param">assetIndex (optional)</div><div class="param-desc"><span class="param-type"><a href="#VersionPackageInfo_assetIndex">VersionPackageInfo_assetIndex</a></span>  </div>
 <div class="param">assets (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
 <div class="param">complianceLevel (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">downloads (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads">_v1_packages__packageId___versionId__json_get_200_response_downloads</a></span>  </div>
+<div class="param">downloads (optional)</div><div class="param-desc"><span class="param-type"><a href="#VersionPackageInfo_downloads">VersionPackageInfo_downloads</a></span>  </div>
 <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">javaVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_javaVersion">_v1_packages__packageId___versionId__json_get_200_response_javaVersion</a></span>  </div>
+<div class="param">javaVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#VersionPackageInfo_javaVersion">VersionPackageInfo_javaVersion</a></span>  </div>
 <div class="param">mainClass (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">minimumLauncherVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
 <div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
@@ -381,7 +417,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="_v1_packages__packageId___versionId__json_get_200_response_assetIndex"><code>_v1_packages__packageId___versionId__json_get_200_response_assetIndex</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="VersionPackageInfo_assetIndex"><code>VersionPackageInfo_assetIndex</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -392,57 +428,21 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="_v1_packages__packageId___versionId__json_get_200_response_downloads"><code>_v1_packages__packageId___versionId__json_get_200_response_downloads</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="VersionPackageInfo_downloads"><code>VersionPackageInfo_downloads</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">client (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads_client">_v1_packages__packageId___versionId__json_get_200_response_downloads_client</a></span>  </div>
-<div class="param">client_mappings (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads_client">_v1_packages__packageId___versionId__json_get_200_response_downloads_client</a></span>  </div>
-<div class="param">server (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads_client">_v1_packages__packageId___versionId__json_get_200_response_downloads_client</a></span>  </div>
-<div class="param">server_mappings (optional)</div><div class="param-desc"><span class="param-type"><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads_client">_v1_packages__packageId___versionId__json_get_200_response_downloads_client</a></span>  </div>
+      <div class="param">client (optional)</div><div class="param-desc"><span class="param-type"><a href="#Download">Download</a></span>  </div>
+<div class="param">client_mappings (optional)</div><div class="param-desc"><span class="param-type"><a href="#Download">Download</a></span>  </div>
+<div class="param">server (optional)</div><div class="param-desc"><span class="param-type"><a href="#Download">Download</a></span>  </div>
+<div class="param">server_mappings (optional)</div><div class="param-desc"><span class="param-type"><a href="#Download">Download</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="_v1_packages__packageId___versionId__json_get_200_response_downloads_client"><code>_v1_packages__packageId___versionId__json_get_200_response_downloads_client</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">sha1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="_v1_packages__packageId___versionId__json_get_200_response_javaVersion"><code>_v1_packages__packageId___versionId__json_get_200_response_javaVersion</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="VersionPackageInfo_javaVersion"><code>VersionPackageInfo_javaVersion</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">component (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">majorVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="getMinecraftVersionManifest_200_response"><code>getMinecraftVersionManifest_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#getMinecraftVersionManifest_200_response_latest">getMinecraftVersionManifest_200_response_latest</a></span>  </div>
-<div class="param">versions (optional)</div><div class="param-desc"><span class="param-type"><a href="#getMinecraftVersionManifest_200_response_versions_inner">array[getMinecraftVersionManifest_200_response_versions_inner]</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="getMinecraftVersionManifest_200_response_latest"><code>getMinecraftVersionManifest_200_response_latest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">release (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">snapshot (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="getMinecraftVersionManifest_200_response_versions_inner"><code>getMinecraftVersionManifest_200_response_versions_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-<div class="param">releaseTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
     </div>  <!-- field-items -->
   </div>
   </body>

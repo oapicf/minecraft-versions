@@ -13,14 +13,14 @@ type mutation {
 
 type query {
   # Get Minecraft version manifest
-  # @return [GetMinecraftVersionManifest200Response]
-  GetMinecraftVersionManifest(): GetMinecraftVersionManifest200Response
+  # @return [VersionManifest]
+  GetMinecraftVersionManifest(): VersionManifest
 
-  # Get Minecraft version package details
+  # Get Minecraft version package info
   # @param String! packageId 
   # @param String! versionId 
-  # @return [V1PackagesPackageIdVersionIdJsonGet200Response]
-  V1PackagesPackageIdVersionIdJsonGet(packageId: String!, versionId: String!): V1PackagesPackageIdVersionIdJsonGet200Response
+  # @return [VersionPackageInfo]
+  GetMinecraftVersionPackageInfo(packageId: String!, versionId: String!): VersionPackageInfo
 
 }
 

@@ -23,8 +23,8 @@ func (api *DefaultAPI) GetMinecraftVersionManifest(c *gin.Context) {
 }
 
 // Get /v1/packages/:packageId/:versionId.json
-// Get Minecraft version package details 
-func (api *DefaultAPI) V1PackagesPackageIdVersionIdJsonGet(c *gin.Context) {
+// Get Minecraft version package info 
+func (api *DefaultAPI) GetMinecraftVersionPackageInfo(c *gin.Context) {
 	// Your handler implementation
 	c.JSON(200, gin.H{"status": "OK"})
 }

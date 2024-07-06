@@ -68,12 +68,12 @@ get_minecraft_version_manifest_args(_S) ->
   [].
 
 %%==============================================================================
-%% v1_packages_package_id_version_id_json_get
+%% get_minecraft_version_package_info
 %%==============================================================================
 
-v1_packages_package_id_version_id_json_get(PackageId, VersionId) ->
-  openapi_api:v1_packages_package_id_version_id_json_get(PackageId, VersionId).
+get_minecraft_version_package_info(PackageId, VersionId) ->
+  openapi_api:get_minecraft_version_package_info(PackageId, VersionId).
 
-v1_packages_package_id_version_id_json_get_args(_S) ->
+get_minecraft_version_package_info_args(_S) ->
   [binary(), binary()].
 

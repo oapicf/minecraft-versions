@@ -2,8 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
-from openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
-from openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
+from openapi_server.models.version_manifest import VersionManifest
+from openapi_server.models.version_package_info import VersionPackageInfo
 
 
 class BaseDefaultApi:
@@ -14,13 +14,13 @@ class BaseDefaultApi:
         BaseDefaultApi.subclasses = BaseDefaultApi.subclasses + (cls,)
     def get_minecraft_version_manifest(
         self,
-    ) -> GetMinecraftVersionManifest200Response:
+    ) -> VersionManifest:
         ...
 
 
-    def v1_packages_package_id_version_id_json_get(
+    def get_minecraft_version_package_info(
         self,
         packageId: str,
         versionId: str,
-    ) -> V1PackagesPackageIdVersionIdJsonGet200Response:
+    ) -> VersionPackageInfo:
         ...

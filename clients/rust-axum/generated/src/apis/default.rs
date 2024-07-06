@@ -13,16 +13,16 @@ use crate::{models, types::*};
 pub enum GetMinecraftVersionManifestResponse {
     /// A list of Minecraft versions with the latest and snapshot releases
     Status200_AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
-    (models::GetMinecraftVersionManifest200Response)
+    (models::VersionManifest)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 #[allow(clippy::large_enum_variant)]
-pub enum V1PackagesPackageIdVersionIdJsonGetResponse {
+pub enum GetMinecraftVersionPackageInfoResponse {
     /// Get package version details
     Status200_GetPackageVersionDetails
-    (models::V1PackagesPackageIdVersionIdJsonGet200Response)
+    (models::VersionPackageInfo)
 }
 
 
@@ -40,14 +40,14 @@ pub trait Default {
     cookies: CookieJar,
     ) -> Result<GetMinecraftVersionManifestResponse, String>;
 
-    /// Get Minecraft version package details.
+    /// Get Minecraft version package info.
     ///
-    /// V1PackagesPackageIdVersionIdJsonGet - GET /v1/packages/{packageId}/{versionId}.json
-    async fn v1_packages_package_id_version_id_json_get(
+    /// GetMinecraftVersionPackageInfo - GET /v1/packages/{packageId}/{versionId}.json
+    async fn get_minecraft_version_package_info(
     &self,
     method: Method,
     host: Host,
     cookies: CookieJar,
-      path_params: models::V1PackagesPackageIdVersionIdJsonGetPathParams,
-    ) -> Result<V1PackagesPackageIdVersionIdJsonGetResponse, String>;
+      path_params: models::GetMinecraftVersionPackageInfoPathParams,
+    ) -> Result<GetMinecraftVersionPackageInfoResponse, String>;
 }

@@ -73,36 +73,98 @@ export class RequiredError extends Error {
  * 
  * @export
  */
-export type GetMinecraftVersionManifest200Response = {
+export type Download = {
     /**
      * 
-     * @type {GetMinecraftVersionManifest200ResponseLatest}
-     * @memberof GetMinecraftVersionManifest200Response
+     * @type {string}
+     * @memberof Download
      */
-    latest?: GetMinecraftVersionManifest200ResponseLatest;
+    sha1?: string;
     /**
      * 
-     * @type {Array<GetMinecraftVersionManifest200ResponseVersionsInner>}
-     * @memberof GetMinecraftVersionManifest200Response
+     * @type {number}
+     * @memberof Download
      */
-    versions?: Array<GetMinecraftVersionManifest200ResponseVersionsInner>;
+    size?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Download
+     */
+    url?: string;
 }
 
 /**
  * 
  * @export
  */
-export type GetMinecraftVersionManifest200ResponseLatest = {
+export type Version = {
     /**
      * 
      * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseLatest
+     * @memberof Version
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Version
+     */
+    type?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Version
+     */
+    url?: string;
+    /**
+     * 
+     * @type {Date}
+     * @memberof Version
+     */
+    time?: Date;
+    /**
+     * 
+     * @type {Date}
+     * @memberof Version
+     */
+    releaseTime?: Date;
+}
+
+/**
+ * 
+ * @export
+ */
+export type VersionManifest = {
+    /**
+     * 
+     * @type {VersionManifestLatest}
+     * @memberof VersionManifest
+     */
+    latest?: VersionManifestLatest;
+    /**
+     * 
+     * @type {Array<Version>}
+     * @memberof VersionManifest
+     */
+    versions?: Array<Version>;
+}
+
+/**
+ * 
+ * @export
+ */
+export type VersionManifestLatest = {
+    /**
+     * 
+     * @type {string}
+     * @memberof VersionManifestLatest
      */
     release?: string;
     /**
      * 
      * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseLatest
+     * @memberof VersionManifestLatest
      */
     snapshot?: string;
 }
@@ -111,114 +173,77 @@ export type GetMinecraftVersionManifest200ResponseLatest = {
  * 
  * @export
  */
-export type GetMinecraftVersionManifest200ResponseVersionsInner = {
+export type VersionPackageInfo = {
     /**
      * 
      * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    type?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    url?: string;
-    /**
-     * 
-     * @type {Date}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    time?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
-     */
-    releaseTime?: Date;
-}
-
-/**
- * 
- * @export
- */
-export type V1PackagesPackageIdVersionIdJsonGet200Response = {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     version?: string;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @type {VersionPackageInfoAssetIndex}
+     * @memberof VersionPackageInfo
      */
-    assetIndex?: V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
+    assetIndex?: VersionPackageInfoAssetIndex;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     assets?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     complianceLevel?: number;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @type {VersionPackageInfoDownloads}
+     * @memberof VersionPackageInfo
      */
-    downloads?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
+    downloads?: VersionPackageInfoDownloads;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     id?: string;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @type {VersionPackageInfoJavaVersion}
+     * @memberof VersionPackageInfo
      */
-    javaVersion?: V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion;
+    javaVersion?: VersionPackageInfoJavaVersion;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     mainClass?: string;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     minimumLauncherVersion?: number;
     /**
      * 
      * @type {Date}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     time?: Date;
     /**
      * 
      * @type {Date}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     releaseTime?: Date;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200Response
+     * @memberof VersionPackageInfo
      */
     type?: string;
 }
@@ -227,35 +252,35 @@ export type V1PackagesPackageIdVersionIdJsonGet200Response = {
  * 
  * @export
  */
-export type V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex = {
+export type VersionPackageInfoAssetIndex = {
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     id?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     sha1?: string;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     size?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     totalSize?: number;
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+     * @memberof VersionPackageInfoAssetIndex
      */
     url?: string;
 }
@@ -264,73 +289,48 @@ export type V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex = {
  * 
  * @export
  */
-export type V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads = {
+export type VersionPackageInfoDownloads = {
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    client?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    client?: Download;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    client_mappings?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    client_mappings?: Download;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    server?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    server?: Download;
     /**
      * 
-     * @type {V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+     * @type {Download}
+     * @memberof VersionPackageInfoDownloads
      */
-    server_mappings?: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient;
+    server_mappings?: Download;
 }
 
 /**
  * 
  * @export
  */
-export type V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient = {
+export type VersionPackageInfoJavaVersion = {
     /**
      * 
      * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-     */
-    sha1?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-     */
-    size?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-     */
-    url?: string;
-}
-
-/**
- * 
- * @export
- */
-export type V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion = {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+     * @memberof VersionPackageInfoJavaVersion
      */
     component?: string;
     /**
      * 
      * @type {number}
-     * @memberof V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+     * @memberof VersionPackageInfoJavaVersion
      */
     majorVersion?: number;
 }
@@ -367,17 +367,17 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @summary Get Minecraft version package details
+         * @summary Get Minecraft version package info
          * @throws {RequiredError}
          */
-        v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options: RequestOptions): FetchArgs {
+        getMinecraftVersionPackageInfo(packageId: string, versionId: string, options: RequestOptions): FetchArgs {
             // verify required parameter 'packageId' is not null or undefined
             if (packageId === null || packageId === undefined) {
-                throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+                throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling getMinecraftVersionPackageInfo.');
             }
             // verify required parameter 'versionId' is not null or undefined
             if (versionId === null || versionId === undefined) {
-                throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+                throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling getMinecraftVersionPackageInfo.');
             }
             const localVarPath = `/v1/packages/{packageId}/{versionId}.json`
                 .replace(`{${"packageId"}}`, encodeURIComponent(String(packageId)))
@@ -401,9 +401,9 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
 };
 
 export type DefaultApiType = { 
-    getMinecraftVersionManifest(options?: RequestOptions): Promise<GetMinecraftVersionManifest200Response>,
+    getMinecraftVersionManifest(options?: RequestOptions): Promise<VersionManifest>,
 
-    v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options?: RequestOptions): Promise<V1PackagesPackageIdVersionIdJsonGet200Response>,
+    getMinecraftVersionPackageInfo(packageId: string, versionId: string, options?: RequestOptions): Promise<VersionPackageInfo>,
 }
 
 /**
@@ -418,7 +418,7 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * @summary Get Minecraft version manifest
          * @throws {RequiredError}
          */
-        getMinecraftVersionManifest(options?: RequestOptions = {}): Promise<GetMinecraftVersionManifest200Response> {
+        getMinecraftVersionManifest(options?: RequestOptions = {}): Promise<VersionManifest> {
             const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).getMinecraftVersionManifest(options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -430,11 +430,11 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
         },
         /**
          * 
-         * @summary Get Minecraft version package details
+         * @summary Get Minecraft version package info
          * @throws {RequiredError}
          */
-        v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options?: RequestOptions = {}): Promise<V1PackagesPackageIdVersionIdJsonGet200Response> {
-            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).v1PackagesPackageIdVersionIdJsonGet(packageId, versionId, options);
+        getMinecraftVersionPackageInfo(packageId: string, versionId: string, options?: RequestOptions = {}): Promise<VersionPackageInfo> {
+            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).getMinecraftVersionPackageInfo(packageId, versionId, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

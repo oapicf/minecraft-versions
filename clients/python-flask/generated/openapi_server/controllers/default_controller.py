@@ -3,8 +3,8 @@ from typing import Dict
 from typing import Tuple
 from typing import Union
 
-from openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response  # noqa: E501
-from openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response  # noqa: E501
+from openapi_server.models.version_manifest import VersionManifest  # noqa: E501
+from openapi_server.models.version_package_info import VersionPackageInfo  # noqa: E501
 from openapi_server import util
 
 
@@ -14,13 +14,13 @@ def get_minecraft_version_manifest():  # noqa: E501
      # noqa: E501
 
 
-    :rtype: Union[GetMinecraftVersionManifest200Response, Tuple[GetMinecraftVersionManifest200Response, int], Tuple[GetMinecraftVersionManifest200Response, int, Dict[str, str]]
+    :rtype: Union[VersionManifest, Tuple[VersionManifest, int], Tuple[VersionManifest, int, Dict[str, str]]
     """
     return 'do some magic!'
 
 
-def v1_packages_package_id_version_id_json_get(package_id, version_id):  # noqa: E501
-    """Get Minecraft version package details
+def get_minecraft_version_package_info(package_id, version_id):  # noqa: E501
+    """Get Minecraft version package info
 
      # noqa: E501
 
@@ -29,6 +29,6 @@ def v1_packages_package_id_version_id_json_get(package_id, version_id):  # noqa:
     :param version_id: 
     :type version_id: str
 
-    :rtype: Union[V1PackagesPackageIdVersionIdJsonGet200Response, Tuple[V1PackagesPackageIdVersionIdJsonGet200Response, int], Tuple[V1PackagesPackageIdVersionIdJsonGet200Response, int, Dict[str, str]]
+    :rtype: Union[VersionPackageInfo, Tuple[VersionPackageInfo, int], Tuple[VersionPackageInfo, int, Dict[str, str]]
     """
     return 'do some magic!'

@@ -31,8 +31,8 @@
 #include <corvusoft/restbed/service.hpp>
 #include <corvusoft/restbed/settings.hpp>
 
-#include "GetMinecraftVersionManifest_200_response.h"
-#include "_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "VersionManifest.h"
+#include "VersionPackageInfo.h"
 #include <string>
 
 namespace org {
@@ -81,9 +81,9 @@ public:
     /////////////////////////////////////////////////////
     // Set these to implement the server functionality //
     /////////////////////////////////////////////////////
-    std::function<std::pair<int, GetMinecraftVersionManifest_200_response>(
+    std::function<std::pair<int, VersionManifest>(
         )> handler_GET_func =
-            []() -> std::pair<int, GetMinecraftVersionManifest_200_response>
+            []() -> std::pair<int, VersionManifest>
                 { throw DefaultApiException(501, "Not implemented"); };
 
 
@@ -93,7 +93,7 @@ protected:
     // override these to implement the server functionality //
     //////////////////////////////////////////////////////////
 
-    virtual std::pair<int, GetMinecraftVersionManifest_200_response> handler_GET(
+    virtual std::pair<int, VersionManifest> handler_GET(
         );
 
 
@@ -122,7 +122,7 @@ private:
 };
 
 /// <summary>
-/// Get Minecraft version package details
+/// Get Minecraft version package info
 /// </summary>
 /// <remarks>
 /// 
@@ -143,9 +143,9 @@ public:
     /////////////////////////////////////////////////////
     // Set these to implement the server functionality //
     /////////////////////////////////////////////////////
-    std::function<std::pair<int, _v1_packages__packageId___versionId__json_get_200_response>(
+    std::function<std::pair<int, VersionPackageInfo>(
         std::string & packageId, std::string & versionId)> handler_GET_func =
-            [](std::string &, std::string &) -> std::pair<int, _v1_packages__packageId___versionId__json_get_200_response>
+            [](std::string &, std::string &) -> std::pair<int, VersionPackageInfo>
                 { throw DefaultApiException(501, "Not implemented"); };
 
 
@@ -155,7 +155,7 @@ protected:
     // override these to implement the server functionality //
     //////////////////////////////////////////////////////////
 
-    virtual std::pair<int, _v1_packages__packageId___versionId__json_get_200_response> handler_GET(
+    virtual std::pair<int, VersionPackageInfo> handler_GET(
         std::string & packageId, std::string & versionId);
 
 

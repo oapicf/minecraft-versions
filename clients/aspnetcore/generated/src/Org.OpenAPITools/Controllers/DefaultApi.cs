@@ -34,24 +34,24 @@ namespace Org.OpenAPITools.Controllers
         [Route("/mc/game/version_manifest.json")]
         [ValidateModelState]
         [SwaggerOperation("GetMinecraftVersionManifest")]
-        [SwaggerResponse(statusCode: 200, type: typeof(GetMinecraftVersionManifest200Response), description: "A list of Minecraft versions with the latest and snapshot releases")]
+        [SwaggerResponse(statusCode: 200, type: typeof(VersionManifest), description: "A list of Minecraft versions with the latest and snapshot releases")]
         public virtual IActionResult GetMinecraftVersionManifest()
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(GetMinecraftVersionManifest200Response));
+            // return StatusCode(200, default(VersionManifest));
             string exampleJson = null;
             exampleJson = "{\n  \"versions\" : [ {\n    \"releaseTime\" : \"2024-04-01T11:07:19Z\",\n    \"id\" : \"24w14potato\",\n    \"time\" : \"2024-04-01T11:14:41Z\",\n    \"type\" : \"snapshot\",\n    \"url\" : \"https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json\"\n  }, {\n    \"releaseTime\" : \"2024-04-01T11:07:19Z\",\n    \"id\" : \"24w14potato\",\n    \"time\" : \"2024-04-01T11:14:41Z\",\n    \"type\" : \"snapshot\",\n    \"url\" : \"https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json\"\n  } ],\n  \"latest\" : {\n    \"release\" : \"1.21\",\n    \"snapshot\" : \"24w14potato\"\n  }\n}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<GetMinecraftVersionManifest200Response>(exampleJson)
-            : default(GetMinecraftVersionManifest200Response);
+            ? JsonConvert.DeserializeObject<VersionManifest>(exampleJson)
+            : default(VersionManifest);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
         /// <summary>
-        /// Get Minecraft version package details
+        /// Get Minecraft version package info
         /// </summary>
         /// <param name="packageId"></param>
         /// <param name="versionId"></param>
@@ -59,19 +59,19 @@ namespace Org.OpenAPITools.Controllers
         [HttpGet]
         [Route("/v1/packages/{packageId}/{versionId}.json")]
         [ValidateModelState]
-        [SwaggerOperation("V1PackagesPackageIdVersionIdJsonGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(V1PackagesPackageIdVersionIdJsonGet200Response), description: "Get package version details")]
-        public virtual IActionResult V1PackagesPackageIdVersionIdJsonGet([FromRoute (Name = "packageId")][Required]string packageId, [FromRoute (Name = "versionId")][Required]string versionId)
+        [SwaggerOperation("GetMinecraftVersionPackageInfo")]
+        [SwaggerResponse(statusCode: 200, type: typeof(VersionPackageInfo), description: "Get package version details")]
+        public virtual IActionResult GetMinecraftVersionPackageInfo([FromRoute (Name = "packageId")][Required]string packageId, [FromRoute (Name = "versionId")][Required]string versionId)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(V1PackagesPackageIdVersionIdJsonGet200Response));
+            // return StatusCode(200, default(VersionPackageInfo));
             string exampleJson = null;
             exampleJson = "{\n  \"assets\" : 1,\n  \"releaseTime\" : \"2024-04-01T11:07:19Z\",\n  \"mainClass\" : \"net.minecraft.client.main.Main\",\n  \"downloads\" : {\n    \"server\" : {\n      \"sha1\" : \"sha1\",\n      \"size\" : 5,\n      \"url\" : \"url\"\n    },\n    \"server_mappings\" : {\n      \"sha1\" : \"sha1\",\n      \"size\" : 5,\n      \"url\" : \"url\"\n    },\n    \"client\" : {\n      \"sha1\" : \"sha1\",\n      \"size\" : 5,\n      \"url\" : \"url\"\n    },\n    \"client_mappings\" : {\n      \"sha1\" : \"sha1\",\n      \"size\" : 5,\n      \"url\" : \"url\"\n    }\n  },\n  \"javaVersion\" : {\n    \"component\" : \"component\",\n    \"majorVersion\" : 2\n  },\n  \"complianceLevel\" : 5,\n  \"minimumLauncherVersion\" : 21,\n  \"assetIndex\" : {\n    \"sha1\" : \"sha1\",\n    \"totalSize\" : 6,\n    \"size\" : 0,\n    \"id\" : \"id\",\n    \"url\" : \"url\"\n  },\n  \"id\" : \"id\",\n  \"time\" : \"2024-04-01T11:14:41Z\",\n  \"type\" : \"snapshot\",\n  \"version\" : \"version\"\n}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<V1PackagesPackageIdVersionIdJsonGet200Response>(exampleJson)
-            : default(V1PackagesPackageIdVersionIdJsonGet200Response);
+            ? JsonConvert.DeserializeObject<VersionPackageInfo>(exampleJson)
+            : default(VersionPackageInfo);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

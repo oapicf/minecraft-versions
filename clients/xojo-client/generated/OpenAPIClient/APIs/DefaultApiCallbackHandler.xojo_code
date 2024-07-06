@@ -1,13 +1,13 @@
 #tag Interface
 Protected Interface DefaultApiCallbackHandler
 	#tag Method, Flags = &h0
-		Sub GetMinecraftVersionManifestCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.GetMinecraftVersionManifest200Response)
+		Sub GetMinecraftVersionManifestCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.VersionManifest)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub V1PackagesPackageIdVersionIdJsonGetCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200Response)
+		Sub GetMinecraftVersionPackageInfoCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.VersionPackageInfo)
 		  
 		End Sub
 	#tag EndMethod

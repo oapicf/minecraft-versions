@@ -5,7 +5,7 @@
 GET https://launchermeta.mojang.com/mc/game/version_manifest.json
 Accept: application/json
 
-### Get Minecraft version package details
-## Get Minecraft version package details
+### Get Minecraft version package info
+## Get Minecraft version package info
 GET https://launchermeta.mojang.com/v1/packages/{{packageId}}/{{versionId}}.json
 Accept: application/json

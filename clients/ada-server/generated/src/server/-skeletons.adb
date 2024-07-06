@@ -37,7 +37,7 @@ package body .Skeletons is
           Stream  : in out Swagger.Servers.Output_Stream'Class;
           Context : in out Swagger.Servers.Context_Type) is
          Impl : Implementation_Type;
-         Result : .Models.GetMinecraftVersionManifest200Response_Type;
+         Result : .Models.VersionManifest_Type;
       begin
          
          
@@ -53,15 +53,15 @@ package body .Skeletons is
 
       end Get_Minecraft_Version_Manifest;
 
-      package API_V_1Packages_Package_Id_Version_Id_Json_Get is
+      package API_Get_Minecraft_Version_Package_Info is
          new Swagger.Servers.Operation
-            (Handler => V_1Packages_Package_Id_Version_Id_Json_Get,
+            (Handler => Get_Minecraft_Version_Package_Info,
              Method  => Swagger.Servers.GET,
              URI     => URI_Prefix & "/v1/packages/{packageId}/{versionId}.json",
              Mimes   => Media_List_1'Access);
 
-      --  Get Minecraft version package details
-      procedure V_1Packages_Package_Id_Version_Id_Json_Get
+      --  Get Minecraft version package info
+      procedure Get_Minecraft_Version_Package_Info
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
@@ -69,7 +69,7 @@ package body .Skeletons is
          Impl : Implementation_Type;
          Package_Id : Swagger.UString;
          Version_Id : Swagger.UString;
-         Result : .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type;
+         Result : .Models.VersionPackageInfo_Type;
       begin
          
          
@@ -77,7 +77,7 @@ package body .Skeletons is
 
          Version_Id := To_Swagger.UString (Swagger.Servers.Get_Path_Parameter (Req, 2));
 
-         Impl.V_1Packages_Package_Id_Version_Id_Json_Get
+         Impl.Get_Minecraft_Version_Package_Info
             (Package_Id,
              Version_Id, Result, Context);
          if Context.Get_Status = 200 then
@@ -89,12 +89,12 @@ package body .Skeletons is
             return;
          end if;
 
-      end V_1Packages_Package_Id_Version_Id_Json_Get;
+      end Get_Minecraft_Version_Package_Info;
 
       procedure Register (Server : in out Swagger.Servers.Application_Type'Class) is
       begin
          Swagger.Servers.Register (Server, API_Get_Minecraft_Version_Manifest.Definition);
-         Swagger.Servers.Register (Server, API_V_1Packages_Package_Id_Version_Id_Json_Get.Definition);
+         Swagger.Servers.Register (Server, API_Get_Minecraft_Version_Package_Info.Definition);
       end Register;
 
    end Skeleton;
@@ -108,7 +108,7 @@ package body .Skeletons is
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
           Context : in out Swagger.Servers.Context_Type) is
-         Result : .Models.GetMinecraftVersionManifest200Response_Type;
+         Result : .Models.VersionManifest_Type;
       begin
 
          
@@ -132,15 +132,15 @@ package body .Skeletons is
              Mimes   => Media_List_1'Access);
 
 
-      --  Get Minecraft version package details
-      procedure V_1Packages_Package_Id_Version_Id_Json_Get
+      --  Get Minecraft version package info
+      procedure Get_Minecraft_Version_Package_Info
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
           Context : in out Swagger.Servers.Context_Type) is
          Package_Id : Swagger.UString;
          Version_Id : Swagger.UString;
-         Result : .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type;
+         Result : .Models.VersionPackageInfo_Type;
       begin
 
          
@@ -148,7 +148,7 @@ package body .Skeletons is
 
          Version_Id := To_Swagger.UString (Swagger.Servers.Get_Path_Parameter (Req, 2));
 
-         Server.V_1Packages_Package_Id_Version_Id_Json_Get
+         Server.Get_Minecraft_Version_Package_Info
             (Package_Id,
              Version_Id, Result, Context);
          if Context.Get_Status = 200 then
@@ -160,11 +160,11 @@ package body .Skeletons is
             return;
          end if;
 
-      end V_1Packages_Package_Id_Version_Id_Json_Get;
+      end Get_Minecraft_Version_Package_Info;
 
-      package API_V_1Packages_Package_Id_Version_Id_Json_Get is
+      package API_Get_Minecraft_Version_Package_Info is
          new Swagger.Servers.Operation
-            (Handler => V_1Packages_Package_Id_Version_Id_Json_Get,
+            (Handler => Get_Minecraft_Version_Package_Info,
              Method  => Swagger.Servers.GET,
              URI     => URI_Prefix & "/v1/packages/{packageId}/{versionId}.json",
              Mimes   => Media_List_1'Access);
@@ -173,30 +173,30 @@ package body .Skeletons is
       procedure Register (Server : in out Swagger.Servers.Application_Type'Class) is
       begin
          Swagger.Servers.Register (Server, API_Get_Minecraft_Version_Manifest.Definition);
-         Swagger.Servers.Register (Server, API_V_1Packages_Package_Id_Version_Id_Json_Get.Definition);
+         Swagger.Servers.Register (Server, API_Get_Minecraft_Version_Package_Info.Definition);
       end Register;
 
       protected body Server is
          --  Get Minecraft version manifest
-         procedure Get_Minecraft_Version_Manifest (Result : out .Models.GetMinecraftVersionManifest200Response_Type;
+         procedure Get_Minecraft_Version_Manifest (Result : out .Models.VersionManifest_Type;
          Context : in out Swagger.Servers.Context_Type) is
          begin
             Impl.Get_Minecraft_Version_Manifest (Result, Context);
          end Get_Minecraft_Version_Manifest;
 
-         --  Get Minecraft version package details
-         procedure V_1Packages_Package_Id_Version_Id_Json_Get
+         --  Get Minecraft version package info
+         procedure Get_Minecraft_Version_Package_Info
             (Package_Id : in Swagger.UString;
              Version_Id : in Swagger.UString;
-             Result : out .Models.V1PackagesPackageIdVersionIdJsonGet200Response_Type;
+             Result : out .Models.VersionPackageInfo_Type;
              Context : in out Swagger.Servers.Context_Type) is
          begin
-            Impl.V_1Packages_Package_Id_Version_Id_Json_Get
+            Impl.Get_Minecraft_Version_Package_Info
                (Package_Id,
                 Version_Id,
                 Result,
                 Context);
-         end V_1Packages_Package_Id_Version_Id_Json_Get;
+         end Get_Minecraft_Version_Package_Info;
 
       end Server;
 

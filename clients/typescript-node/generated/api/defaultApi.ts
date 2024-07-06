@@ -15,8 +15,8 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetMinecraftVersionManifest200Response } from '../model/getMinecraftVersionManifest200Response';
-import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../model/v1PackagesPackageIdVersionIdJsonGet200Response';
+import { VersionManifest } from '../model/versionManifest';
+import { VersionPackageInfo } from '../model/versionPackageInfo';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 
@@ -91,7 +91,7 @@ export class DefaultApi {
      * 
      * @summary Get Minecraft version manifest
      */
-    public async getMinecraftVersionManifest (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetMinecraftVersionManifest200Response;  }> {
+    public async getMinecraftVersionManifest (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: VersionManifest;  }> {
         const localVarPath = this.basePath + '/mc/game/version_manifest.json';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -133,13 +133,13 @@ export class DefaultApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: GetMinecraftVersionManifest200Response;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: VersionManifest;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetMinecraftVersionManifest200Response");
+                            body = ObjectSerializer.deserialize(body, "VersionManifest");
                             resolve({ response: response, body: body });
                         } else {
                             reject(new HttpError(response, body, response.statusCode));
@@ -151,11 +151,11 @@ export class DefaultApi {
     }
     /**
      * 
-     * @summary Get Minecraft version package details
+     * @summary Get Minecraft version package info
      * @param packageId 
      * @param versionId 
      */
-    public async v1PackagesPackageIdVersionIdJsonGet (packageId: string, versionId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: V1PackagesPackageIdVersionIdJsonGet200Response;  }> {
+    public async getMinecraftVersionPackageInfo (packageId: string, versionId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: VersionPackageInfo;  }> {
         const localVarPath = this.basePath + '/v1/packages/{packageId}/{versionId}.json'
             .replace('{' + 'packageId' + '}', encodeURIComponent(String(packageId)))
             .replace('{' + 'versionId' + '}', encodeURIComponent(String(versionId)));
@@ -172,12 +172,12 @@ export class DefaultApi {
 
         // verify required parameter 'packageId' is not null or undefined
         if (packageId === null || packageId === undefined) {
-            throw new Error('Required parameter packageId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter packageId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
         // verify required parameter 'versionId' is not null or undefined
         if (versionId === null || versionId === undefined) {
-            throw new Error('Required parameter versionId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter versionId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -209,13 +209,13 @@ export class DefaultApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: V1PackagesPackageIdVersionIdJsonGet200Response;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: VersionPackageInfo;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "V1PackagesPackageIdVersionIdJsonGet200Response");
+                            body = ObjectSerializer.deserialize(body, "VersionPackageInfo");
                             resolve({ response: response, body: body });
                         } else {
                             reject(new HttpError(response, body, response.statusCode));

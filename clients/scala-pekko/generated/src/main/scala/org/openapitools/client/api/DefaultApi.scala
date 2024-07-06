@@ -11,8 +11,8 @@
  */
 package org.openapitools.client.api
 
-import org.openapitools.client.model.GetMinecraftVersionManifest200Response
-import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import org.openapitools.client.model.VersionManifest
+import org.openapitools.client.model.VersionPackageInfo
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -26,25 +26,25 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : GetMinecraftVersionManifest200Response (A list of Minecraft versions with the latest and snapshot releases)
+   *   code 200 : VersionManifest (A list of Minecraft versions with the latest and snapshot releases)
    */
-  def getMinecraftVersionManifest(): ApiRequest[GetMinecraftVersionManifest200Response] =
-    ApiRequest[GetMinecraftVersionManifest200Response](ApiMethods.GET, baseUrl, "/mc/game/version_manifest.json", "application/json")
-      .withSuccessResponse[GetMinecraftVersionManifest200Response](200)
+  def getMinecraftVersionManifest(): ApiRequest[VersionManifest] =
+    ApiRequest[VersionManifest](ApiMethods.GET, baseUrl, "/mc/game/version_manifest.json", "application/json")
+      .withSuccessResponse[VersionManifest](200)
       
 
   /**
    * Expected answers:
-   *   code 200 : V1PackagesPackageIdVersionIdJsonGet200Response (Get package version details)
+   *   code 200 : VersionPackageInfo (Get package version details)
    * 
    * @param packageId 
    * @param versionId 
    */
-  def v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String): ApiRequest[V1PackagesPackageIdVersionIdJsonGet200Response] =
-    ApiRequest[V1PackagesPackageIdVersionIdJsonGet200Response](ApiMethods.GET, baseUrl, "/v1/packages/{packageId}/{versionId}.json", "application/json")
+  def getMinecraftVersionPackageInfo(packageId: String, versionId: String): ApiRequest[VersionPackageInfo] =
+    ApiRequest[VersionPackageInfo](ApiMethods.GET, baseUrl, "/v1/packages/{packageId}/{versionId}.json", "application/json")
       .withPathParam("packageId", packageId)
       .withPathParam("versionId", versionId)
-      .withSuccessResponse[V1PackagesPackageIdVersionIdJsonGet200Response](200)
+      .withSuccessResponse[VersionPackageInfo](200)
       
 
 

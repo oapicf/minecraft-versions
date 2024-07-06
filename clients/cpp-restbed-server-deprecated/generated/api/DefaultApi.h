@@ -30,8 +30,8 @@
 #include <corvusoft/restbed/service.hpp>
 #include <corvusoft/restbed/settings.hpp>
 
-#include "GetMinecraftVersionManifest_200_response.h"
-#include "_v1_packages__packageId___versionId__json_get_200_response.h"
+#include "VersionManifest.h"
+#include "VersionPackageInfo.h"
 #include <string>
 
 namespace org {
@@ -74,7 +74,7 @@ protected:
     // Override these to implement the server functionality //
     //////////////////////////////////////////////////////////
 
-    virtual std::pair<int, std::shared_ptr<GetMinecraftVersionManifest_200_response>> handler_GET(
+    virtual std::pair<int, std::shared_ptr<VersionManifest>> handler_GET(
         );
 
 
@@ -106,7 +106,7 @@ private:
 
 
 /// <summary>
-/// Get Minecraft version package details
+/// Get Minecraft version package info
 /// </summary>
 /// <remarks>
 /// 
@@ -122,7 +122,7 @@ protected:
     // Override these to implement the server functionality //
     //////////////////////////////////////////////////////////
 
-    virtual std::pair<int, std::shared_ptr<_v1_packages__packageId___versionId__json_get_200_response>> handler_GET(
+    virtual std::pair<int, std::shared_ptr<VersionPackageInfo>> handler_GET(
         std::string const & packageId, std::string const & versionId);
 
 

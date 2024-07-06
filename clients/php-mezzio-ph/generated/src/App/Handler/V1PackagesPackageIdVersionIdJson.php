@@ -16,7 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class V1PackagesPackageIdVersionIdJson
 {
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      * @PHA\Get()
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
      * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
@@ -24,9 +24,9 @@ class V1PackagesPackageIdVersionIdJson
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return \App\DTO\V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return \App\DTO\VersionPackageInfo
      */
-    public function v1PackagesPackageIdVersionIdJsonGet(ServerRequestInterface $request): \App\DTO\V1PackagesPackageIdVersionIdJsonGet200Response
+    public function getMinecraftVersionPackageInfo(ServerRequestInterface $request): \App\DTO\VersionPackageInfo
     {
         //TODO implement method
         throw new PHException\HttpCode(501, "Not implemented");

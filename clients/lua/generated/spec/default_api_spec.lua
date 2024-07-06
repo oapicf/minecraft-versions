@@ -20,8 +20,8 @@ describe("default_api", function()
     end)
   end)
 
-  -- unit tests for v1_packages_package_id_version_id_json_get
-  describe("v1_packages_package_id_version_id_json_get test", function()
+  -- unit tests for get_minecraft_version_package_info
+  describe("get_minecraft_version_package_info test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

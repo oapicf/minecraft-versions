@@ -20,7 +20,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-GetMinecraftVersionManifest200Response
+VersionManifest
 #>
 function Get-MinecraftVersionManifest {
     [CmdletBinding()]
@@ -57,7 +57,7 @@ function Get-MinecraftVersionManifest {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "GetMinecraftVersionManifest200Response" `
+                                -ReturnType "VersionManifest" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -71,7 +71,7 @@ function Get-MinecraftVersionManifest {
 <#
 .SYNOPSIS
 
-Get Minecraft version package details
+Get Minecraft version package info
 
 .DESCRIPTION
 
@@ -89,9 +89,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-V1PackagesPackageIdVersionIdJsonGet200Response
+VersionPackageInfo
 #>
-function Invoke-V1PackagesPackageIdVersionIdJsonGet {
+function Get-MinecraftVersionPackageInfo {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -105,7 +105,7 @@ function Invoke-V1PackagesPackageIdVersionIdJsonGet {
     )
 
     Process {
-        'Calling method: Invoke-V1PackagesPackageIdVersionIdJsonGet' | Write-Debug
+        'Calling method: Get-MinecraftVersionPackageInfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -123,11 +123,11 @@ function Invoke-V1PackagesPackageIdVersionIdJsonGet {
 
         $LocalVarUri = '/v1/packages/{packageId}/{versionId}.json'
         if (!$PackageId) {
-            throw "Error! The required parameter `PackageId` missing when calling v1PackagesPackageIdVersionIdJsonGet."
+            throw "Error! The required parameter `PackageId` missing when calling getMinecraftVersionPackageInfo."
         }
         $LocalVarUri = $LocalVarUri.replace('{packageId}', [System.Web.HTTPUtility]::UrlEncode($PackageId))
         if (!$VersionId) {
-            throw "Error! The required parameter `VersionId` missing when calling v1PackagesPackageIdVersionIdJsonGet."
+            throw "Error! The required parameter `VersionId` missing when calling getMinecraftVersionPackageInfo."
         }
         $LocalVarUri = $LocalVarUri.replace('{versionId}', [System.Web.HTTPUtility]::UrlEncode($VersionId))
 
@@ -140,7 +140,7 @@ function Invoke-V1PackagesPackageIdVersionIdJsonGet {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "V1PackagesPackageIdVersionIdJsonGet200Response" `
+                                -ReturnType "VersionPackageInfo" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

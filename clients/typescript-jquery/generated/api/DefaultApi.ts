@@ -51,7 +51,7 @@ export class DefaultApi {
      * @summary Get Minecraft version manifest
      */
     public getMinecraftVersionManifest(extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.GetMinecraftVersionManifest200Response;  },
+    { response: JQueryXHR; body: models.VersionManifest;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/mc/game/version_manifest.json';
@@ -90,11 +90,11 @@ export class DefaultApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.GetMinecraftVersionManifest200Response;  },
+            { response: JQueryXHR; body: models.VersionManifest;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.GetMinecraftVersionManifest200Response, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.VersionManifest, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -104,12 +104,12 @@ export class DefaultApi {
 
     /**
      * 
-     * @summary Get Minecraft version package details
+     * @summary Get Minecraft version package info
      * @param packageId 
      * @param versionId 
      */
-    public v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.V1PackagesPackageIdVersionIdJsonGet200Response;  },
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    { response: JQueryXHR; body: models.VersionPackageInfo;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/packages/{packageId}/{versionId}.json'.replace('{' + 'packageId' + '}', encodeURIComponent(String(packageId))).replace('{' + 'versionId' + '}', encodeURIComponent(String(versionId)));
@@ -118,12 +118,12 @@ export class DefaultApi {
         let headerParams: any = {};
         // verify required parameter 'packageId' is not null or undefined
         if (packageId === null || packageId === undefined) {
-            throw new Error('Required parameter packageId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter packageId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
         // verify required parameter 'versionId' is not null or undefined
         if (versionId === null || versionId === undefined) {
-            throw new Error('Required parameter versionId was null or undefined when calling v1PackagesPackageIdVersionIdJsonGet.');
+            throw new Error('Required parameter versionId was null or undefined when calling getMinecraftVersionPackageInfo.');
         }
 
 
@@ -158,11 +158,11 @@ export class DefaultApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.V1PackagesPackageIdVersionIdJsonGet200Response;  },
+            { response: JQueryXHR; body: models.VersionPackageInfo;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.V1PackagesPackageIdVersionIdJsonGet200Response, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.VersionPackageInfo, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})

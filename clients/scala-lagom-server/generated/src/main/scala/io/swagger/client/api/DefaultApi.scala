@@ -18,8 +18,8 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 import play.api.libs.json._
 import com.lightbend.lagom.scaladsl.api.deser.PathParamSerializer
 
-import io.swagger.client.model.GetMinecraftVersionManifest200Response
-import io.swagger.client.model.V1PackagesPackageIdVersionIdJsonGet200Response
+import io.swagger.client.model.VersionManifest
+import io.swagger.client.model.VersionPackageInfo
 
 trait DefaultApi extends Service {
 
@@ -28,7 +28,7 @@ trait DefaultApi extends Service {
     import Service._
     named("DefaultApi").withCalls(
       restCall(Method.GET, "/mc/game/version_manifest.json", getMinecraftVersionManifest _), 
-      restCall(Method.GET, "/v1/packages/:packageId/:versionId.json", v1PackagesPackageIdVersionIdJsonGet _)
+      restCall(Method.GET, "/v1/packages/:packageId/:versionId.json", getMinecraftVersionPackageInfo _)
     ).withAutoAcl(true)
   }
 
@@ -37,19 +37,19 @@ trait DefaultApi extends Service {
     * Get Minecraft version manifest
     * 
     * 
-    * @return GetMinecraftVersionManifest200Response
+    * @return VersionManifest
     */
-  def getMinecraftVersionManifest(): ServiceCall[NotUsed ,GetMinecraftVersionManifest200Response]
+  def getMinecraftVersionManifest(): ServiceCall[NotUsed ,VersionManifest]
   
   /**
-    * Get Minecraft version package details
+    * Get Minecraft version package info
     * 
     *  
     * @param packageId   
     * @param versionId  
-    * @return V1PackagesPackageIdVersionIdJsonGet200Response
+    * @return VersionPackageInfo
     */
-  def v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String): ServiceCall[NotUsed ,V1PackagesPackageIdVersionIdJsonGet200Response]
+  def getMinecraftVersionPackageInfo(packageId: String, versionId: String): ServiceCall[NotUsed ,VersionPackageInfo]
   
 
   }

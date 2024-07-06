@@ -80,16 +80,16 @@ class DefaultApiTest extends TestCase
     }
 
     /**
-     * Test case for v1PackagesPackageIdVersionIdJsonGet
+     * Test case for getMinecraftVersionPackageInfo
      *
-     * Get Minecraft version package details.
+     * Get Minecraft version package info.
      *
-     * @covers ::v1PackagesPackageIdVersionIdJsonGet
+     * @covers ::getMinecraftVersionPackageInfo
      */
-    public function testV1PackagesPackageIdVersionIdJsonGet()
+    public function testGetMinecraftVersionPackageInfo()
     {
         self::markTestIncomplete(
-            'Test of "v1PackagesPackageIdVersionIdJsonGet" method has not been implemented yet.'
+            'Test of "getMinecraftVersionPackageInfo" method has not been implemented yet.'
         );
     }
 }

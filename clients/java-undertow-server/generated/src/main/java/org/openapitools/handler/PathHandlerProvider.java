@@ -103,7 +103,7 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
             .add(Methods.GET, basePath + "/v1/packages/{packageId}/{versionId}.json", new HttpHandler() {
                 @Override
                 public void handleRequest(HttpServerExchange exchange) throws Exception {
-                    v1PackagesPackageIdVersionIdJsonGet().handleRequest(exchange);
+                    getMinecraftVersionPackageInfo().handleRequest(exchange);
                 }
             })
             ;
@@ -155,7 +155,7 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
     public HttpHandler getStatefulHandler(final String basePath) {
         return Handlers.routing()
             .add(Methods.GET, basePath + "/mc/game/version_manifest.json", getMinecraftVersionManifest())
-            .add(Methods.GET, basePath + "/v1/packages/{packageId}/{versionId}.json", v1PackagesPackageIdVersionIdJsonGet())
+            .add(Methods.GET, basePath + "/v1/packages/{packageId}/{versionId}.json", getMinecraftVersionPackageInfo())
             ;
     }
 }

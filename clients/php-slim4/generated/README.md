@@ -163,18 +163,18 @@ For instance, when abstract class located at `./lib/Api/AbstractPetApi.php` you 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AbstractDefaultApi* | **getMinecraftVersionManifest** | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*AbstractDefaultApi* | **v1PackagesPackageIdVersionIdJsonGet** | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*AbstractDefaultApi* | **getMinecraftVersionPackageInfo** | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 ## Models
 
-* OpenAPIServer\Model\GetMinecraftVersionManifest200Response
-* OpenAPIServer\Model\GetMinecraftVersionManifest200ResponseLatest
-* OpenAPIServer\Model\GetMinecraftVersionManifest200ResponseVersionsInner
-* OpenAPIServer\Model\V1PackagesPackageIdVersionIdJsonGet200Response
-* OpenAPIServer\Model\V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
-* OpenAPIServer\Model\V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
-* OpenAPIServer\Model\V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
-* OpenAPIServer\Model\V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+* OpenAPIServer\Model\Download
+* OpenAPIServer\Model\Version
+* OpenAPIServer\Model\VersionManifest
+* OpenAPIServer\Model\VersionManifestLatest
+* OpenAPIServer\Model\VersionPackageInfo
+* OpenAPIServer\Model\VersionPackageInfoAssetIndex
+* OpenAPIServer\Model\VersionPackageInfoDownloads
+* OpenAPIServer\Model\VersionPackageInfoJavaVersion
 
 

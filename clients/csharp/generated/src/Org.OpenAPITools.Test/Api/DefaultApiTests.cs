@@ -61,20 +61,20 @@ namespace Org.OpenAPITools.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetMinecraftVersionManifest();
-            //Assert.IsType<GetMinecraftVersionManifest200Response>(response);
+            //Assert.IsType<VersionManifest>(response);
         }
 
         /// <summary>
-        /// Test V1PackagesPackageIdVersionIdJsonGet
+        /// Test GetMinecraftVersionPackageInfo
         /// </summary>
         [Fact]
-        public void V1PackagesPackageIdVersionIdJsonGetTest()
+        public void GetMinecraftVersionPackageInfoTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string packageId = null;
             //string versionId = null;
-            //var response = instance.V1PackagesPackageIdVersionIdJsonGet(packageId, versionId);
-            //Assert.IsType<V1PackagesPackageIdVersionIdJsonGet200Response>(response);
+            //var response = instance.GetMinecraftVersionPackageInfo(packageId, versionId);
+            //Assert.IsType<VersionPackageInfo>(response);
         }
     }
 }

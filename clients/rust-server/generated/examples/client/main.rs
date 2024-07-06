@@ -6,7 +6,7 @@ use futures::{future, Stream, stream};
 #[allow(unused_imports)]
 use openapi_client::{Api, ApiNoContext, Client, ContextWrapperExt, models,
                       GetMinecraftVersionManifestResponse,
-                      V1PackagesPackageIdVersionIdJsonGetResponse,
+                      GetMinecraftVersionPackageInfoResponse,
                      };
 use clap::{App, Arg};
 
@@ -29,7 +29,7 @@ fn main() {
             .help("Sets the operation to run")
             .possible_values(&[
                 "GetMinecraftVersionManifest",
-                "V1PackagesPackageIdVersionIdJsonGet",
+                "GetMinecraftVersionPackageInfo",
             ])
             .required(true)
             .index(1))
@@ -78,8 +78,8 @@ fn main() {
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
-        Some("V1PackagesPackageIdVersionIdJsonGet") => {
-            let result = rt.block_on(client.v1_packages_package_id_version_id_json_get(
+        Some("GetMinecraftVersionPackageInfo") => {
+            let result = rt.block_on(client.get_minecraft_version_package_info(
                   "177e49d3233cb6eac42f0495c0a48e719870c2ae".to_string(),
                   "1.21".to_string()
             ));

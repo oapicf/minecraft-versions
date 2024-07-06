@@ -21,14 +21,14 @@
   <ItemGroup>
     <Content Include="openapi.yaml"/>
     <Compile Include="helpers/Helpers.fs" />
-    <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.fs" />
-    <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.fs" />
-    <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.fs" />
-    <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.fs" />
-    <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200Response.fs" />
-    <Compile Include="model/GetMinecraftVersionManifest200ResponseVersionsInner.fs" />
-    <Compile Include="model/GetMinecraftVersionManifest200ResponseLatest.fs" />
-    <Compile Include="model/GetMinecraftVersionManifest200Response.fs" />
+    <Compile Include="model/VersionPackageInfoJavaVersion.fs" />
+    <Compile Include="model/Download.fs" />
+    <Compile Include="model/VersionPackageInfoAssetIndex.fs" />
+    <Compile Include="model/VersionPackageInfoDownloads.fs" />
+    <Compile Include="model/VersionManifestLatest.fs" />
+    <Compile Include="model/Version.fs" />
+    <Compile Include="model/VersionManifest.fs" />
+    <Compile Include="model/VersionPackageInfo.fs" />
     <Compile Include="api/DefaultApiHandlerParams.fs" />
     <Compile Include="api/DefaultApiServiceInterface.fs" />
     <Compile Include="impl/DefaultApiService.fs" />

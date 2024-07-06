@@ -21,14 +21,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="src/model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.fs" />
-    <Compile Include="src/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.fs" />
-    <Compile Include="src/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.fs" />
-    <Compile Include="src/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.fs" />
-    <Compile Include="src/model/V1PackagesPackageIdVersionIdJsonGet200Response.fs" />
-    <Compile Include="src/model/GetMinecraftVersionManifest200ResponseVersionsInner.fs" />
-    <Compile Include="src/model/GetMinecraftVersionManifest200ResponseLatest.fs" />
-    <Compile Include="src/model/GetMinecraftVersionManifest200Response.fs" />
+    <Compile Include="src/model/VersionPackageInfoJavaVersion.fs" />
+    <Compile Include="src/model/Download.fs" />
+    <Compile Include="src/model/VersionPackageInfoAssetIndex.fs" />
+    <Compile Include="src/model/VersionPackageInfoDownloads.fs" />
+    <Compile Include="src/model/VersionManifestLatest.fs" />
+    <Compile Include="src/model/Version.fs" />
+    <Compile Include="src/model/VersionManifest.fs" />
+    <Compile Include="src/model/VersionPackageInfo.fs" />
     <Compile Include="src/api/DefaultApiHandlerParams.fs" />
     <Compile Include="src/api/DefaultApiServiceInterface.fs" />
     <Compile Include="src/impl/DefaultApiService.fs" />

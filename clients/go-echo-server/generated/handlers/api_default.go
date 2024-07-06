@@ -13,8 +13,8 @@ func (c *Container) GetMinecraftVersionManifest(ctx echo.Context) error {
 }
 
 
-// V1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details
-func (c *Container) V1PackagesPackageIdVersionIdJsonGet(ctx echo.Context) error {
+// GetMinecraftVersionPackageInfo - Get Minecraft version package info
+func (c *Container) GetMinecraftVersionPackageInfo(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, models.HelloWorld {
 		Message: "Hello World",
 	})

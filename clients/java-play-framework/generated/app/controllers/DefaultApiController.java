@@ -1,7 +1,7 @@
 package controllers;
 
-import apimodels.GetMinecraftVersionManifest200Response;
-import apimodels.V1PackagesPackageIdVersionIdJsonGet200Response;
+import apimodels.VersionManifest;
+import apimodels.VersionPackageInfo;
 
 import com.typesafe.config.Config;
 import play.mvc.Controller;
@@ -25,7 +25,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T08:44:44.955840895Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T11:27:26.874139354Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class DefaultApiController extends Controller {
     private final DefaultApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -44,8 +44,8 @@ public class DefaultApiController extends Controller {
     }
 
     @ApiAction
-    public Result v1PackagesPackageIdVersionIdJsonGet(Http.Request request, String packageId,String versionId) throws Exception {
-        return imp.v1PackagesPackageIdVersionIdJsonGetHttp(request, packageId, versionId);
+    public Result getMinecraftVersionPackageInfo(Http.Request request, String packageId,String versionId) throws Exception {
+        return imp.getMinecraftVersionPackageInfoHttp(request, packageId, versionId);
     }
 
 }

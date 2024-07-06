@@ -5,7 +5,7 @@ MyApp.add_route('GET', '/mc/game/version_manifest.json', {
   "resourcePath" => "/Default",
   "summary" => "Get Minecraft version manifest",
   "nickname" => "get_minecraft_version_manifest",
-  "responseClass" => "getMinecraftVersionManifest_200_response",
+  "responseClass" => "VersionManifest",
   "endpoint" => "/mc/game/version_manifest.json",
   "notes" => "",
   "parameters" => [
@@ -19,9 +19,9 @@ end
 
 MyApp.add_route('GET', '/v1/packages/{packageId}/{versionId}.json', {
   "resourcePath" => "/Default",
-  "summary" => "Get Minecraft version package details",
-  "nickname" => "v1_packages_package_id_version_id_json_get",
-  "responseClass" => "_v1_packages__packageId___versionId__json_get_200_response",
+  "summary" => "Get Minecraft version package info",
+  "nickname" => "get_minecraft_version_package_info",
+  "responseClass" => "VersionPackageInfo",
   "endpoint" => "/v1/packages/{packageId}/{versionId}.json",
   "notes" => "",
   "parameters" => [

@@ -30,18 +30,18 @@ module DefaultApiHandlers =
           let responseContentType = "application/json"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
 
-    //#region V1PackagesPackageIdVersionIdJsonGet
+    //#region GetMinecraftVersionPackageInfo
     /// <summary>
-    /// Get Minecraft version package details
+    /// Get Minecraft version package info
     /// </summary>
-   [<FunctionName("V1PackagesPackageIdVersionIdJsonGet")>]
-    let V1PackagesPackageIdVersionIdJsonGet
+   [<FunctionName("GetMinecraftVersionPackageInfo")>]
+    let GetMinecraftVersionPackageInfo
         ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/v1/packages/{packageId}/{versionId}.json")>]
         req:HttpRequest ) =
 
-      let result = DefaultApiService.V1PackagesPackageIdVersionIdJsonGet ()
+      let result = DefaultApiService.GetMinecraftVersionPackageInfo ()
       match result with
-      | V1PackagesPackageIdVersionIdJsonGetStatusCode200 resolved ->
+      | GetMinecraftVersionPackageInfoStatusCode200 resolved ->
           let content = JsonConvert.SerializeObject resolved.content
           let responseContentType = "application/json"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))

@@ -74,10 +74,10 @@ func getRoutes(handleFunctions ApiHandleFunctions) []Route {
 			handleFunctions.DefaultAPI.GetMinecraftVersionManifest,
 		},
 		{
-			"V1PackagesPackageIdVersionIdJsonGet",
+			"GetMinecraftVersionPackageInfo",
 			http.MethodGet,
 			"/v1/packages/:packageId/:versionId.json",
-			handleFunctions.DefaultAPI.V1PackagesPackageIdVersionIdJsonGet,
+			handleFunctions.DefaultAPI.GetMinecraftVersionPackageInfo,
 		},
 	}
 }

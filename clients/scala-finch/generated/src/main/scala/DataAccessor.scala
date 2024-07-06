@@ -16,14 +16,14 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A GetMinecraftVersionManifest200Response
+        * @return A VersionManifest
         */
-        def Default_getMinecraftVersionManifest(): Either[CommonError,GetMinecraftVersionManifest200Response] = Left(TODO)
+        def Default_getMinecraftVersionManifest(): Either[CommonError,VersionManifest] = Left(TODO)
 
         /**
         * 
-        * @return A V1PackagesPackageIdVersionIdJsonGet200Response
+        * @return A VersionPackageInfo
         */
-        def Default_v1PackagesPackageIdVersionIdJsonGet(packageId: String, versionId: String): Either[CommonError,V1PackagesPackageIdVersionIdJsonGet200Response] = Left(TODO)
+        def Default_getMinecraftVersionPackageInfo(packageId: String, versionId: String): Either[CommonError,VersionPackageInfo] = Left(TODO)
 
 }

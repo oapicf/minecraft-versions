@@ -16,7 +16,7 @@
 
 module Api.Request.Default exposing
     ( getMinecraftVersionManifest
-    , v1PackagesPackageIdVersionIdJsonGet
+    , getMinecraftVersionPackageInfo
     )
 
 import Api
@@ -26,7 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
-getMinecraftVersionManifest : Api.Request Api.Data.GetMinecraftVersionManifest200Response
+getMinecraftVersionManifest : Api.Request Api.Data.VersionManifest
 getMinecraftVersionManifest =
     Api.request
         "GET"
@@ -35,11 +35,11 @@ getMinecraftVersionManifest =
         []
         []
         Nothing
-        Api.Data.getMinecraftVersionManifest200ResponseDecoder
+        Api.Data.versionManifestDecoder
 
 
-v1PackagesPackageIdVersionIdJsonGet : String -> String -> Api.Request Api.Data.V1PackagesPackageIdVersionIdJsonGet200Response
-v1PackagesPackageIdVersionIdJsonGet packageId_path versionId_path =
+getMinecraftVersionPackageInfo : String -> String -> Api.Request Api.Data.VersionPackageInfo
+getMinecraftVersionPackageInfo packageId_path versionId_path =
     Api.request
         "GET"
         "/v1/packages/{packageId}/{versionId}.json"
@@ -47,5 +47,5 @@ v1PackagesPackageIdVersionIdJsonGet packageId_path versionId_path =
         []
         []
         Nothing
-        Api.Data.v1PackagesPackageIdVersionIdJsonGet200ResponseDecoder
+        Api.Data.versionPackageInfoDecoder
 

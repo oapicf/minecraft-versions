@@ -9,19 +9,19 @@ test_that("GetMinecraftVersionManifest", {
   # tests for GetMinecraftVersionManifest
   # base path: https://launchermeta.mojang.com
   # Get Minecraft version manifest
-  # @return [GetMinecraftVersionManifest200Response]
+  # @return [VersionManifest]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("V1PackagesPackageIdVersionIdJsonGet", {
-  # tests for V1PackagesPackageIdVersionIdJsonGet
+test_that("GetMinecraftVersionPackageInfo", {
+  # tests for GetMinecraftVersionPackageInfo
   # base path: https://launchermeta.mojang.com
-  # Get Minecraft version package details
+  # Get Minecraft version package info
   # @param package_id character 
   # @param version_id character 
-  # @return [V1PackagesPackageIdVersionIdJsonGet200Response]
+  # @return [VersionPackageInfo]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

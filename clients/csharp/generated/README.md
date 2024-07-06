@@ -92,7 +92,7 @@ namespace Example
             try
             {
                 // Get Minecraft version manifest
-                GetMinecraftVersionManifest200Response result = apiInstance.GetMinecraftVersionManifest();
+                VersionManifest result = apiInstance.GetMinecraftVersionManifest();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -115,20 +115,20 @@ All URIs are relative to *https://launchermeta.mojang.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**GetMinecraftVersionManifest**](docs/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-*DefaultApi* | [**V1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
+*DefaultApi* | [**GetMinecraftVersionPackageInfo**](docs/DefaultApi.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
 
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
- - [Model.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
- - [Model.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
- - [Model.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
- - [Model.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
- - [Model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)
- - [Model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md)
- - [Model.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md)
+ - [Model.Download](docs/Download.md)
+ - [Model.ModelVersion](docs/ModelVersion.md)
+ - [Model.VersionManifest](docs/VersionManifest.md)
+ - [Model.VersionManifestLatest](docs/VersionManifestLatest.md)
+ - [Model.VersionPackageInfo](docs/VersionPackageInfo.md)
+ - [Model.VersionPackageInfoAssetIndex](docs/VersionPackageInfoAssetIndex.md)
+ - [Model.VersionPackageInfoDownloads](docs/VersionPackageInfoDownloads.md)
+ - [Model.VersionPackageInfoJavaVersion](docs/VersionPackageInfoJavaVersion.md)
 
 
 <a id="documentation-for-authorization"></a>

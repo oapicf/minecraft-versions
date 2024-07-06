@@ -32,10 +32,10 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_packages_package_id_version_id_json_get(self) -> None:
-        """Test case for v1_packages_package_id_version_id_json_get
+    def test_get_minecraft_version_package_info(self) -> None:
+        """Test case for get_minecraft_version_package_info
 
-        Get Minecraft version package details
+        Get Minecraft version package info
         """
         pass
 

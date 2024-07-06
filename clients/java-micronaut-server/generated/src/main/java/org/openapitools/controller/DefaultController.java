@@ -20,8 +20,8 @@ import io.micronaut.security.rules.SecurityRule;
 import reactor.core.publisher.Mono;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.exceptions.HttpStatusException;
-import org.openapitools.model.GetMinecraftVersionManifest200Response;
-import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
+import org.openapitools.model.VersionManifest;
+import org.openapitools.model.VersionPackageInfo;
 import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,46 +38,46 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-06T08:44:36.167329976Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-06T11:27:17.924569307Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 @Tag(name = "Default", description = "The Default API")
 public class DefaultController {
     /**
      * Get Minecraft version manifest
      *
-     * @return GetMinecraftVersionManifest200Response
+     * @return VersionManifest
      */
     @Operation(
         operationId = "getMinecraftVersionManifest",
         summary = "Get Minecraft version manifest",
         responses = {
             @ApiResponse(responseCode = "200", description = "A list of Minecraft versions with the latest and snapshot releases", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = GetMinecraftVersionManifest200Response.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = VersionManifest.class))
             })
         }
     )
     @Get(uri="/mc/game/version_manifest.json")
     @Produces(value = {"application/json"})
     @Secured({SecurityRule.IS_ANONYMOUS})
-    public Mono<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest() {
+    public Mono<VersionManifest> getMinecraftVersionManifest() {
         // TODO implement getMinecraftVersionManifest();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
     }
 
 
     /**
-     * Get Minecraft version package details
+     * Get Minecraft version package info
      *
      * @param packageId  (required)
      * @param versionId  (required)
-     * @return V1PackagesPackageIdVersionIdJsonGet200Response
+     * @return VersionPackageInfo
      */
     @Operation(
-        operationId = "v1PackagesPackageIdVersionIdJsonGet",
-        summary = "Get Minecraft version package details",
+        operationId = "getMinecraftVersionPackageInfo",
+        summary = "Get Minecraft version package info",
         responses = {
             @ApiResponse(responseCode = "200", description = "Get package version details", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = V1PackagesPackageIdVersionIdJsonGet200Response.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = VersionPackageInfo.class))
             })
         },
         parameters = {
@@ -88,11 +88,11 @@ public class DefaultController {
     @Get(uri="/v1/packages/{packageId}/{versionId}.json")
     @Produces(value = {"application/json"})
     @Secured({SecurityRule.IS_ANONYMOUS})
-    public Mono<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(
+    public Mono<VersionPackageInfo> getMinecraftVersionPackageInfo(
         @PathVariable(value="packageId") @NotNull String packageId, 
         @PathVariable(value="versionId") @NotNull String versionId
     ) {
-        // TODO implement v1PackagesPackageIdVersionIdJsonGet();
+        // TODO implement getMinecraftVersionPackageInfo();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
     }
 
