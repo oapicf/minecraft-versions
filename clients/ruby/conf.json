@@ -6,7 +6,7 @@
   "gemAuthorEmail": "blah+oapicf@cliffano.com",
   "gemHomepage": "https://github.com/oapicf/minecraft-versions",
   "gemLicense": "MIT",
-  "gemRequiredRubyVersion": ">= 3.0",
+  "gemRequiredRubyVersion": ">= 2.0",
   "gitUserId": "oapicf",
   "gitRepoId": "minecraft-versions"
 }
