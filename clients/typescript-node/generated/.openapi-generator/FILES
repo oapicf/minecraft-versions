@@ -1,0 +1,15 @@
+.gitignore
+.openapi-generator-ignore
+api.ts
+api/apis.ts
+api/defaultApi.ts
+git_push.sh
+model/mcGameVersionManifestGet200Response.ts
+model/mcGameVersionManifestGet200ResponseLatest.ts
+model/mcGameVersionManifestGet200ResponseVersionsInner.ts
+model/models.ts
+model/v1PackagesPackageIdVersionIdJsonGet200Response.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.ts

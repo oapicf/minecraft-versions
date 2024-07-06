@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+pom.xml
+src/gen/java/org/openapitools/api/DefaultApi.java
+src/gen/java/org/openapitools/model/McGameVersionManifestGet200Response.java
+src/gen/java/org/openapitools/model/McGameVersionManifestGet200ResponseLatest.java
+src/gen/java/org/openapitools/model/McGameVersionManifestGet200ResponseVersionsInner.java
+src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200Response.java
+src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.java
+src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.java
+src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.java
+src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.java
+src/test/java/org/openapitools/api/DefaultApiTest.java

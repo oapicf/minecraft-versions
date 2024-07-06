@@ -1,0 +1,15 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+build.sbt
+project/build.properties
+project/plugins.sbt
+src/main/scala/io/swagger/client/api/DefaultApi.scala
+src/main/scala/io/swagger/client/model/McGameVersionManifestGet200Response.scala
+src/main/scala/io/swagger/client/model/McGameVersionManifestGet200ResponseLatest.scala
+src/main/scala/io/swagger/client/model/McGameVersionManifestGet200ResponseVersionsInner.scala
+src/main/scala/io/swagger/client/model/V1PackagesPackageIdVersionIdJsonGet200Response.scala
+src/main/scala/io/swagger/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.scala
+src/main/scala/io/swagger/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.scala
+src/main/scala/io/swagger/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.scala
+src/main/scala/io/swagger/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.scala

@@ -1,0 +1,33 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads",
+  "fields": [
+    {
+      "name": "client",
+      "type": ["null", "model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "client_mappings",
+      "type": ["null", "model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "server",
+      "type": ["null", "model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "server_mappings",
+      "type": ["null", "model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient"],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

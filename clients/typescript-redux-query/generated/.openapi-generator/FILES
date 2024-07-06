@@ -1,0 +1,16 @@
+.gitignore
+.openapi-generator-ignore
+src/apis/DefaultApi.ts
+src/apis/index.ts
+src/index.ts
+src/models/McGameVersionManifestGet200Response.ts
+src/models/McGameVersionManifestGet200ResponseLatest.ts
+src/models/McGameVersionManifestGet200ResponseVersionsInner.ts
+src/models/V1PackagesPackageIdVersionIdJsonGet200Response.ts
+src/models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts
+src/models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.ts
+src/models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.ts
+src/models/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.ts
+src/models/index.ts
+src/runtime.ts
+tsconfig.json

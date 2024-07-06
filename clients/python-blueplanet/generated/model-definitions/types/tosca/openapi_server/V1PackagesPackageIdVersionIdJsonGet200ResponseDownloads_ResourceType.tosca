@@ -1,0 +1,51 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient = openapi_server.resourceTypes.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+}
+resourceTypes {
+
+  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+    title = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    description = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    derivedFrom = Root
+    properties {
+        client {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+          description = ""
+          optional = false
+        }
+        client_mappings {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+          description = ""
+          optional = false
+        }
+        server {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+          description = ""
+          optional = false
+        }
+        server_mappings {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+    title = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    description = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    implements = openapi_server.resourceTypes.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+
+  }
+}

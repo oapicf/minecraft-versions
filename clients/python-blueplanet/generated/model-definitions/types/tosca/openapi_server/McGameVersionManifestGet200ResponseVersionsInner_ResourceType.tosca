@@ -1,0 +1,55 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server McGameVersionManifestGet200ResponseVersionsInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a McGameVersionManifestGet200ResponseVersionsInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  McGameVersionManifestGet200ResponseVersionsInner {
+    title = McGameVersionManifestGet200ResponseVersionsInner
+    description = McGameVersionManifestGet200ResponseVersionsInner
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        type {
+          type =  string
+          description = ""
+          optional = false
+        }
+        url {
+          type =  string
+          description = ""
+          optional = false
+        }
+        time {
+          type =  string
+          description = ""
+          optional = false
+        }
+        release_time {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  McGameVersionManifestGet200ResponseVersionsInner {
+    title = McGameVersionManifestGet200ResponseVersionsInner
+    description = McGameVersionManifestGet200ResponseVersionsInner
+    implements = openapi_server.resourceTypes.McGameVersionManifestGet200ResponseVersionsInner
+
+  }
+}

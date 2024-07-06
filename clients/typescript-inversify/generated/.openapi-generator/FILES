@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+ApiServiceBinder.ts
+Headers.ts
+HttpClient.ts
+HttpResponse.ts
+IAPIConfiguration.ts
+IHttpClient.ts
+api/default.service.ts
+model/mcGameVersionManifestGet200Response.ts
+model/mcGameVersionManifestGet200ResponseLatest.ts
+model/mcGameVersionManifestGet200ResponseVersionsInner.ts
+model/v1PackagesPackageIdVersionIdJsonGet200Response.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.ts
+model/v1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.ts
+variables.ts

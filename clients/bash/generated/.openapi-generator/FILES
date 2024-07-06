@@ -1,0 +1,15 @@
+.openapi-generator-ignore
+Dockerfile
+README.md
+_client.sh
+client.sh
+client.sh.bash-completion
+docs/DefaultApi.md
+docs/McGameVersionManifestGet200Response.md
+docs/McGameVersionManifestGet200ResponseLatest.md
+docs/McGameVersionManifestGet200ResponseVersionsInner.md
+docs/V1PackagesPackageIdVersionIdJsonGet200Response.md
+docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md
+docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md
+docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md
+docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md

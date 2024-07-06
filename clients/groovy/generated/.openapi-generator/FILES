@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+README.md
+build.gradle
+src/main/groovy/org/openapitools/api/ApiUtils.groovy
+src/main/groovy/org/openapitools/api/DefaultApi.groovy
+src/main/groovy/org/openapitools/model/McGameVersionManifestGet200Response.groovy
+src/main/groovy/org/openapitools/model/McGameVersionManifestGet200ResponseLatest.groovy
+src/main/groovy/org/openapitools/model/McGameVersionManifestGet200ResponseVersionsInner.groovy
+src/main/groovy/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200Response.groovy
+src/main/groovy/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.groovy
+src/main/groovy/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.groovy
+src/main/groovy/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.groovy
+src/main/groovy/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.groovy

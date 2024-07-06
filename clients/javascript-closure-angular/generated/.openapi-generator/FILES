@@ -1,0 +1,10 @@
+.openapi-generator-ignore
+API/Client/DefaultApi.js
+API/Client/McGameVersionManifestGet200Response.js
+API/Client/McGameVersionManifestGet200ResponseLatest.js
+API/Client/McGameVersionManifestGet200ResponseVersionsInner.js
+API/Client/V1PackagesPackageIdVersionIdJsonGet200Response.js
+API/Client/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.js
+API/Client/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.js
+API/Client/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.js
+API/Client/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.js

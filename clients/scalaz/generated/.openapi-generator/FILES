@@ -1,0 +1,15 @@
+.openapi-generator-ignore
+build.sbt
+project/build.properties
+src/main/scala/org/openapitools/client/api/DateTimeCodecs.scala
+src/main/scala/org/openapitools/client/api/DefaultApi.scala
+src/main/scala/org/openapitools/client/api/HelperCodecs.scala
+src/main/scala/org/openapitools/client/api/McGameVersionManifestGet200Response.scala
+src/main/scala/org/openapitools/client/api/McGameVersionManifestGet200ResponseLatest.scala
+src/main/scala/org/openapitools/client/api/McGameVersionManifestGet200ResponseVersionsInner.scala
+src/main/scala/org/openapitools/client/api/QueryParamTypeclass.scala
+src/main/scala/org/openapitools/client/api/V1PackagesPackageIdVersionIdJsonGet200Response.scala
+src/main/scala/org/openapitools/client/api/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.scala
+src/main/scala/org/openapitools/client/api/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.scala
+src/main/scala/org/openapitools/client/api/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.scala
+src/main/scala/org/openapitools/client/api/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.scala

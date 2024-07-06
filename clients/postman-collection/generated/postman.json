@@ -1,0 +1,128 @@
+{
+	"info": {
+		"name": "",
+		"description": {
+		    "content": "SDK for Minecraft versions info",
+		    "type": "text/markdown"
+		},
+		"version": "0.9.0-pre.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+	        {
+	            "name": "default",
+	            "item": [
+	                        {
+    "name": "/mc/game/version_manifest",
+                "description": "",
+                 "item": [
+                            {
+                                "name": "Get Minecraft version manifest",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/mc/game/version_manifest",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "mc",
+                                            "game",
+                                            "version_manifest"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": ""
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/v1/packages/:packageId/:versionId.json",
+                "description": "",
+                 "item": [
+                            {
+                                "name": "Get Minecraft version package details",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/v1/packages/:packageId/:versionId.json",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "v1",
+                                            "packages",
+                                            ":packageId",
+                                            ":versionId.json"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "packageId",
+                                                "value": "",
+                                                "description": ""
+                                            },
+                                            {
+                                                "key": "versionId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": ""
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        }
+    ],
+    
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://launchermeta.mojang.com",
+			"type": "string"
+        }
+	]
+}
+

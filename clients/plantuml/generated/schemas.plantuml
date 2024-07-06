@@ -1,0 +1,75 @@
+@startuml
+
+title  Schemas Diagram
+
+entity McGameVersionManifestGet200Response {
+    latest: McGameVersionManifestGet200ResponseLatest
+    versions: List<McGameVersionManifestGet200ResponseVersionsInner>
+}
+
+entity McGameVersionManifestGet200ResponseLatest {
+    release: String
+    snapshot: String
+}
+
+entity McGameVersionManifestGet200ResponseVersionsInner {
+    id: String
+    type: String
+    url: String
+    time: Date
+    releaseTime: Date
+}
+
+entity V1PackagesPackageIdVersionIdJsonGet200Response {
+    version: String
+    assetIndex: V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+    assets: Integer
+    complianceLevel: Integer
+    downloads: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+    id: String
+    javaVersion: V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+    mainClass: String
+    minimumLauncherVersion: Integer
+    time: Date
+    releaseTime: Date
+    type: String
+}
+
+entity V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex {
+    id: String
+    sha1: String
+    size: Integer
+    totalSize: Integer
+    url: String
+}
+
+entity V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
+    client: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+    client_mappings: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+    server: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+    server_mappings: V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+}
+
+entity V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
+    sha1: String
+    size: Integer
+    url: String
+}
+
+entity V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
+    component: String
+    majorVersion: Integer
+}
+
+
+V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : client
+V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : client_mappings
+V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : server
+V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : server_mappings
+V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex : assetIndex
+V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads : downloads
+V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion : javaVersion
+McGameVersionManifestGet200Response -- McGameVersionManifestGet200ResponseLatest : latest
+McGameVersionManifestGet200Response -- "0..*" McGameVersionManifestGet200ResponseVersionsInner : versions
+
+@enduml

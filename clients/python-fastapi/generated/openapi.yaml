@@ -1,0 +1,290 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: blah+oapicf@cliffano.com
+    name: Minecraft Versions
+    url: https://github.com/oapicf/minecraft-versions
+  description: SDK for Minecraft versions info
+  license:
+    name: MIT
+  version: 0.9.0-pre.0
+servers:
+- url: https://launchermeta.mojang.com
+- url: https://piston-meta.mojang.com
+paths:
+  /mc/game/version_manifest:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_mc_game_version_manifest_get_200_response'
+          description: A list of Minecraft versions with the latest and snapshot releases
+      summary: Get Minecraft version manifest
+  /v1/packages/{packageId}/{versionId}.json:
+    get:
+      parameters:
+      - example: 177e49d3233cb6eac42f0495c0a48e719870c2ae
+        explode: false
+        in: path
+        name: packageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - example: 1.21
+        explode: false
+        in: path
+        name: versionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response'
+          description: Get package version details
+      summary: Get Minecraft version package details
+components:
+  schemas:
+    _v1_packages__packageId___versionId__json_get_200_response:
+      example:
+        assets: 1
+        releaseTime: 2024-04-01T11:07:19Z
+        mainClass: net.minecraft.client.main.Main
+        downloads:
+          server:
+            sha1: sha1
+            size: 5
+            url: url
+          server_mappings:
+            sha1: sha1
+            size: 5
+            url: url
+          client:
+            sha1: sha1
+            size: 5
+            url: url
+          client_mappings:
+            sha1: sha1
+            size: 5
+            url: url
+        javaVersion:
+          component: component
+          majorVersion: 2
+        complianceLevel: 5
+        minimumLauncherVersion: 21
+        assetIndex:
+          sha1: sha1
+          totalSize: 6
+          size: 0
+          id: id
+          url: url
+        id: id
+        time: 2024-04-01T11:14:41Z
+        type: snapshot
+        version: version
+      properties:
+        version:
+          title: version
+          type: string
+        assetIndex:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_assetIndex'
+        assets:
+          title: assets
+          type: integer
+        complianceLevel:
+          title: complianceLevel
+          type: integer
+        downloads:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads'
+        id:
+          title: id
+          type: string
+        javaVersion:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_javaVersion'
+        mainClass:
+          example: net.minecraft.client.main.Main
+          title: mainClass
+          type: string
+        minimumLauncherVersion:
+          example: 21
+          title: minimumLauncherVersion
+          type: integer
+        time:
+          example: 2024-04-01T11:14:41Z
+          format: date-time
+          title: time
+          type: string
+        releaseTime:
+          example: 2024-04-01T11:07:19Z
+          format: date-time
+          title: releaseTime
+          type: string
+        type:
+          example: snapshot
+          title: type
+          type: string
+      title: _v1_packages__packageId___versionId__json_get_200_response
+      type: object
+    _v1_packages__packageId___versionId__json_get_200_response_downloads:
+      example:
+        server:
+          sha1: sha1
+          size: 5
+          url: url
+        server_mappings:
+          sha1: sha1
+          size: 5
+          url: url
+        client:
+          sha1: sha1
+          size: 5
+          url: url
+        client_mappings:
+          sha1: sha1
+          size: 5
+          url: url
+      properties:
+        client:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client'
+        client_mappings:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client'
+        server:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client'
+        server_mappings:
+          $ref: '#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response_downloads_client'
+      title: _v1_packages__packageId___versionId__json_get_200_response_downloads
+      type: object
+    _mc_game_version_manifest_get_200_response_latest:
+      example:
+        release: "1.21"
+        snapshot: 24w14potato
+      properties:
+        release:
+          example: "1.21"
+          title: release
+          type: string
+        snapshot:
+          example: 24w14potato
+          title: snapshot
+          type: string
+      title: _mc_game_version_manifest_get_200_response_latest
+      type: object
+    _v1_packages__packageId___versionId__json_get_200_response_assetIndex:
+      example:
+        sha1: sha1
+        totalSize: 6
+        size: 0
+        id: id
+        url: url
+      properties:
+        id:
+          title: id
+          type: string
+        sha1:
+          title: sha1
+          type: string
+        size:
+          title: size
+          type: integer
+        totalSize:
+          title: totalSize
+          type: integer
+        url:
+          title: url
+          type: string
+      title: _v1_packages__packageId___versionId__json_get_200_response_assetIndex
+      type: object
+    _v1_packages__packageId___versionId__json_get_200_response_downloads_client:
+      example:
+        sha1: sha1
+        size: 5
+        url: url
+      properties:
+        sha1:
+          title: sha1
+          type: string
+        size:
+          title: size
+          type: integer
+        url:
+          title: url
+          type: string
+      title: _v1_packages__packageId___versionId__json_get_200_response_downloads_client
+      type: object
+    _mc_game_version_manifest_get_200_response_versions_inner:
+      example:
+        releaseTime: 2024-04-01T11:07:19Z
+        id: 24w14potato
+        time: 2024-04-01T11:14:41Z
+        type: snapshot
+        url: https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+      properties:
+        id:
+          example: 24w14potato
+          title: id
+          type: string
+        type:
+          example: snapshot
+          title: type
+          type: string
+        url:
+          example: https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+          title: url
+          type: string
+        time:
+          example: 2024-04-01T11:14:41Z
+          format: date-time
+          title: time
+          type: string
+        releaseTime:
+          example: 2024-04-01T11:07:19Z
+          format: date-time
+          title: releaseTime
+          type: string
+      title: _mc_game_version_manifest_get_200_response_versions_inner
+      type: object
+    _v1_packages__packageId___versionId__json_get_200_response_javaVersion:
+      example:
+        component: component
+        majorVersion: 2
+      properties:
+        component:
+          title: component
+          type: string
+        majorVersion:
+          title: majorVersion
+          type: integer
+      title: _v1_packages__packageId___versionId__json_get_200_response_javaVersion
+      type: object
+    _mc_game_version_manifest_get_200_response:
+      example:
+        versions:
+        - releaseTime: 2024-04-01T11:07:19Z
+          id: 24w14potato
+          time: 2024-04-01T11:14:41Z
+          type: snapshot
+          url: https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+        - releaseTime: 2024-04-01T11:07:19Z
+          id: 24w14potato
+          time: 2024-04-01T11:14:41Z
+          type: snapshot
+          url: https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+        latest:
+          release: "1.21"
+          snapshot: 24w14potato
+      properties:
+        latest:
+          $ref: '#/components/schemas/_mc_game_version_manifest_get_200_response_latest'
+        versions:
+          items:
+            $ref: '#/components/schemas/_mc_game_version_manifest_get_200_response_versions_inner'
+          title: versions
+          type: array
+      title: _mc_game_version_manifest_get_200_response
+      type: object

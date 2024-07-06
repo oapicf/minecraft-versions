@@ -1,0 +1,15 @@
+Package: openapi
+Title: R Package Client for 
+Version: 1.0.0
+Author: person("Minecraft Versions", email = "blah+oapicf@cliffano.com", role = c("aut", "cre"))
+Maintainer: Minecraft Versions <blah+oapicf@cliffano.com>
+Description: SDK for Minecraft versions info
+URL: https://github.com/oapicf/minecraft-versions
+BugReports: https://github.com/oapicf/minecraft-versions/issues
+Depends: R (>= 3.3)
+Encoding: UTF-8
+License: MIT
+LazyData: true
+Suggests: testthat
+Imports: jsonlite, httr, R6, base64enc, stringr
+RoxygenNote: 7.2.1

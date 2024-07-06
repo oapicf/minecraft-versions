@@ -1,0 +1,195 @@
+h1. OpenAPI Sample
+
+SDK for Minecraft versions info
+
+*Version:* 0.9.0-pre.0
+
+----
+
+{expand:Table of Contents - Click to expand}
+{toc:printable=true|style=square|minLevel=2|maxLevel=3|type=list|outline=false|include=.*}
+{expand}
+
+h2. Endpoints
+
+
+h3. mcGameVersionManifestGet
+{panel:title=mcGameVersionManifestGet|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+    *Summary:* Get Minecraft version manifest
+    *Description:* *No Description*
+
+	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
+    || Protocol | {noformat:nopanel=true}https{noformat} |
+    || Path | {noformat:nopanel=true}/mc/game/version_manifest{noformat} |
+    || Base Path | {noformat:nopanel=true}https://launchermeta.mojang.com{noformat} |
+    || Produces | {noformat:nopanel=true}application/json {noformat} |
+----
+h4. Parameters
+
+
+
+----
+h4. Responses
+
+    	|| Status Code | {status:colour=Green|title=200|subtle=false} |
+    	|| Message | A list of Minecraft versions with the latest and snapshot releases |
+    	|| Response Type | _mc_game_version_manifest_get_200_response |
+    	|| Response Model | [_mc_game_version_manifest_get_200_response Model|#_mc_game_version_manifest_get_200_responseModelAnchor|Jump to model] |
+    	|| Response Schema | {code:collapse=true}{
+  "description" : "A list of Minecraft versions with the latest and snapshot releases",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response"
+      }
+    }
+  }
+}{code} |
+       
+
+{panel}
+
+
+
+h3. v1PackagesPackageIdVersionIdJsonGet
+{panel:title=v1PackagesPackageIdVersionIdJsonGet|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+    *Summary:* Get Minecraft version package details
+    *Description:* *No Description*
+
+	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
+    || Protocol | {noformat:nopanel=true}https{noformat} |
+    || Path | {noformat:nopanel=true}/v1/packages/{packageId}/{versionId}.json{noformat} |
+    || Base Path | {noformat:nopanel=true}https://launchermeta.mojang.com{noformat} |
+    || Produces | {noformat:nopanel=true}application/json {noformat} |
+----
+h4. Parameters
+h5. Path Parameters
+        ||Name||Description||Type||Required||Default||Pattern||Enum||Example||
+        |packageId | | String | (/) |null |  |  ||versionId | | String | (/) |null |  |  |
+
+
+
+----
+h4. Responses
+
+    	|| Status Code | {status:colour=Green|title=200|subtle=false} |
+    	|| Message | Get package version details |
+    	|| Response Type | _v1_packages__packageId___versionId__json_get_200_response |
+    	|| Response Model | [_v1_packages__packageId___versionId__json_get_200_response Model|#_v1_packages__packageId___versionId__json_get_200_responseModelAnchor|Jump to model] |
+    	|| Response Schema | {code:collapse=true}{
+  "description" : "Get package version details",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/_v1_packages__packageId___versionId__json_get_200_response"
+      }
+    }
+  }
+}{code} |
+       
+
+{panel}
+
+
+{anchor:models}
+h2. Models
+
+        {anchor:McGameVersionManifestGet200ResponseModelAnchor}
+        h3. McGameVersionManifestGet200Response
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |latest |(x) |{noformat:nopanel=true}_mc_game_version_manifest_get_200_response_latest{noformat} |  |  | null
+         |versions |(x) |{noformat:nopanel=true}array[_mc_game_version_manifest_get_200_response_versions_inner]{noformat} |  |  | null
+         
+        {anchor:McGameVersionManifestGet200ResponseLatestModelAnchor}
+        h3. McGameVersionManifestGet200ResponseLatest
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |release |(x) |{noformat:nopanel=true}String{noformat} |  |  | 1.21
+         |snapshot |(x) |{noformat:nopanel=true}String{noformat} |  |  | 24w14potato
+         
+        {anchor:McGameVersionManifestGet200ResponseVersionsInnerModelAnchor}
+        h3. McGameVersionManifestGet200ResponseVersionsInner
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(x) |{noformat:nopanel=true}String{noformat} |  |  | 24w14potato
+         |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | snapshot
+         |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+         |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41Z
+         |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19Z
+         
+        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseModelAnchor}
+        h3. V1PackagesPackageIdVersionIdJsonGet200Response
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |version |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |assetIndex |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_assetIndex{noformat} |  |  | null
+         |assets |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |complianceLevel |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |downloads |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads{noformat} |  |  | null
+         |id |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |javaVersion |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_javaVersion{noformat} |  |  | null
+         |mainClass |(x) |{noformat:nopanel=true}String{noformat} |  |  | net.minecraft.client.main.Main
+         |minimumLauncherVersion |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | 21
+         |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41Z
+         |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19Z
+         |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | snapshot
+         
+        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexModelAnchor}
+        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |id |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |sha1 |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |size |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |totalSize |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsModelAnchor}
+        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |client |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
+         |client_mappings |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
+         |server |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
+         |server_mappings |(x) |{noformat:nopanel=true}_v1_packages__packageId___versionId__json_get_200_response_downloads_client{noformat} |  |  | null
+         
+        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientModelAnchor}
+        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |sha1 |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |size |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         
+        {anchor:V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionModelAnchor}
+        h3. V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+
+        
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |component |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
+         |majorVersion |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         

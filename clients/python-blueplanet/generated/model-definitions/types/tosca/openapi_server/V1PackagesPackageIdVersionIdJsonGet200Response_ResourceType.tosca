@@ -1,0 +1,93 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server V1PackagesPackageIdVersionIdJsonGet200Response"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a V1PackagesPackageIdVersionIdJsonGet200Response"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex = openapi_server.resourceTypes.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+  V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads = openapi_server.resourceTypes.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+  V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion = openapi_server.resourceTypes.V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+}
+resourceTypes {
+
+  V1PackagesPackageIdVersionIdJsonGet200Response {
+    title = V1PackagesPackageIdVersionIdJsonGet200Response
+    description = V1PackagesPackageIdVersionIdJsonGet200Response
+    derivedFrom = Root
+    properties {
+        version {
+          type =  string
+          description = ""
+          optional = false
+        }
+        asset_index {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+          description = ""
+          optional = false
+        }
+        assets {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        compliance_level {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        downloads {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+          description = ""
+          optional = false
+        }
+        id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        java_version {
+          type = V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+          description = ""
+          optional = false
+        }
+        main_class {
+          type =  string
+          description = ""
+          optional = false
+        }
+        minimum_launcher_version {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        time {
+          type =  string
+          description = ""
+          optional = false
+        }
+        release_time {
+          type =  string
+          description = ""
+          optional = false
+        }
+        type {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  V1PackagesPackageIdVersionIdJsonGet200Response {
+    title = V1PackagesPackageIdVersionIdJsonGet200Response
+    description = V1PackagesPackageIdVersionIdJsonGet200Response
+    implements = openapi_server.resourceTypes.V1PackagesPackageIdVersionIdJsonGet200Response
+
+  }
+}

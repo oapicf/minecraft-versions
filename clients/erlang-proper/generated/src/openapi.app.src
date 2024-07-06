@@ -1,0 +1,21 @@
+{ application, openapi
+, [ {description, "SDK for Minecraft versions info"}
+  , {vsn, "0.1.0"}
+  , {registered, []}
+  , { applications
+    , [ kernel
+      , stdlib
+      , ssl
+      , jsx
+      ]
+    }
+  , { env
+    , [ {host, "http://launchermeta.mojang.com"}
+      , {basic_auth, {"admin", "admin"}}
+      ]
+    }
+  , {modules, []}
+  , {maintainers, []}
+  , {licenses, ["MIT"]}
+  , {links, ["https://github.com/oapicf/minecraft-versions"]}
+]}.

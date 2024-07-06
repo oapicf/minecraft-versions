@@ -1,0 +1,556 @@
+= OpenAPI Sample description
+blah+oapicf@cliffano.com
+0.9.0-pre.0
+:toc: left
+:numbered:
+:toclevels: 4
+:source-highlighter: highlightjs
+:keywords: openapi, rest, OpenAPI Sample description
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://github.com/oapicf/minecraft-versions
+:app-name: OpenAPI Sample description
+
+[abstract]
+.Abstract
+SDK for Minecraft versions info
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Default]
+=== Default
+
+
+[.mcGameVersionManifestGet]
+==== mcGameVersionManifestGet
+
+`GET /mc/game/version_manifest`
+
+Get Minecraft version manifest
+
+===== Description
+
+
+
+
+// markup not found, no include::{specDir}mc/game/version_manifest/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+<<_mc_game_version_manifest_get_200_response>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| A list of Minecraft versions with the latest and snapshot releases
+|  <<_mc_game_version_manifest_get_200_response>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}mc/game/version_manifest/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}mc/game/version_manifest/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :mc/game/version_manifest/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}mc/game/version_manifest/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.v1PackagesPackageIdVersionIdJsonGet]
+==== v1PackagesPackageIdVersionIdJsonGet
+
+`GET /v1/packages/{packageId}/{versionId}.json`
+
+Get Minecraft version package details
+
+===== Description
+
+
+
+
+// markup not found, no include::{specDir}v1/packages/\{packageId\}/\{versionId\}.json/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| packageId
+|  
+| X
+| null
+| 
+
+| versionId
+|  
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+<<_v1_packages__packageId___versionId__json_get_200_response>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| Get package version details
+|  <<_v1_packages__packageId___versionId__json_get_200_response>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}v1/packages/\{packageId\}/\{versionId\}.json/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}v1/packages/\{packageId\}/\{versionId\}.json/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :v1/packages/{packageId}/{versionId}.json/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}v1/packages/\{packageId\}/\{versionId\}.json/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#McGameVersionManifestGet200Response]
+=== _McGameVersionManifestGet200Response_ 
+
+
+
+
+[.fields-McGameVersionManifestGet200Response]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| latest
+| 
+| 
+| <<_mc_game_version_manifest_get_200_response_latest>>    
+| 
+|     
+
+| versions
+| 
+| 
+|   List   of <<_mc_game_version_manifest_get_200_response_versions_inner>>
+| 
+|     
+
+|===
+
+
+
+[#McGameVersionManifestGet200ResponseLatest]
+=== _McGameVersionManifestGet200ResponseLatest_ 
+
+
+
+
+[.fields-McGameVersionManifestGet200ResponseLatest]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| release
+| 
+| 
+|   String  
+| 
+|     
+
+| snapshot
+| 
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#McGameVersionManifestGet200ResponseVersionsInner]
+=== _McGameVersionManifestGet200ResponseVersionsInner_ 
+
+
+
+
+[.fields-McGameVersionManifestGet200ResponseVersionsInner]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| 
+| 
+|   String  
+| 
+|     
+
+| type
+| 
+| 
+|   String  
+| 
+|     
+
+| url
+| 
+| 
+|   String  
+| 
+|     
+
+| time
+| 
+| 
+|   Date  
+| 
+| date-time    
+
+| releaseTime
+| 
+| 
+|   Date  
+| 
+| date-time    
+
+|===
+
+
+
+[#V1PackagesPackageIdVersionIdJsonGet200Response]
+=== _V1PackagesPackageIdVersionIdJsonGet200Response_ 
+
+
+
+
+[.fields-V1PackagesPackageIdVersionIdJsonGet200Response]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| version
+| 
+| 
+|   String  
+| 
+|     
+
+| assetIndex
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_assetIndex>>    
+| 
+|     
+
+| assets
+| 
+| 
+|   Integer  
+| 
+|     
+
+| complianceLevel
+| 
+| 
+|   Integer  
+| 
+|     
+
+| downloads
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_downloads>>    
+| 
+|     
+
+| id
+| 
+| 
+|   String  
+| 
+|     
+
+| javaVersion
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_javaVersion>>    
+| 
+|     
+
+| mainClass
+| 
+| 
+|   String  
+| 
+|     
+
+| minimumLauncherVersion
+| 
+| 
+|   Integer  
+| 
+|     
+
+| time
+| 
+| 
+|   Date  
+| 
+| date-time    
+
+| releaseTime
+| 
+| 
+|   Date  
+| 
+| date-time    
+
+| type
+| 
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex]
+=== _V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_ 
+
+
+
+
+[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| 
+| 
+|   String  
+| 
+|     
+
+| sha1
+| 
+| 
+|   String  
+| 
+|     
+
+| size
+| 
+| 
+|   Integer  
+| 
+|     
+
+| totalSize
+| 
+| 
+|   Integer  
+| 
+|     
+
+| url
+| 
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads]
+=== _V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_ 
+
+
+
+
+[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| client
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| 
+|     
+
+| client_mappings
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| 
+|     
+
+| server
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| 
+|     
+
+| server_mappings
+| 
+| 
+| <<_v1_packages__packageId___versionId__json_get_200_response_downloads_client>>    
+| 
+|     
+
+|===
+
+
+
+[#V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient]
+=== _V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_ 
+
+
+
+
+[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| sha1
+| 
+| 
+|   String  
+| 
+|     
+
+| size
+| 
+| 
+|   Integer  
+| 
+|     
+
+| url
+| 
+| 
+|   String  
+| 
+|     
+
+|===
+
+
+
+[#V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion]
+=== _V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion_ 
+
+
+
+
+[.fields-V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| component
+| 
+| 
+|   String  
+| 
+|     
+
+| majorVersion
+| 
+| 
+|   Integer  
+| 
+|     
+
+|===
+
+
+
