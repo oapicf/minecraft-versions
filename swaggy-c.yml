@@ -10,4 +10,3 @@ scm:
 base_dir:
   github_actions: /home/runner/work/minecraft-versions/minecraft-versions/
   local: /Users/cliffano/dev/workspace-studio/minecraft-versions
-  custom: /Users/cliffano/dev/workspace-studio/generator-openapi-generator/stage/minecraft-versions
