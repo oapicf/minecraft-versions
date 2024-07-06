@@ -4,19 +4,19 @@ All URIs are relative to **
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mcGameVersionManifestGet**](DefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 
-## mcGameVersionManifestGet
+## getMinecraftVersionManifest
 
 Get Minecraft version manifest
 
 ### Example
 
 ```bash
- mcGameVersionManifestGet
+ getMinecraftVersionManifest
 ```
 
 ### Parameters
@@ -25,7 +25,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

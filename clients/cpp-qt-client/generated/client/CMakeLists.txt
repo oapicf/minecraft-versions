@@ -11,9 +11,9 @@ include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
 add_library(${PROJECT_NAME}
-  OAI_mc_game_version_manifest_get_200_response.h
-  OAI_mc_game_version_manifest_get_200_response_latest.h
-  OAI_mc_game_version_manifest_get_200_response_versions_inner.h
+  OAIGetMinecraftVersionManifest_200_response.h
+  OAIGetMinecraftVersionManifest_200_response_latest.h
+  OAIGetMinecraftVersionManifest_200_response_versions_inner.h
   OAI_v1_packages__packageId___versionId__json_get_200_response.h
   OAI_v1_packages__packageId___versionId__json_get_200_response_assetIndex.h
   OAI_v1_packages__packageId___versionId__json_get_200_response_downloads.h
@@ -28,9 +28,9 @@ add_library(${PROJECT_NAME}
   OAIServerConfiguration.h
   OAIServerVariable.h
   OAIOauth.h
-  OAI_mc_game_version_manifest_get_200_response.cpp
-  OAI_mc_game_version_manifest_get_200_response_latest.cpp
-  OAI_mc_game_version_manifest_get_200_response_versions_inner.cpp
+  OAIGetMinecraftVersionManifest_200_response.cpp
+  OAIGetMinecraftVersionManifest_200_response_latest.cpp
+  OAIGetMinecraftVersionManifest_200_response_versions_inner.cpp
   OAI_v1_packages__packageId___versionId__json_get_200_response.cpp
   OAI_v1_packages__packageId___versionId__json_get_200_response_assetIndex.cpp
   OAI_v1_packages__packageId___versionId__json_get_200_response_downloads.cpp

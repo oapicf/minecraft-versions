@@ -13,7 +13,7 @@
 	            "name": "default",
 	            "item": [
 	                        {
-    "name": "/mc/game/version_manifest",
+    "name": "/mc/game/version_manifest.json",
                 "description": "",
                  "item": [
                             {
@@ -38,14 +38,14 @@
                                         }
                                     },
                                     "url": {
-                                        "raw": "{{baseUrl}}/mc/game/version_manifest",
+                                        "raw": "{{baseUrl}}/mc/game/version_manifest.json",
                                         "host": [
                                             "{{baseUrl}}"
                                         ],
                                         "path": [
                                             "mc",
                                             "game",
-                                            "version_manifest"
+                                            "version_manifest.json"
                                         ],
                                         "variable": [
                                         ],

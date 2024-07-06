@@ -49,10 +49,10 @@ func NewDefaultAPIController(s DefaultAPIServicer, opts ...DefaultAPIOption) *De
 // Routes returns all the api routes for the DefaultAPIController
 func (c *DefaultAPIController) Routes() Routes {
 	return Routes{
-		"McGameVersionManifestGet": Route{
+		"GetMinecraftVersionManifest": Route{
 			strings.ToUpper("Get"),
-			"/mc/game/version_manifest",
-			c.McGameVersionManifestGet,
+			"/mc/game/version_manifest.json",
+			c.GetMinecraftVersionManifest,
 		},
 		"V1PackagesPackageIdVersionIdJsonGet": Route{
 			strings.ToUpper("Get"),
@@ -62,9 +62,9 @@ func (c *DefaultAPIController) Routes() Routes {
 	}
 }
 
-// McGameVersionManifestGet - Get Minecraft version manifest
-func (c *DefaultAPIController) McGameVersionManifestGet(w http.ResponseWriter, r *http.Request) {
-	result, err := c.service.McGameVersionManifestGet(r.Context())
+// GetMinecraftVersionManifest - Get Minecraft version manifest
+func (c *DefaultAPIController) GetMinecraftVersionManifest(w http.ResponseWriter, r *http.Request) {
+	result, err := c.service.GetMinecraftVersionManifest(r.Context())
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

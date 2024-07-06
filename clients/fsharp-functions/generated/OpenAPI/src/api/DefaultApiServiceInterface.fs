@@ -8,6 +8,6 @@ module DefaultApiServiceInterface =
 
     //#region Service interface
     type IDefaultApiService =
-      abstract member McGameVersionManifestGet : unit -> McGameVersionManifestGetResult
+      abstract member GetMinecraftVersionManifest : unit -> GetMinecraftVersionManifestResult
       abstract member V1PackagesPackageIdVersionIdJsonGet : unit -> V1PackagesPackageIdVersionIdJsonGetResult
     //#endregion

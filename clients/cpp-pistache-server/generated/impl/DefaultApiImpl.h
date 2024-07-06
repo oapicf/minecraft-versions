@@ -29,7 +29,7 @@
 #include <DefaultApi.h>
 
 
-#include "_mc_game_version_manifest_get_200_response.h"
+#include "GetMinecraftVersionManifest_200_response.h"
 #include "_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <string>
 
@@ -43,7 +43,7 @@ public:
     explicit DefaultApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~DefaultApiImpl() override = default;
 
-    void mc_game_version_manifest_get(Pistache::Http::ResponseWriter &response);
+    void get_minecraft_version_manifest(Pistache::Http::ResponseWriter &response);
     void v1_packages_package_id_version_id_json_get(const std::string &packageId, const std::string &versionId, Pistache::Http::ResponseWriter &response);
 
 };

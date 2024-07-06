@@ -1,8 +1,8 @@
 import localVarRequest from 'request';
 
-export * from './mcGameVersionManifestGet200Response';
-export * from './mcGameVersionManifestGet200ResponseLatest';
-export * from './mcGameVersionManifestGet200ResponseVersionsInner';
+export * from './getMinecraftVersionManifest200Response';
+export * from './getMinecraftVersionManifest200ResponseLatest';
+export * from './getMinecraftVersionManifest200ResponseVersionsInner';
 export * from './v1PackagesPackageIdVersionIdJsonGet200Response';
 export * from './v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 export * from './v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -22,9 +22,9 @@ export interface RequestDetailedFile {
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
-import { McGameVersionManifestGet200Response } from './mcGameVersionManifestGet200Response';
-import { McGameVersionManifestGet200ResponseLatest } from './mcGameVersionManifestGet200ResponseLatest';
-import { McGameVersionManifestGet200ResponseVersionsInner } from './mcGameVersionManifestGet200ResponseVersionsInner';
+import { GetMinecraftVersionManifest200Response } from './getMinecraftVersionManifest200Response';
+import { GetMinecraftVersionManifest200ResponseLatest } from './getMinecraftVersionManifest200ResponseLatest';
+import { GetMinecraftVersionManifest200ResponseVersionsInner } from './getMinecraftVersionManifest200ResponseVersionsInner';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from './v1PackagesPackageIdVersionIdJsonGet200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from './v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from './v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -47,9 +47,9 @@ let enumsMap: {[index: string]: any} = {
 }
 
 let typeMap: {[index: string]: any} = {
-    "McGameVersionManifestGet200Response": McGameVersionManifestGet200Response,
-    "McGameVersionManifestGet200ResponseLatest": McGameVersionManifestGet200ResponseLatest,
-    "McGameVersionManifestGet200ResponseVersionsInner": McGameVersionManifestGet200ResponseVersionsInner,
+    "GetMinecraftVersionManifest200Response": GetMinecraftVersionManifest200Response,
+    "GetMinecraftVersionManifest200ResponseLatest": GetMinecraftVersionManifest200ResponseLatest,
+    "GetMinecraftVersionManifest200ResponseVersionsInner": GetMinecraftVersionManifest200ResponseVersionsInner,
     "V1PackagesPackageIdVersionIdJsonGet200Response": V1PackagesPackageIdVersionIdJsonGet200Response,
     "V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex": V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
     "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads": V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,

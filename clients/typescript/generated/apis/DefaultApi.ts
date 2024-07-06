@@ -8,7 +8,7 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { McGameVersionManifestGet200Response } from '../models/McGameVersionManifestGet200Response';
+import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
 
 /**
@@ -19,11 +19,11 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get Minecraft version manifest
      */
-    public async mcGameVersionManifestGet(_options?: Configuration): Promise<RequestContext> {
+    public async getMinecraftVersionManifest(_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // Path Params
-        const localVarPath = '/mc/game/version_manifest';
+        const localVarPath = '/mc/game/version_manifest.json';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -86,25 +86,25 @@ export class DefaultApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to mcGameVersionManifestGet
+     * @params response Response returned by the server for a request to getMinecraftVersionManifest
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async mcGameVersionManifestGetWithHttpInfo(response: ResponseContext): Promise<HttpInfo<McGameVersionManifestGet200Response >> {
+     public async getMinecraftVersionManifestWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetMinecraftVersionManifest200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: McGameVersionManifestGet200Response = ObjectSerializer.deserialize(
+            const body: GetMinecraftVersionManifest200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "McGameVersionManifestGet200Response", ""
-            ) as McGameVersionManifestGet200Response;
+                "GetMinecraftVersionManifest200Response", ""
+            ) as GetMinecraftVersionManifest200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: McGameVersionManifestGet200Response = ObjectSerializer.deserialize(
+            const body: GetMinecraftVersionManifest200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "McGameVersionManifestGet200Response", ""
-            ) as McGameVersionManifestGet200Response;
+                "GetMinecraftVersionManifest200Response", ""
+            ) as GetMinecraftVersionManifest200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

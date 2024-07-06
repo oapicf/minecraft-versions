@@ -15,7 +15,7 @@
 #include "OpenAPIBaseModel.h"
 #include "OpenAPIDefaultApi.h"
 
-#include "OpenAPIMcGameVersionManifestGet200Response.h"
+#include "OpenAPIGetMinecraftVersionManifest200Response.h"
 #include "OpenAPIV1PackagesPackageIdVersionIdJsonGet200Response.h"
 
 namespace OpenAPI
@@ -24,23 +24,23 @@ namespace OpenAPI
 /* Get Minecraft version manifest
 
 */
-class OPENAPI_API OpenAPIDefaultApi::McGameVersionManifestGetRequest : public Request
+class OPENAPI_API OpenAPIDefaultApi::GetMinecraftVersionManifestRequest : public Request
 {
 public:
-    virtual ~McGameVersionManifestGetRequest() {}
+    virtual ~GetMinecraftVersionManifestRequest() {}
 	void SetupHttpRequest(const FHttpRequestRef& HttpRequest) const final;
 	FString ComputePath() const final;
 
 };
 
-class OPENAPI_API OpenAPIDefaultApi::McGameVersionManifestGetResponse : public Response
+class OPENAPI_API OpenAPIDefaultApi::GetMinecraftVersionManifestResponse : public Response
 {
 public:
-    virtual ~McGameVersionManifestGetResponse() {}
+    virtual ~GetMinecraftVersionManifestResponse() {}
 	void SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode) final;
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 
-    OpenAPIMcGameVersionManifestGet200Response Content;
+    OpenAPIGetMinecraftVersionManifest200Response Content;
 };
 
 /* Get Minecraft version package details

@@ -13,8 +13,8 @@ Please update as you see appropriate
 ]]
 describe("default_api", function()
   local openapiclient_default_api = require "openapiclient.api.default_api"
-  -- unit tests for mc_game_version_manifest_get
-  describe("mc_game_version_manifest_get test", function()
+  -- unit tests for get_minecraft_version_manifest
+  describe("get_minecraft_version_manifest test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

@@ -13,7 +13,7 @@
 
 import unittest
 
-from openapi_client.api.default_api import DefaultApi
+from minecraftversions.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):
@@ -25,8 +25,8 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_mc_game_version_manifest_get(self) -> None:
-        """Test case for mc_game_version_manifest_get
+    def test_get_minecraft_version_manifest(self) -> None:
+        """Test case for get_minecraft_version_manifest
 
         Get Minecraft version manifest
         """

@@ -1,9 +1,9 @@
 .openapi-generator-ignore
 README.md
 build.gradle
-docs/McGameVersionManifestGet200Response.md
-docs/McGameVersionManifestGet200ResponseLatest.md
-docs/McGameVersionManifestGet200ResponseVersionsInner.md
+docs/GetMinecraftVersionManifest200Response.md
+docs/GetMinecraftVersionManifest200ResponseLatest.md
+docs/GetMinecraftVersionManifest200ResponseVersionsInner.md
 docs/V1PackagesPackageIdVersionIdJsonGet200Response.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md
@@ -11,9 +11,9 @@ docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.md
 ktorm_schema.sql
 settings.gradle
-src/main/kotlin/org/openapitools/database/models/McGameVersionManifestGet200Response.kt
-src/main/kotlin/org/openapitools/database/models/McGameVersionManifestGet200ResponseLatest.kt
-src/main/kotlin/org/openapitools/database/models/McGameVersionManifestGet200ResponseVersionsInner.kt
+src/main/kotlin/org/openapitools/database/models/GetMinecraftVersionManifest200Response.kt
+src/main/kotlin/org/openapitools/database/models/GetMinecraftVersionManifest200ResponseLatest.kt
+src/main/kotlin/org/openapitools/database/models/GetMinecraftVersionManifest200ResponseVersionsInner.kt
 src/main/kotlin/org/openapitools/database/models/V1PackagesPackageIdVersionIdJsonGet200Response.kt
 src/main/kotlin/org/openapitools/database/models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.kt
 src/main/kotlin/org/openapitools/database/models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.kt

@@ -1,17 +1,17 @@
 import connexion
 
-from app.openapi_server.models.mc_game_version_manifest_get200_response import McGameVersionManifestGet200Response  # noqa: E501
+from app.openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response  # noqa: E501
 from app.openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response  # noqa: E501
 from openapi_server import util
 
 
-def mc_game_version_manifest_get():  # noqa: E501
+def get_minecraft_version_manifest():  # noqa: E501
     """Get Minecraft version manifest
 
      # noqa: E501
 
 
-    :rtype: McGameVersionManifestGet200Response
+    :rtype: GetMinecraftVersionManifest200Response
     """
     return 'do some magic!'
 

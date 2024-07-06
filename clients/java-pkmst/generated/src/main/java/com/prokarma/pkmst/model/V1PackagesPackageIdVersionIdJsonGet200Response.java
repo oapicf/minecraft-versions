@@ -19,7 +19,7 @@ import java.time.OffsetDateTime;
  * V1PackagesPackageIdVersionIdJsonGet200Response
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T01:32:43.130084075Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T08:44:41.983633026Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200Response   {
   @JsonProperty("version")
   private String version;

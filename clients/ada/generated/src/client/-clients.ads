@@ -16,9 +16,9 @@ package .Clients is
    type Client_Type is new Swagger.Clients.Client_Type with null record;
 
    --  Get Minecraft version manifest
-   procedure Mc_Game_Version_Manifest_Get
+   procedure Get_Minecraft_Version_Manifest
       (Client : in out Client_Type;
-       Result : out .Models.McGameVersionManifestGet200Response_Type);
+       Result : out .Models.GetMinecraftVersionManifest200Response_Type);
 
    --  Get Minecraft version package details
    procedure V_1Packages_Package_Id_Version_Id_Json_Get

@@ -4,16 +4,16 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mcGameVersionManifestGet**](DefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
-[**mcGameVersionManifestGetWithHttpInfo**](DefaultApi.md#mcGameVersionManifestGetWithHttpInfo) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
+[**getMinecraftVersionManifestWithHttpInfo**](DefaultApi.md#getMinecraftVersionManifestWithHttpInfo) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 [**v1PackagesPackageIdVersionIdJsonGetWithHttpInfo**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGetWithHttpInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 
-## mcGameVersionManifestGet
+## getMinecraftVersionManifest
 
-> mcGameVersionManifestGet(): ApiRequest[McGameVersionManifestGet200Response]
+> getMinecraftVersionManifest(): ApiRequest[GetMinecraftVersionManifest200Response]
 
 Get Minecraft version manifest
 
@@ -37,7 +37,7 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = DefaultApi("https://launchermeta.mojang.com")    
-    val request = apiInstance.mcGameVersionManifestGet()
+    val request = apiInstance.getMinecraftVersionManifest()
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -47,14 +47,14 @@ object Example extends App {
             System.out.println(s"Response body: $content")
         
         case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling DefaultApi#mcGameVersionManifestGet")
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest")
             System.err.println(s"Status code: $code}")
             System.err.println(s"Reason: $responseContent")
             System.err.println(s"Response headers: ${headers.mkString(", ")}")
             error.printStackTrace();
 
         case Failure(exception) => 
-            System.err.println("Exception when calling DefaultApi#mcGameVersionManifestGet")
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest")
             exception.printStackTrace();
     }
 }
@@ -66,7 +66,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)]
+ApiRequest[[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)]
 
 
 ### Authorization

@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T01:37:22.360466048Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T08:47:46.239289619Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Validated
 @Tag(name = "v1", description = "the v1 API")
 public interface V1Api {

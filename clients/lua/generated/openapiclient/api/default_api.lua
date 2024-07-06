@@ -14,8 +14,8 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local openapiclient__mc_game_version_manifest_get_200_response = require "openapiclient.model._mc_game_version_manifest_get_200_response"
 local openapiclient__v1_packages__package_id___version_id__json_get_200_response = require "openapiclient.model._v1_packages__package_id___version_id__json_get_200_response"
+local openapiclient_get_minecraft_version_manifest_200_response = require "openapiclient.model.get_minecraft_version_manifest_200_response"
 
 local default_api = {}
 local default_api_mt = {
@@ -43,12 +43,12 @@ local function new_default_api(authority, basePath, schemes)
 	}, default_api_mt)
 end
 
-function default_api:mc_game_version_manifest_get()
+function default_api:get_minecraft_version_manifest()
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/mc/game/version_manifest",
+		path = string.format("%s/mc/game/version_manifest.json",
 			self.basePath);
 	})
 
@@ -77,7 +77,7 @@ function default_api:mc_game_version_manifest_get()
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient__mc_game_version_manifest_get_200_response.cast(result), headers
+		return openapiclient_get_minecraft_version_manifest_200_response.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

@@ -15,25 +15,25 @@
 
 
 module Api.Data exposing
-    ( McGameVersionManifestGet200Response
-    , McGameVersionManifestGet200ResponseLatest
-    , McGameVersionManifestGet200ResponseVersionsInner
+    ( GetMinecraftVersionManifest200Response
+    , GetMinecraftVersionManifest200ResponseLatest
+    , GetMinecraftVersionManifest200ResponseVersionsInner
     , V1PackagesPackageIdVersionIdJsonGet200Response
     , V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
     , V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
     , V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
     , V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-    , encodeMcGameVersionManifestGet200Response
-    , encodeMcGameVersionManifestGet200ResponseLatest
-    , encodeMcGameVersionManifestGet200ResponseVersionsInner
+    , encodeGetMinecraftVersionManifest200Response
+    , encodeGetMinecraftVersionManifest200ResponseLatest
+    , encodeGetMinecraftVersionManifest200ResponseVersionsInner
     , encodeV1PackagesPackageIdVersionIdJsonGet200Response
     , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
     , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
     , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient
     , encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
-    , mcGameVersionManifestGet200ResponseDecoder
-    , mcGameVersionManifestGet200ResponseLatestDecoder
-    , mcGameVersionManifestGet200ResponseVersionsInnerDecoder
+    , getMinecraftVersionManifest200ResponseDecoder
+    , getMinecraftVersionManifest200ResponseLatestDecoder
+    , getMinecraftVersionManifest200ResponseVersionsInnerDecoder
     , v1PackagesPackageIdVersionIdJsonGet200ResponseDecoder
     , v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexDecoder
     , v1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsDecoder
@@ -51,19 +51,19 @@ import Json.Encode
 -- MODEL
 
 
-type alias McGameVersionManifestGet200Response =
-    { latest : Maybe McGameVersionManifestGet200ResponseLatest
-    , versions : Maybe ( List McGameVersionManifestGet200ResponseVersionsInner )
+type alias GetMinecraftVersionManifest200Response =
+    { latest : Maybe GetMinecraftVersionManifest200ResponseLatest
+    , versions : Maybe ( List GetMinecraftVersionManifest200ResponseVersionsInner )
     }
 
 
-type alias McGameVersionManifestGet200ResponseLatest =
+type alias GetMinecraftVersionManifest200ResponseLatest =
     { release : Maybe String
     , snapshot : Maybe String
     }
 
 
-type alias McGameVersionManifestGet200ResponseVersionsInner =
+type alias GetMinecraftVersionManifest200ResponseVersionsInner =
     { id : Maybe String
     , type_ : Maybe String
     , url : Maybe String
@@ -121,39 +121,39 @@ type alias V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion =
 -- ENCODER
 
 
-encodeMcGameVersionManifestGet200Response : McGameVersionManifestGet200Response -> Json.Encode.Value
-encodeMcGameVersionManifestGet200Response =
-    encodeObject << encodeMcGameVersionManifestGet200ResponsePairs
+encodeGetMinecraftVersionManifest200Response : GetMinecraftVersionManifest200Response -> Json.Encode.Value
+encodeGetMinecraftVersionManifest200Response =
+    encodeObject << encodeGetMinecraftVersionManifest200ResponsePairs
 
 
-encodeMcGameVersionManifestGet200ResponseWithTag : ( String, String ) -> McGameVersionManifestGet200Response -> Json.Encode.Value
-encodeMcGameVersionManifestGet200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeMcGameVersionManifestGet200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeGetMinecraftVersionManifest200ResponseWithTag : ( String, String ) -> GetMinecraftVersionManifest200Response -> Json.Encode.Value
+encodeGetMinecraftVersionManifest200ResponseWithTag (tagField, tag) model =
+    encodeObject (encodeGetMinecraftVersionManifest200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeMcGameVersionManifestGet200ResponsePairs : McGameVersionManifestGet200Response -> List EncodedField
-encodeMcGameVersionManifestGet200ResponsePairs model =
+encodeGetMinecraftVersionManifest200ResponsePairs : GetMinecraftVersionManifest200Response -> List EncodedField
+encodeGetMinecraftVersionManifest200ResponsePairs model =
     let
         pairs =
-            [ maybeEncode "latest" encodeMcGameVersionManifestGet200ResponseLatest model.latest
-            , maybeEncode "versions" (Json.Encode.list encodeMcGameVersionManifestGet200ResponseVersionsInner) model.versions
+            [ maybeEncode "latest" encodeGetMinecraftVersionManifest200ResponseLatest model.latest
+            , maybeEncode "versions" (Json.Encode.list encodeGetMinecraftVersionManifest200ResponseVersionsInner) model.versions
             ]
     in
     pairs
 
 
-encodeMcGameVersionManifestGet200ResponseLatest : McGameVersionManifestGet200ResponseLatest -> Json.Encode.Value
-encodeMcGameVersionManifestGet200ResponseLatest =
-    encodeObject << encodeMcGameVersionManifestGet200ResponseLatestPairs
+encodeGetMinecraftVersionManifest200ResponseLatest : GetMinecraftVersionManifest200ResponseLatest -> Json.Encode.Value
+encodeGetMinecraftVersionManifest200ResponseLatest =
+    encodeObject << encodeGetMinecraftVersionManifest200ResponseLatestPairs
 
 
-encodeMcGameVersionManifestGet200ResponseLatestWithTag : ( String, String ) -> McGameVersionManifestGet200ResponseLatest -> Json.Encode.Value
-encodeMcGameVersionManifestGet200ResponseLatestWithTag (tagField, tag) model =
-    encodeObject (encodeMcGameVersionManifestGet200ResponseLatestPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeGetMinecraftVersionManifest200ResponseLatestWithTag : ( String, String ) -> GetMinecraftVersionManifest200ResponseLatest -> Json.Encode.Value
+encodeGetMinecraftVersionManifest200ResponseLatestWithTag (tagField, tag) model =
+    encodeObject (encodeGetMinecraftVersionManifest200ResponseLatestPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeMcGameVersionManifestGet200ResponseLatestPairs : McGameVersionManifestGet200ResponseLatest -> List EncodedField
-encodeMcGameVersionManifestGet200ResponseLatestPairs model =
+encodeGetMinecraftVersionManifest200ResponseLatestPairs : GetMinecraftVersionManifest200ResponseLatest -> List EncodedField
+encodeGetMinecraftVersionManifest200ResponseLatestPairs model =
     let
         pairs =
             [ maybeEncode "release" Json.Encode.string model.release
@@ -163,18 +163,18 @@ encodeMcGameVersionManifestGet200ResponseLatestPairs model =
     pairs
 
 
-encodeMcGameVersionManifestGet200ResponseVersionsInner : McGameVersionManifestGet200ResponseVersionsInner -> Json.Encode.Value
-encodeMcGameVersionManifestGet200ResponseVersionsInner =
-    encodeObject << encodeMcGameVersionManifestGet200ResponseVersionsInnerPairs
+encodeGetMinecraftVersionManifest200ResponseVersionsInner : GetMinecraftVersionManifest200ResponseVersionsInner -> Json.Encode.Value
+encodeGetMinecraftVersionManifest200ResponseVersionsInner =
+    encodeObject << encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs
 
 
-encodeMcGameVersionManifestGet200ResponseVersionsInnerWithTag : ( String, String ) -> McGameVersionManifestGet200ResponseVersionsInner -> Json.Encode.Value
-encodeMcGameVersionManifestGet200ResponseVersionsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeMcGameVersionManifestGet200ResponseVersionsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeGetMinecraftVersionManifest200ResponseVersionsInnerWithTag : ( String, String ) -> GetMinecraftVersionManifest200ResponseVersionsInner -> Json.Encode.Value
+encodeGetMinecraftVersionManifest200ResponseVersionsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeMcGameVersionManifestGet200ResponseVersionsInnerPairs : McGameVersionManifestGet200ResponseVersionsInner -> List EncodedField
-encodeMcGameVersionManifestGet200ResponseVersionsInnerPairs model =
+encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs : GetMinecraftVersionManifest200ResponseVersionsInner -> List EncodedField
+encodeGetMinecraftVersionManifest200ResponseVersionsInnerPairs model =
     let
         pairs =
             [ maybeEncode "id" Json.Encode.string model.id
@@ -311,23 +311,23 @@ encodeV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersionPairs model =
 -- DECODER
 
 
-mcGameVersionManifestGet200ResponseDecoder : Json.Decode.Decoder McGameVersionManifestGet200Response
-mcGameVersionManifestGet200ResponseDecoder =
-    Json.Decode.succeed McGameVersionManifestGet200Response
-        |> maybeDecode "latest" mcGameVersionManifestGet200ResponseLatestDecoder Nothing
-        |> maybeDecode "versions" (Json.Decode.list mcGameVersionManifestGet200ResponseVersionsInnerDecoder) Nothing
+getMinecraftVersionManifest200ResponseDecoder : Json.Decode.Decoder GetMinecraftVersionManifest200Response
+getMinecraftVersionManifest200ResponseDecoder =
+    Json.Decode.succeed GetMinecraftVersionManifest200Response
+        |> maybeDecode "latest" getMinecraftVersionManifest200ResponseLatestDecoder Nothing
+        |> maybeDecode "versions" (Json.Decode.list getMinecraftVersionManifest200ResponseVersionsInnerDecoder) Nothing
 
 
-mcGameVersionManifestGet200ResponseLatestDecoder : Json.Decode.Decoder McGameVersionManifestGet200ResponseLatest
-mcGameVersionManifestGet200ResponseLatestDecoder =
-    Json.Decode.succeed McGameVersionManifestGet200ResponseLatest
+getMinecraftVersionManifest200ResponseLatestDecoder : Json.Decode.Decoder GetMinecraftVersionManifest200ResponseLatest
+getMinecraftVersionManifest200ResponseLatestDecoder =
+    Json.Decode.succeed GetMinecraftVersionManifest200ResponseLatest
         |> maybeDecode "release" Json.Decode.string Nothing
         |> maybeDecode "snapshot" Json.Decode.string Nothing
 
 
-mcGameVersionManifestGet200ResponseVersionsInnerDecoder : Json.Decode.Decoder McGameVersionManifestGet200ResponseVersionsInner
-mcGameVersionManifestGet200ResponseVersionsInnerDecoder =
-    Json.Decode.succeed McGameVersionManifestGet200ResponseVersionsInner
+getMinecraftVersionManifest200ResponseVersionsInnerDecoder : Json.Decode.Decoder GetMinecraftVersionManifest200ResponseVersionsInner
+getMinecraftVersionManifest200ResponseVersionsInnerDecoder =
+    Json.Decode.succeed GetMinecraftVersionManifest200ResponseVersionsInner
         |> maybeDecode "id" Json.Decode.string Nothing
         |> maybeDecode "type" Json.Decode.string Nothing
         |> maybeDecode "url" Json.Decode.string Nothing

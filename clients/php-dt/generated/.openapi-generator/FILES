@@ -5,9 +5,9 @@ composer.json
 src/App/ApiClient.php
 src/App/ApiClientFactory.php
 src/App/DTO/Collection.php
-src/App/DTO/McGameVersionManifestGet200Response.php
-src/App/DTO/McGameVersionManifestGet200ResponseLatest.php
-src/App/DTO/McGameVersionManifestGet200ResponseVersionsInner.php
+src/App/DTO/GetMinecraftVersionManifest200Response.php
+src/App/DTO/GetMinecraftVersionManifest200ResponseLatest.php
+src/App/DTO/GetMinecraftVersionManifest200ResponseVersionsInner.php
 src/App/DTO/V1PackagesPackageIdVersionIdJsonGETParameterData.php
 src/App/DTO/V1PackagesPackageIdVersionIdJsonGet200Response.php
 src/App/DTO/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.php

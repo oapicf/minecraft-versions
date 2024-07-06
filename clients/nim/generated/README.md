@@ -26,7 +26,7 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Module | Proc | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-api_default | mcGameVersionManifestGet | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+api_default | getMinecraftVersionManifest | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 api_default | v1PackagesPackageIdVersionIdJsonGet | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 

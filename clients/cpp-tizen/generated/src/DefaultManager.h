@@ -5,7 +5,7 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
-#include "_mc_game_version_manifest_get_200_response.h"
+#include "GetMinecraftVersionManifest_200_response.h"
 #include "_v1_packages__packageId___versionId__json_get_200_response.h"
 #include "Error.h"
 
@@ -32,9 +32,9 @@ public:
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
-bool mcGameVersionManifestGetSync(char * accessToken,
+bool getMinecraftVersionManifestSync(char * accessToken,
 	
-	void(* handler)(_mc_game_version_manifest_get_200_response, Error, void* )
+	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
 	, void* userData);
 
 /*! \brief Get Minecraft version manifest. *Asynchronous*
@@ -44,9 +44,9 @@ bool mcGameVersionManifestGetSync(char * accessToken,
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
-bool mcGameVersionManifestGetAsync(char * accessToken,
+bool getMinecraftVersionManifestAsync(char * accessToken,
 	
-	void(* handler)(_mc_game_version_manifest_get_200_response, Error, void* )
+	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
 	, void* userData);
 
 

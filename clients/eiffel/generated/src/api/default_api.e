@@ -24,12 +24,12 @@ inherit
 feature -- API Access
 
 
-	mc_game_version_manifest_get : detachable MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE
+	minecraft_version_manifest : detachable GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE
 			-- Get Minecraft version manifest
 			-- 
 			-- 
 			-- 
-			-- Result MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE
+			-- Result GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE
 		require
 		local
   			l_path: STRING
@@ -39,7 +39,7 @@ feature -- API Access
 			reset_error
 			create l_request
 			
-			l_path := "/mc/game/version_manifest"
+			l_path := "/mc/game/version_manifest.json"
 
 
 			if attached {STRING} api_client.select_header_accept ({ARRAY [STRING]}<<"application/json">>)  as l_accept then
@@ -50,7 +50,7 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE } l_response.data ({ MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE }) as l_data then
+			elseif attached { GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE } l_response.data ({ GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")

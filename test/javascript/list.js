@@ -1,11 +1,11 @@
-import assert from 'assert';
-import OpenapiJsClient from 'openapi-js-client';
+var assert = require('assert');
+var OpenapiJsClient = require('openapi-js-client');
 
-const api = new OpenapiJsClient.DefaultApi()
+const apiClient = new OpenapiJsClient.ApiClient('https://launchermeta.mojang.com');
+const api = new OpenapiJsClient.DefaultApi(apiClient);
 
-describe('google', function() {
-  it('should search with the query', function(done) {
-    var q = 'OpenAPI Generator web site';
+describe('minecraft versions', function() {
+  it('should get manifest', function(done) {
     var callback = function(error, data, response) {
       if (error) {
         done(error);
@@ -14,6 +14,6 @@ describe('google', function() {
         done();
       }
     };
-    api.search(q, callback);
+    api.getMinecraftVersionManifest(callback);
   });
 });

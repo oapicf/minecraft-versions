@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 0.9.0-pre.0
-- Build date: 2024-07-06T01:36:29.024543017Z[Etc/UTC]
+- Build date: 2024-07-06T08:47:12.396906017Z[Etc/UTC]
 - Generator version: 7.6.0
 
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
@@ -62,7 +62,7 @@ cargo run --example server
 To run a client, follow one of the following simple steps:
 
 ```
-cargo run --example client McGameVersionManifestGet
+cargo run --example client GetMinecraftVersionManifest
 cargo run --example client V1PackagesPackageIdVersionIdJsonGet
 ```
 
@@ -97,15 +97,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[****](docs/default_api.md#) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](docs/default_api.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [****](docs/default_api.md#) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation For Models
 
- - [McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

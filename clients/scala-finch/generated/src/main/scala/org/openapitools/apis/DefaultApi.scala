@@ -3,7 +3,7 @@ package org.openapitools.apis
 import java.io._
 import org.openapitools._
 import org.openapitools.models._
-import org.openapitools.models.McGameVersionManifestGet200Response
+import org.openapitools.models.GetMinecraftVersionManifest200Response
 import org.openapitools.models.V1PackagesPackageIdVersionIdJsonGet200Response
 import io.finch.circe._
 import io.circe.generic.semiauto._
@@ -25,7 +25,7 @@ object DefaultApi {
     * @return Bundled compilation of all service endpoints.
     */
     def endpoints(da: DataAccessor) =
-        mcGameVersionManifestGet(da) :+:
+        getMinecraftVersionManifest(da) :+:
         v1PackagesPackageIdVersionIdJsonGet(da)
 
 
@@ -51,11 +51,11 @@ object DefaultApi {
 
         /**
         * 
-        * @return An endpoint representing a McGameVersionManifestGet200Response
+        * @return An endpoint representing a GetMinecraftVersionManifest200Response
         */
-        private def mcGameVersionManifestGet(da: DataAccessor): Endpoint[McGameVersionManifestGet200Response] =
-        get("mc" :: "game" :: "version_manifest") { () =>
-          da.Default_mcGameVersionManifestGet() match {
+        private def getMinecraftVersionManifest(da: DataAccessor): Endpoint[GetMinecraftVersionManifest200Response] =
+        get("mc" :: "game" :: "version_manifest.json") { () =>
+          da.Default_getMinecraftVersionManifest() match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

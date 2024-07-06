@@ -19,8 +19,8 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "openapi-client"
-VERSION = "1.0.0"
+NAME = "minecraftversions"
+VERSION = "0.9.0-pre.0"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
@@ -35,7 +35,7 @@ setup(
     description="",
     author="Minecraft Versions",
     author_email="blah+oapicf@cliffano.com",
-    url="",
+    url="https://github.com/oapicf/minecraft-versions",
     keywords=["OpenAPI", "OpenAPI-Generator", ""],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     SDK for Minecraft versions info
     """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"minecraftversions": ["py.typed"]},
 )

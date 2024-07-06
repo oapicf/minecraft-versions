@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "OAIMcGameVersionManifestGet200Response.h"
+#import "OAIGetMinecraftVersionManifest200Response.h"
 #import "OAIV1PackagesPackageIdVersionIdJsonGet200Response.h"
 #import "OAIApi.h"
 
@@ -30,9 +30,9 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///  code:200 message:"A list of Minecraft versions with the latest and snapshot releases"
 ///
-/// @return OAIMcGameVersionManifestGet200Response*
--(NSURLSessionTask*) mcGameVersionManifestGetWithCompletionHandler: 
-    (void (^)(OAIMcGameVersionManifestGet200Response* output, NSError* error)) handler;
+/// @return OAIGetMinecraftVersionManifest200Response*
+-(NSURLSessionTask*) getMinecraftVersionManifestWithCompletionHandler: 
+    (void (^)(OAIGetMinecraftVersionManifest200Response* output, NSError* error)) handler;
 
 
 /// Get Minecraft version package details

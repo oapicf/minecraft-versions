@@ -26,9 +26,9 @@
     <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.fs" />
     <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.fs" />
     <Compile Include="model/V1PackagesPackageIdVersionIdJsonGet200Response.fs" />
-    <Compile Include="model/McGameVersionManifestGet200ResponseVersionsInner.fs" />
-    <Compile Include="model/McGameVersionManifestGet200ResponseLatest.fs" />
-    <Compile Include="model/McGameVersionManifestGet200Response.fs" />
+    <Compile Include="model/GetMinecraftVersionManifest200ResponseVersionsInner.fs" />
+    <Compile Include="model/GetMinecraftVersionManifest200ResponseLatest.fs" />
+    <Compile Include="model/GetMinecraftVersionManifest200Response.fs" />
     <Compile Include="api/DefaultApiHandlerParams.fs" />
     <Compile Include="api/DefaultApiServiceInterface.fs" />
     <Compile Include="impl/DefaultApiService.fs" />

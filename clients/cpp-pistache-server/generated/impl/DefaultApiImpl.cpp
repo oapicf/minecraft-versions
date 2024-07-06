@@ -24,7 +24,7 @@ DefaultApiImpl::DefaultApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rt
 {
 }
 
-void DefaultApiImpl::mc_game_version_manifest_get(Pistache::Http::ResponseWriter &response) {
+void DefaultApiImpl::get_minecraft_version_manifest(Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 void DefaultApiImpl::v1_packages_package_id_version_id_json_get(const std::string &packageId, const std::string &versionId, Pistache::Http::ResponseWriter &response) {

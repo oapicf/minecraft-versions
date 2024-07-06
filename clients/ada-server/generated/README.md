@@ -92,15 +92,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Mc_Game_Version_Manifest_Get**](DefaultApi.md#Mc_Game_Version_Manifest_Get) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**Get_Minecraft_Version_Manifest**](DefaultApi.md#Get_Minecraft_Version_Manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**V_1Packages_Package_Id_Version_Id_Json_Get**](DefaultApi.md#V_1Packages_Package_Id_Version_Id_Json_Get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ### Models
 
- - [.Models.McGameVersionManifestGet200ResponseLatest_Type](McGameVersionManifestGet200ResponseLatest_Type.md)
- - [.Models.McGameVersionManifestGet200ResponseVersionsInner_Type](McGameVersionManifestGet200ResponseVersionsInner_Type.md)
- - [.Models.McGameVersionManifestGet200Response_Type](McGameVersionManifestGet200Response_Type.md)
+ - [.Models.GetMinecraftVersionManifest200ResponseLatest_Type](GetMinecraftVersionManifest200ResponseLatest_Type.md)
+ - [.Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type](GetMinecraftVersionManifest200ResponseVersionsInner_Type.md)
+ - [.Models.GetMinecraftVersionManifest200Response_Type](GetMinecraftVersionManifest200Response_Type.md)
  - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex_Type.md)
  - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient_Type.md)
  - [.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads_Type.md)

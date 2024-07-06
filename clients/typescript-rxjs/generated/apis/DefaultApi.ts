@@ -16,7 +16,7 @@ import type { AjaxResponse } from 'rxjs/ajax';
 import { BaseAPI, throwIfNullOrUndefined, encodeURI } from '../runtime';
 import type { OperationOpts } from '../runtime';
 import type {
-    McGameVersionManifestGet200Response,
+    GetMinecraftVersionManifest200Response,
     V1PackagesPackageIdVersionIdJsonGet200Response,
 } from '../models';
 
@@ -33,11 +33,11 @@ export class DefaultApi extends BaseAPI {
     /**
      * Get Minecraft version manifest
      */
-    mcGameVersionManifestGet(): Observable<McGameVersionManifestGet200Response>
-    mcGameVersionManifestGet(opts?: OperationOpts): Observable<AjaxResponse<McGameVersionManifestGet200Response>>
-    mcGameVersionManifestGet(opts?: OperationOpts): Observable<McGameVersionManifestGet200Response | AjaxResponse<McGameVersionManifestGet200Response>> {
-        return this.request<McGameVersionManifestGet200Response>({
-            url: '/mc/game/version_manifest',
+    getMinecraftVersionManifest(): Observable<GetMinecraftVersionManifest200Response>
+    getMinecraftVersionManifest(opts?: OperationOpts): Observable<AjaxResponse<GetMinecraftVersionManifest200Response>>
+    getMinecraftVersionManifest(opts?: OperationOpts): Observable<GetMinecraftVersionManifest200Response | AjaxResponse<GetMinecraftVersionManifest200Response>> {
+        return this.request<GetMinecraftVersionManifest200Response>({
+            url: '/mc/game/version_manifest.json',
             method: 'GET',
         }, opts?.responseOpts);
     };

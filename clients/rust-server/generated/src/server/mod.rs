@@ -22,7 +22,7 @@ pub use crate::context;
 type ServiceFuture = BoxFuture<'static, Result<Response<Body>, crate::ServiceError>>;
 
 use crate::{Api,
-     McGameVersionManifestGetResponse,
+     GetMinecraftVersionManifestResponse,
      V1PackagesPackageIdVersionIdJsonGetResponse
 };
 
@@ -31,12 +31,12 @@ mod paths {
 
     lazy_static! {
         pub static ref GLOBAL_REGEX_SET: regex::RegexSet = regex::RegexSet::new(vec![
-            r"^/mc/game/version_manifest$",
+            r"^/mc/game/version_manifest.json$",
             r"^/v1/packages/(?P<packageId>[^/?#]*)/(?P<versionId>[^/?#]*).json$"
         ])
         .expect("Unable to create global regex set");
     }
-    pub(crate) static ID_MC_GAME_VERSION_MANIFEST: usize = 0;
+    pub(crate) static ID_MC_GAME_VERSION_MANIFEST_JSON: usize = 0;
     pub(crate) static ID_V1_PACKAGES_PACKAGEID_VERSIONID_JSON: usize = 1;
     lazy_static! {
         pub static ref REGEX_V1_PACKAGES_PACKAGEID_VERSIONID_JSON: regex::Regex =
@@ -148,9 +148,9 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
 
         match method {
 
-            // McGameVersionManifestGet - GET /mc/game/version_manifest
-            hyper::Method::GET if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST) => {
-                                let result = api_impl.mc_game_version_manifest_get(
+            // GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
+            hyper::Method::GET if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST_JSON) => {
+                                let result = api_impl.get_minecraft_version_manifest(
                                         &context
                                     ).await;
                                 let mut response = Response::new(Body::empty());
@@ -161,14 +161,14 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                McGameVersionManifestGetResponse::AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
+                                                GetMinecraftVersionManifestResponse::AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
                                                     (body)
                                                 => {
                                                     *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("application/json")
-                                                            .expect("Unable to create Content-Type header for MC_GAME_VERSION_MANIFEST_GET_A_LIST_OF_MINECRAFT_VERSIONS_WITH_THE_LATEST_AND_SNAPSHOT_RELEASES"));
+                                                            .expect("Unable to create Content-Type header for GET_MINECRAFT_VERSION_MANIFEST_A_LIST_OF_MINECRAFT_VERSIONS_WITH_THE_LATEST_AND_SNAPSHOT_RELEASES"));
                                                     let body_content = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = Body::from(body_content);
                                                 },
@@ -259,7 +259,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                         Ok(response)
             },
 
-            _ if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST) => method_not_allowed(),
+            _ if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST_JSON) => method_not_allowed(),
             _ if path.matched(paths::ID_V1_PACKAGES_PACKAGEID_VERSIONID_JSON) => method_not_allowed(),
             _ => Ok(Response::builder().status(StatusCode::NOT_FOUND)
                     .body(Body::empty())
@@ -274,8 +274,8 @@ impl<T> RequestParser<T> for ApiRequestParser {
     fn parse_operation_id(request: &Request<T>) -> Option<&'static str> {
         let path = paths::GLOBAL_REGEX_SET.matches(request.uri().path());
         match *request.method() {
-            // McGameVersionManifestGet - GET /mc/game/version_manifest
-            hyper::Method::GET if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST) => Some("McGameVersionManifestGet"),
+            // GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
+            hyper::Method::GET if path.matched(paths::ID_MC_GAME_VERSION_MANIFEST_JSON) => Some("GetMinecraftVersionManifest"),
             // V1PackagesPackageIdVersionIdJsonGet - GET /v1/packages/{packageId}/{versionId}.json
             hyper::Method::GET if path.matched(paths::ID_V1_PACKAGES_PACKAGEID_VERSIONID_JSON) => Some("V1PackagesPackageIdVersionIdJsonGet"),
             _ => None,

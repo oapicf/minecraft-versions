@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T01:32:29.045945190Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T08:44:30.733727206Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex   {
   @JsonProperty("id")
   private String id;

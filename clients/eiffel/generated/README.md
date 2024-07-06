@@ -23,15 +23,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DEFAULT_API* | [**mc_game_version_manifest_get**](docs/DEFAULT_API.md#mc_game_version_manifest_get) | **Get** /mc/game/version_manifest | Get Minecraft version manifest
+*DEFAULT_API* | [**minecraft_version_manifest**](docs/DEFAULT_API.md#minecraft_version_manifest) | **Get** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DEFAULT_API* | [**v1_packages_package_id_version_id_json_get**](docs/DEFAULT_API.md#v1_packages_package_id_version_id_json_get) | **Get** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation For Models
 
- - [MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE](docs/MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE.md)
- - [MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE_LATEST](docs/MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE_LATEST.md)
- - [MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE_VERSIONS_INNER](docs/MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE_VERSIONS_INNER.md)
+ - [GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE](docs/GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE.md)
+ - [GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE_LATEST](docs/GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE_LATEST.md)
+ - [GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE_VERSIONS_INNER](docs/GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE_VERSIONS_INNER.md)
  - [MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE](docs/MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE.md)
  - [MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE_ASSET_INDEX](docs/MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE_ASSET_INDEX.md)
  - [MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE_DOWNLOADS](docs/MODEL_V1_PACKAGES__PACKAGE_ID___VERSION_ID__JSON_GET_200_RESPONSE_DOWNLOADS.md)

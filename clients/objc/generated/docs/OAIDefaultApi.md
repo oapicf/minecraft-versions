@@ -4,14 +4,14 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mcGameVersionManifestGet**](OAIDefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](OAIDefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1PackagesPackageIdVersionIdJsonGet**](OAIDefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
-# **mcGameVersionManifestGet**
+# **getMinecraftVersionManifest**
 ```objc
--(NSURLSessionTask*) mcGameVersionManifestGetWithCompletionHandler: 
-        (void (^)(OAIMcGameVersionManifestGet200Response* output, NSError* error)) handler;
+-(NSURLSessionTask*) getMinecraftVersionManifestWithCompletionHandler: 
+        (void (^)(OAIGetMinecraftVersionManifest200Response* output, NSError* error)) handler;
 ```
 
 Get Minecraft version manifest
@@ -23,13 +23,13 @@ Get Minecraft version manifest
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Get Minecraft version manifest
-[apiInstance mcGameVersionManifestGetWithCompletionHandler: 
-          ^(OAIMcGameVersionManifestGet200Response* output, NSError* error) {
+[apiInstance getMinecraftVersionManifestWithCompletionHandler: 
+          ^(OAIGetMinecraftVersionManifest200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling OAIDefaultApi->mcGameVersionManifestGet: %@", error);
+                            NSLog(@"Error calling OAIDefaultApi->getMinecraftVersionManifest: %@", error);
                         }
                     }];
 ```
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIMcGameVersionManifestGet200Response***](OAIMcGameVersionManifestGet200Response.md)
+[**OAIGetMinecraftVersionManifest200Response***](OAIGetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

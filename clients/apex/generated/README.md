@@ -46,7 +46,7 @@ OASDefaultApi api = new OASDefaultApi();
 
 try {
     // cross your fingers
-    OASMcGameVersionManifestGet200Respon result = api.mcGameVersionManifestGet();
+    OASGetMinecraftVersionManifest200Res result = api.getMinecraftVersionManifest();
     System.debug(result);
 } catch (OAS.ApiException e) {
     // ...handle your exceptions
@@ -59,13 +59,13 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OASDefaultApi* | [**mcGameVersionManifestGet**](OASDefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*OASDefaultApi* | [**getMinecraftVersionManifest**](OASDefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *OASDefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](OASDefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation for Models
 
- - [OASMcGameVersionManifestGet200Respon](OASMcGameVersionManifestGet200Respon.md)
+ - [OASGetMinecraftVersionManifest200Res](OASGetMinecraftVersionManifest200Res.md)
  - [OASV1PackagesPackageIdVersionIdJsonG](OASV1PackagesPackageIdVersionIdJsonG.md)
 
 

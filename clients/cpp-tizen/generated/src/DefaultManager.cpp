@@ -48,17 +48,17 @@ static gpointer __DefaultManagerthreadFunc(gpointer data)
 }
 
 
-static bool mcGameVersionManifestGetProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
+static bool getMinecraftVersionManifestProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(_mc_game_version_manifest_get_200_response, Error, void* )
-	= reinterpret_cast<void(*)(_mc_game_version_manifest_get_200_response, Error, void* )> (voidHandler);
+	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
+	= reinterpret_cast<void(*)(GetMinecraftVersionManifest_200_response, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
 	
-	_mc_game_version_manifest_get_200_response out;
+	GetMinecraftVersionManifest_200_response out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
@@ -66,12 +66,12 @@ static bool mcGameVersionManifestGetProcessor(MemoryStruct_s p_chunk, long code,
 
 
 
-		if (isprimitive("_mc_game_version_manifest_get_200_response")) {
+		if (isprimitive("GetMinecraftVersionManifest_200_response")) {
 			pJson = json_from_string(data, NULL);
-			jsonToValue(&out, pJson, "_mc_game_version_manifest_get_200_response", "_mc_game_version_manifest_get_200_response");
+			jsonToValue(&out, pJson, "GetMinecraftVersionManifest_200_response", "GetMinecraftVersionManifest_200_response");
 			json_node_free(pJson);
 
-			if ("_mc_game_version_manifest_get_200_response" == "std::string") {
+			if ("GetMinecraftVersionManifest_200_response" == "std::string") {
 				string* val = (std::string*)(&out);
 				if (val->empty() && p_chunk.size>4) {
 					*val = string(p_chunk.memory, p_chunk.size);
@@ -103,9 +103,9 @@ static bool mcGameVersionManifestGetProcessor(MemoryStruct_s p_chunk, long code,
 			}
 }
 
-static bool mcGameVersionManifestGetHelper(char * accessToken,
+static bool getMinecraftVersionManifestHelper(char * accessToken,
 	
-	void(* handler)(_mc_game_version_manifest_get_200_response, Error, void* )
+	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -125,7 +125,7 @@ static bool mcGameVersionManifestGetHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	string url("/mc/game/version_manifest");
+	string url("/mc/game/version_manifest.json");
 	int pos;
 
 
@@ -144,7 +144,7 @@ static bool mcGameVersionManifestGetHelper(char * accessToken,
 	if(!isAsync){
 		NetClient::easycurl(DefaultManager::getBasePath(), url, myhttpmethod, queryParams,
 			mBody, headerList, p_chunk, &code, errormsg);
-		bool retval = mcGameVersionManifestGetProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
+		bool retval = getMinecraftVersionManifestProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
 
 		curl_slist_free_all(headerList);
 		if (p_chunk) {
@@ -162,7 +162,7 @@ static bool mcGameVersionManifestGetHelper(char * accessToken,
 		RequestInfo *requestInfo = NULL;
 
 		requestInfo = new(nothrow) RequestInfo (DefaultManager::getBasePath(), url, myhttpmethod, queryParams,
-			mBody, headerList, p_chunk, &code, errormsg, userData, reinterpret_cast<void(*)()>(handler), mcGameVersionManifestGetProcessor);;
+			mBody, headerList, p_chunk, &code, errormsg, userData, reinterpret_cast<void(*)()>(handler), getMinecraftVersionManifestProcessor);;
 		if(requestInfo == NULL)
 			return false;
 
@@ -174,22 +174,22 @@ static bool mcGameVersionManifestGetHelper(char * accessToken,
 
 
 
-bool DefaultManager::mcGameVersionManifestGetAsync(char * accessToken,
+bool DefaultManager::getMinecraftVersionManifestAsync(char * accessToken,
 	
-	void(* handler)(_mc_game_version_manifest_get_200_response, Error, void* )
+	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
 	, void* userData)
 {
-	return mcGameVersionManifestGetHelper(accessToken,
+	return getMinecraftVersionManifestHelper(accessToken,
 	
 	handler, userData, true);
 }
 
-bool DefaultManager::mcGameVersionManifestGetSync(char * accessToken,
+bool DefaultManager::getMinecraftVersionManifestSync(char * accessToken,
 	
-	void(* handler)(_mc_game_version_manifest_get_200_response, Error, void* )
+	void(* handler)(GetMinecraftVersionManifest_200_response, Error, void* )
 	, void* userData)
 {
-	return mcGameVersionManifestGetHelper(accessToken,
+	return getMinecraftVersionManifestHelper(accessToken,
 	
 	handler, userData, false);
 }

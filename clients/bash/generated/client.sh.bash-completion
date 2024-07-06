@@ -69,13 +69,13 @@ _()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
-    operations["mcGameVersionManifestGet"]=1
+    operations["getMinecraftVersionManifest"]=1
     operations["v1PackagesPackageIdVersionIdJsonGet"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["mcGameVersionManifestGet"]=""
+    operation_parameters["getMinecraftVersionManifest"]=""
     operation_parameters["v1PackagesPackageIdVersionIdJsonGet"]="packageId= versionId= "
 
     # An associative array of possible values for enum parameters

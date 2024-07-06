@@ -15,9 +15,9 @@ import (
 type DefaultAPI struct {
 }
 
-// Get /mc/game/version_manifest
+// Get /mc/game/version_manifest.json
 // Get Minecraft version manifest 
-func (api *DefaultAPI) McGameVersionManifestGet(c *gin.Context) {
+func (api *DefaultAPI) GetMinecraftVersionManifest(c *gin.Context) {
 	// Your handler implementation
 	c.JSON(200, gin.H{"status": "OK"})
 }

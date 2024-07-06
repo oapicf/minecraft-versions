@@ -30,8 +30,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>McGameVersionManifestGet200Response</returns>
-        McGameVersionManifestGet200Response McGameVersionManifestGet(int operationIndex = 0);
+        /// <returns>GetMinecraftVersionManifest200Response</returns>
+        GetMinecraftVersionManifest200Response GetMinecraftVersionManifest(int operationIndex = 0);
 
         /// <summary>
         /// Get Minecraft version manifest
@@ -41,8 +41,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of McGameVersionManifestGet200Response</returns>
-        ApiResponse<McGameVersionManifestGet200Response> McGameVersionManifestGetWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of GetMinecraftVersionManifest200Response</returns>
+        ApiResponse<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Get Minecraft version package details
         /// </summary>
@@ -83,8 +83,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of McGameVersionManifestGet200Response</returns>
-        System.Threading.Tasks.Task<McGameVersionManifestGet200Response> McGameVersionManifestGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetMinecraftVersionManifest200Response</returns>
+        System.Threading.Tasks.Task<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Minecraft version manifest
@@ -95,8 +95,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (McGameVersionManifestGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<McGameVersionManifestGet200Response>> McGameVersionManifestGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetMinecraftVersionManifest200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetMinecraftVersionManifest200Response>> GetMinecraftVersionManifestWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Minecraft version package details
         /// </summary>
@@ -249,10 +249,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>McGameVersionManifestGet200Response</returns>
-        public McGameVersionManifestGet200Response McGameVersionManifestGet(int operationIndex = 0)
+        /// <returns>GetMinecraftVersionManifest200Response</returns>
+        public GetMinecraftVersionManifest200Response GetMinecraftVersionManifest(int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<McGameVersionManifestGet200Response> localVarResponse = McGameVersionManifestGetWithHttpInfo();
+            Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response> localVarResponse = GetMinecraftVersionManifestWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -261,8 +261,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of McGameVersionManifestGet200Response</returns>
-        public Org.OpenAPITools.Client.ApiResponse<McGameVersionManifestGet200Response> McGameVersionManifestGetWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of GetMinecraftVersionManifest200Response</returns>
+        public Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestWithHttpInfo(int operationIndex = 0)
         {
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
 
@@ -287,15 +287,15 @@ namespace Org.OpenAPITools.Api
             }
 
 
-            localVarRequestOptions.Operation = "DefaultApi.McGameVersionManifestGet";
+            localVarRequestOptions.Operation = "DefaultApi.GetMinecraftVersionManifest";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<McGameVersionManifestGet200Response>("/mc/game/version_manifest", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetMinecraftVersionManifest200Response>("/mc/game/version_manifest.json", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("McGameVersionManifestGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMinecraftVersionManifest", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -311,10 +311,10 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of McGameVersionManifestGet200Response</returns>
-        public async System.Threading.Tasks.Task<McGameVersionManifestGet200Response> McGameVersionManifestGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetMinecraftVersionManifest200Response</returns>
+        public async System.Threading.Tasks.Task<GetMinecraftVersionManifest200Response> GetMinecraftVersionManifestAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<McGameVersionManifestGet200Response> localVarResponse = await McGameVersionManifestGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response> localVarResponse = await GetMinecraftVersionManifestWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -324,8 +324,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (McGameVersionManifestGet200Response)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<McGameVersionManifestGet200Response>> McGameVersionManifestGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetMinecraftVersionManifest200Response)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<GetMinecraftVersionManifest200Response>> GetMinecraftVersionManifestWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -351,16 +351,16 @@ namespace Org.OpenAPITools.Api
             }
 
 
-            localVarRequestOptions.Operation = "DefaultApi.McGameVersionManifestGet";
+            localVarRequestOptions.Operation = "DefaultApi.GetMinecraftVersionManifest";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<McGameVersionManifestGet200Response>("/mc/game/version_manifest", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMinecraftVersionManifest200Response>("/mc/game/version_manifest.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("McGameVersionManifestGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMinecraftVersionManifest", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

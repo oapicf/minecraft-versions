@@ -5,7 +5,7 @@
  */
 package com.prokarma.pkmst.controller;
 
-import com.prokarma.pkmst.model.McGameVersionManifestGet200Response;
+import com.prokarma.pkmst.model.GetMinecraftVersionManifest200Response;
 import com.prokarma.pkmst.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import io.swagger.annotations.*;
@@ -20,19 +20,19 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T01:32:43.130084075Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T08:44:41.983633026Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Api(value = "Default", description = "the Default API")
 public interface DefaultApi {
 
-    @ApiOperation(value = "Get Minecraft version manifest", notes = "", response = McGameVersionManifestGet200Response.class, tags={  })
+    @ApiOperation(value = "Get Minecraft version manifest", notes = "", response = GetMinecraftVersionManifest200Response.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = McGameVersionManifestGet200Response.class) })
+        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = GetMinecraftVersionManifest200Response.class) })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/mc/game/version_manifest",
+        value = "/mc/game/version_manifest.json",
         produces = { "application/json" }
     )
-    ResponseEntity<McGameVersionManifestGet200Response> mcGameVersionManifestGet( @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest( @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
     @ApiOperation(value = "Get Minecraft version package details", notes = "", response = V1PackagesPackageIdVersionIdJsonGet200Response.class, tags={  })

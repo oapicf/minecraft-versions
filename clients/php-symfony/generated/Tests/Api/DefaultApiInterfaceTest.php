@@ -75,19 +75,19 @@ class DefaultApiInterfaceTest extends WebTestCase
     }
 
     /**
-     * Test case for mcGameVersionManifestGet
+     * Test case for getMinecraftVersionManifest
      *
      * Get Minecraft version manifest.
      *
      */
-    public function testMcGameVersionManifestGet(): void
+    public function testGetMinecraftVersionManifest(): void
     {
         $client = self::$client;
 
-        $path = '/mc/game/version_manifest';
+        $path = '/mc/game/version_manifest.json';
 
         $crawler = $client->request('GET', $path);
-        $this->markTestSkipped('Test for mcGameVersionManifestGet not implemented');
+        $this->markTestSkipped('Test for getMinecraftVersionManifest not implemented');
     }
 
     /**

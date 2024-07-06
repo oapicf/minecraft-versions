@@ -14,7 +14,7 @@ There may be multiple requests for a single endpoint, one for each example descr
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mcGameVersionManifestGet**](Apis/DefaultApi.http#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**getMinecraftVersionManifest**](Apis/DefaultApi.http#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](Apis/DefaultApi.http#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 

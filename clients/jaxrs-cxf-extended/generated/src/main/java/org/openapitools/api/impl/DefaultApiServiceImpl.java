@@ -1,7 +1,7 @@
 package org.openapitools.api.impl;
 
 import org.openapitools.api.*;
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import java.io.InputStream;
@@ -23,7 +23,7 @@ public class DefaultApiServiceImpl implements DefaultApi {
      *
      */
     @Override
-    public McGameVersionManifestGet200Response mcGameVersionManifestGet() {
+    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest() {
         // TODO: Implement...
         return null;
     }

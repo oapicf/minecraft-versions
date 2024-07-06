@@ -19,7 +19,7 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { McGameVersionManifestGet200Response } from '../model/mcGameVersionManifestGet200Response';
+import { GetMinecraftVersionManifest200Response } from '../model/getMinecraftVersionManifest200Response';
 // @ts-ignore
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../model/v1PackagesPackageIdVersionIdJsonGet200Response';
 
@@ -99,10 +99,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public mcGameVersionManifestGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<McGameVersionManifestGet200Response>;
-    public mcGameVersionManifestGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<McGameVersionManifestGet200Response>>;
-    public mcGameVersionManifestGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<McGameVersionManifestGet200Response>>;
-    public mcGameVersionManifestGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getMinecraftVersionManifest(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetMinecraftVersionManifest200Response>;
+    public getMinecraftVersionManifest(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetMinecraftVersionManifest200Response>>;
+    public getMinecraftVersionManifest(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetMinecraftVersionManifest200Response>>;
+    public getMinecraftVersionManifest(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -140,8 +140,8 @@ export class DefaultService {
             }
         }
 
-        let localVarPath = `/mc/game/version_manifest`;
-        return this.httpClient.request<McGameVersionManifestGet200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/mc/game/version_manifest.json`;
+        return this.httpClient.request<GetMinecraftVersionManifest200Response>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

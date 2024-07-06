@@ -4,13 +4,13 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-McGameVersionManifestGet**](DefaultApi.md#Invoke-McGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**Get-MinecraftVersionManifest**](DefaultApi.md#Get-MinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**Invoke-V1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#Invoke-V1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
-<a id="Invoke-McGameVersionManifestGet"></a>
-# **Invoke-McGameVersionManifestGet**
-> McGameVersionManifestGet200Response Invoke-McGameVersionManifestGet<br>
+<a id="Get-MinecraftVersionManifest"></a>
+# **Get-MinecraftVersionManifest**
+> GetMinecraftVersionManifest200Response Get-MinecraftVersionManifest<br>
 
 Get Minecraft version manifest
 
@@ -19,9 +19,9 @@ Get Minecraft version manifest
 
 # Get Minecraft version manifest
 try {
-    $Result = Invoke-McGameVersionManifestGet
+    $Result = Get-MinecraftVersionManifest
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-McGameVersionManifestGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-MinecraftVersionManifest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -31,7 +31,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md) (PSCustomObject)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md) (PSCustomObject)
 
 ### Authorization
 

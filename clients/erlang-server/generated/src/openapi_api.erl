@@ -15,7 +15,7 @@
 -spec request_params(OperationID :: operation_id()) -> [Param :: request_param()].
 
 
-request_params('McGameVersionManifestGet') ->
+request_params('GetMinecraftVersionManifest') ->
     [
     ];
 
@@ -120,8 +120,8 @@ populate_request_param(OperationID, Name, Req0, ValidatorState) ->
 ) -> ok | no_return().
 
 
-validate_response('McGameVersionManifestGet', 200, Body, ValidatorState) ->
-    validate_response_body('_mc_game_version_manifest_get_200_response', '_mc_game_version_manifest_get_200_response', Body, ValidatorState);
+validate_response('GetMinecraftVersionManifest', 200, Body, ValidatorState) ->
+    validate_response_body('getMinecraftVersionManifest_200_response', 'getMinecraftVersionManifest_200_response', Body, ValidatorState);
 
 validate_response('V1PackagesPackageIdVersionIdJsonGet', 200, Body, ValidatorState) ->
     validate_response_body('_v1_packages__packageId___versionId__json_get_200_response', '_v1_packages__packageId___versionId__json_get_200_response', Body, ValidatorState);

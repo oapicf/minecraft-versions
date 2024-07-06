@@ -49,16 +49,16 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mcGameVersionManifestGet**](docs/DefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**getMinecraftVersionManifest**](docs/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [org.openapitools.server.models.McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [org.openapitools.server.models.McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [org.openapitools.server.models.McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [org.openapitools.server.models.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [org.openapitools.server.models.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [org.openapitools.server.models.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [org.openapitools.server.models.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [org.openapitools.server.models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [org.openapitools.server.models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

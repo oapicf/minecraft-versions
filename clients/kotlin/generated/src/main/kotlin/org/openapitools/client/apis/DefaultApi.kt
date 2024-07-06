@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
-import org.openapitools.client.models.McGameVersionManifestGet200Response
+import org.openapitools.client.models.GetMinecraftVersionManifest200Response
 import org.openapitools.client.models.V1PackagesPackageIdVersionIdJsonGet200Response
 
 import com.squareup.moshi.Json
@@ -49,7 +49,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Minecraft version manifest
      * 
-     * @return McGameVersionManifestGet200Response
+     * @return GetMinecraftVersionManifest200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -58,11 +58,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun mcGameVersionManifestGet() : McGameVersionManifestGet200Response {
-        val localVarResponse = mcGameVersionManifestGetWithHttpInfo()
+    fun getMinecraftVersionManifest() : GetMinecraftVersionManifest200Response {
+        val localVarResponse = getMinecraftVersionManifestWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as McGameVersionManifestGet200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as GetMinecraftVersionManifest200Response
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -79,26 +79,26 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Minecraft version manifest
      * 
-     * @return ApiResponse<McGameVersionManifestGet200Response?>
+     * @return ApiResponse<GetMinecraftVersionManifest200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun mcGameVersionManifestGetWithHttpInfo() : ApiResponse<McGameVersionManifestGet200Response?> {
-        val localVariableConfig = mcGameVersionManifestGetRequestConfig()
+    fun getMinecraftVersionManifestWithHttpInfo() : ApiResponse<GetMinecraftVersionManifest200Response?> {
+        val localVariableConfig = getMinecraftVersionManifestRequestConfig()
 
-        return request<Unit, McGameVersionManifestGet200Response>(
+        return request<Unit, GetMinecraftVersionManifest200Response>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation mcGameVersionManifestGet
+     * To obtain the request config of the operation getMinecraftVersionManifest
      *
      * @return RequestConfig
      */
-    fun mcGameVersionManifestGetRequestConfig() : RequestConfig<Unit> {
+    fun getMinecraftVersionManifestRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -106,7 +106,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/mc/game/version_manifest",
+            path = "/mc/game/version_manifest.json",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

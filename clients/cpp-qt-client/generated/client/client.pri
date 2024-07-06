@@ -2,9 +2,9 @@ QT += network
 
 HEADERS += \
 # Models
-    $${PWD}/OAI_mc_game_version_manifest_get_200_response.h \
-    $${PWD}/OAI_mc_game_version_manifest_get_200_response_latest.h \
-    $${PWD}/OAI_mc_game_version_manifest_get_200_response_versions_inner.h \
+    $${PWD}/OAIGetMinecraftVersionManifest_200_response.h \
+    $${PWD}/OAIGetMinecraftVersionManifest_200_response_latest.h \
+    $${PWD}/OAIGetMinecraftVersionManifest_200_response_versions_inner.h \
     $${PWD}/OAI_v1_packages__packageId___versionId__json_get_200_response.h \
     $${PWD}/OAI_v1_packages__packageId___versionId__json_get_200_response_assetIndex.h \
     $${PWD}/OAI_v1_packages__packageId___versionId__json_get_200_response_downloads.h \
@@ -24,9 +24,9 @@ HEADERS += \
 
 SOURCES += \
 # Models
-    $${PWD}/OAI_mc_game_version_manifest_get_200_response.cpp \
-    $${PWD}/OAI_mc_game_version_manifest_get_200_response_latest.cpp \
-    $${PWD}/OAI_mc_game_version_manifest_get_200_response_versions_inner.cpp \
+    $${PWD}/OAIGetMinecraftVersionManifest_200_response.cpp \
+    $${PWD}/OAIGetMinecraftVersionManifest_200_response_latest.cpp \
+    $${PWD}/OAIGetMinecraftVersionManifest_200_response_versions_inner.cpp \
     $${PWD}/OAI_v1_packages__packageId___versionId__json_get_200_response.cpp \
     $${PWD}/OAI_v1_packages__packageId___versionId__json_get_200_response_assetIndex.cpp \
     $${PWD}/OAI_v1_packages__packageId___versionId__json_get_200_response_downloads.cpp \

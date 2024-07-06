@@ -23,25 +23,25 @@ package body .Skeletons is
    package body Skeleton is
 
 
-      package API_Mc_Game_Version_Manifest_Get is
+      package API_Get_Minecraft_Version_Manifest is
          new Swagger.Servers.Operation
-            (Handler => Mc_Game_Version_Manifest_Get,
+            (Handler => Get_Minecraft_Version_Manifest,
              Method  => Swagger.Servers.GET,
-             URI     => URI_Prefix & "/mc/game/version_manifest",
+             URI     => URI_Prefix & "/mc/game/version_manifest.json",
              Mimes   => Media_List_1'Access);
 
       --  Get Minecraft version manifest
-      procedure Mc_Game_Version_Manifest_Get
+      procedure Get_Minecraft_Version_Manifest
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
           Context : in out Swagger.Servers.Context_Type) is
          Impl : Implementation_Type;
-         Result : .Models.McGameVersionManifestGet200Response_Type;
+         Result : .Models.GetMinecraftVersionManifest200Response_Type;
       begin
          
          
-         Impl.Mc_Game_Version_Manifest_Get (Result, Context);
+         Impl.Get_Minecraft_Version_Manifest (Result, Context);
          if Context.Get_Status = 200 then
             Context.Set_Description ("A list of Minecraft versions with the latest and snapshot releases");
 
@@ -51,7 +51,7 @@ package body .Skeletons is
             return;
          end if;
 
-      end Mc_Game_Version_Manifest_Get;
+      end Get_Minecraft_Version_Manifest;
 
       package API_V_1Packages_Package_Id_Version_Id_Json_Get is
          new Swagger.Servers.Operation
@@ -93,7 +93,7 @@ package body .Skeletons is
 
       procedure Register (Server : in out Swagger.Servers.Application_Type'Class) is
       begin
-         Swagger.Servers.Register (Server, API_Mc_Game_Version_Manifest_Get.Definition);
+         Swagger.Servers.Register (Server, API_Get_Minecraft_Version_Manifest.Definition);
          Swagger.Servers.Register (Server, API_V_1Packages_Package_Id_Version_Id_Json_Get.Definition);
       end Register;
 
@@ -103,16 +103,16 @@ package body .Skeletons is
 
 
       --  Get Minecraft version manifest
-      procedure Mc_Game_Version_Manifest_Get
+      procedure Get_Minecraft_Version_Manifest
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
           Context : in out Swagger.Servers.Context_Type) is
-         Result : .Models.McGameVersionManifestGet200Response_Type;
+         Result : .Models.GetMinecraftVersionManifest200Response_Type;
       begin
 
          
-         Server.Mc_Game_Version_Manifest_Get (Result, Context);
+         Server.Get_Minecraft_Version_Manifest (Result, Context);
          if Context.Get_Status = 200 then
             Context.Set_Description ("A list of Minecraft versions with the latest and snapshot releases");
 
@@ -122,13 +122,13 @@ package body .Skeletons is
             return;
          end if;
 
-      end Mc_Game_Version_Manifest_Get;
+      end Get_Minecraft_Version_Manifest;
 
-      package API_Mc_Game_Version_Manifest_Get is
+      package API_Get_Minecraft_Version_Manifest is
          new Swagger.Servers.Operation
-            (Handler => Mc_Game_Version_Manifest_Get,
+            (Handler => Get_Minecraft_Version_Manifest,
              Method  => Swagger.Servers.GET,
-             URI     => URI_Prefix & "/mc/game/version_manifest",
+             URI     => URI_Prefix & "/mc/game/version_manifest.json",
              Mimes   => Media_List_1'Access);
 
 
@@ -172,17 +172,17 @@ package body .Skeletons is
 
       procedure Register (Server : in out Swagger.Servers.Application_Type'Class) is
       begin
-         Swagger.Servers.Register (Server, API_Mc_Game_Version_Manifest_Get.Definition);
+         Swagger.Servers.Register (Server, API_Get_Minecraft_Version_Manifest.Definition);
          Swagger.Servers.Register (Server, API_V_1Packages_Package_Id_Version_Id_Json_Get.Definition);
       end Register;
 
       protected body Server is
          --  Get Minecraft version manifest
-         procedure Mc_Game_Version_Manifest_Get (Result : out .Models.McGameVersionManifestGet200Response_Type;
+         procedure Get_Minecraft_Version_Manifest (Result : out .Models.GetMinecraftVersionManifest200Response_Type;
          Context : in out Swagger.Servers.Context_Type) is
          begin
-            Impl.Mc_Game_Version_Manifest_Get (Result, Context);
-         end Mc_Game_Version_Manifest_Get;
+            Impl.Get_Minecraft_Version_Manifest (Result, Context);
+         end Get_Minecraft_Version_Manifest;
 
          --  Get Minecraft version package details
          procedure V_1Packages_Package_Id_Version_Id_Json_Get

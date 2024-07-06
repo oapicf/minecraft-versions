@@ -1,15 +1,15 @@
-export * from '../models/McGameVersionManifestGet200Response';
-export * from '../models/McGameVersionManifestGet200ResponseLatest';
-export * from '../models/McGameVersionManifestGet200ResponseVersionsInner';
+export * from '../models/GetMinecraftVersionManifest200Response';
+export * from '../models/GetMinecraftVersionManifest200ResponseLatest';
+export * from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
 export * from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
 export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
 export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient';
 export * from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion';
 
-import { McGameVersionManifestGet200Response } from '../models/McGameVersionManifestGet200Response';
-import { McGameVersionManifestGet200ResponseLatest } from '../models/McGameVersionManifestGet200ResponseLatest';
-import { McGameVersionManifestGet200ResponseVersionsInner } from '../models/McGameVersionManifestGet200ResponseVersionsInner';
+import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
+import { GetMinecraftVersionManifest200ResponseLatest } from '../models/GetMinecraftVersionManifest200ResponseLatest';
+import { GetMinecraftVersionManifest200ResponseVersionsInner } from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -32,9 +32,9 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
-    "McGameVersionManifestGet200Response": McGameVersionManifestGet200Response,
-    "McGameVersionManifestGet200ResponseLatest": McGameVersionManifestGet200ResponseLatest,
-    "McGameVersionManifestGet200ResponseVersionsInner": McGameVersionManifestGet200ResponseVersionsInner,
+    "GetMinecraftVersionManifest200Response": GetMinecraftVersionManifest200Response,
+    "GetMinecraftVersionManifest200ResponseLatest": GetMinecraftVersionManifest200ResponseLatest,
+    "GetMinecraftVersionManifest200ResponseVersionsInner": GetMinecraftVersionManifest200ResponseVersionsInner,
     "V1PackagesPackageIdVersionIdJsonGet200Response": V1PackagesPackageIdVersionIdJsonGet200Response,
     "V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex": V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
     "V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads": V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,

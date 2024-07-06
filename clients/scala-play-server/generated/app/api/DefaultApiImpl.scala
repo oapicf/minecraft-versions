@@ -1,20 +1,20 @@
 package api
 
-import model.McGameVersionManifestGet200Response
+import model.GetMinecraftVersionManifest200Response
 import model.V1PackagesPackageIdVersionIdJsonGet200Response
 
 /**
   * Provides a default implementation for [[DefaultApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-06T01:37:06.044701330Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-06T08:47:35.761849206Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 class DefaultApiImpl extends DefaultApi {
   /**
     * @inheritdoc
     */
-  override def mcGameVersionManifestGet(): McGameVersionManifestGet200Response = {
+  override def getMinecraftVersionManifest(): GetMinecraftVersionManifest200Response = {
     // TODO: Implement better logic
 
-    McGameVersionManifestGet200Response(None, None)
+    GetMinecraftVersionManifest200Response(None, None)
   }
 
   /**

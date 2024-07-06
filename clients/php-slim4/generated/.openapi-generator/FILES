@@ -12,9 +12,9 @@ lib/App/RegisterMiddlewares.php
 lib/App/RegisterRoutes.php
 lib/App/ResponseEmitter.php
 lib/BaseModel.php
-lib/Model/McGameVersionManifestGet200Response.php
-lib/Model/McGameVersionManifestGet200ResponseLatest.php
-lib/Model/McGameVersionManifestGet200ResponseVersionsInner.php
+lib/Model/GetMinecraftVersionManifest200Response.php
+lib/Model/GetMinecraftVersionManifest200ResponseLatest.php
+lib/Model/GetMinecraftVersionManifest200ResponseVersionsInner.php
 lib/Model/V1PackagesPackageIdVersionIdJsonGet200Response.php
 lib/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.php
 lib/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.php
@@ -27,9 +27,9 @@ public/.htaccess
 public/index.php
 tests/Api/DefaultApiTest.php
 tests/BaseModelTest.php
-tests/Model/McGameVersionManifestGet200ResponseLatestTest.php
-tests/Model/McGameVersionManifestGet200ResponseTest.php
-tests/Model/McGameVersionManifestGet200ResponseVersionsInnerTest.php
+tests/Model/GetMinecraftVersionManifest200ResponseLatestTest.php
+tests/Model/GetMinecraftVersionManifest200ResponseTest.php
+tests/Model/GetMinecraftVersionManifest200ResponseVersionsInnerTest.php
 tests/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexTest.php
 tests/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClientTest.php
 tests/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsTest.php

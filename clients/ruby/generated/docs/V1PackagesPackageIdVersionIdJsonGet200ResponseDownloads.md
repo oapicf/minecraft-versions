@@ -1,4 +1,4 @@
-# OpenapiClient::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+# MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'minecraft_versions'
 
-instance = OpenapiClient::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.new(
+instance = MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.new(
   client: null,
   client_mappings: null,
   server: null,

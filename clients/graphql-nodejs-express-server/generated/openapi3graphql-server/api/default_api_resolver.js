@@ -15,8 +15,8 @@
 export default {
     Query: {
 
-        // @return McGameVersionManifestGet200Response
-        McGameVersionManifestGet: () => {
+        // @return GetMinecraftVersionManifest200Response
+        GetMinecraftVersionManifest: () => {
             return {
                 
             };

@@ -13,9 +13,9 @@
 
 
 import ApiClient from './ApiClient';
-import McGameVersionManifestGet200Response from './model/McGameVersionManifestGet200Response';
-import McGameVersionManifestGet200ResponseLatest from './model/McGameVersionManifestGet200ResponseLatest';
-import McGameVersionManifestGet200ResponseVersionsInner from './model/McGameVersionManifestGet200ResponseVersionsInner';
+import GetMinecraftVersionManifest200Response from './model/GetMinecraftVersionManifest200Response';
+import GetMinecraftVersionManifest200ResponseLatest from './model/GetMinecraftVersionManifest200ResponseLatest';
+import GetMinecraftVersionManifest200ResponseVersionsInner from './model/GetMinecraftVersionManifest200ResponseVersionsInner';
 import V1PackagesPackageIdVersionIdJsonGet200Response from './model/V1PackagesPackageIdVersionIdJsonGet200Response';
 import V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex from './model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 import V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads from './model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -63,22 +63,22 @@ export {
     ApiClient,
 
     /**
-     * The McGameVersionManifestGet200Response model constructor.
-     * @property {module:model/McGameVersionManifestGet200Response}
+     * The GetMinecraftVersionManifest200Response model constructor.
+     * @property {module:model/GetMinecraftVersionManifest200Response}
      */
-    McGameVersionManifestGet200Response,
+    GetMinecraftVersionManifest200Response,
 
     /**
-     * The McGameVersionManifestGet200ResponseLatest model constructor.
-     * @property {module:model/McGameVersionManifestGet200ResponseLatest}
+     * The GetMinecraftVersionManifest200ResponseLatest model constructor.
+     * @property {module:model/GetMinecraftVersionManifest200ResponseLatest}
      */
-    McGameVersionManifestGet200ResponseLatest,
+    GetMinecraftVersionManifest200ResponseLatest,
 
     /**
-     * The McGameVersionManifestGet200ResponseVersionsInner model constructor.
-     * @property {module:model/McGameVersionManifestGet200ResponseVersionsInner}
+     * The GetMinecraftVersionManifest200ResponseVersionsInner model constructor.
+     * @property {module:model/GetMinecraftVersionManifest200ResponseVersionsInner}
      */
-    McGameVersionManifestGet200ResponseVersionsInner,
+    GetMinecraftVersionManifest200ResponseVersionsInner,
 
     /**
      * The V1PackagesPackageIdVersionIdJsonGet200Response model constructor.

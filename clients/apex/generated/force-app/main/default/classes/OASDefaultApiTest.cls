@@ -6,7 +6,7 @@ private class OASDefaultApiTest {
      * 
      */
     @isTest
-    private static void mcGameVersionManifestGetTest() {
+    private static void getMinecraftVersionManifestTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
         res.setStatus('OK');
@@ -14,17 +14,17 @@ private class OASDefaultApiTest {
 
         OASClient client;
         OASDefaultApi api;
-        OASMcGameVersionManifestGet200Respon response;
-        OASMcGameVersionManifestGet200Respon expectedResponse;
+        OASGetMinecraftVersionManifest200Res response;
+        OASGetMinecraftVersionManifest200Res expectedResponse;
         String js = '';
 
         api = new OASDefaultApi(new OASClient());
 
-        js = JSON.serialize(OASMcGameVersionManifestGet200Respon.getExample());
+        js = JSON.serialize(OASGetMinecraftVersionManifest200Res.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASMcGameVersionManifestGet200Respon.getExample();
-        response = (OASMcGameVersionManifestGet200Respon) api.mcGameVersionManifestGet();
+        expectedResponse = OASGetMinecraftVersionManifest200Res.getExample();
+        response = (OASGetMinecraftVersionManifest200Res) api.getMinecraftVersionManifest();
         System.assertEquals(expectedResponse, response);
     }
 

@@ -13,7 +13,7 @@
 
 import unittest
 
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
+from minecraftversions.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
 
 class TestV1PackagesPackageIdVersionIdJsonGet200Response(unittest.TestCase):
     """V1PackagesPackageIdVersionIdJsonGet200Response unit test stubs"""
@@ -35,7 +35,7 @@ class TestV1PackagesPackageIdVersionIdJsonGet200Response(unittest.TestCase):
         if include_optional:
             return V1PackagesPackageIdVersionIdJsonGet200Response(
                 version = '',
-                asset_index = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_asset_index._v1_packages__packageId___versionId__json_get_200_response_assetIndex(
+                asset_index = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_asset_index._v1_packages__packageId___versionId__json_get_200_response_assetIndex(
                     id = '', 
                     sha1 = '', 
                     size = 56, 
@@ -43,19 +43,19 @@ class TestV1PackagesPackageIdVersionIdJsonGet200Response(unittest.TestCase):
                     url = '', ),
                 assets = 56,
                 compliance_level = 56,
-                downloads = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads._v1_packages__packageId___versionId__json_get_200_response_downloads(
-                    client = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
+                downloads = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads._v1_packages__packageId___versionId__json_get_200_response_downloads(
+                    client = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
                         sha1 = '', 
                         size = 56, 
                         url = '', ), 
-                    client_mappings = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
+                    client_mappings = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
                         sha1 = '', 
                         size = 56, 
                         url = '', ), 
                     server = , 
                     server_mappings = , ),
                 id = '',
-                java_version = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_java_version._v1_packages__packageId___versionId__json_get_200_response_javaVersion(
+                java_version = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_java_version._v1_packages__packageId___versionId__json_get_200_response_javaVersion(
                     component = '', 
                     major_version = 56, ),
                 main_class = 'net.minecraft.client.main.Main',

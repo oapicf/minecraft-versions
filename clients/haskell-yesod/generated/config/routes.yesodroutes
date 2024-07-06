@@ -3,5 +3,5 @@
 
 -- /static StaticR Static appStatic
 
-/mc/game/version_manifest McGameVersionManifestR GET
+/mc/game/version_manifest.json McGameVersionManifestJsonR GET
 /v1/packages/#Text/{versionId}.json V1PackagesByText{VersionId}JsonR GET

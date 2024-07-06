@@ -20,7 +20,7 @@ import { IAPIConfiguration } from '../IAPIConfiguration';
 import { Headers } from '../Headers';
 import HttpResponse from '../HttpResponse';
 
-import { McGameVersionManifestGet200Response } from '../model/mcGameVersionManifestGet200Response';
+import { GetMinecraftVersionManifest200Response } from '../model/getMinecraftVersionManifest200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../model/v1PackagesPackageIdVersionIdJsonGet200Response';
 
 import { COLLECTION_FORMATS }  from '../variables';
@@ -42,15 +42,15 @@ export class DefaultService {
      * 
      
      */
-    public mcGameVersionManifestGet(observe?: 'body', headers?: Headers): Observable<McGameVersionManifestGet200Response>;
-    public mcGameVersionManifestGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<McGameVersionManifestGet200Response>>;
-    public mcGameVersionManifestGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public getMinecraftVersionManifest(observe?: 'body', headers?: Headers): Observable<GetMinecraftVersionManifest200Response>;
+    public getMinecraftVersionManifest(observe?: 'response', headers?: Headers): Observable<HttpResponse<GetMinecraftVersionManifest200Response>>;
+    public getMinecraftVersionManifest(observe: any = 'body', headers: Headers = {}): Observable<any> {
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<McGameVersionManifestGet200Response>> = this.httpClient.get(`${this.basePath}/mc/game/version_manifest`, headers);
+        const response: Observable<HttpResponse<GetMinecraftVersionManifest200Response>> = this.httpClient.get(`${this.basePath}/mc/game/version_manifest.json`, headers);
         if (observe === 'body') {
                return response.pipe(
-                   map((httpResponse: HttpResponse) => <McGameVersionManifestGet200Response>(httpResponse.response))
+                   map((httpResponse: HttpResponse) => <GetMinecraftVersionManifest200Response>(httpResponse.response))
                );
         }
         return response;

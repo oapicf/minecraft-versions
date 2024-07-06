@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import McGameVersionManifestGet200Response from '../model/McGameVersionManifestGet200Response';
+import GetMinecraftVersionManifest200Response from '../model/GetMinecraftVersionManifest200Response';
 import V1PackagesPackageIdVersionIdJsonGet200Response from '../model/V1PackagesPackageIdVersionIdJsonGet200Response';
 
 /**
@@ -36,19 +36,19 @@ export default class DefaultApi {
 
 
     /**
-     * Callback function to receive the result of the mcGameVersionManifestGet operation.
-     * @callback module:api/DefaultApi~mcGameVersionManifestGetCallback
+     * Callback function to receive the result of the getMinecraftVersionManifest operation.
+     * @callback module:api/DefaultApi~getMinecraftVersionManifestCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/McGameVersionManifestGet200Response} data The data returned by the service call.
+     * @param {module:model/GetMinecraftVersionManifest200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Minecraft version manifest
-     * @param {module:api/DefaultApi~mcGameVersionManifestGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/McGameVersionManifestGet200Response}
+     * @param {module:api/DefaultApi~getMinecraftVersionManifestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetMinecraftVersionManifest200Response}
      */
-    mcGameVersionManifestGet(callback) {
+    getMinecraftVersionManifest(callback) {
       let postBody = null;
 
       let pathParams = {
@@ -63,9 +63,9 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = McGameVersionManifestGet200Response;
+      let returnType = GetMinecraftVersionManifest200Response;
       return this.apiClient.callApi(
-        '/mc/game/version_manifest', 'GET',
+        '/mc/game/version_manifest.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

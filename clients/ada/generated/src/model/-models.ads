@@ -15,33 +15,33 @@ package .Models is
 
 
 
-   type McGameVersionManifestGet200ResponseLatest_Type is
+   type GetMinecraftVersionManifest200ResponseLatest_Type is
      record
        Release : Swagger.Nullable_UString;
        Snapshot : Swagger.Nullable_UString;
      end record;
 
 
-   package McGameVersionManifestGet200ResponseLatest_Type_Vectors is
+   package GetMinecraftVersionManifest200ResponseLatest_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.McGameVersionManifestGet200ResponseLatest_Type);
+                                  Element_Type => .Models.GetMinecraftVersionManifest200ResponseLatest_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.McGameVersionManifestGet200ResponseLatest_Type);
+                        Value : in .Models.GetMinecraftVersionManifest200ResponseLatest_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in McGameVersionManifestGet200ResponseLatest_Type_Vectors.Vector);
+                        Value : in GetMinecraftVersionManifest200ResponseLatest_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.McGameVersionManifestGet200ResponseLatest_Type);
+                          Value : out .Models.GetMinecraftVersionManifest200ResponseLatest_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out McGameVersionManifestGet200ResponseLatest_Type_Vectors.Vector);
+                          Value : in out GetMinecraftVersionManifest200ResponseLatest_Type_Vectors.Vector);
 
 
 
-   type McGameVersionManifestGet200ResponseVersionsInner_Type is
+   type GetMinecraftVersionManifest200ResponseVersionsInner_Type is
      record
        Id : Swagger.Nullable_UString;
        P_Type : Swagger.Nullable_UString;
@@ -51,22 +51,22 @@ package .Models is
      end record;
 
 
-   package McGameVersionManifestGet200ResponseVersionsInner_Type_Vectors is
+   package GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.McGameVersionManifestGet200ResponseVersionsInner_Type);
+                                  Element_Type => .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.McGameVersionManifestGet200ResponseVersionsInner_Type);
+                        Value : in .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in McGameVersionManifestGet200ResponseVersionsInner_Type_Vectors.Vector);
+                        Value : in GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.McGameVersionManifestGet200ResponseVersionsInner_Type);
+                          Value : out .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out McGameVersionManifestGet200ResponseVersionsInner_Type_Vectors.Vector);
+                          Value : in out GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector);
 
 
 
@@ -180,29 +180,29 @@ package .Models is
 
 
 
-   type McGameVersionManifestGet200Response_Type is
+   type GetMinecraftVersionManifest200Response_Type is
      record
-       Latest : .Models.McGameVersionManifestGet200ResponseLatest_Type;
-       Versions : .Models.McGameVersionManifestGet200ResponseVersionsInner_Type_Vectors.Vector;
+       Latest : .Models.GetMinecraftVersionManifest200ResponseLatest_Type;
+       Versions : .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector;
      end record;
 
 
-   package McGameVersionManifestGet200Response_Type_Vectors is
+   package GetMinecraftVersionManifest200Response_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => .Models.McGameVersionManifestGet200Response_Type);
+                                  Element_Type => .Models.GetMinecraftVersionManifest200Response_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.McGameVersionManifestGet200Response_Type);
+                        Value : in .Models.GetMinecraftVersionManifest200Response_Type);
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in McGameVersionManifestGet200Response_Type_Vectors.Vector);
+                        Value : in GetMinecraftVersionManifest200Response_Type_Vectors.Vector);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.McGameVersionManifestGet200Response_Type);
+                          Value : out .Models.GetMinecraftVersionManifest200Response_Type);
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out McGameVersionManifestGet200Response_Type_Vectors.Vector);
+                          Value : in out GetMinecraftVersionManifest200Response_Type_Vectors.Vector);
 
 
 

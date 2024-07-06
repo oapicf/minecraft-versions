@@ -1,9 +1,9 @@
 .openapi-generator-ignore
 README.md
 pom.xml
-src/main/kotlin/org/openapitools/server/api/model/McGameVersionManifestGet200Response.kt
-src/main/kotlin/org/openapitools/server/api/model/McGameVersionManifestGet200ResponseLatest.kt
-src/main/kotlin/org/openapitools/server/api/model/McGameVersionManifestGet200ResponseVersionsInner.kt
+src/main/kotlin/org/openapitools/server/api/model/GetMinecraftVersionManifest200Response.kt
+src/main/kotlin/org/openapitools/server/api/model/GetMinecraftVersionManifest200ResponseLatest.kt
+src/main/kotlin/org/openapitools/server/api/model/GetMinecraftVersionManifest200ResponseVersionsInner.kt
 src/main/kotlin/org/openapitools/server/api/model/V1PackagesPackageIdVersionIdJsonGet200Response.kt
 src/main/kotlin/org/openapitools/server/api/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.kt
 src/main/kotlin/org/openapitools/server/api/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.kt

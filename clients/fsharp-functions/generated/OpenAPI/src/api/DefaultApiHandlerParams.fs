@@ -1,6 +1,6 @@
 namespace OpenAPI
 
-open OpenAPI.Model.McGameVersionManifestGet200Response
+open OpenAPI.Model.GetMinecraftVersionManifest200Response
 open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
 open System.Collections.Generic
 open System
@@ -9,11 +9,11 @@ module DefaultApiHandlerParams =
 
 
 
-    type McGameVersionManifestGetStatusCode200Response = {
-      content:McGameVersionManifestGet200Response;
+    type GetMinecraftVersionManifestStatusCode200Response = {
+      content:GetMinecraftVersionManifest200Response;
       
     }
-    type McGameVersionManifestGetResult = McGameVersionManifestGetStatusCode200 of McGameVersionManifestGetStatusCode200Response
+    type GetMinecraftVersionManifestResult = GetMinecraftVersionManifestStatusCode200 of GetMinecraftVersionManifestStatusCode200Response
 
     //#region Path parameters
     [<CLIMutable>]

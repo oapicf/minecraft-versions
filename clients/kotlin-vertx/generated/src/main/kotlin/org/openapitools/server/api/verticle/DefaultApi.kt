@@ -1,6 +1,6 @@
 package org.openapitools.server.api.verticle
 
-import org.openapitools.server.api.model.McGameVersionManifestGet200Response
+import org.openapitools.server.api.model.GetMinecraftVersionManifest200Response
 import org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200Response
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
@@ -18,9 +18,9 @@ import java.util.Map
 
 interface DefaultApi  {
     fun init(vertx:Vertx,config:JsonObject)
-    /* mcGameVersionManifestGet
+    /* getMinecraftVersionManifest
      * Get Minecraft version manifest */
-    suspend fun mcGameVersionManifestGet(context:OperationRequest):Response<McGameVersionManifestGet200Response>
+    suspend fun getMinecraftVersionManifest(context:OperationRequest):Response<GetMinecraftVersionManifest200Response>
     /* v1PackagesPackageIdVersionIdJsonGet
      * Get Minecraft version package details */
     suspend fun v1PackagesPackageIdVersionIdJsonGet(packageId:kotlin.String?,versionId:kotlin.String?,context:OperationRequest):Response<V1PackagesPackageIdVersionIdJsonGet200Response>

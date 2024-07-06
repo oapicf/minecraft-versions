@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.*;
 import javax.validation.Valid;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T01:33:17.904737996Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T08:45:08.613318098Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient   {
   
   private String sha1;

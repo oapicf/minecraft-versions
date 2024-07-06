@@ -503,7 +503,7 @@ EOF
     echo ""
     echo -e "${BOLD}${WHITE}[default]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}mcGameVersionManifestGet${OFF};Get Minecraft version manifest
+  ${CYAN}getMinecraftVersionManifest${OFF};Get Minecraft version manifest
   ${CYAN}v1PackagesPackageIdVersionIdJsonGet${OFF};Get Minecraft version package details
 EOF
 echo "  $ops" | column -t -s ';'
@@ -560,12 +560,12 @@ print_version() {
 
 ##############################################################################
 #
-# Print help for mcGameVersionManifestGet operation
+# Print help for getMinecraftVersionManifest operation
 #
 ##############################################################################
-print_mcGameVersionManifestGet_help() {
+print_getMinecraftVersionManifest_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}mcGameVersionManifestGet - Get Minecraft version manifest${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getMinecraftVersionManifest - Get Minecraft version manifest${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -593,10 +593,10 @@ print_v1PackagesPackageIdVersionIdJsonGet_help() {
 
 ##############################################################################
 #
-# Call mcGameVersionManifestGet operation
+# Call getMinecraftVersionManifest operation
 #
 ##############################################################################
-call_mcGameVersionManifestGet() {
+call_getMinecraftVersionManifest() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
@@ -605,7 +605,7 @@ call_mcGameVersionManifestGet() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/mc/game/version_manifest" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/mc/game/version_manifest.json" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -760,8 +760,8 @@ case $key in
         OFF=""
         result_color_table=( "" "" "" "" "" "" "" )
     ;;
-    mcGameVersionManifestGet)
-    operation="mcGameVersionManifestGet"
+    getMinecraftVersionManifest)
+    operation="getMinecraftVersionManifest"
     ;;
     v1PackagesPackageIdVersionIdJsonGet)
     operation="v1PackagesPackageIdVersionIdJsonGet"
@@ -853,8 +853,8 @@ fi
 
 # Run cURL command based on the operation ID
 case $operation in
-    mcGameVersionManifestGet)
-    call_mcGameVersionManifestGet
+    getMinecraftVersionManifest)
+    call_getMinecraftVersionManifest
     ;;
     v1PackagesPackageIdVersionIdJsonGet)
     call_v1PackagesPackageIdVersionIdJsonGet

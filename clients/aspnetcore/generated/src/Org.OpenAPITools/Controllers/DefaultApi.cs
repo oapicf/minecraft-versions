@@ -31,21 +31,21 @@ namespace Org.OpenAPITools.Controllers
         /// </summary>
         /// <response code="200">A list of Minecraft versions with the latest and snapshot releases</response>
         [HttpGet]
-        [Route("/mc/game/version_manifest")]
+        [Route("/mc/game/version_manifest.json")]
         [ValidateModelState]
-        [SwaggerOperation("McGameVersionManifestGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(McGameVersionManifestGet200Response), description: "A list of Minecraft versions with the latest and snapshot releases")]
-        public virtual IActionResult McGameVersionManifestGet()
+        [SwaggerOperation("GetMinecraftVersionManifest")]
+        [SwaggerResponse(statusCode: 200, type: typeof(GetMinecraftVersionManifest200Response), description: "A list of Minecraft versions with the latest and snapshot releases")]
+        public virtual IActionResult GetMinecraftVersionManifest()
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(McGameVersionManifestGet200Response));
+            // return StatusCode(200, default(GetMinecraftVersionManifest200Response));
             string exampleJson = null;
             exampleJson = "{\n  \"versions\" : [ {\n    \"releaseTime\" : \"2024-04-01T11:07:19Z\",\n    \"id\" : \"24w14potato\",\n    \"time\" : \"2024-04-01T11:14:41Z\",\n    \"type\" : \"snapshot\",\n    \"url\" : \"https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json\"\n  }, {\n    \"releaseTime\" : \"2024-04-01T11:07:19Z\",\n    \"id\" : \"24w14potato\",\n    \"time\" : \"2024-04-01T11:14:41Z\",\n    \"type\" : \"snapshot\",\n    \"url\" : \"https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json\"\n  } ],\n  \"latest\" : {\n    \"release\" : \"1.21\",\n    \"snapshot\" : \"24w14potato\"\n  }\n}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<McGameVersionManifestGet200Response>(exampleJson)
-            : default(McGameVersionManifestGet200Response);
+            ? JsonConvert.DeserializeObject<GetMinecraftVersionManifest200Response>(exampleJson)
+            : default(GetMinecraftVersionManifest200Response);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

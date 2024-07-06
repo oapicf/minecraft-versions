@@ -1,12 +1,12 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/mc/game/version_manifest', {
+MyApp.add_route('GET', '/mc/game/version_manifest.json', {
   "resourcePath" => "/Default",
   "summary" => "Get Minecraft version manifest",
-  "nickname" => "mc_game_version_manifest_get",
-  "responseClass" => "_mc_game_version_manifest_get_200_response",
-  "endpoint" => "/mc/game/version_manifest",
+  "nickname" => "get_minecraft_version_manifest",
+  "responseClass" => "getMinecraftVersionManifest_200_response",
+  "endpoint" => "/mc/game/version_manifest.json",
   "notes" => "",
   "parameters" => [
     ]}) do

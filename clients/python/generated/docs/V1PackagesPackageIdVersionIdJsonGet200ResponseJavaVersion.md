@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response_java_version import V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+from minecraftversions.models.v1_packages_package_id_version_id_json_get200_response_java_version import V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,6 +1,6 @@
 -module(openapi_api).
 
--export([ mc_game_version_manifest_get/0
+-export([ get_minecraft_version_manifest/0
         , v1_packages_package_id_version_id_json_get/2
         ]).
 
@@ -8,12 +8,12 @@
 
 %% @doc Get Minecraft version manifest
 %% 
--spec mc_game_version_manifest_get() ->
+-spec get_minecraft_version_manifest() ->
   openapi_utils:response().
-mc_game_version_manifest_get() ->
+get_minecraft_version_manifest() ->
   Method      = get,
   Host        = application:get_env(openapi, host, "http://localhost:8080"),
-  Path        = ["/mc/game/version_manifest"],
+  Path        = ["/mc/game/version_manifest.json"],
 
   openapi_utils:request(Method, [Host, ?BASE_URL, Path]).
 

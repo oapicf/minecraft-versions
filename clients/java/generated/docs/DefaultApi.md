@@ -4,13 +4,13 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**mcGameVersionManifestGet**](DefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest |
+| [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
 | [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
 
 
-<a id="mcGameVersionManifestGet"></a>
-# **mcGameVersionManifestGet**
-> McGameVersionManifestGet200Response mcGameVersionManifestGet()
+<a id="getMinecraftVersionManifest"></a>
+# **getMinecraftVersionManifest**
+> GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -30,10 +30,10 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      McGameVersionManifestGet200Response result = apiInstance.mcGameVersionManifestGet();
+      GetMinecraftVersionManifest200Response result = apiInstance.getMinecraftVersionManifest();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#mcGameVersionManifestGet");
+      System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

@@ -51,10 +51,10 @@ import 'package:openapi/openapi.dart';
 final api = Openapi().getDefaultApi();
 
 try {
-    final response = await api.mcGameVersionManifestGet();
+    final response = await api.getMinecraftVersionManifest();
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling DefaultApi->mcGameVersionManifestGet: $e\n");
+    print("Exception when calling DefaultApi->getMinecraftVersionManifest: $e\n");
 }
 
 ```
@@ -65,15 +65,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*DefaultApi*](doc/DefaultApi.md) | [**mcGameVersionManifestGet**](doc/DefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[*DefaultApi*](doc/DefaultApi.md) | [**getMinecraftVersionManifest**](doc/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [*DefaultApi*](doc/DefaultApi.md) | [**v1PackagesPackageIdVersionIdJsonGet**](doc/DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation For Models
 
- - [McGameVersionManifestGet200Response](doc/McGameVersionManifestGet200Response.md)
- - [McGameVersionManifestGet200ResponseLatest](doc/McGameVersionManifestGet200ResponseLatest.md)
- - [McGameVersionManifestGet200ResponseVersionsInner](doc/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [GetMinecraftVersionManifest200Response](doc/GetMinecraftVersionManifest200Response.md)
+ - [GetMinecraftVersionManifest200ResponseLatest](doc/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [GetMinecraftVersionManifest200ResponseVersionsInner](doc/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [V1PackagesPackageIdVersionIdJsonGet200Response](doc/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](doc/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](doc/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

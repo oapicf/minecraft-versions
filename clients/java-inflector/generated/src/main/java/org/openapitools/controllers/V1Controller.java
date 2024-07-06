@@ -12,7 +12,7 @@ import org.openapitools.model.*;
 
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T01:32:29.045945190Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T08:44:30.733727206Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Controller  {
   /**
    * Uncomment and implement as you see fit.  These operations will map

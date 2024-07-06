@@ -844,21 +844,21 @@ ul.nav-tabs {
   <script>
     // Script section to load models into a JS Var
     var defs = {}
-    defs["_mc_game_version_manifest_get_200_response"] = {
+    defs["getMinecraftVersionManifest_200_response"] = {
   "type" : "object",
   "properties" : {
     "latest" : {
-      "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response_latest"
+      "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_latest"
     },
     "versions" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response_versions_inner"
+        "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_versions_inner"
       }
     }
   }
 };
-    defs["_mc_game_version_manifest_get_200_response_latest"] = {
+    defs["getMinecraftVersionManifest_200_response_latest"] = {
   "type" : "object",
   "properties" : {
     "release" : {
@@ -871,7 +871,7 @@ ul.nav-tabs {
     }
   }
 };
-    defs["_mc_game_version_manifest_get_200_response_versions_inner"] = {
+    defs["getMinecraftVersionManifest_200_response_versions_inner"] = {
   "type" : "object",
   "properties" : {
     "id" : {
@@ -1028,8 +1028,8 @@ ul.nav-tabs {
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
-                    <li data-group="Default" data-name="mcGameVersionManifestGet" class="">
-                      <a href="#api-Default-mcGameVersionManifestGet">mcGameVersionManifestGet</a>
+                    <li data-group="Default" data-name="getMinecraftVersionManifest" class="">
+                      <a href="#api-Default-getMinecraftVersionManifest">getMinecraftVersionManifest</a>
                     </li>
                     <li data-group="Default" data-name="v1PackagesPackageIdVersionIdJsonGet" class="">
                       <a href="#api-Default-v1PackagesPackageIdVersionIdJsonGet">v1PackagesPackageIdVersionIdJsonGet</a>
@@ -1057,10 +1057,10 @@ ul.nav-tabs {
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
-                    <div id="api-Default-mcGameVersionManifestGet">
-                      <article id="api-Default-mcGameVersionManifestGet-0" data-group="User" data-name="mcGameVersionManifestGet" data-version="0">
+                    <div id="api-Default-getMinecraftVersionManifest">
+                      <article id="api-Default-getMinecraftVersionManifest-0" data-group="User" data-name="getMinecraftVersionManifest" data-version="0">
                         <div class="pull-left">
-                          <h1>mcGameVersionManifestGet</h1>
+                          <h1>getMinecraftVersionManifest</h1>
                           <p>Get Minecraft version manifest</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1069,34 +1069,34 @@ ul.nav-tabs {
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/mc/game/version_manifest</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/mc/game/version_manifest.json</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-mcGameVersionManifestGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-dart">Dart</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-python">Python</a></li>
-                          <li class=""><a href="#examples-Default-mcGameVersionManifestGet-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-Default-getMinecraftVersionManifest-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-dart">Dart</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getMinecraftVersionManifest-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-mcGameVersionManifestGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getMinecraftVersionManifest-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://launchermeta.mojang.com/mc/game/version_manifest"
+ "https://launchermeta.mojang.com/mc/game/version_manifest.json"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
@@ -1112,10 +1112,10 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            _mc_game_version_manifest_get_200_response result = apiInstance.mcGameVersionManifestGet();
+            getMinecraftVersionManifest_200_response result = apiInstance.getMinecraftVersionManifest();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#mcGameVersionManifestGet");
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
             e.printStackTrace();
         }
     }
@@ -1123,23 +1123,23 @@ public class DefaultApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-dart">
+                          <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-dart">
                             <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 
 
 try {
-    final result = await api_instance.mcGameVersionManifestGet();
+    final result = await api_instance.getMinecraftVersionManifest();
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->mcGameVersionManifestGet: $e\n');
+    print('Exception when calling DefaultApi->getMinecraftVersionManifest: $e\n');
 }
 
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-android">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1147,28 +1147,28 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
 
         try {
-            _mc_game_version_manifest_get_200_response result = apiInstance.mcGameVersionManifestGet();
+            getMinecraftVersionManifest_200_response result = apiInstance.getMinecraftVersionManifest();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#mcGameVersionManifestGet");
+            System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get Minecraft version manifest
-[apiInstance mcGameVersionManifestGetWithCompletionHandler: 
-              ^(_mc_game_version_manifest_get_200_response output, NSError* error) {
+[apiInstance getMinecraftVersionManifestWithCompletionHandler: 
+              ^(getMinecraftVersionManifest_200_response output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
     }
@@ -1179,7 +1179,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var OpenapiJsClient = require('openapi-js-client');
 
 // Create an instance of the API class
@@ -1191,14 +1191,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.mcGameVersionManifestGet(callback);
+api.getMinecraftVersionManifest(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -1207,7 +1207,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class mcGameVersionManifestGetExample
+    public class getMinecraftVersionManifestExample
     {
         public void main()
         {
@@ -1217,10 +1217,10 @@ namespace Example
 
             try {
                 // Get Minecraft version manifest
-                _mc_game_version_manifest_get_200_response result = apiInstance.mcGameVersionManifestGet();
+                getMinecraftVersionManifest_200_response result = apiInstance.getMinecraftVersionManifest();
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling DefaultApi.mcGameVersionManifestGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getMinecraftVersionManifest: " + e.Message );
             }
         }
     }
@@ -1228,7 +1228,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1236,15 +1236,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 
 try {
-    $result = $api_instance->mcGameVersionManifestGet();
+    $result = $api_instance->getMinecraftVersionManifest();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->mcGameVersionManifestGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getMinecraftVersionManifest: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
 use WWW::OPenAPIClient::DefaultApi;
@@ -1253,15 +1253,15 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 
 eval {
-    my $result = $api_instance->mcGameVersionManifestGet();
+    my $result = $api_instance->getMinecraftVersionManifest();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->mcGameVersionManifestGet: $@\n";
+    warn "Exception when calling DefaultApi->getMinecraftVersionManifest: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -1273,19 +1273,19 @@ api_instance = openapi_client.DefaultApi()
 
 try:
     # Get Minecraft version manifest
-    api_response = api_instance.mc_game_version_manifest_get()
+    api_response = api_instance.get_minecraft_version_manifest()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->mcGameVersionManifestGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getMinecraftVersionManifest: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-mcGameVersionManifestGet-0-rust">
+                            <div class="tab-pane" id="examples-Default-getMinecraftVersionManifest-0-rust">
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
 
     let mut context = DefaultApi::Context::default();
-    let result = client.mcGameVersionManifestGet(&context).wait();
+    let result = client.getMinecraftVersionManifest(&context).wait();
 
     println!("{:?}", result);
 }
@@ -1306,23 +1306,23 @@ pub fn main() {
 
 
                           <h2>Responses</h2>
-                            <h3 id="examples-Default-mcGameVersionManifestGet-title-200"></h3>
-                            <p id="examples-Default-mcGameVersionManifestGet-description-200" class="marked"></p>
+                            <h3 id="examples-Default-getMinecraftVersionManifest-title-200"></h3>
+                            <p id="examples-Default-getMinecraftVersionManifest-description-200" class="marked"></p>
                             <script>
                               var responseDefault200_description = `A list of Minecraft versions with the latest and snapshot releases`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
-                                $("#examples-Default-mcGameVersionManifestGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                                $("#examples-Default-getMinecraftVersionManifest-title-200").text("Status: 200 - " + responseDefault200_description);
                               } else {
-                                $("#examples-Default-mcGameVersionManifestGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
-                                $("#examples-Default-mcGameVersionManifestGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                                $("#examples-Default-getMinecraftVersionManifest-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getMinecraftVersionManifest-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-Default-mcGameVersionManifestGet-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-Default-getMinecraftVersionManifest-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-Default-mcGameVersionManifestGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-Default-getMinecraftVersionManifest-200-schema">Schema</a>
                                 </li>
 
 
@@ -1331,9 +1331,9 @@ pub fn main() {
                             </ul>
 
 
-                            <div class="tab-content" id="responses-Default-mcGameVersionManifestGet-200-wrapper" style='margin-bottom: 10px;'>
-                              <div class="tab-pane active" id="responses-Default-mcGameVersionManifestGet-200-schema">
-                                <div id="responses-Default-mcGameVersionManifestGet-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-Default-getMinecraftVersionManifest-200-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getMinecraftVersionManifest-200-schema">
+                                <div id="responses-Default-getMinecraftVersionManifest-schema-200" class="exampleStyle">
                                   <script>
                                     $(document).ready(function() {
                                       var schemaWrapper = {
@@ -1341,7 +1341,7 @@ pub fn main() {
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response"
+        "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response"
       }
     }
   }
@@ -1372,14 +1372,14 @@ pub fn main() {
                                       }
 
                                       var view = new JSONSchemaView(schema, 3);
-                                      $('#responses-Default-mcGameVersionManifestGet-200-schema-data').val(JSON.stringify(schema));
-                                      var result = $('#responses-Default-mcGameVersionManifestGet-schema-200');
+                                      $('#responses-Default-getMinecraftVersionManifest-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getMinecraftVersionManifest-schema-200');
                                       result.empty();
                                       result.append(view.render());
                                     });
                                   </script>
                                 </div>
-                                <input id='responses-Default-mcGameVersionManifestGet-200-schema-data' type='hidden' value=''></input>
+                                <input id='responses-Default-getMinecraftVersionManifest-200-schema-data' type='hidden' value=''></input>
                               </div>
                             </div>
                         </article>

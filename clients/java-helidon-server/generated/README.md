@@ -11,7 +11,7 @@ java -jar target/openapi-java-server.jar
 ## Exercise the application
 
 ```
-curl -X GET https://launchermeta.mojang.com/mc/game/version_manifest
+curl -X GET https://launchermeta.mojang.com/mc/game/version_manifest.json
 curl -X GET https://launchermeta.mojang.com/v1/packages/{packageId}/{versionId}.json
 
 ```

@@ -27,7 +27,7 @@ import javax.validation.Valid;
 @Api(description = "the v1 API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-07-06T01:33:09.413682202Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-07-06T08:45:03.279398503Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 
 public class V1Api  {
 

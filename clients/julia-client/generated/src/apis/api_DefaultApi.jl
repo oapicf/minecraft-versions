@@ -11,12 +11,12 @@ This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
 basepath(::Type{ DefaultApi }) = "https://launchermeta.mojang.com"
 
-const _returntypes_mc_game_version_manifest_get_DefaultApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => McGameVersionManifestGet200Response,
+const _returntypes_get_minecraft_version_manifest_DefaultApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => GetMinecraftVersionManifest200Response,
 )
 
-function _oacinternal_mc_game_version_manifest_get(_api::DefaultApi; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_mc_game_version_manifest_get_DefaultApi, "/mc/game/version_manifest", [])
+function _oacinternal_get_minecraft_version_manifest(_api::DefaultApi; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_get_minecraft_version_manifest_DefaultApi, "/mc/game/version_manifest.json", [])
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -26,15 +26,15 @@ end
 
 Params:
 
-Return: McGameVersionManifestGet200Response, OpenAPI.Clients.ApiResponse
+Return: GetMinecraftVersionManifest200Response, OpenAPI.Clients.ApiResponse
 """
-function mc_game_version_manifest_get(_api::DefaultApi; _mediaType=nothing)
-    _ctx = _oacinternal_mc_game_version_manifest_get(_api; _mediaType=_mediaType)
+function get_minecraft_version_manifest(_api::DefaultApi; _mediaType=nothing)
+    _ctx = _oacinternal_get_minecraft_version_manifest(_api; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function mc_game_version_manifest_get(_api::DefaultApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_mc_game_version_manifest_get(_api; _mediaType=_mediaType)
+function get_minecraft_version_manifest(_api::DefaultApi, response_stream::Channel; _mediaType=nothing)
+    _ctx = _oacinternal_get_minecraft_version_manifest(_api; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -69,5 +69,5 @@ function v1_packages_package_id_version_id_json_get(_api::DefaultApi, response_s
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
-export mc_game_version_manifest_get
+export get_minecraft_version_manifest
 export v1_packages_package_id_version_id_json_get

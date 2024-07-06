@@ -1,6 +1,6 @@
 package com.prokarma.pkmst.controller;
 
-import com.prokarma.pkmst.model.McGameVersionManifestGet200Response;
+import com.prokarma.pkmst.model.GetMinecraftVersionManifest200Response;
 import com.prokarma.pkmst.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import io.swagger.annotations.*;
@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T01:32:43.130084075Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T08:44:41.983633026Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 public class DefaultApiController implements DefaultApi {
     private final ObjectMapper objectMapper;
@@ -33,14 +33,14 @@ public class DefaultApiController implements DefaultApi {
         this.objectMapper = objectMapper;
     }
 
-    public ResponseEntity<McGameVersionManifestGet200Response> mcGameVersionManifestGet(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
+    public ResponseEntity<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 
         if (accept != null && accept.contains("application/json")) {
-            return new ResponseEntity<McGameVersionManifestGet200Response>(objectMapper.readValue("", McGameVersionManifestGet200Response.class), HttpStatus.OK);
+            return new ResponseEntity<GetMinecraftVersionManifest200Response>(objectMapper.readValue("", GetMinecraftVersionManifest200Response.class), HttpStatus.OK);
         }
 
-        return new ResponseEntity<McGameVersionManifestGet200Response>(HttpStatus.OK);
+        return new ResponseEntity<GetMinecraftVersionManifest200Response>(HttpStatus.OK);
     }
 
     public ResponseEntity<V1PackagesPackageIdVersionIdJsonGet200Response> v1PackagesPackageIdVersionIdJsonGet(@ApiParam(value = "",required=true ) @PathVariable("packageId") String packageId,

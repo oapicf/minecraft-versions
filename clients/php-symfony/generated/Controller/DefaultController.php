@@ -34,7 +34,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Validator\Constraints as Assert;
 use OpenAPI\Server\Api\DefaultApiInterface;
-use OpenAPI\Server\Model\McGameVersionManifestGet200Response;
+use OpenAPI\Server\Model\GetMinecraftVersionManifest200Response;
 use OpenAPI\Server\Model\V1PackagesPackageIdVersionIdJsonGet200Response;
 
 /**
@@ -49,14 +49,14 @@ class DefaultController extends Controller
 {
 
     /**
-     * Operation mcGameVersionManifestGet
+     * Operation getMinecraftVersionManifest
      *
      * Get Minecraft version manifest
      *
      * @param Request $request The Symfony request to handle.
      * @return Response The Symfony response.
      */
-    public function mcGameVersionManifestGetAction(Request $request)
+    public function getMinecraftVersionManifestAction(Request $request)
     {
         // Figure out what data format to return to the client
         $produces = ['application/json'];
@@ -84,7 +84,7 @@ class DefaultController extends Controller
             $responseCode = 200;
             $responseHeaders = [];
 
-            $result = $handler->mcGameVersionManifestGet($responseCode, $responseHeaders);
+            $result = $handler->getMinecraftVersionManifest($responseCode, $responseHeaders);
 
             $message = match($responseCode) {
                 200 => 'A list of Minecraft versions with the latest and snapshot releases',

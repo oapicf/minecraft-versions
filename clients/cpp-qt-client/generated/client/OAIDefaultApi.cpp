@@ -40,8 +40,8 @@ void OAIDefaultApi::initializeServerConfigs() {
     QUrl("https://piston-meta.mojang.com"),
     "No description provided",
     QMap<QString, OAIServerVariable>()));
-    _serverConfigs.insert("mcGameVersionManifestGet", defaultConf);
-    _serverIndices.insert("mcGameVersionManifestGet", 0);
+    _serverConfigs.insert("getMinecraftVersionManifest", defaultConf);
+    _serverIndices.insert("getMinecraftVersionManifest", 0);
     _serverConfigs.insert("v1PackagesPackageIdVersionIdJsonGet", defaultConf);
     _serverIndices.insert("v1PackagesPackageIdVersionIdJsonGet", 0);
 }
@@ -219,8 +219,8 @@ QString OAIDefaultApi::getParamStyleDelimiter(const QString &style, const QStrin
     }
 }
 
-void OAIDefaultApi::mcGameVersionManifestGet() {
-    QString fullPath = QString(_serverConfigs["mcGameVersionManifestGet"][_serverIndices.value("mcGameVersionManifestGet")].URL()+"/mc/game/version_manifest");
+void OAIDefaultApi::getMinecraftVersionManifest() {
+    QString fullPath = QString(_serverConfigs["getMinecraftVersionManifest"][_serverIndices.value("getMinecraftVersionManifest")].URL()+"/mc/game/version_manifest.json");
     
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -238,7 +238,7 @@ void OAIDefaultApi::mcGameVersionManifestGet() {
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::mcGameVersionManifestGetCallback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::getMinecraftVersionManifestCallback);
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
@@ -249,19 +249,19 @@ void OAIDefaultApi::mcGameVersionManifestGet() {
     worker->execute(&input);
 }
 
-void OAIDefaultApi::mcGameVersionManifestGetCallback(OAIHttpRequestWorker *worker) {
+void OAIDefaultApi::getMinecraftVersionManifestCallback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAI_mc_game_version_manifest_get_200_response output(QString(worker->response));
+    OAIGetMinecraftVersionManifest_200_response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT mcGameVersionManifestGetSignal(output);
-        Q_EMIT mcGameVersionManifestGetSignalFull(worker, output);
+        Q_EMIT getMinecraftVersionManifestSignal(output);
+        Q_EMIT getMinecraftVersionManifestSignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -278,8 +278,8 @@ void OAIDefaultApi::mcGameVersionManifestGetCallback(OAIHttpRequestWorker *worke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT mcGameVersionManifestGetSignalE(output, error_type, error_str);
-        Q_EMIT mcGameVersionManifestGetSignalEFull(worker, error_type, error_str);
+        Q_EMIT getMinecraftVersionManifestSignalE(output, error_type, error_str);
+        Q_EMIT getMinecraftVersionManifestSignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -289,8 +289,8 @@ void OAIDefaultApi::mcGameVersionManifestGetCallback(OAIHttpRequestWorker *worke
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT mcGameVersionManifestGetSignalError(output, error_type, error_str);
-        Q_EMIT mcGameVersionManifestGetSignalErrorFull(worker, error_type, error_str);
+        Q_EMIT getMinecraftVersionManifestSignalError(output, error_type, error_str);
+        Q_EMIT getMinecraftVersionManifestSignalErrorFull(worker, error_type, error_str);
     }
 }
 

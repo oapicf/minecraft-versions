@@ -45,10 +45,10 @@
   }
 
   describe('DefaultApi', function() {
-    describe('mcGameVersionManifestGet', function() {
-      it('should call mcGameVersionManifestGet successfully', function(done) {
-        //uncomment below and update the code to test mcGameVersionManifestGet
-        //instance.mcGameVersionManifestGet(function(error) {
+    describe('getMinecraftVersionManifest', function() {
+      it('should call getMinecraftVersionManifest successfully', function(done) {
+        //uncomment below and update the code to test getMinecraftVersionManifest
+        //instance.getMinecraftVersionManifest(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

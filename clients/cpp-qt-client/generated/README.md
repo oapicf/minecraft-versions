@@ -53,7 +53,7 @@ example.cpp:
 
 void Example::exampleFunction1(){
      OAIDefaultApi apiInstance;
-           apiInstance.mcGameVersionManifestGet();
+           apiInstance.getMinecraftVersionManifest();
       QTimer::singleShot(5000, &loop, &QEventLoop::quit);
       loop.exec();
   }

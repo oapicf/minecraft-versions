@@ -1,24 +1,23 @@
 import unittest
-import openapi_client
-from openapi_client.rest import ApiException
+import minecraftversions
+from minecraftversions.rest import ApiException
 from pprint import pprint
 
-class TestGoogle(unittest.TestCase):
+class TestMinecraftVersion(unittest.TestCase):
 
-    def test_search_with_query(self):
+    def test_get_manifest(self):
 
-      configuration = openapi_client.Configuration(
-          host = "https://google.com"
+      configuration = minecraftversions.Configuration(
+          host = "https://launchermeta.mojang.com"
       )
 
-      with openapi_client.ApiClient(configuration) as api_client:
+      with minecraftversions.ApiClient(configuration) as api_client:
 
-          api_instance = openapi_client.DefaultApi(api_client)
-          q = 'OpenAPI Generator web site'
+          api_instance = minecraftversions.DefaultApi(api_client)
 
           try:
-              api_response = api_instance.search(q)
-              print('The response of DefaultApi->search:\n')
+              api_response = api_instance.get_minecraft_version_manifest()
+              print("The response of DefaultApi->get_minecraft_version_manifest:\n")
               pprint(api_response)
           except ApiException as e:
-              self.fail('Exception when calling DefaultApi->search: %s\n' % e)
+              self.fail('Exception when calling DefaultApi->get_minecraft_version_manifest: %s\n' % e)

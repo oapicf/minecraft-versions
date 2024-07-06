@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("_v1_packages__packageId___versionId__json_get_200_response_downloads_client")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-06T01:32:59.863372340Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-06T08:44:55.434468781Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient {
 
   private String sha1;

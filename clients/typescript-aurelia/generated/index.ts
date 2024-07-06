@@ -14,9 +14,9 @@ export { Api } from './Api';
 export { AuthStorage } from './AuthStorage';
 export { DefaultApi } from './DefaultApi';
 export {
-  McGameVersionManifestGet200Response,
-  McGameVersionManifestGet200ResponseLatest,
-  McGameVersionManifestGet200ResponseVersionsInner,
+  GetMinecraftVersionManifest200Response,
+  GetMinecraftVersionManifest200ResponseLatest,
+  GetMinecraftVersionManifest200ResponseVersionsInner,
   V1PackagesPackageIdVersionIdJsonGet200Response,
   V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex,
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads,

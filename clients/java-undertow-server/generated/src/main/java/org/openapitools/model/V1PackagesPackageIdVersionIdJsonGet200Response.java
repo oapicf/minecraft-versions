@@ -24,7 +24,7 @@ import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200ResponseJava
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-06T01:32:50.124024362Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-06T08:44:47.555518722Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200Response   {
   
   private String version;

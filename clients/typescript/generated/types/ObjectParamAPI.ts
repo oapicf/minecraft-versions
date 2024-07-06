@@ -1,9 +1,9 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
-import { McGameVersionManifestGet200Response } from '../models/McGameVersionManifestGet200Response';
-import { McGameVersionManifestGet200ResponseLatest } from '../models/McGameVersionManifestGet200ResponseLatest';
-import { McGameVersionManifestGet200ResponseVersionsInner } from '../models/McGameVersionManifestGet200ResponseVersionsInner';
+import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
+import { GetMinecraftVersionManifest200ResponseLatest } from '../models/GetMinecraftVersionManifest200ResponseLatest';
+import { GetMinecraftVersionManifest200ResponseVersionsInner } from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -13,7 +13,7 @@ import { V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion } from '../mo
 import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
 
-export interface DefaultApiMcGameVersionManifestGetRequest {
+export interface DefaultApiGetMinecraftVersionManifestRequest {
 }
 
 export interface DefaultApiV1PackagesPackageIdVersionIdJsonGetRequest {
@@ -42,16 +42,16 @@ export class ObjectDefaultApi {
      * Get Minecraft version manifest
      * @param param the request object
      */
-    public mcGameVersionManifestGetWithHttpInfo(param: DefaultApiMcGameVersionManifestGetRequest = {}, options?: Configuration): Promise<HttpInfo<McGameVersionManifestGet200Response>> {
-        return this.api.mcGameVersionManifestGetWithHttpInfo( options).toPromise();
+    public getMinecraftVersionManifestWithHttpInfo(param: DefaultApiGetMinecraftVersionManifestRequest = {}, options?: Configuration): Promise<HttpInfo<GetMinecraftVersionManifest200Response>> {
+        return this.api.getMinecraftVersionManifestWithHttpInfo( options).toPromise();
     }
 
     /**
      * Get Minecraft version manifest
      * @param param the request object
      */
-    public mcGameVersionManifestGet(param: DefaultApiMcGameVersionManifestGetRequest = {}, options?: Configuration): Promise<McGameVersionManifestGet200Response> {
-        return this.api.mcGameVersionManifestGet( options).toPromise();
+    public getMinecraftVersionManifest(param: DefaultApiGetMinecraftVersionManifestRequest = {}, options?: Configuration): Promise<GetMinecraftVersionManifest200Response> {
+        return this.api.getMinecraftVersionManifest( options).toPromise();
     }
 
     /**

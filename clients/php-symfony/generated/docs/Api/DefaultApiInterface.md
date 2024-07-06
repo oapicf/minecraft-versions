@@ -4,7 +4,7 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mcGameVersionManifestGet**](DefaultApiInterface.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](DefaultApiInterface.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApiInterface.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
@@ -19,8 +19,8 @@ services:
     # ...
 ```
 
-## **mcGameVersionManifestGet**
-> OpenAPI\Server\Model\McGameVersionManifestGet200Response mcGameVersionManifestGet()
+## **getMinecraftVersionManifest**
+> OpenAPI\Server\Model\GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -39,9 +39,9 @@ class DefaultApi implements DefaultApiInterface
     // ...
 
     /**
-     * Implementation of DefaultApiInterface#mcGameVersionManifestGet
+     * Implementation of DefaultApiInterface#getMinecraftVersionManifest
      */
-    public function mcGameVersionManifestGet(int &$responseCode, array &$responseHeaders): array|object|null
+    public function getMinecraftVersionManifest(int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -55,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OpenAPI\Server\Model\McGameVersionManifestGet200Response**](../Model/McGameVersionManifestGet200Response.md)
+[**OpenAPI\Server\Model\GetMinecraftVersionManifest200Response**](../Model/GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

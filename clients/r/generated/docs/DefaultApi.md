@@ -4,12 +4,12 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**McGameVersionManifestGet**](DefaultApi.md#McGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**GetMinecraftVersionManifest**](DefaultApi.md#GetMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**V1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#V1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
-# **McGameVersionManifestGet**
-> McGameVersionManifestGet200Response McGameVersionManifestGet()
+# **GetMinecraftVersionManifest**
+> GetMinecraftVersionManifest200Response GetMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -22,8 +22,8 @@ library(openapi)
 
 api_instance <- DefaultApi$new()
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$McGameVersionManifestGet(data_file = "result.txt")
-result <- api_instance$McGameVersionManifestGet()
+# result <- api_instance$GetMinecraftVersionManifest(data_file = "result.txt")
+result <- api_instance$GetMinecraftVersionManifest()
 dput(result)
 ```
 
@@ -32,7 +32,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](_mc_game_version_manifest_get_200_response.md)
+[**GetMinecraftVersionManifest200Response**](getMinecraftVersionManifest_200_response.md)
 
 ### Authorization
 

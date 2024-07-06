@@ -51,7 +51,7 @@ init(Req, {Operations, LogicHandler, ValidatorMod}) ->
 allowed_methods(
     Req,
     State = #state{
-        operation_id = 'McGameVersionManifestGet'
+        operation_id = 'GetMinecraftVersionManifest'
     }
 ) ->
     {[<<"GET">>], Req, State};
@@ -94,7 +94,7 @@ content_types_accepted(Req, State) ->
 valid_content_headers(
     Req0,
     State = #state{
-        operation_id = 'McGameVersionManifestGet'
+        operation_id = 'GetMinecraftVersionManifest'
     }
 ) ->
     Headers = [],

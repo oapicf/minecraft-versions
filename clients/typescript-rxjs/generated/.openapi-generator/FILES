@@ -3,9 +3,9 @@
 apis/DefaultApi.ts
 apis/index.ts
 index.ts
-models/McGameVersionManifestGet200Response.ts
-models/McGameVersionManifestGet200ResponseLatest.ts
-models/McGameVersionManifestGet200ResponseVersionsInner.ts
+models/GetMinecraftVersionManifest200Response.ts
+models/GetMinecraftVersionManifest200ResponseLatest.ts
+models/GetMinecraftVersionManifest200ResponseVersionsInner.ts
 models/V1PackagesPackageIdVersionIdJsonGet200Response.ts
 models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts
 models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.ts

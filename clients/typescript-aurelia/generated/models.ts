@@ -11,19 +11,19 @@
  */
 
 
-export interface McGameVersionManifestGet200Response {
-  latest?: McGameVersionManifestGet200ResponseLatest;
-  versions?: Array<McGameVersionManifestGet200ResponseVersionsInner>;
+export interface GetMinecraftVersionManifest200Response {
+  latest?: GetMinecraftVersionManifest200ResponseLatest;
+  versions?: Array<GetMinecraftVersionManifest200ResponseVersionsInner>;
 }
 
 
-export interface McGameVersionManifestGet200ResponseLatest {
+export interface GetMinecraftVersionManifest200ResponseLatest {
   release?: string;
   snapshot?: string;
 }
 
 
-export interface McGameVersionManifestGet200ResponseVersionsInner {
+export interface GetMinecraftVersionManifest200ResponseVersionsInner {
   id?: string;
   type?: string;
   url?: string;

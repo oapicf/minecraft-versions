@@ -1,37 +1,37 @@
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `_mc_game_version_manifest_get_200_response` generated from model 'mcGameVersionManifestGet200Response'
+-- Table structure for table `getMinecraftVersionManifest_200_response` generated from model 'getMinecraftVersionManifest200Response'
 --
 
-CREATE TABLE IF NOT EXISTS `_mc_game_version_manifest_get_200_response` (
+CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response` (
   `latest` long,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `McGameVersionManifestGet200ResponseMcGameVersionManifestGet200ResponseVersionsInner` generated from model 'McGameVersionManifestGet200ResponseMcGameVersionManifestGet200ResponseVersionsInner'
+-- Table structure for table `GetMinecraftVersionManifest200ResponseGetMinecraftVersionManifest200ResponseVersionsInner` generated from model 'GetMinecraftVersionManifest200ResponseGetMinecraftVersionManifest200ResponseVersionsInner'
 
-CREATE TABLE IF NOT EXISTS `McGameVersionManifestGet200ResponseMcGameVersionManifestGet200ResponseVersionsInner` (
-  `mcGameVersionManifestGet200Response` long NOT NULL
-  `mcGameVersionManifestGet200ResponseVersionsInner` long NOT NULL
+CREATE TABLE IF NOT EXISTS `GetMinecraftVersionManifest200ResponseGetMinecraftVersionManifest200ResponseVersionsInner` (
+  `getMinecraftVersionManifest200Response` long NOT NULL
+  `getMinecraftVersionManifest200ResponseVersionsInner` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `_mc_game_version_manifest_get_200_response_latest` generated from model 'mcGameVersionManifestGet200ResponseLatest'
+-- Table structure for table `getMinecraftVersionManifest_200_response_latest` generated from model 'getMinecraftVersionManifest200ResponseLatest'
 --
 
-CREATE TABLE IF NOT EXISTS `_mc_game_version_manifest_get_200_response_latest` (
+CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_latest` (
   `release` text,
   `snapshot` text
 ); 
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `_mc_game_version_manifest_get_200_response_versions_inner` generated from model 'mcGameVersionManifestGet200ResponseVersionsInner'
+-- Table structure for table `getMinecraftVersionManifest_200_response_versions_inner` generated from model 'getMinecraftVersionManifest200ResponseVersionsInner'
 --
 
-CREATE TABLE IF NOT EXISTS `_mc_game_version_manifest_get_200_response_versions_inner` (
+CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_versions_inner` (
   `id` text PRIMARY KEY,
   `type` text,
   `url` text,

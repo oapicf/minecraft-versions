@@ -4,7 +4,7 @@ import org.openapitools.api.*;
 import org.openapitools.model.*;
 
 
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 
 import java.util.List;
 import org.openapitools.api.NotFoundException;
@@ -16,8 +16,8 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T01:33:17.904737996Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T08:45:08.613318098Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public interface McApiService {
-      Response mcGameVersionManifestGet(SecurityContext securityContext)
+      Response getMinecraftVersionManifest(SecurityContext securityContext)
       throws NotFoundException;
 }

@@ -7,7 +7,7 @@ open FSharp.Control.Tasks.V2.ContextInsensitive
 open DefaultApiHandlerParams
 open DefaultApiServiceInterface
 open DefaultApiServiceImplementation
-open OpenAPI.Model.McGameVersionManifestGet200Response
+open OpenAPI.Model.GetMinecraftVersionManifest200Response
 open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
 
 module DefaultApiHandler =
@@ -16,17 +16,17 @@ module DefaultApiHandler =
     /// 
     /// </summary>
 
-    //#region McGameVersionManifestGet
+    //#region GetMinecraftVersionManifest
     /// <summary>
     /// Get Minecraft version manifest
     /// </summary>
 
-    let McGameVersionManifestGet  : HttpHandler =
+    let GetMinecraftVersionManifest  : HttpHandler =
       fun (next : HttpFunc) (ctx : HttpContext) ->
         task {
-          let result = DefaultApiService.McGameVersionManifestGet ctx 
+          let result = DefaultApiService.GetMinecraftVersionManifest ctx 
           return! (match result with
-                      | McGameVersionManifestGetStatusCode200 resolved ->
+                      | GetMinecraftVersionManifestStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content
           ) next ctx
         }

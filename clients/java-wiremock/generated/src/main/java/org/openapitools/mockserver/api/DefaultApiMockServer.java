@@ -11,8 +11,8 @@ import com.github.tomakehurst.wiremock.http.Fault;
 
 public class DefaultApiMockServer {
 
-    public static MappingBuilder stubMcGameVersionManifestGet200(String response) {
-        MappingBuilder stub = get(urlPathEqualTo("/mc/game/version_manifest"))
+    public static MappingBuilder stubGetMinecraftVersionManifest200(String response) {
+        MappingBuilder stub = get(urlPathEqualTo("/mc/game/version_manifest.json"))
             .withHeader("Accept", havingExactly("application/json"))
             .willReturn(aResponse()
                 .withStatus(200)
@@ -24,8 +24,8 @@ public class DefaultApiMockServer {
         return stub;
     }
 
-    public static MappingBuilder stubMcGameVersionManifestGetFault(Fault fault) {
-        MappingBuilder stub = get(urlPathEqualTo("/mc/game/version_manifest"))
+    public static MappingBuilder stubGetMinecraftVersionManifestFault(Fault fault) {
+        MappingBuilder stub = get(urlPathEqualTo("/mc/game/version_manifest.json"))
             .withHeader("Accept", havingExactly("application/json"))
             .willReturn(aResponse()
                 .withFault(fault)
@@ -35,7 +35,7 @@ public class DefaultApiMockServer {
         return stub;
     }
 
-    public static String mcGameVersionManifestGet200ResponseSample1() {
+    public static String getMinecraftVersionManifest200ResponseSample1() {
         return "{ \"versions\" : [ { \"releaseTime\" : \"2024-04-01T11:07:19Z\", \"id\" : \"24w14potato\", \"time\" : \"2024-04-01T11:14:41Z\", \"type\" : \"snapshot\", \"url\" : \"https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json\" }, { \"releaseTime\" : \"2024-04-01T11:07:19Z\", \"id\" : \"24w14potato\", \"time\" : \"2024-04-01T11:14:41Z\", \"type\" : \"snapshot\", \"url\" : \"https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json\" } ], \"latest\" : { \"release\" : \"1.21\", \"snapshot\" : \"24w14potato\" } }";
     }
 

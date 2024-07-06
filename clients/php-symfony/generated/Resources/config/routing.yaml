@@ -3,11 +3,11 @@
 # Do not edit the class manually.
 
 # default
-open_api_server_default_mcgameversionmanifestget:
-    path:     /mc/game/version_manifest
+open_api_server_default_getminecraftversionmanifest:
+    path:     /mc/game/version_manifest.json
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.default::mcGameVersionManifestGetAction
+        _controller: open_api_server.controller.default::getMinecraftVersionManifestAction
 
 open_api_server_default_v1packagespackageidversionidjsonget:
     path:     /v1/packages/{packageId}/{versionId}.json

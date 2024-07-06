@@ -1,7 +1,7 @@
 #tag Interface
 Protected Interface DefaultApiCallbackHandler
 	#tag Method, Flags = &h0
-		Sub McGameVersionManifestGetCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.McGameVersionManifestGet200Response)
+		Sub GetMinecraftVersionManifestCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.GetMinecraftVersionManifest200Response)
 		  
 		End Sub
 	#tag EndMethod

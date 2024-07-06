@@ -17,7 +17,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.McGameVersionManifestGet200ResponseLatest_Type) is
+                        Value : in .Models.GetMinecraftVersionManifest200ResponseLatest_Type) is
    begin
       Into.Start_Entity (Name);
       if not Value.Release.Is_Null then
@@ -31,7 +31,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in McGameVersionManifestGet200ResponseLatest_Type_Vectors.Vector) is
+                        Value : in GetMinecraftVersionManifest200ResponseLatest_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -42,7 +42,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.McGameVersionManifestGet200ResponseLatest_Type) is
+                          Value : out .Models.GetMinecraftVersionManifest200ResponseLatest_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -52,9 +52,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out McGameVersionManifestGet200ResponseLatest_Type_Vectors.Vector) is
+                          Value : in out GetMinecraftVersionManifest200ResponseLatest_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.McGameVersionManifestGet200ResponseLatest_Type;
+      Item : .Models.GetMinecraftVersionManifest200ResponseLatest_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -66,7 +66,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.McGameVersionManifestGet200ResponseVersionsInner_Type) is
+                        Value : in .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type) is
    begin
       Into.Start_Entity (Name);
       if not Value.Id.Is_Null then
@@ -89,7 +89,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in McGameVersionManifestGet200ResponseVersionsInner_Type_Vectors.Vector) is
+                        Value : in GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -100,7 +100,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.McGameVersionManifestGet200ResponseVersionsInner_Type) is
+                          Value : out .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -113,9 +113,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out McGameVersionManifestGet200ResponseVersionsInner_Type_Vectors.Vector) is
+                          Value : in out GetMinecraftVersionManifest200ResponseVersionsInner_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.McGameVersionManifestGet200ResponseVersionsInner_Type;
+      Item : .Models.GetMinecraftVersionManifest200ResponseVersionsInner_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -339,7 +339,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in .Models.McGameVersionManifestGet200Response_Type) is
+                        Value : in .Models.GetMinecraftVersionManifest200Response_Type) is
    begin
       Into.Start_Entity (Name);
       Serialize (Into, "latest", Value.Latest);
@@ -349,7 +349,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in McGameVersionManifestGet200Response_Type_Vectors.Vector) is
+                        Value : in GetMinecraftVersionManifest200Response_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -360,7 +360,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out .Models.McGameVersionManifestGet200Response_Type) is
+                          Value : out .Models.GetMinecraftVersionManifest200Response_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -370,9 +370,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : in out McGameVersionManifestGet200Response_Type_Vectors.Vector) is
+                          Value : in out GetMinecraftVersionManifest200Response_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : .Models.McGameVersionManifestGet200Response_Type;
+      Item : .Models.GetMinecraftVersionManifest200Response_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

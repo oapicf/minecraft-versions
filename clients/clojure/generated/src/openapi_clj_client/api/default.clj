@@ -4,21 +4,21 @@
             [spec-tools.core :as st]
             [orchestra.core :refer [defn-spec]]
             [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-asset-index :refer :all]
+            [openapi-clj-client.specs.get-minecraft-version-manifest-200-response-latest :refer :all]
             [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-downloads :refer :all]
             [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-downloads-client :refer :all]
             [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response-java-version :refer :all]
-            [openapi-clj-client.specs.-mc-game-version-manifest-get-200-response-versions-inner :refer :all]
+            [openapi-clj-client.specs.get-minecraft-version-manifest-200-response-versions-inner :refer :all]
+            [openapi-clj-client.specs.get-minecraft-version-manifest-200-response :refer :all]
             [openapi-clj-client.specs.-v1-packages-package-id-version-id-json-get-200-response :refer :all]
-            [openapi-clj-client.specs.-mc-game-version-manifest-get-200-response-latest :refer :all]
-            [openapi-clj-client.specs.-mc-game-version-manifest-get-200-response :refer :all]
             )
   (:import (java.io File)))
 
 
-(defn-spec mc-game-version-manifest-get-with-http-info any?
+(defn-spec get-minecraft-version-manifest-with-http-info any?
   "Get Minecraft version manifest"
   []
-  (call-api "/mc/game/version_manifest" :get
+  (call-api "/mc/game/version_manifest.json" :get
             {:path-params   {}
              :header-params {}
              :query-params  {}
@@ -27,12 +27,12 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn-spec mc-game-version-manifest-get -mc-game-version-manifest-get-200-response-spec
+(defn-spec get-minecraft-version-manifest get-minecraft-version-manifest-200-response-spec
   "Get Minecraft version manifest"
   []
-  (let [res (:data (mc-game-version-manifest-get-with-http-info))]
+  (let [res (:data (get-minecraft-version-manifest-with-http-info))]
     (if (:decode-models *api-context*)
-       (st/decode -mc-game-version-manifest-get-200-response-spec res st/string-transformer)
+       (st/decode get-minecraft-version-manifest-200-response-spec res st/string-transformer)
        res)))
 
 

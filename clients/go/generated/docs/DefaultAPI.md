@@ -4,14 +4,14 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**McGameVersionManifestGet**](DefaultAPI.md#McGameVersionManifestGet) | **Get** /mc/game/version_manifest | Get Minecraft version manifest
+[**GetMinecraftVersionManifest**](DefaultAPI.md#GetMinecraftVersionManifest) | **Get** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**V1PackagesPackageIdVersionIdJsonGet**](DefaultAPI.md#V1PackagesPackageIdVersionIdJsonGet) | **Get** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 
-## McGameVersionManifestGet
+## GetMinecraftVersionManifest
 
-> McGameVersionManifestGet200Response McGameVersionManifestGet(ctx).Execute()
+> GetMinecraftVersionManifest200Response GetMinecraftVersionManifest(ctx).Execute()
 
 Get Minecraft version manifest
 
@@ -31,13 +31,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.McGameVersionManifestGet(context.Background()).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetMinecraftVersionManifest(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.McGameVersionManifestGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetMinecraftVersionManifest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `McGameVersionManifestGet`: McGameVersionManifestGet200Response
-	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.McGameVersionManifestGet`: %v\n", resp)
+	// response from `GetMinecraftVersionManifest`: GetMinecraftVersionManifest200Response
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetMinecraftVersionManifest`: %v\n", resp)
 }
 ```
 
@@ -47,12 +47,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiMcGameVersionManifestGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMinecraftVersionManifestRequest struct via the builder pattern
 
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

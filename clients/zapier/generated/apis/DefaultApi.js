@@ -1,11 +1,11 @@
 const samples = require('../samples/DefaultApi');
-const _mc_game_version_manifest_get_200_response = require('../models/_mc_game_version_manifest_get_200_response');
 const _v1_packages__packageId___versionId__json_get_200_response = require('../models/_v1_packages__packageId___versionId__json_get_200_response');
+const getMinecraftVersionManifest_200_response = require('../models/getMinecraftVersionManifest_200_response');
 const utils = require('../utils/utils');
 
 module.exports = {
-    mcGameVersionManifestGet: {
-        key: 'mcGameVersionManifestGet',
+    getMinecraftVersionManifest: {
+        key: 'getMinecraftVersionManifest',
         noun: 'default',
         display: {
             label: 'Get Minecraft version manifest',
@@ -16,11 +16,11 @@ module.exports = {
             inputFields: [
             ],
             outputFields: [
-                ..._mc_game_version_manifest_get_200_response.fields('', false),
+                ...getMinecraftVersionManifest_200_response.fields('', false),
             ],
             perform: async (z, bundle) => {
                 const options = {
-                    url: utils.replacePathParameters('https://launchermeta.mojang.com/mc/game/version_manifest'),
+                    url: utils.replacePathParameters('https://launchermeta.mojang.com/mc/game/version_manifest.json'),
                     method: 'GET',
                     removeMissingValuesFrom: { params: true, body: true },
                     headers: {
@@ -39,7 +39,7 @@ module.exports = {
                     return results;
                 })
             },
-            sample: samples['_mc_game_version_manifest_get_200_responseSample']
+            sample: samples['getMinecraftVersionManifest_200_responseSample']
         }
     },
     v1PackagesPackageIdVersionIdJsonGet: {

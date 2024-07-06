@@ -70,7 +70,7 @@ class DefaultApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'mcGameVersionManifestGet' => [
+        'getMinecraftVersionManifest' => [
             'application/json',
         ],
         'v1PackagesPackageIdVersionIdJsonGet' => [
@@ -125,40 +125,40 @@ class DefaultApi
     }
 
     /**
-     * Operation mcGameVersionManifestGet
+     * Operation getMinecraftVersionManifest
      *
      * Get Minecraft version manifest
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcGameVersionManifestGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionManifest'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \OpenAPI\Client\Model\McGameVersionManifestGet200Response
+     * @return \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response
      */
-    public function mcGameVersionManifestGet(
-        string $contentType = self::contentTypes['mcGameVersionManifestGet'][0]
-    ): \OpenAPI\Client\Model\McGameVersionManifestGet200Response
+    public function getMinecraftVersionManifest(
+        string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
+    ): \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response
     {
-        list($response) = $this->mcGameVersionManifestGetWithHttpInfo($contentType);
+        list($response) = $this->getMinecraftVersionManifestWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation mcGameVersionManifestGetWithHttpInfo
+     * Operation getMinecraftVersionManifestWithHttpInfo
      *
      * Get Minecraft version manifest
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcGameVersionManifestGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionManifest'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\McGameVersionManifestGet200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function mcGameVersionManifestGetWithHttpInfo(
-        string $contentType = self::contentTypes['mcGameVersionManifestGet'][0]
+    public function getMinecraftVersionManifestWithHttpInfo(
+        string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
     ): array
     {
-        $request = $this->mcGameVersionManifestGetRequest($contentType);
+        $request = $this->getMinecraftVersionManifestRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -197,11 +197,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\McGameVersionManifestGet200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\McGameVersionManifestGet200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -219,13 +219,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\McGameVersionManifestGet200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\McGameVersionManifestGet200Response';
+            $returnType = '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -258,7 +258,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\McGameVersionManifestGet200Response',
+                        '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -269,20 +269,20 @@ class DefaultApi
     }
 
     /**
-     * Operation mcGameVersionManifestGetAsync
+     * Operation getMinecraftVersionManifestAsync
      *
      * Get Minecraft version manifest
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcGameVersionManifestGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionManifest'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function mcGameVersionManifestGetAsync(
-        string $contentType = self::contentTypes['mcGameVersionManifestGet'][0]
+    public function getMinecraftVersionManifestAsync(
+        string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
     ): PromiseInterface
     {
-        return $this->mcGameVersionManifestGetAsyncWithHttpInfo($contentType)
+        return $this->getMinecraftVersionManifestAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -291,21 +291,21 @@ class DefaultApi
     }
 
     /**
-     * Operation mcGameVersionManifestGetAsyncWithHttpInfo
+     * Operation getMinecraftVersionManifestAsyncWithHttpInfo
      *
      * Get Minecraft version manifest
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcGameVersionManifestGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionManifest'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function mcGameVersionManifestGetAsyncWithHttpInfo(
-        string $contentType = self::contentTypes['mcGameVersionManifestGet'][0]
+    public function getMinecraftVersionManifestAsyncWithHttpInfo(
+        string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
     ): PromiseInterface
     {
-        $returnType = '\OpenAPI\Client\Model\McGameVersionManifestGet200Response';
-        $request = $this->mcGameVersionManifestGetRequest($contentType);
+        $returnType = '\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response';
+        $request = $this->getMinecraftVersionManifestRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -344,20 +344,20 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'mcGameVersionManifestGet'
+     * Create request for operation 'getMinecraftVersionManifest'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcGameVersionManifestGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMinecraftVersionManifest'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mcGameVersionManifestGetRequest(
-        string $contentType = self::contentTypes['mcGameVersionManifestGet'][0]
+    public function getMinecraftVersionManifestRequest(
+        string $contentType = self::contentTypes['getMinecraftVersionManifest'][0]
     ): Request
     {
 
 
-        $resourcePath = '/mc/game/version_manifest';
+        $resourcePath = '/mc/game/version_manifest.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

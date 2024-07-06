@@ -5,7 +5,7 @@
  */
 package org.openapitools.api;
 
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T01:37:22.360466048Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T08:47:46.239289619Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Validated
 @Tag(name = "mc", description = "the mc API")
 public interface McApi {
@@ -42,26 +42,26 @@ public interface McApi {
     }
 
     /**
-     * GET /mc/game/version_manifest : Get Minecraft version manifest
+     * GET /mc/game/version_manifest.json : Get Minecraft version manifest
      *
      * @return A list of Minecraft versions with the latest and snapshot releases (status code 200)
      */
     @Operation(
-        operationId = "mcGameVersionManifestGet",
+        operationId = "getMinecraftVersionManifest",
         summary = "Get Minecraft version manifest",
         responses = {
             @ApiResponse(responseCode = "200", description = "A list of Minecraft versions with the latest and snapshot releases", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = McGameVersionManifestGet200Response.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = GetMinecraftVersionManifest200Response.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/mc/game/version_manifest",
+        value = "/mc/game/version_manifest.json",
         produces = { "application/json" }
     )
     
-    default ResponseEntity<McGameVersionManifestGet200Response> mcGameVersionManifestGet(
+    default ResponseEntity<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest(
         
     ) {
         getRequest().ifPresent(request -> {

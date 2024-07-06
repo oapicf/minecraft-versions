@@ -1,6 +1,6 @@
 package controllers;
 
-import apimodels.McGameVersionManifestGet200Response;
+import apimodels.GetMinecraftVersionManifest200Response;
 import apimodels.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import com.typesafe.config.Config;
@@ -25,7 +25,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T01:32:47.203764015Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T08:44:44.955840895Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class DefaultApiController extends Controller {
     private final DefaultApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -39,8 +39,8 @@ public class DefaultApiController extends Controller {
     }
 
     @ApiAction
-    public Result mcGameVersionManifestGet(Http.Request request) throws Exception {
-        return imp.mcGameVersionManifestGetHttp(request);
+    public Result getMinecraftVersionManifest(Http.Request request) throws Exception {
+        return imp.getMinecraftVersionManifestHttp(request);
     }
 
     @ApiAction

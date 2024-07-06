@@ -1,6 +1,6 @@
 package org.openapitools.server.api;
 
-import org.openapitools.server.model.McGameVersionManifestGet200Response;
+import org.openapitools.server.model.GetMinecraftVersionManifest200Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openapitools.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import java.util.logging.Logger;
@@ -15,7 +15,7 @@ public class DefaultServiceImpl implements DefaultService {
     private static final ObjectMapper MAPPER = JsonProvider.objectMapper();
 
 
-    public void mcGameVersionManifestGet(ServerRequest request, ServerResponse response) {
+    public void getMinecraftVersionManifest(ServerRequest request, ServerResponse response) {
         response.status(HTTP_CODE_NOT_IMPLEMENTED).send();
     }
 

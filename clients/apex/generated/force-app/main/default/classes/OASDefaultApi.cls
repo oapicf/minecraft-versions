@@ -28,22 +28,22 @@ public class OASDefaultApi {
     /**
      * Get Minecraft version manifest
      * 
-     * @return OASMcGameVersionManifestGet200Respon
+     * @return OASGetMinecraftVersionManifest200Res
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASMcGameVersionManifestGet200Respon mcGameVersionManifestGet() {
+    public OASGetMinecraftVersionManifest200Res getMinecraftVersionManifest() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASMcGameVersionManifestGet200Respon) client.invoke(
-            'GET', '/mc/game/version_manifest', '',
+        return (OASGetMinecraftVersionManifest200Res) client.invoke(
+            'GET', '/mc/game/version_manifest.json', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            OASMcGameVersionManifestGet200Respon.class
+            OASGetMinecraftVersionManifest200Res.class
         );
     }
     /**

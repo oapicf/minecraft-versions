@@ -4,9 +4,9 @@
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module API.Types (
-  McGameVersionManifestGet200Response (..),
-  McGameVersionManifestGet200ResponseLatest (..),
-  McGameVersionManifestGet200ResponseVersionsInner (..),
+  GetMinecraftVersionManifest200Response (..),
+  GetMinecraftVersionManifest200ResponseLatest (..),
+  GetMinecraftVersionManifest200ResponseVersionsInner (..),
   V1PackagesPackageIdVersionIdJsonGet200Response (..),
   V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex (..),
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads (..),
@@ -27,80 +27,80 @@ import GHC.Generics (Generic)
 
 
 -- | 
-data McGameVersionManifestGet200Response = McGameVersionManifestGet200Response
-  { mcGameVersionManifestGet200ResponseLatest :: Maybe McGameVersionManifestGet200ResponseLatest -- ^ 
-  , mcGameVersionManifestGet200ResponseVersions :: Maybe [McGameVersionManifestGet200ResponseVersionsInner] -- ^ 
+data GetMinecraftVersionManifest200Response = GetMinecraftVersionManifest200Response
+  { getMinecraftVersionManifest200ResponseLatest :: Maybe GetMinecraftVersionManifest200ResponseLatest -- ^ 
+  , getMinecraftVersionManifest200ResponseVersions :: Maybe [GetMinecraftVersionManifest200ResponseVersionsInner] -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON McGameVersionManifestGet200Response where
-  parseJSON = genericParseJSON optionsMcGameVersionManifestGet200Response
-instance ToJSON McGameVersionManifestGet200Response where
-  toJSON = genericToJSON optionsMcGameVersionManifestGet200Response
+instance FromJSON GetMinecraftVersionManifest200Response where
+  parseJSON = genericParseJSON optionsGetMinecraftVersionManifest200Response
+instance ToJSON GetMinecraftVersionManifest200Response where
+  toJSON = genericToJSON optionsGetMinecraftVersionManifest200Response
 
-optionsMcGameVersionManifestGet200Response :: Options
-optionsMcGameVersionManifestGet200Response =
+optionsGetMinecraftVersionManifest200Response :: Options
+optionsGetMinecraftVersionManifest200Response =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("mcGameVersionManifestGet200ResponseLatest", "latest")
-      , ("mcGameVersionManifestGet200ResponseVersions", "versions")
+      [ ("getMinecraftVersionManifest200ResponseLatest", "latest")
+      , ("getMinecraftVersionManifest200ResponseVersions", "versions")
       ]
 
 
 -- | 
-data McGameVersionManifestGet200ResponseLatest = McGameVersionManifestGet200ResponseLatest
-  { mcGameVersionManifestGet200ResponseLatestRelease :: Maybe Text -- ^ 
-  , mcGameVersionManifestGet200ResponseLatestSnapshot :: Maybe Text -- ^ 
+data GetMinecraftVersionManifest200ResponseLatest = GetMinecraftVersionManifest200ResponseLatest
+  { getMinecraftVersionManifest200ResponseLatestRelease :: Maybe Text -- ^ 
+  , getMinecraftVersionManifest200ResponseLatestSnapshot :: Maybe Text -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON McGameVersionManifestGet200ResponseLatest where
-  parseJSON = genericParseJSON optionsMcGameVersionManifestGet200ResponseLatest
-instance ToJSON McGameVersionManifestGet200ResponseLatest where
-  toJSON = genericToJSON optionsMcGameVersionManifestGet200ResponseLatest
+instance FromJSON GetMinecraftVersionManifest200ResponseLatest where
+  parseJSON = genericParseJSON optionsGetMinecraftVersionManifest200ResponseLatest
+instance ToJSON GetMinecraftVersionManifest200ResponseLatest where
+  toJSON = genericToJSON optionsGetMinecraftVersionManifest200ResponseLatest
 
-optionsMcGameVersionManifestGet200ResponseLatest :: Options
-optionsMcGameVersionManifestGet200ResponseLatest =
+optionsGetMinecraftVersionManifest200ResponseLatest :: Options
+optionsGetMinecraftVersionManifest200ResponseLatest =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("mcGameVersionManifestGet200ResponseLatestRelease", "release")
-      , ("mcGameVersionManifestGet200ResponseLatestSnapshot", "snapshot")
+      [ ("getMinecraftVersionManifest200ResponseLatestRelease", "release")
+      , ("getMinecraftVersionManifest200ResponseLatestSnapshot", "snapshot")
       ]
 
 
 -- | 
-data McGameVersionManifestGet200ResponseVersionsInner = McGameVersionManifestGet200ResponseVersionsInner
-  { mcGameVersionManifestGet200ResponseVersionsInnerId :: Maybe Text -- ^ 
-  , mcGameVersionManifestGet200ResponseVersionsInnerType :: Maybe Text -- ^ 
-  , mcGameVersionManifestGet200ResponseVersionsInnerUrl :: Maybe Text -- ^ 
-  , mcGameVersionManifestGet200ResponseVersionsInnerTime :: Maybe UTCTime -- ^ 
-  , mcGameVersionManifestGet200ResponseVersionsInnerReleaseTime :: Maybe UTCTime -- ^ 
+data GetMinecraftVersionManifest200ResponseVersionsInner = GetMinecraftVersionManifest200ResponseVersionsInner
+  { getMinecraftVersionManifest200ResponseVersionsInnerId :: Maybe Text -- ^ 
+  , getMinecraftVersionManifest200ResponseVersionsInnerType :: Maybe Text -- ^ 
+  , getMinecraftVersionManifest200ResponseVersionsInnerUrl :: Maybe Text -- ^ 
+  , getMinecraftVersionManifest200ResponseVersionsInnerTime :: Maybe UTCTime -- ^ 
+  , getMinecraftVersionManifest200ResponseVersionsInnerReleaseTime :: Maybe UTCTime -- ^ 
   } deriving (Show, Eq, Generic)
 
-instance FromJSON McGameVersionManifestGet200ResponseVersionsInner where
-  parseJSON = genericParseJSON optionsMcGameVersionManifestGet200ResponseVersionsInner
-instance ToJSON McGameVersionManifestGet200ResponseVersionsInner where
-  toJSON = genericToJSON optionsMcGameVersionManifestGet200ResponseVersionsInner
+instance FromJSON GetMinecraftVersionManifest200ResponseVersionsInner where
+  parseJSON = genericParseJSON optionsGetMinecraftVersionManifest200ResponseVersionsInner
+instance ToJSON GetMinecraftVersionManifest200ResponseVersionsInner where
+  toJSON = genericToJSON optionsGetMinecraftVersionManifest200ResponseVersionsInner
 
-optionsMcGameVersionManifestGet200ResponseVersionsInner :: Options
-optionsMcGameVersionManifestGet200ResponseVersionsInner =
+optionsGetMinecraftVersionManifest200ResponseVersionsInner :: Options
+optionsGetMinecraftVersionManifest200ResponseVersionsInner =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("mcGameVersionManifestGet200ResponseVersionsInnerId", "id")
-      , ("mcGameVersionManifestGet200ResponseVersionsInnerType", "type")
-      , ("mcGameVersionManifestGet200ResponseVersionsInnerUrl", "url")
-      , ("mcGameVersionManifestGet200ResponseVersionsInnerTime", "time")
-      , ("mcGameVersionManifestGet200ResponseVersionsInnerReleaseTime", "releaseTime")
+      [ ("getMinecraftVersionManifest200ResponseVersionsInnerId", "id")
+      , ("getMinecraftVersionManifest200ResponseVersionsInnerType", "type")
+      , ("getMinecraftVersionManifest200ResponseVersionsInnerUrl", "url")
+      , ("getMinecraftVersionManifest200ResponseVersionsInnerTime", "time")
+      , ("getMinecraftVersionManifest200ResponseVersionsInnerReleaseTime", "releaseTime")
       ]
 
 

@@ -13,8 +13,8 @@ type mutation {
 
 type query {
   # Get Minecraft version manifest
-  # @return [McGameVersionManifestGet200Response]
-  McGameVersionManifestGet(): McGameVersionManifestGet200Response
+  # @return [GetMinecraftVersionManifest200Response]
+  GetMinecraftVersionManifest(): GetMinecraftVersionManifest200Response
 
   # Get Minecraft version package details
   # @param String! packageId 

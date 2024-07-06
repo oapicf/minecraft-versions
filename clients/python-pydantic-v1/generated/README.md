@@ -72,11 +72,11 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Minecraft version manifest
-        api_response = api_instance.mc_game_version_manifest_get()
-        print("The response of DefaultApi->mc_game_version_manifest_get:\n")
+        api_response = api_instance.get_minecraft_version_manifest()
+        print("The response of DefaultApi->get_minecraft_version_manifest:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->mc_game_version_manifest_get: %s\n" % e)
+        print("Exception when calling DefaultApi->get_minecraft_version_manifest: %s\n" % e)
 
 ```
 
@@ -86,15 +86,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mc_game_version_manifest_get**](docs/DefaultApi.md#mc_game_version_manifest_get) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**get_minecraft_version_manifest**](docs/DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**v1_packages_package_id_version_id_json_get**](docs/DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation For Models
 
- - [McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

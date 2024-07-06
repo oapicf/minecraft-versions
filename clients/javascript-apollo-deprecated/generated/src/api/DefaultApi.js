@@ -14,7 +14,7 @@
 
 
 import ApiClient from "../ApiClient";
-import McGameVersionManifestGet200Response from '../model/McGameVersionManifestGet200Response';
+import GetMinecraftVersionManifest200Response from '../model/GetMinecraftVersionManifest200Response';
 import V1PackagesPackageIdVersionIdJsonGet200Response from '../model/V1PackagesPackageIdVersionIdJsonGet200Response';
 
 /**
@@ -37,9 +37,9 @@ export default class DefaultApi extends ApiClient {
     /**
      * Get Minecraft version manifest
      * @param requestInit Dynamic configuration. @see {@link https://github.com/apollographql/apollo-server/pull/1277}
-     * @return {Promise<module:model/McGameVersionManifestGet200Response>}
+     * @return {Promise<module:model/GetMinecraftVersionManifest200Response>}
      */
-    async mcGameVersionManifestGet(requestInit) {
+    async getMinecraftVersionManifest(requestInit) {
       let postBody = null;
 
       let pathParams = {
@@ -55,10 +55,10 @@ export default class DefaultApi extends ApiClient {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = McGameVersionManifestGet200Response;
+      let returnType = GetMinecraftVersionManifest200Response;
 
       return this.callApi(
-        '/mc/game/version_manifest', 'GET',
+        '/mc/game/version_manifest.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, requestInit
       );

@@ -33,7 +33,7 @@ import javax.annotation.Generated;
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.JSON_PROPERTY_SERVER_MAPPINGS
 })
 @JsonTypeName("_v1_packages__packageId___versionId__json_get_200_response_downloads")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-06T01:32:32.036634709Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-06T08:44:33.176951613Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Introspected
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads {
     public static final String JSON_PROPERTY_CLIENT = "client";

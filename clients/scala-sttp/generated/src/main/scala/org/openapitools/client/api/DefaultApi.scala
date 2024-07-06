@@ -11,7 +11,7 @@
  */
 package org.openapitools.client.api
 
-import org.openapitools.client.model.McGameVersionManifestGet200Response
+import org.openapitools.client.model.GetMinecraftVersionManifest200Response
 import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response
 import org.openapitools.client.core.JsonSupport._
 import sttp.client3._
@@ -25,14 +25,14 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : McGameVersionManifestGet200Response (A list of Minecraft versions with the latest and snapshot releases)
+   *   code 200 : GetMinecraftVersionManifest200Response (A list of Minecraft versions with the latest and snapshot releases)
    */
-  def mcGameVersionManifestGet(
-): Request[Either[ResponseException[String, Exception], McGameVersionManifestGet200Response], Any] =
+  def getMinecraftVersionManifest(
+): Request[Either[ResponseException[String, Exception], GetMinecraftVersionManifest200Response], Any] =
     basicRequest
-      .method(Method.GET, uri"$baseUrl/mc/game/version_manifest")
+      .method(Method.GET, uri"$baseUrl/mc/game/version_manifest.json")
       .contentType("application/json")
-      .response(asJson[McGameVersionManifestGet200Response])
+      .response(asJson[GetMinecraftVersionManifest200Response])
 
   /**
    * Expected answers:

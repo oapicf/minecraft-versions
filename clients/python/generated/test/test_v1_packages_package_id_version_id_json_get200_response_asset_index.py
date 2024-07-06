@@ -13,7 +13,7 @@
 
 import unittest
 
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response_asset_index import V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
+from minecraftversions.models.v1_packages_package_id_version_id_json_get200_response_asset_index import V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex
 
 class TestV1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex(unittest.TestCase):
     """V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex unit test stubs"""

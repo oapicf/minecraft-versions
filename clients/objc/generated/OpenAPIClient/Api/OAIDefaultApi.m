@@ -1,7 +1,7 @@
 #import "OAIDefaultApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIMcGameVersionManifestGet200Response.h"
+#import "OAIGetMinecraftVersionManifest200Response.h"
 #import "OAIV1PackagesPackageIdVersionIdJsonGet200Response.h"
 
 
@@ -53,11 +53,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// Get Minecraft version manifest
 /// 
-///  @returns OAIMcGameVersionManifestGet200Response*
+///  @returns OAIGetMinecraftVersionManifest200Response*
 ///
--(NSURLSessionTask*) mcGameVersionManifestGetWithCompletionHandler: 
-    (void (^)(OAIMcGameVersionManifestGet200Response* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mc/game/version_manifest"];
+-(NSURLSessionTask*) getMinecraftVersionManifestWithCompletionHandler: 
+    (void (^)(OAIGetMinecraftVersionManifest200Response* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mc/game/version_manifest.json"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
@@ -94,10 +94,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIMcGameVersionManifestGet200Response*"
+                              responseType: @"OAIGetMinecraftVersionManifest200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIMcGameVersionManifestGet200Response*)data, error);
+                                    handler((OAIGetMinecraftVersionManifest200Response*)data, error);
                                 }
                             }];
 }

@@ -1,6 +1,6 @@
 package org.openapitools.api;
 
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T01:37:22.360466048Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T08:47:46.239289619Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 @RequestMapping("${openapi.OpenAPI Spring.base-path:}")
 public class McApiController implements McApi {

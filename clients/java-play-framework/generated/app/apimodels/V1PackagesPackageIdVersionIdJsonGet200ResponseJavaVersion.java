@@ -10,7 +10,7 @@ import javax.validation.Valid;
 /**
  * V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T01:32:47.203764015Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T08:44:44.955840895Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion   {
   @JsonProperty("component")

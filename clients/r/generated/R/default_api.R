@@ -12,15 +12,15 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ McGameVersionManifestGet } \emph{ Get Minecraft version manifest }
+#' \strong{ GetMinecraftVersionManifest } \emph{ Get Minecraft version manifest }
 #'
 #' \itemize{
-#' \item \emph{ @returnType } \link{McGameVersionManifestGet200Response} \cr
+#' \item \emph{ @returnType } \link{GetMinecraftVersionManifest200Response} \cr
 #'
 #'
 #' \item status code : 200 | A list of Minecraft versions with the latest and snapshot releases
 #'
-#' \item return type : McGameVersionManifestGet200Response
+#' \item return type : GetMinecraftVersionManifest200Response
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -49,7 +49,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  McGameVersionManifestGet  ####################
+#' ####################  GetMinecraftVersionManifest  ####################
 #'
 #' library(openapi)
 #'
@@ -57,8 +57,8 @@
 #' api_instance <- DefaultApi$new()
 #'
 #' # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-#' # result <- api_instance$McGameVersionManifestGet(data_file = "result.txt")
-#' result <- api_instance$McGameVersionManifestGet()
+#' # result <- api_instance$GetMinecraftVersionManifest(data_file = "result.txt")
+#' result <- api_instance$GetMinecraftVersionManifest()
 #' dput(result)
 #'
 #'
@@ -106,10 +106,10 @@ DefaultApi <- R6::R6Class(
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return McGameVersionManifestGet200Response
+    #' @return GetMinecraftVersionManifest200Response
     #' @export
-    McGameVersionManifestGet = function(data_file = NULL, ...) {
-      local_var_response <- self$McGameVersionManifestGetWithHttpInfo(data_file = data_file, ...)
+    GetMinecraftVersionManifest = function(data_file = NULL, ...) {
+      local_var_response <- self$GetMinecraftVersionManifestWithHttpInfo(data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
         local_var_response$content
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
@@ -127,9 +127,9 @@ DefaultApi <- R6::R6Class(
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return API response (McGameVersionManifestGet200Response) with additional information such as HTTP status code, headers
+    #' @return API response (GetMinecraftVersionManifest200Response) with additional information such as HTTP status code, headers
     #' @export
-    McGameVersionManifestGetWithHttpInfo = function(data_file = NULL, ...) {
+    GetMinecraftVersionManifestWithHttpInfo = function(data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
       header_params <- c()
@@ -139,7 +139,7 @@ DefaultApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
-      local_var_url_path <- "/mc/game/version_manifest"
+      local_var_url_path <- "/mc/game/version_manifest.json"
 
       # The Accept request HTTP header
       local_var_accepts <- list("application/json")
@@ -167,7 +167,7 @@ DefaultApi <- R6::R6Class(
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response_as_text(), "McGameVersionManifestGet200Response", loadNamespace("openapi")),
+          self$api_client$deserialize(local_var_resp$response_as_text(), "GetMinecraftVersionManifest200Response", loadNamespace("openapi")),
           error = function(e) {
             stop("Failed to deserialize response")
           }

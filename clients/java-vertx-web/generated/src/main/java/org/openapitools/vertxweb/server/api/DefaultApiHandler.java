@@ -1,6 +1,6 @@
 package org.openapitools.vertxweb.server.api;
 
-import org.openapitools.vertxweb.server.model.McGameVersionManifestGet200Response;
+import org.openapitools.vertxweb.server.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.vertxweb.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -33,19 +33,19 @@ public class DefaultApiHandler {
     }
 
     public void mount(RouterBuilder builder) {
-        builder.operation("mcGameVersionManifestGet").handler(this::mcGameVersionManifestGet);
+        builder.operation("getMinecraftVersionManifest").handler(this::getMinecraftVersionManifest);
         builder.operation("v1PackagesPackageIdVersionIdJsonGet").handler(this::v1PackagesPackageIdVersionIdJsonGet);
     }
 
-    private void mcGameVersionManifestGet(RoutingContext routingContext) {
-        logger.info("mcGameVersionManifestGet()");
+    private void getMinecraftVersionManifest(RoutingContext routingContext) {
+        logger.info("getMinecraftVersionManifest()");
 
         // Param extraction
         RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
 
 
-        api.mcGameVersionManifestGet()
+        api.getMinecraftVersionManifest()
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

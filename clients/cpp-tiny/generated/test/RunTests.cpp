@@ -1,9 +1,9 @@
 
-#include "_mc_game_version_manifest_get_200_responseTest.cpp"
+#include "GetMinecraftVersionManifest_200_responseTest.cpp"
 
-#include "_mc_game_version_manifest_get_200_response_latestTest.cpp"
+#include "GetMinecraftVersionManifest_200_response_latestTest.cpp"
 
-#include "_mc_game_version_manifest_get_200_response_versions_innerTest.cpp"
+#include "GetMinecraftVersionManifest_200_response_versions_innerTest.cpp"
 
 #include "_v1_packages__packageId___versionId__json_get_200_responseTest.cpp"
 
@@ -27,26 +27,26 @@ void runTests(){
     
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_latest_release_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_latest_release_is_assigned_from_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_latest_snapshot_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_latest_snapshot_is_assigned_from_json);
     
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_id_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_id_is_assigned_from_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_type_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_type_is_assigned_from_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_url_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_url_is_assigned_from_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_time_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_time_is_assigned_from_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_releaseTime_is_assigned_from_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_releaseTime_is_assigned_from_json);
     
     
     
@@ -124,26 +124,26 @@ void runTests(){
     
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_latest_release_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_latest_release_is_converted_to_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_latest_snapshot_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_latest_snapshot_is_converted_to_json);
     
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_id_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_id_is_converted_to_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_type_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_type_is_converted_to_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_url_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_url_is_converted_to_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_time_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_time_is_converted_to_json);
     
     
-    RUN_TEST(test__mc_game_version_manifest_get_200_response_versions_inner_releaseTime_is_converted_to_json);
+    RUN_TEST(test_GetMinecraftVersionManifest_200_response_versions_inner_releaseTime_is_converted_to_json);
     
     
     

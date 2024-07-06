@@ -33,7 +33,7 @@ void DefaultApi::init() {
 void DefaultApi::setupRoutes() {
     using namespace Pistache::Rest;
 
-    Routes::Get(*router, base + "/mc/game/version_manifest", Routes::bind(&DefaultApi::mc_game_version_manifest_get_handler, this));
+    Routes::Get(*router, base + "/mc/game/version_manifest.json", Routes::bind(&DefaultApi::get_minecraft_version_manifest_handler, this));
     Routes::Get(*router, base + "/v1/packages/:packageId/:versionId.json", Routes::bind(&DefaultApi::v1_packages_package_id_version_id_json_get_handler, this));
 
     // Default handler, called when a route is not found
@@ -58,12 +58,12 @@ std::pair<Pistache::Http::Code, std::string> DefaultApi::handleOperationExceptio
     return std::make_pair(Pistache::Http::Code::Internal_Server_Error, ex.what());
 }
 
-void DefaultApi::mc_game_version_manifest_get_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
+void DefaultApi::get_minecraft_version_manifest_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
     try {
 
 
     try {
-        this->mc_game_version_manifest_get(response);
+        this->get_minecraft_version_manifest(response);
     } catch (Pistache::Http::HttpError &e) {
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;

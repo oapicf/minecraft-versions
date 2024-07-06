@@ -66,16 +66,16 @@ class DefaultApiTest extends TestCase
     }
 
     /**
-     * Test case for mcGameVersionManifestGet
+     * Test case for getMinecraftVersionManifest
      *
      * Get Minecraft version manifest.
      *
-     * @covers ::mcGameVersionManifestGet
+     * @covers ::getMinecraftVersionManifest
      */
-    public function testMcGameVersionManifestGet()
+    public function testGetMinecraftVersionManifest()
     {
         self::markTestIncomplete(
-            'Test of "mcGameVersionManifestGet" method has not been implemented yet.'
+            'Test of "getMinecraftVersionManifest" method has not been implemented yet.'
         );
     }
 

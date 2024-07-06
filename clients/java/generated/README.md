@@ -2,7 +2,7 @@
 
 
 - API version: 0.9.0-pre.0
-  - Build date: 2024-07-06T01:32:12.605708324Z[Etc/UTC]
+  - Build date: 2024-07-06T08:44:16.570061129Z[Etc/UTC]
   - Generator version: 7.6.0
 
 SDK for Minecraft versions info
@@ -95,10 +95,10 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      McGameVersionManifestGet200Response result = apiInstance.mcGameVersionManifestGet();
+      GetMinecraftVersionManifest200Response result = apiInstance.getMinecraftVersionManifest();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#mcGameVersionManifestGet");
+      System.err.println("Exception when calling DefaultApi#getMinecraftVersionManifest");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -115,15 +115,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mcGameVersionManifestGet**](docs/DefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**getMinecraftVersionManifest**](docs/DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation for Models
 
- - [McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

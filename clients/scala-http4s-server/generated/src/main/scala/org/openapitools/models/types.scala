@@ -15,13 +15,13 @@ import java.time.ZonedDateTime
 * @param versions 
 */
 
-case class McGameVersionManifestGet200Response(
-  latest: Option[McGameVersionManifestGet200ResponseLatest],
-  versions: Option[List[McGameVersionManifestGet200ResponseVersionsInner]]
+case class GetMinecraftVersionManifest200Response(
+  latest: Option[GetMinecraftVersionManifest200ResponseLatest],
+  versions: Option[List[GetMinecraftVersionManifest200ResponseVersionsInner]]
 )
-object McGameVersionManifestGet200Response {
-  implicit val encoderMcGameVersionManifestGet200Response: Encoder[McGameVersionManifestGet200Response] = deriveEncoder[McGameVersionManifestGet200Response].mapJson(_.dropNullValues)
-  implicit val decoderMcGameVersionManifestGet200Response: Decoder[McGameVersionManifestGet200Response] = deriveDecoder[McGameVersionManifestGet200Response]
+object GetMinecraftVersionManifest200Response {
+  implicit val encoderGetMinecraftVersionManifest200Response: Encoder[GetMinecraftVersionManifest200Response] = deriveEncoder[GetMinecraftVersionManifest200Response].mapJson(_.dropNullValues)
+  implicit val decoderGetMinecraftVersionManifest200Response: Decoder[GetMinecraftVersionManifest200Response] = deriveDecoder[GetMinecraftVersionManifest200Response]
 }
 
 /**
@@ -30,13 +30,13 @@ object McGameVersionManifestGet200Response {
 * @param snapshot 
 */
 
-case class McGameVersionManifestGet200ResponseLatest(
+case class GetMinecraftVersionManifest200ResponseLatest(
   release: Option[String],
   snapshot: Option[String]
 )
-object McGameVersionManifestGet200ResponseLatest {
-  implicit val encoderMcGameVersionManifestGet200ResponseLatest: Encoder[McGameVersionManifestGet200ResponseLatest] = deriveEncoder[McGameVersionManifestGet200ResponseLatest].mapJson(_.dropNullValues)
-  implicit val decoderMcGameVersionManifestGet200ResponseLatest: Decoder[McGameVersionManifestGet200ResponseLatest] = deriveDecoder[McGameVersionManifestGet200ResponseLatest]
+object GetMinecraftVersionManifest200ResponseLatest {
+  implicit val encoderGetMinecraftVersionManifest200ResponseLatest: Encoder[GetMinecraftVersionManifest200ResponseLatest] = deriveEncoder[GetMinecraftVersionManifest200ResponseLatest].mapJson(_.dropNullValues)
+  implicit val decoderGetMinecraftVersionManifest200ResponseLatest: Decoder[GetMinecraftVersionManifest200ResponseLatest] = deriveDecoder[GetMinecraftVersionManifest200ResponseLatest]
 }
 
 /**
@@ -48,16 +48,16 @@ object McGameVersionManifestGet200ResponseLatest {
 * @param releaseTime 
 */
 
-case class McGameVersionManifestGet200ResponseVersionsInner(
+case class GetMinecraftVersionManifest200ResponseVersionsInner(
   id: Option[String],
   _type: Option[String],
   url: Option[String],
   time: Option[ZonedDateTime],
   releaseTime: Option[ZonedDateTime]
 )
-object McGameVersionManifestGet200ResponseVersionsInner {
-  implicit val encoderMcGameVersionManifestGet200ResponseVersionsInner: Encoder[McGameVersionManifestGet200ResponseVersionsInner] = deriveEncoder[McGameVersionManifestGet200ResponseVersionsInner].mapJson(_.dropNullValues)
-  implicit val decoderMcGameVersionManifestGet200ResponseVersionsInner: Decoder[McGameVersionManifestGet200ResponseVersionsInner] = deriveDecoder[McGameVersionManifestGet200ResponseVersionsInner]
+object GetMinecraftVersionManifest200ResponseVersionsInner {
+  implicit val encoderGetMinecraftVersionManifest200ResponseVersionsInner: Encoder[GetMinecraftVersionManifest200ResponseVersionsInner] = deriveEncoder[GetMinecraftVersionManifest200ResponseVersionsInner].mapJson(_.dropNullValues)
+  implicit val decoderGetMinecraftVersionManifest200ResponseVersionsInner: Decoder[GetMinecraftVersionManifest200ResponseVersionsInner] = deriveDecoder[GetMinecraftVersionManifest200ResponseVersionsInner]
 }
 
 /**

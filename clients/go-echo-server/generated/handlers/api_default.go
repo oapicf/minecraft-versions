@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-// McGameVersionManifestGet - Get Minecraft version manifest
-func (c *Container) McGameVersionManifestGet(ctx echo.Context) error {
+// GetMinecraftVersionManifest - Get Minecraft version manifest
+func (c *Container) GetMinecraftVersionManifest(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, models.HelloWorld {
 		Message: "Hello World",
 	})

@@ -20,7 +20,7 @@
 #include <QSharedPointer>
 
 #include <qhttpengine/socket.h>
-#include "OAI_mc_game_version_manifest_get_200_response.h"
+#include "OAIGetMinecraftVersionManifest_200_response.h"
 #include "OAI_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <QString>
 #include "OAIDefaultApiHandler.h"
@@ -35,15 +35,15 @@ public:
     OAIDefaultApiRequest(QHttpEngine::Socket *s, QSharedPointer<OAIDefaultApiHandler> handler);
     virtual ~OAIDefaultApiRequest();
 
-    void mcGameVersionManifestGetRequest();
+    void getMinecraftVersionManifestRequest();
     void v1PackagesPackageIdVersionIdJsonGetRequest(const QString& package_id, const QString& version_id);
     
 
-    void mcGameVersionManifestGetResponse(const OAI_mc_game_version_manifest_get_200_response& res);
+    void getMinecraftVersionManifestResponse(const OAIGetMinecraftVersionManifest_200_response& res);
     void v1PackagesPackageIdVersionIdJsonGetResponse(const OAI_v1_packages__packageId___versionId__json_get_200_response& res);
     
 
-    void mcGameVersionManifestGetError(const OAI_mc_game_version_manifest_get_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getMinecraftVersionManifestError(const OAIGetMinecraftVersionManifest_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str);
     void v1PackagesPackageIdVersionIdJsonGetError(const OAI_v1_packages__packageId___versionId__json_get_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str);
     
 
@@ -58,7 +58,7 @@ public:
     void setResponseHeaders(const QMultiMap<QString,QString>& headers);
 
 Q_SIGNALS:
-    void mcGameVersionManifestGet();
+    void getMinecraftVersionManifest();
     void v1PackagesPackageIdVersionIdJsonGet(QString package_id, QString version_id);
     
 

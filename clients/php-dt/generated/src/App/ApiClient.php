@@ -14,7 +14,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ApiClient extends OAGAC\AbstractApiClient
 {
-    //region mcGameVersionManifestGet
+    //region getMinecraftVersionManifest
     /**
      * Get Minecraft version manifest
      * @param string $responseMediaType
@@ -22,11 +22,11 @@ class ApiClient extends OAGAC\AbstractApiClient
      * @throws ClientExceptionInterface
      * @throws DT\Exception\InvalidData
      */
-    public function mcGameVersionManifestGetRaw(
+    public function getMinecraftVersionManifestRaw(
         string $responseMediaType = 'application/json'
     ): ResponseInterface
     {
-        $request = $this->createRequest('GET', '/mc/game/version_manifest', [], []);
+        $request = $this->createRequest('GET', '/mc/game/version_manifest.json', [], []);
         $request = $this->addAcceptHeader($request, $responseMediaType);
         return $this->httpClient->sendRequest($request);
     }
@@ -39,11 +39,11 @@ class ApiClient extends OAGAC\AbstractApiClient
      * @throws DT\Exception\InvalidData
      * @throws OAGAC\Exception\InvalidResponseBodySchema
      */
-    public function mcGameVersionManifestGet(
+    public function getMinecraftVersionManifest(
         string $responseMediaType = 'application/json'
     ): array
     {
-        $response = $this->mcGameVersionManifestGetRaw($responseMediaType);
+        $response = $this->getMinecraftVersionManifestRaw($responseMediaType);
         $responseContent = null;
         $contentStrategy = null;
         $contentValidator = null;
@@ -51,7 +51,7 @@ class ApiClient extends OAGAC\AbstractApiClient
         {
             case 200:
                 /* A list of Minecraft versions with the latest and snapshot releases */
-                $responseContent = new \App\DTO\McGameVersionManifestGet200Response();
+                $responseContent = new \App\DTO\GetMinecraftVersionManifest200Response();
                 break;
         }
         $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
@@ -61,17 +61,17 @@ class ApiClient extends OAGAC\AbstractApiClient
     /**
      * Get Minecraft version manifest
      * @param string $responseMediaType
-     * @return \App\DTO\McGameVersionManifestGet200Response
+     * @return \App\DTO\GetMinecraftVersionManifest200Response
      * @throws ClientExceptionInterface
      * @throws DT\Exception\InvalidData
      * @throws OAGAC\Exception\InvalidResponseBodySchema
      * @throws OAGAC\Exception\UnsuccessfulResponse
      */
-    public function mcGameVersionManifestGetResult(
+    public function getMinecraftVersionManifestResult(
         string $responseMediaType = 'application/json'
-    ): \App\DTO\McGameVersionManifestGet200Response
+    ): \App\DTO\GetMinecraftVersionManifest200Response
     {
-        return $this->getSuccessfulContent(...$this->mcGameVersionManifestGet($responseMediaType));
+        return $this->getSuccessfulContent(...$this->getMinecraftVersionManifest($responseMediaType));
     }
     //endregion
 

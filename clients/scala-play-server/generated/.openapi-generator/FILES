@@ -4,9 +4,9 @@ app/api/ApiDocController.scala
 app/api/DefaultApi.scala
 app/api/DefaultApiController.scala
 app/api/DefaultApiImpl.scala
-app/model/McGameVersionManifestGet200Response.scala
-app/model/McGameVersionManifestGet200ResponseLatest.scala
-app/model/McGameVersionManifestGet200ResponseVersionsInner.scala
+app/model/GetMinecraftVersionManifest200Response.scala
+app/model/GetMinecraftVersionManifest200ResponseLatest.scala
+app/model/GetMinecraftVersionManifest200ResponseVersionsInner.scala
 app/model/V1PackagesPackageIdVersionIdJsonGet200Response.scala
 app/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.scala
 app/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.scala

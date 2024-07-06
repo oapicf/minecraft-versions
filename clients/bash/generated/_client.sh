@@ -297,7 +297,7 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "mcGameVersionManifestGet[Get Minecraft version manifest]" \
+            "getMinecraftVersionManifest[Get Minecraft version manifest]" \
             "v1PackagesPackageIdVersionIdJsonGet[Get Minecraft version package details]" \
 
     _arguments "(--help)--help[Print information about operation]"
@@ -306,7 +306,7 @@ case $state in
     ;;
   args)
     case $line[1] in
-      mcGameVersionManifestGet)
+      getMinecraftVersionManifest)
         local -a _op_arguments
         _op_arguments=(
                               )

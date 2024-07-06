@@ -15,7 +15,7 @@
 
 
 module Api.Request.Default exposing
-    ( mcGameVersionManifestGet
+    ( getMinecraftVersionManifest
     , v1PackagesPackageIdVersionIdJsonGet
     )
 
@@ -26,16 +26,16 @@ import Http
 import Json.Decode
 import Json.Encode
 
-mcGameVersionManifestGet : Api.Request Api.Data.McGameVersionManifestGet200Response
-mcGameVersionManifestGet =
+getMinecraftVersionManifest : Api.Request Api.Data.GetMinecraftVersionManifest200Response
+getMinecraftVersionManifest =
     Api.request
         "GET"
-        "/mc/game/version_manifest"
+        "/mc/game/version_manifest.json"
         []
         []
         []
         Nothing
-        Api.Data.mcGameVersionManifestGet200ResponseDecoder
+        Api.Data.getMinecraftVersionManifest200ResponseDecoder
 
 
 v1PackagesPackageIdVersionIdJsonGet : String -> String -> Api.Request Api.Data.V1PackagesPackageIdVersionIdJsonGet200Response

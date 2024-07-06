@@ -15,14 +15,14 @@ import { HttpClient } from 'aurelia-http-client';
 import { Api } from './Api';
 import { AuthStorage } from './AuthStorage';
 import {
+  GetMinecraftVersionManifest200Response,
   V1PackagesPackageIdVersionIdJsonGet200Response,
-  McGameVersionManifestGet200Response,
 } from './models';
 
 /**
- * mcGameVersionManifestGet - parameters interface
+ * getMinecraftVersionManifest - parameters interface
  */
-export interface IMcGameVersionManifestGetParams {
+export interface IGetMinecraftVersionManifestParams {
 }
 
 /**
@@ -52,11 +52,11 @@ export class DefaultApi extends Api {
   /**
    * Get Minecraft version manifest
    */
-  async mcGameVersionManifestGet(): Promise<McGameVersionManifestGet200Response> {
+  async getMinecraftVersionManifest(): Promise<GetMinecraftVersionManifest200Response> {
     // Verify required parameters are set
 
     // Create URL to call
-    const url = `${this.basePath}/mc/game/version_manifest`;
+    const url = `${this.basePath}/mc/game/version_manifest.json`;
 
     const response = await this.httpClient.createRequest(url)
       // Set HTTP method

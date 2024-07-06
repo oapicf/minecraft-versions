@@ -19,7 +19,7 @@ from pydantic import validate_arguments, ValidationError
 
 from pydantic import StrictStr
 
-from openapi_client.models.mc_game_version_manifest_get200_response import McGameVersionManifestGet200Response
+from openapi_client.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
 from openapi_client.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
 
 from openapi_client.api_client import ApiClient
@@ -43,13 +43,13 @@ class DefaultApi:
         self.api_client = api_client
 
     @validate_arguments
-    def mc_game_version_manifest_get(self, **kwargs) -> McGameVersionManifestGet200Response:  # noqa: E501
+    def get_minecraft_version_manifest(self, **kwargs) -> GetMinecraftVersionManifest200Response:  # noqa: E501
         """Get Minecraft version manifest  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.mc_game_version_manifest_get(async_req=True)
+        >>> thread = api.get_minecraft_version_manifest(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -61,22 +61,22 @@ class DefaultApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: McGameVersionManifestGet200Response
+        :rtype: GetMinecraftVersionManifest200Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the mc_game_version_manifest_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_minecraft_version_manifest_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.mc_game_version_manifest_get_with_http_info(**kwargs)  # noqa: E501
+        return self.get_minecraft_version_manifest_with_http_info(**kwargs)  # noqa: E501
 
     @validate_arguments
-    def mc_game_version_manifest_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_minecraft_version_manifest_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Minecraft version manifest  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.mc_game_version_manifest_get_with_http_info(async_req=True)
+        >>> thread = api.get_minecraft_version_manifest_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -101,7 +101,7 @@ class DefaultApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(McGameVersionManifestGet200Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(GetMinecraftVersionManifest200Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -125,7 +125,7 @@ class DefaultApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method mc_game_version_manifest_get" % _key
+                    " to method get_minecraft_version_manifest" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -152,11 +152,11 @@ class DefaultApi:
         _auth_settings = []  # noqa: E501
 
         _response_types_map = {
-            '200': "McGameVersionManifestGet200Response",
+            '200': "GetMinecraftVersionManifest200Response",
         }
 
         return self.api_client.call_api(
-            '/mc/game/version_manifest', 'GET',
+            '/mc/game/version_manifest.json', 'GET',
             _path_params,
             _query_params,
             _header_params,

@@ -29,12 +29,12 @@ OAIDefaultApiHandler::~OAIDefaultApiHandler(){
 
 }
 
-void OAIDefaultApiHandler::mcGameVersionManifestGet() {
+void OAIDefaultApiHandler::getMinecraftVersionManifest() {
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr )
     {
-        OAI_mc_game_version_manifest_get_200_response res;
-        reqObj->mcGameVersionManifestGetResponse(res);
+        OAIGetMinecraftVersionManifest_200_response res;
+        reqObj->getMinecraftVersionManifestResponse(res);
     }
 }
 void OAIDefaultApiHandler::v1PackagesPackageIdVersionIdJsonGet(QString package_id, QString version_id) {

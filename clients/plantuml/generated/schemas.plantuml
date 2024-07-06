@@ -2,17 +2,17 @@
 
 title  Schemas Diagram
 
-entity McGameVersionManifestGet200Response {
-    latest: McGameVersionManifestGet200ResponseLatest
-    versions: List<McGameVersionManifestGet200ResponseVersionsInner>
+entity GetMinecraftVersionManifest200Response {
+    latest: GetMinecraftVersionManifest200ResponseLatest
+    versions: List<GetMinecraftVersionManifest200ResponseVersionsInner>
 }
 
-entity McGameVersionManifestGet200ResponseLatest {
+entity GetMinecraftVersionManifest200ResponseLatest {
     release: String
     snapshot: String
 }
 
-entity McGameVersionManifestGet200ResponseVersionsInner {
+entity GetMinecraftVersionManifest200ResponseVersionsInner {
     id: String
     type: String
     url: String
@@ -62,6 +62,8 @@ entity V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion {
 }
 
 
+GetMinecraftVersionManifest200Response -- GetMinecraftVersionManifest200ResponseLatest : latest
+GetMinecraftVersionManifest200Response -- "0..*" GetMinecraftVersionManifest200ResponseVersionsInner : versions
 V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : client
 V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : client_mappings
 V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient : server
@@ -69,7 +71,5 @@ V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads -- V1PackagesPackageIdVe
 V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex : assetIndex
 V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads : downloads
 V1PackagesPackageIdVersionIdJsonGet200Response -- V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion : javaVersion
-McGameVersionManifestGet200Response -- McGameVersionManifestGet200ResponseLatest : latest
-McGameVersionManifestGet200Response -- "0..*" McGameVersionManifestGet200ResponseVersionsInner : versions
 
 @enduml

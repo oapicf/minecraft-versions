@@ -20,9 +20,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-McGameVersionManifestGet200Response
+GetMinecraftVersionManifest200Response
 #>
-function Invoke-McGameVersionManifestGet {
+function Get-MinecraftVersionManifest {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -30,7 +30,7 @@ function Invoke-McGameVersionManifestGet {
     )
 
     Process {
-        'Calling method: Invoke-McGameVersionManifestGet' | Write-Debug
+        'Calling method: Get-MinecraftVersionManifest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -46,7 +46,7 @@ function Invoke-McGameVersionManifestGet {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/mc/game/version_manifest'
+        $LocalVarUri = '/mc/game/version_manifest.json'
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -57,7 +57,7 @@ function Invoke-McGameVersionManifestGet {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "McGameVersionManifestGet200Response" `
+                                -ReturnType "GetMinecraftVersionManifest200Response" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

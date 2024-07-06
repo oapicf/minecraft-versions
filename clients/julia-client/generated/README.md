@@ -22,15 +22,15 @@ Documentation is also embedded in Julia which can be used with a Julia specific 
 
 Class | Method
 ------------ | -------------
-*DefaultApi* | [**mc_game_version_manifest_get**](docs/DefaultApi.md#mc_game_version_manifest_get)<br/>**GET** /mc/game/version_manifest<br/>Get Minecraft version manifest
+*DefaultApi* | [**get_minecraft_version_manifest**](docs/DefaultApi.md#get_minecraft_version_manifest)<br/>**GET** /mc/game/version_manifest.json<br/>Get Minecraft version manifest
 *DefaultApi* | [**v1_packages_package_id_version_id_json_get**](docs/DefaultApi.md#v1_packages_package_id_version_id_json_get)<br/>**GET** /v1/packages/{packageId}/{versionId}.json<br/>Get Minecraft version package details
 
 
 ## Models
 
- - [McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

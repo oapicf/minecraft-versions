@@ -8,9 +8,9 @@ import           TestImport
 spec :: Spec
 spec = withApp $ do
 
-    describe "getMcGameVersionManifestR" $
+    describe "getMcGameVersionManifestJsonR" $
         it "returns 501 Not Implemented" $ do
-            get McGameVersionManifestR
+            get McGameVersionManifestJsonR
             statusIs 501
 
     describe "getV1PackagesByText{VersionId}JsonR" $

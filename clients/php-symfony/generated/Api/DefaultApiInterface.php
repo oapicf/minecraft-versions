@@ -28,7 +28,7 @@
 namespace OpenAPI\Server\Api;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use OpenAPI\Server\Model\McGameVersionManifestGet200Response;
+use OpenAPI\Server\Model\GetMinecraftVersionManifest200Response;
 use OpenAPI\Server\Model\V1PackagesPackageIdVersionIdJsonGet200Response;
 
 /**
@@ -43,7 +43,7 @@ interface DefaultApiInterface
 {
 
     /**
-     * Operation mcGameVersionManifestGet
+     * Operation getMinecraftVersionManifest
      *
      * Get Minecraft version manifest
      *
@@ -52,7 +52,7 @@ interface DefaultApiInterface
      *
      * @return array|object|null
      */
-    public function mcGameVersionManifestGet(
+    public function getMinecraftVersionManifest(
         int &$responseCode,
         array &$responseHeaders
     ): array|object|null;

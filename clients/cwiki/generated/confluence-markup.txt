@@ -13,14 +13,14 @@ SDK for Minecraft versions info
 h2. Endpoints
 
 
-h3. mcGameVersionManifestGet
-{panel:title=mcGameVersionManifestGet|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+h3. getMinecraftVersionManifest
+{panel:title=getMinecraftVersionManifest|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
     *Summary:* Get Minecraft version manifest
     *Description:* *No Description*
 
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
-    || Path | {noformat:nopanel=true}/mc/game/version_manifest{noformat} |
+    || Path | {noformat:nopanel=true}/mc/game/version_manifest.json{noformat} |
     || Base Path | {noformat:nopanel=true}https://launchermeta.mojang.com{noformat} |
     || Produces | {noformat:nopanel=true}application/json {noformat} |
 ----
@@ -33,14 +33,14 @@ h4. Responses
 
     	|| Status Code | {status:colour=Green|title=200|subtle=false} |
     	|| Message | A list of Minecraft versions with the latest and snapshot releases |
-    	|| Response Type | _mc_game_version_manifest_get_200_response |
-    	|| Response Model | [_mc_game_version_manifest_get_200_response Model|#_mc_game_version_manifest_get_200_responseModelAnchor|Jump to model] |
+    	|| Response Type | getMinecraftVersionManifest_200_response |
+    	|| Response Model | [getMinecraftVersionManifest_200_response Model|#getMinecraftVersionManifest_200_responseModelAnchor|Jump to model] |
     	|| Response Schema | {code:collapse=true}{
   "description" : "A list of Minecraft versions with the latest and snapshot releases",
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response"
+        "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response"
       }
     }
   }
@@ -94,18 +94,18 @@ h4. Responses
 {anchor:models}
 h2. Models
 
-        {anchor:McGameVersionManifestGet200ResponseModelAnchor}
-        h3. McGameVersionManifestGet200Response
+        {anchor:GetMinecraftVersionManifest200ResponseModelAnchor}
+        h3. GetMinecraftVersionManifest200Response
 
         
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
-         |latest |(x) |{noformat:nopanel=true}_mc_game_version_manifest_get_200_response_latest{noformat} |  |  | null
-         |versions |(x) |{noformat:nopanel=true}array[_mc_game_version_manifest_get_200_response_versions_inner]{noformat} |  |  | null
+         |latest |(x) |{noformat:nopanel=true}getMinecraftVersionManifest_200_response_latest{noformat} |  |  | null
+         |versions |(x) |{noformat:nopanel=true}array[getMinecraftVersionManifest_200_response_versions_inner]{noformat} |  |  | null
          
-        {anchor:McGameVersionManifestGet200ResponseLatestModelAnchor}
-        h3. McGameVersionManifestGet200ResponseLatest
+        {anchor:GetMinecraftVersionManifest200ResponseLatestModelAnchor}
+        h3. GetMinecraftVersionManifest200ResponseLatest
 
         
 
@@ -114,8 +114,8 @@ h2. Models
          |release |(x) |{noformat:nopanel=true}String{noformat} |  |  | 1.21
          |snapshot |(x) |{noformat:nopanel=true}String{noformat} |  |  | 24w14potato
          
-        {anchor:McGameVersionManifestGet200ResponseVersionsInnerModelAnchor}
-        h3. McGameVersionManifestGet200ResponseVersionsInner
+        {anchor:GetMinecraftVersionManifest200ResponseVersionsInnerModelAnchor}
+        h3. GetMinecraftVersionManifest200ResponseVersionsInner
 
         
 

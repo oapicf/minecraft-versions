@@ -10,10 +10,10 @@ use crate::{models, types::*};
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 #[allow(clippy::large_enum_variant)]
-pub enum McGameVersionManifestGetResponse {
+pub enum GetMinecraftVersionManifestResponse {
     /// A list of Minecraft versions with the latest and snapshot releases
     Status200_AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
-    (models::McGameVersionManifestGet200Response)
+    (models::GetMinecraftVersionManifest200Response)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -32,13 +32,13 @@ pub enum V1PackagesPackageIdVersionIdJsonGetResponse {
 pub trait Default {
     /// Get Minecraft version manifest.
     ///
-    /// McGameVersionManifestGet - GET /mc/game/version_manifest
-    async fn mc_game_version_manifest_get(
+    /// GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
+    async fn get_minecraft_version_manifest(
     &self,
     method: Method,
     host: Host,
     cookies: CookieJar,
-    ) -> Result<McGameVersionManifestGetResponse, String>;
+    ) -> Result<GetMinecraftVersionManifestResponse, String>;
 
     /// Get Minecraft version package details.
     ///

@@ -19,8 +19,8 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func mcGameVersionManifestGet(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: McGameVersionManifestGet200Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return mcGameVersionManifestGetWithRequestBuilder().execute(apiResponseQueue) { result in
+    open class func getMinecraftVersionManifest(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: GetMinecraftVersionManifest200Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return getMinecraftVersionManifestWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -32,11 +32,11 @@ open class DefaultAPI {
 
     /**
      Get Minecraft version manifest
-     - GET /mc/game/version_manifest
-     - returns: RequestBuilder<McGameVersionManifestGet200Response> 
+     - GET /mc/game/version_manifest.json
+     - returns: RequestBuilder<GetMinecraftVersionManifest200Response> 
      */
-    open class func mcGameVersionManifestGetWithRequestBuilder() -> RequestBuilder<McGameVersionManifestGet200Response> {
-        let localVariablePath = "/mc/game/version_manifest"
+    open class func getMinecraftVersionManifestWithRequestBuilder() -> RequestBuilder<GetMinecraftVersionManifest200Response> {
+        let localVariablePath = "/mc/game/version_manifest.json"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
@@ -48,7 +48,7 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<McGameVersionManifestGet200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GetMinecraftVersionManifest200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }

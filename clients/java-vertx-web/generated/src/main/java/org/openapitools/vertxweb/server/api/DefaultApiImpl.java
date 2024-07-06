@@ -1,6 +1,6 @@
 package org.openapitools.vertxweb.server.api;
 
-import org.openapitools.vertxweb.server.model.McGameVersionManifestGet200Response;
+import org.openapitools.vertxweb.server.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.vertxweb.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import org.openapitools.vertxweb.server.ApiResponse;
@@ -15,7 +15,7 @@ import java.util.Map;
 // Implement this class
 
 public class DefaultApiImpl implements DefaultApi {
-    public Future<ApiResponse<McGameVersionManifestGet200Response>> mcGameVersionManifestGet() {
+    public Future<ApiResponse<GetMinecraftVersionManifest200Response>> getMinecraftVersionManifest() {
         return Future.failedFuture(new HttpException(501));
     }
 

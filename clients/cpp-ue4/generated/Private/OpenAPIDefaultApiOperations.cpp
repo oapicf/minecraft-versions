@@ -23,13 +23,13 @@
 namespace OpenAPI
 {
 
-FString OpenAPIDefaultApi::McGameVersionManifestGetRequest::ComputePath() const
+FString OpenAPIDefaultApi::GetMinecraftVersionManifestRequest::ComputePath() const
 {
-	FString Path(TEXT("/mc/game/version_manifest"));
+	FString Path(TEXT("/mc/game/version_manifest.json"));
 	return Path;
 }
 
-void OpenAPIDefaultApi::McGameVersionManifestGetRequest::SetupHttpRequest(const FHttpRequestRef& HttpRequest) const
+void OpenAPIDefaultApi::GetMinecraftVersionManifestRequest::SetupHttpRequest(const FHttpRequestRef& HttpRequest) const
 {
 	static const TArray<FString> Consumes = {  };
 	//static const TArray<FString> Produces = { TEXT("application/json") };
@@ -38,7 +38,7 @@ void OpenAPIDefaultApi::McGameVersionManifestGetRequest::SetupHttpRequest(const 
 
 }
 
-void OpenAPIDefaultApi::McGameVersionManifestGetResponse::SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode)
+void OpenAPIDefaultApi::GetMinecraftVersionManifestResponse::SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode)
 {
 	Response::SetHttpResponseCode(InHttpResponseCode);
 	switch ((int)InHttpResponseCode)
@@ -49,7 +49,7 @@ void OpenAPIDefaultApi::McGameVersionManifestGetResponse::SetHttpResponseCode(EH
 	}
 }
 
-bool OpenAPIDefaultApi::McGameVersionManifestGetResponse::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
+bool OpenAPIDefaultApi::GetMinecraftVersionManifestResponse::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
 {
 	return TryGetJsonValue(JsonValue, Content);
 }

@@ -3,9 +3,9 @@ README.md
 pom.xml
 src/main/java/org/openapitools/server/api/MainApiException.java
 src/main/java/org/openapitools/server/api/MainApiVerticle.java
-src/main/java/org/openapitools/server/api/model/McGameVersionManifestGet200Response.java
-src/main/java/org/openapitools/server/api/model/McGameVersionManifestGet200ResponseLatest.java
-src/main/java/org/openapitools/server/api/model/McGameVersionManifestGet200ResponseVersionsInner.java
+src/main/java/org/openapitools/server/api/model/GetMinecraftVersionManifest200Response.java
+src/main/java/org/openapitools/server/api/model/GetMinecraftVersionManifest200ResponseLatest.java
+src/main/java/org/openapitools/server/api/model/GetMinecraftVersionManifest200ResponseVersionsInner.java
 src/main/java/org/openapitools/server/api/model/V1PackagesPackageIdVersionIdJsonGet200Response.java
 src/main/java/org/openapitools/server/api/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.java
 src/main/java/org/openapitools/server/api/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.java

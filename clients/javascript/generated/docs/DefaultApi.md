@@ -4,14 +4,14 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mcGameVersionManifestGet**](DefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 
-## mcGameVersionManifestGet
+## getMinecraftVersionManifest
 
-> McGameVersionManifestGet200Response mcGameVersionManifestGet()
+> GetMinecraftVersionManifest200Response getMinecraftVersionManifest()
 
 Get Minecraft version manifest
 
@@ -21,7 +21,7 @@ Get Minecraft version manifest
 import OpenapiJsClient from 'openapi-js-client';
 
 let apiInstance = new OpenapiJsClient.DefaultApi();
-apiInstance.mcGameVersionManifestGet((error, data, response) => {
+apiInstance.getMinecraftVersionManifest((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

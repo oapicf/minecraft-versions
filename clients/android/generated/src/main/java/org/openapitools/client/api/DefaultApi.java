@@ -23,7 +23,7 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.McGameVersionManifestGet200Response;
+import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import org.apache.http.HttpEntity;
@@ -59,13 +59,13 @@ public class DefaultApi {
   /**
   * Get Minecraft version manifest
   * 
-   * @return McGameVersionManifestGet200Response
+   * @return GetMinecraftVersionManifest200Response
   */
-  public McGameVersionManifestGet200Response mcGameVersionManifestGet () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GetMinecraftVersionManifest200Response getMinecraftVersionManifest () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
-    String path = "/mc/game/version_manifest";
+    String path = "/mc/game/version_manifest.json";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -91,7 +91,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (McGameVersionManifestGet200Response) ApiInvoker.deserialize(localVarResponse, "", McGameVersionManifestGet200Response.class);
+         return (GetMinecraftVersionManifest200Response) ApiInvoker.deserialize(localVarResponse, "", GetMinecraftVersionManifest200Response.class);
       } else {
          return null;
       }
@@ -117,12 +117,12 @@ public class DefaultApi {
    * 
 
   */
-  public void mcGameVersionManifestGet (final Response.Listener<McGameVersionManifestGet200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getMinecraftVersionManifest (final Response.Listener<GetMinecraftVersionManifest200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
     // create path and map variables
-    String path = "/mc/game/version_manifest".replaceAll("\\{format\\}","json");
+    String path = "/mc/game/version_manifest.json".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -157,7 +157,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((McGameVersionManifestGet200Response) ApiInvoker.deserialize(localVarResponse,  "", McGameVersionManifestGet200Response.class));
+              responseListener.onResponse((GetMinecraftVersionManifest200Response) ApiInvoker.deserialize(localVarResponse,  "", GetMinecraftVersionManifest200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

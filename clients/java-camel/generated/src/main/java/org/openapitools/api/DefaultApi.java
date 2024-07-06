@@ -20,15 +20,15 @@ public class DefaultApi extends RouteBuilder {
         
 
         /**
-        GET /mc/game/version_manifest : Get Minecraft version manifest
+        GET /mc/game/version_manifest.json : Get Minecraft version manifest
         **/
         rest()
-            .get("/mc/game/version_manifest")
+            .get("/mc/game/version_manifest.json")
                 .description("Get Minecraft version manifest")
-                .id("mcGameVersionManifestGetApi")
+                .id("getMinecraftVersionManifestApi")
                 .produces("application/json")
-                .outType(McGameVersionManifestGet200Response.class)
-                .to("direct:mcGameVersionManifestGet");
+                .outType(GetMinecraftVersionManifest200Response.class)
+                .to("direct:getMinecraftVersionManifest");
         
 
         /**

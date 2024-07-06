@@ -2,7 +2,7 @@
 
 ### Get Minecraft version manifest
 ## Get Minecraft version manifest
-GET https://launchermeta.mojang.com/mc/game/version_manifest
+GET https://launchermeta.mojang.com/mc/game/version_manifest.json
 Accept: application/json
 
 ### Get Minecraft version package details

@@ -1,14 +1,14 @@
 #tag Class
 Protected Class DefaultApi
 	#tag Method, Flags = &h0
-		Sub McGameVersionManifestGet()
-		  // Operation 
+		Sub GetMinecraftVersionManifest()
+		  // Operation getMinecraftVersionManifest
 		  // Get Minecraft version manifest
 		  // - 
 		  //
-		  // Invokes DefaultApiCallbackHandler.McGameVersionManifestGetCallback(McGameVersionManifestGet200Response) on completion. 
+		  // Invokes DefaultApiCallbackHandler.GetMinecraftVersionManifestCallback(GetMinecraftVersionManifest200Response) on completion. 
 		  //
-		  // - GET /mc/game/version_manifest
+		  // - GET /mc/game/version_manifest.json
 		  // - defaultResponse: Nil
 		  //
 		  //
@@ -20,12 +20,12 @@ Protected Class DefaultApi
 		  
 
 
-		  Dim localVarPath As String = "/mc/game/version_manifest"
+		  Dim localVarPath As String = "/mc/game/version_manifest.json"
 		  
 		  
 		  
-		  AddHandler localVarHTTPSocket.PageReceived, addressof me.McGameVersionManifestGet_handler
-		  AddHandler localVarHTTPSocket.Error, addressof Me.McGameVersionManifestGet_error
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.GetMinecraftVersionManifest_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.GetMinecraftVersionManifest_error
 		  
 		  
 		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath)
@@ -38,7 +38,7 @@ Protected Class DefaultApi
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function McGameVersionManifestGetPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.McGameVersionManifestGet200Response) As Boolean
+		Private Function GetMinecraftVersionManifestPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.GetMinecraftVersionManifest200Response) As Boolean
 		  Dim contentType As String = Headers.Value("Content-Type")
 		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
 		  Content = DefineEncoding(Content, contentEncoding)
@@ -46,7 +46,7 @@ Protected Class DefaultApi
 		  If HTTPStatus > 199 and HTTPStatus < 300 then
 		    If contentType.LeftB(16) = "application/json" then
 		      
-			  outData = New OpenAPIClient.Models.McGameVersionManifestGet200Response
+			  outData = New OpenAPIClient.Models.GetMinecraftVersionManifest200Response
 			  Try
 		        Xoson.fromJSON(outData, Content.toText())
 
@@ -95,17 +95,17 @@ Protected Class DefaultApi
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub McGameVersionManifestGet_error(sender As HTTPSecureSocket, Code As Integer)
+		Private Sub GetMinecraftVersionManifest_error(sender As HTTPSecureSocket, Code As Integer)
 		  If sender <> nil Then sender.Close()
 
 		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
-		  Dim data As OpenAPIClient.Models.McGameVersionManifestGet200Response
-		  CallbackHandler.McGameVersionManifestGetCallback(error, data)
+		  Dim data As OpenAPIClient.Models.GetMinecraftVersionManifest200Response
+		  CallbackHandler.GetMinecraftVersionManifestCallback(error, data)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub McGameVersionManifestGet_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		Private Sub GetMinecraftVersionManifest_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
 		  #Pragma Unused URL
 		  
 
@@ -113,10 +113,10 @@ Protected Class DefaultApi
 		  
 		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
 		  
-		  Dim data As OpenAPIClient.Models.McGameVersionManifestGet200Response
-		  Call McGameVersionManifestGetPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  Dim data As OpenAPIClient.Models.GetMinecraftVersionManifest200Response
+		  Call GetMinecraftVersionManifestPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
 		  
-		  CallbackHandler.McGameVersionManifestGetCallback(error, data)
+		  CallbackHandler.GetMinecraftVersionManifestCallback(error, data)
 		End Sub
 	#tag EndMethod
 

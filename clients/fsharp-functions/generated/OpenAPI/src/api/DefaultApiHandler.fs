@@ -14,18 +14,18 @@ module DefaultApiHandlers =
     /// 
     /// </summary>
 
-    //#region McGameVersionManifestGet
+    //#region GetMinecraftVersionManifest
     /// <summary>
     /// Get Minecraft version manifest
     /// </summary>
-   [<FunctionName("McGameVersionManifestGet")>]
-    let McGameVersionManifestGet
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/mc/game/version_manifest")>]
+   [<FunctionName("GetMinecraftVersionManifest")>]
+    let GetMinecraftVersionManifest
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/mc/game/version_manifest.json")>]
         req:HttpRequest ) =
 
-      let result = DefaultApiService.McGameVersionManifestGet ()
+      let result = DefaultApiService.GetMinecraftVersionManifest ()
       match result with
-      | McGameVersionManifestGetStatusCode200 resolved ->
+      | GetMinecraftVersionManifestStatusCode200 resolved ->
           let content = JsonConvert.SerializeObject resolved.content
           let responseContentType = "application/json"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))

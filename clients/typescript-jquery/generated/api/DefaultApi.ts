@@ -50,11 +50,11 @@ export class DefaultApi {
      * 
      * @summary Get Minecraft version manifest
      */
-    public mcGameVersionManifestGet(extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.McGameVersionManifestGet200Response;  },
+    public getMinecraftVersionManifest(extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    { response: JQueryXHR; body: models.GetMinecraftVersionManifest200Response;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/mc/game/version_manifest';
+        let localVarPath = this.basePath + '/mc/game/version_manifest.json';
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -90,11 +90,11 @@ export class DefaultApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.McGameVersionManifestGet200Response;  },
+            { response: JQueryXHR; body: models.GetMinecraftVersionManifest200Response;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.McGameVersionManifestGet200Response, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.GetMinecraftVersionManifest200Response, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})

@@ -7,9 +7,9 @@ OpenAPI/src/api/DefaultApiHandler.fs
 OpenAPI/src/api/DefaultApiHandlerParams.fs
 OpenAPI/src/api/DefaultApiServiceInterface.fs
 OpenAPI/src/impl/DefaultApiService.fs
-OpenAPI/src/model/McGameVersionManifestGet200Response.fs
-OpenAPI/src/model/McGameVersionManifestGet200ResponseLatest.fs
-OpenAPI/src/model/McGameVersionManifestGet200ResponseVersionsInner.fs
+OpenAPI/src/model/GetMinecraftVersionManifest200Response.fs
+OpenAPI/src/model/GetMinecraftVersionManifest200ResponseLatest.fs
+OpenAPI/src/model/GetMinecraftVersionManifest200ResponseVersionsInner.fs
 OpenAPI/src/model/V1PackagesPackageIdVersionIdJsonGet200Response.fs
 OpenAPI/src/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.fs
 OpenAPI/src/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.fs

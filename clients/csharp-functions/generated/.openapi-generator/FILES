@@ -6,9 +6,9 @@ build.sh
 src/Org.OpenAPITools/.gitignore
 src/Org.OpenAPITools/Converters/CustomEnumConverter.cs
 src/Org.OpenAPITools/Functions/DefaultApi.cs
-src/Org.OpenAPITools/Models/McGameVersionManifestGet200Response.cs
-src/Org.OpenAPITools/Models/McGameVersionManifestGet200ResponseLatest.cs
-src/Org.OpenAPITools/Models/McGameVersionManifestGet200ResponseVersionsInner.cs
+src/Org.OpenAPITools/Models/GetMinecraftVersionManifest200Response.cs
+src/Org.OpenAPITools/Models/GetMinecraftVersionManifest200ResponseLatest.cs
+src/Org.OpenAPITools/Models/GetMinecraftVersionManifest200ResponseVersionsInner.cs
 src/Org.OpenAPITools/Models/V1PackagesPackageIdVersionIdJsonGet200Response.cs
 src/Org.OpenAPITools/Models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.cs
 src/Org.OpenAPITools/Models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.cs

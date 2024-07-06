@@ -16,9 +16,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A McGameVersionManifestGet200Response
+        * @return A GetMinecraftVersionManifest200Response
         */
-        def Default_mcGameVersionManifestGet(): Either[CommonError,McGameVersionManifestGet200Response] = Left(TODO)
+        def Default_getMinecraftVersionManifest(): Either[CommonError,GetMinecraftVersionManifest200Response] = Left(TODO)
 
         /**
         * 

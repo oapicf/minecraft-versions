@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSOpenAPITools' -name 'DefaultApi' {
-    Context 'Invoke-McGameVersionManifestGet' {
-        It 'Test Invoke-McGameVersionManifestGet' {
-            #$TestResult = Invoke-McGameVersionManifestGet
+    Context 'Get-MinecraftVersionManifest' {
+        It 'Test Get-MinecraftVersionManifest' {
+            #$TestResult = Get-MinecraftVersionManifest
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

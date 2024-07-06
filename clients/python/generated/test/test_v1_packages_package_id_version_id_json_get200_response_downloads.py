@@ -13,7 +13,7 @@
 
 import unittest
 
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response_downloads import V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
+from minecraftversions.models.v1_packages_package_id_version_id_json_get200_response_downloads import V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads
 
 class TestV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads(unittest.TestCase):
     """V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads unit test stubs"""
@@ -34,19 +34,19 @@ class TestV1PackagesPackageIdVersionIdJsonGet200ResponseDownloads(unittest.TestC
         model = V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads()
         if include_optional:
             return V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads(
-                client = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
+                client = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
                     sha1 = '', 
                     size = 56, 
                     url = '', ),
-                client_mappings = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
+                client_mappings = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
                     sha1 = '', 
                     size = 56, 
                     url = '', ),
-                server = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
+                server = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
                     sha1 = '', 
                     size = 56, 
                     url = '', ),
-                server_mappings = openapi_client.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
+                server_mappings = minecraftversions.models._v1_packages__package_id___version_id__json_get_200_response_downloads_client._v1_packages__packageId___versionId__json_get_200_response_downloads_client(
                     sha1 = '', 
                     size = 56, 
                     url = '', )

@@ -28,10 +28,10 @@ my $api = WWW::OpenAPIClient::DefaultApi->new();
 isa_ok($api, 'WWW::OpenAPIClient::DefaultApi');
 
 #
-# mc_game_version_manifest_get test
+# get_minecraft_version_manifest test
 #
 # uncomment below and update the test
-#my $mc_game_version_manifest_get_result = $api->mc_game_version_manifest_get();
+#my $get_minecraft_version_manifest_result = $api->get_minecraft_version_manifest();
 
 #
 # v1_packages_package_id_version_id_json_get test

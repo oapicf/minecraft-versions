@@ -6,9 +6,9 @@ src/main/scala/org/openapitools/client/api/DefaultApi.scala
 src/main/scala/org/openapitools/client/core/AdditionalTypeSerializers.scala
 src/main/scala/org/openapitools/client/core/DateSerializers.scala
 src/main/scala/org/openapitools/client/core/JsonSupport.scala
-src/main/scala/org/openapitools/client/model/McGameVersionManifestGet200Response.scala
-src/main/scala/org/openapitools/client/model/McGameVersionManifestGet200ResponseLatest.scala
-src/main/scala/org/openapitools/client/model/McGameVersionManifestGet200ResponseVersionsInner.scala
+src/main/scala/org/openapitools/client/model/GetMinecraftVersionManifest200Response.scala
+src/main/scala/org/openapitools/client/model/GetMinecraftVersionManifest200ResponseLatest.scala
+src/main/scala/org/openapitools/client/model/GetMinecraftVersionManifest200ResponseVersionsInner.scala
 src/main/scala/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200Response.scala
 src/main/scala/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.scala
 src/main/scala/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.scala

@@ -26,14 +26,14 @@ import io.ktor.server.resources.head
 import io.ktor.server.resources.patch
 import io.ktor.server.routing.*
 import org.openapitools.server.infrastructure.ApiPrincipal
-import org.openapitools.server.models.McGameVersionManifestGet200Response
+import org.openapitools.server.models.GetMinecraftVersionManifest200Response
 import org.openapitools.server.models.V1PackagesPackageIdVersionIdJsonGet200Response
 
 fun Route.DefaultApi() {
     val gson = Gson()
     val empty = mutableMapOf<String, Any?>()
 
-    get<Paths.mcGameVersionManifestGet> {
+    get<Paths.getMinecraftVersionManifest> {
         val exampleContentType = "application/json"
         val exampleContentString = """{
           "versions" : [ {

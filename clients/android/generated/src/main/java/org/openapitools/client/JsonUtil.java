@@ -57,16 +57,16 @@ public class JsonUtil {
   public static Type getListTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
-    if ("McGameVersionManifestGet200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<McGameVersionManifestGet200Response>>(){}.getType();
+    if ("GetMinecraftVersionManifest200Response".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GetMinecraftVersionManifest200Response>>(){}.getType();
     }
     
-    if ("McGameVersionManifestGet200ResponseLatest".equalsIgnoreCase(className)) {
-      return new TypeToken<List<McGameVersionManifestGet200ResponseLatest>>(){}.getType();
+    if ("GetMinecraftVersionManifest200ResponseLatest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GetMinecraftVersionManifest200ResponseLatest>>(){}.getType();
     }
     
-    if ("McGameVersionManifestGet200ResponseVersionsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<McGameVersionManifestGet200ResponseVersionsInner>>(){}.getType();
+    if ("GetMinecraftVersionManifest200ResponseVersionsInner".equalsIgnoreCase(className)) {
+      return new TypeToken<List<GetMinecraftVersionManifest200ResponseVersionsInner>>(){}.getType();
     }
     
     if ("V1PackagesPackageIdVersionIdJsonGet200Response".equalsIgnoreCase(className)) {
@@ -95,16 +95,16 @@ public class JsonUtil {
   public static Type getTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
-    if ("McGameVersionManifestGet200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<McGameVersionManifestGet200Response>(){}.getType();
+    if ("GetMinecraftVersionManifest200Response".equalsIgnoreCase(className)) {
+      return new TypeToken<GetMinecraftVersionManifest200Response>(){}.getType();
     }
     
-    if ("McGameVersionManifestGet200ResponseLatest".equalsIgnoreCase(className)) {
-      return new TypeToken<McGameVersionManifestGet200ResponseLatest>(){}.getType();
+    if ("GetMinecraftVersionManifest200ResponseLatest".equalsIgnoreCase(className)) {
+      return new TypeToken<GetMinecraftVersionManifest200ResponseLatest>(){}.getType();
     }
     
-    if ("McGameVersionManifestGet200ResponseVersionsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<McGameVersionManifestGet200ResponseVersionsInner>(){}.getType();
+    if ("GetMinecraftVersionManifest200ResponseVersionsInner".equalsIgnoreCase(className)) {
+      return new TypeToken<GetMinecraftVersionManifest200ResponseVersionsInner>(){}.getType();
     }
     
     if ("V1PackagesPackageIdVersionIdJsonGet200Response".equalsIgnoreCase(className)) {

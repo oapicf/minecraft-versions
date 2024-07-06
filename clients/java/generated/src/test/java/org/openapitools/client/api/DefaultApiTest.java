@@ -14,7 +14,7 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
-import org.openapitools.client.model.McGameVersionManifestGet200Response;
+import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -38,8 +38,8 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void mcGameVersionManifestGetTest() throws ApiException {
-        McGameVersionManifestGet200Response response = api.mcGameVersionManifestGet();
+    public void getMinecraftVersionManifestTest() throws ApiException {
+        GetMinecraftVersionManifest200Response response = api.getMinecraftVersionManifest();
         // TODO: test validations
     }
 

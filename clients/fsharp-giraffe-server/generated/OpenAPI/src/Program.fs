@@ -46,7 +46,7 @@ module App =
 
   let webApp =
     choose (CustomHandlers.handlers @ [
-      HttpGet >=> route "/mc/game/version_manifest" >=>  DefaultApiHandler.McGameVersionManifestGet;
+      HttpGet >=> route "/mc/game/version_manifest.json" >=>  DefaultApiHandler.GetMinecraftVersionManifest;
       HttpGet >=> routeBind<V1PackagesPackageIdVersionIdJsonGetPathParams> "/v1/packages/{packageId}/{versionId}.json"  (fun x -> (fun x ->  DefaultApiHandler.V1PackagesPackageIdVersionIdJsonGet x) x);
       RequestErrors.notFound (text "Not Found")
     ])

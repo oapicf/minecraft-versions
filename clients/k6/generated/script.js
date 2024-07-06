@@ -22,11 +22,11 @@ const SLEEP_DURATION = 0.1;
 // Global variables should be initialized.
 
 export default function() {
-    group("/mc/game/version_manifest", () => {
+    group("/mc/game/version_manifest.json", () => {
 
-        // Request No. 1: 
+        // Request No. 1: getMinecraftVersionManifest
         {
-            let url = BASE_URL + `/mc/game/version_manifest`;
+            let url = BASE_URL + `/mc/game/version_manifest.json`;
             let request = http.get(url);
 
             check(request, {

@@ -113,35 +113,35 @@ arbitraryReducedMaybeValue n = do
 
 -- * Models
 
-instance Arbitrary McGameVersionManifestGet200Response where
-  arbitrary = sized genMcGameVersionManifestGet200Response
+instance Arbitrary GetMinecraftVersionManifest200Response where
+  arbitrary = sized genGetMinecraftVersionManifest200Response
 
-genMcGameVersionManifestGet200Response :: Int -> Gen McGameVersionManifestGet200Response
-genMcGameVersionManifestGet200Response n =
-  McGameVersionManifestGet200Response
-    <$> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseLatest :: Maybe McGameVersionManifestGet200ResponseLatest
-    <*> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseVersions :: Maybe [McGameVersionManifestGet200ResponseVersionsInner]
+genGetMinecraftVersionManifest200Response :: Int -> Gen GetMinecraftVersionManifest200Response
+genGetMinecraftVersionManifest200Response n =
+  GetMinecraftVersionManifest200Response
+    <$> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseLatest :: Maybe GetMinecraftVersionManifest200ResponseLatest
+    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersions :: Maybe [GetMinecraftVersionManifest200ResponseVersionsInner]
   
-instance Arbitrary McGameVersionManifestGet200ResponseLatest where
-  arbitrary = sized genMcGameVersionManifestGet200ResponseLatest
+instance Arbitrary GetMinecraftVersionManifest200ResponseLatest where
+  arbitrary = sized genGetMinecraftVersionManifest200ResponseLatest
 
-genMcGameVersionManifestGet200ResponseLatest :: Int -> Gen McGameVersionManifestGet200ResponseLatest
-genMcGameVersionManifestGet200ResponseLatest n =
-  McGameVersionManifestGet200ResponseLatest
-    <$> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseLatestRelease :: Maybe Text
-    <*> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseLatestSnapshot :: Maybe Text
+genGetMinecraftVersionManifest200ResponseLatest :: Int -> Gen GetMinecraftVersionManifest200ResponseLatest
+genGetMinecraftVersionManifest200ResponseLatest n =
+  GetMinecraftVersionManifest200ResponseLatest
+    <$> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseLatestRelease :: Maybe Text
+    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseLatestSnapshot :: Maybe Text
   
-instance Arbitrary McGameVersionManifestGet200ResponseVersionsInner where
-  arbitrary = sized genMcGameVersionManifestGet200ResponseVersionsInner
+instance Arbitrary GetMinecraftVersionManifest200ResponseVersionsInner where
+  arbitrary = sized genGetMinecraftVersionManifest200ResponseVersionsInner
 
-genMcGameVersionManifestGet200ResponseVersionsInner :: Int -> Gen McGameVersionManifestGet200ResponseVersionsInner
-genMcGameVersionManifestGet200ResponseVersionsInner n =
-  McGameVersionManifestGet200ResponseVersionsInner
-    <$> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseVersionsInnerId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseVersionsInnerType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseVersionsInnerUrl :: Maybe Text
-    <*> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseVersionsInnerTime :: Maybe DateTime
-    <*> arbitraryReducedMaybe n -- mcGameVersionManifestGet200ResponseVersionsInnerReleaseTime :: Maybe DateTime
+genGetMinecraftVersionManifest200ResponseVersionsInner :: Int -> Gen GetMinecraftVersionManifest200ResponseVersionsInner
+genGetMinecraftVersionManifest200ResponseVersionsInner n =
+  GetMinecraftVersionManifest200ResponseVersionsInner
+    <$> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerType :: Maybe Text
+    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerUrl :: Maybe Text
+    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerTime :: Maybe DateTime
+    <*> arbitraryReducedMaybe n -- getMinecraftVersionManifest200ResponseVersionsInnerReleaseTime :: Maybe DateTime
   
 instance Arbitrary V1PackagesPackageIdVersionIdJsonGet200Response where
   arbitrary = sized genV1PackagesPackageIdVersionIdJsonGet200Response

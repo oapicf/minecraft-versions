@@ -1,12 +1,12 @@
 from typing import List, Dict
 from aiohttp import web
 
-from openapi_server.models.mc_game_version_manifest_get200_response import McGameVersionManifestGet200Response
+from openapi_server.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
 from openapi_server.models.v1_packages_package_id_version_id_json_get200_response import V1PackagesPackageIdVersionIdJsonGet200Response
 from openapi_server import util
 
 
-async def mc_game_version_manifest_get(request: web.Request, ) -> web.Response:
+async def get_minecraft_version_manifest(request: web.Request, ) -> web.Response:
     """Get Minecraft version manifest
 
     

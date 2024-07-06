@@ -5,12 +5,12 @@
  *
  *)
 
-let mc_game_version_manifest_get () =
+let get_minecraft_version_manifest () =
     let open Lwt.Infix in
-    let uri = Request.build_uri "/mc/game/version_manifest" in
+    let uri = Request.build_uri "/mc/game/version_manifest.json" in
     let headers = Request.default_headers in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.unwrap Model__mc_game_version_manifest_get_200_response.of_yojson) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Get_minecraft_version_manifest_200_response.of_yojson) resp body
 
 let v1_packages_package_id_version_id_json_get ~package_id ~version_id =
     let open Lwt.Infix in

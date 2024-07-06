@@ -3,9 +3,9 @@
 README.md
 build.gradle
 docs/DefaultApi.md
-docs/McGameVersionManifestGet200Response.md
-docs/McGameVersionManifestGet200ResponseLatest.md
-docs/McGameVersionManifestGet200ResponseVersionsInner.md
+docs/GetMinecraftVersionManifest200Response.md
+docs/GetMinecraftVersionManifest200ResponseLatest.md
+docs/GetMinecraftVersionManifest200ResponseVersionsInner.md
 docs/V1PackagesPackageIdVersionIdJsonGet200Response.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md
@@ -26,9 +26,9 @@ src/main/java/org/openapitools/client/api/DefaultApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java
 src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
-src/main/java/org/openapitools/client/model/McGameVersionManifestGet200Response.java
-src/main/java/org/openapitools/client/model/McGameVersionManifestGet200ResponseLatest.java
-src/main/java/org/openapitools/client/model/McGameVersionManifestGet200ResponseVersionsInner.java
+src/main/java/org/openapitools/client/model/GetMinecraftVersionManifest200Response.java
+src/main/java/org/openapitools/client/model/GetMinecraftVersionManifest200ResponseLatest.java
+src/main/java/org/openapitools/client/model/GetMinecraftVersionManifest200ResponseVersionsInner.java
 src/main/java/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200Response.java
 src/main/java/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.java
 src/main/java/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.java

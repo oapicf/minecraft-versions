@@ -12,9 +12,9 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
-models/McGameVersionManifestGet200Response.ts
-models/McGameVersionManifestGet200ResponseLatest.ts
-models/McGameVersionManifestGet200ResponseVersionsInner.ts
+models/GetMinecraftVersionManifest200Response.ts
+models/GetMinecraftVersionManifest200ResponseLatest.ts
+models/GetMinecraftVersionManifest200ResponseVersionsInner.ts
 models/ObjectSerializer.ts
 models/V1PackagesPackageIdVersionIdJsonGet200Response.ts
 models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts

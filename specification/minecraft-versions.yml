@@ -14,9 +14,10 @@ servers:
   - url: https://launchermeta.mojang.com
   - url: https://piston-meta.mojang.com
 paths:
-  /mc/game/version_manifest:
+  /mc/game/version_manifest.json:
     get:
       summary: Get Minecraft version manifest
+      operationId: getMinecraftVersionManifest
       responses:
         '200':
           description: A list of Minecraft versions with the latest and snapshot releases

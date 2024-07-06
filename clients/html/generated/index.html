@@ -196,16 +196,16 @@ font-style: italic;
   <div class="method-summary"></div>
   <h4><a href="#Default">Default</a></h4>
   <ul>
-  <li><a href="#mcGameVersionManifestGet"><code><span class="http-method">get</span> /mc/game/version_manifest</code></a></li>
+  <li><a href="#getMinecraftVersionManifest"><code><span class="http-method">get</span> /mc/game/version_manifest.json</code></a></li>
   <li><a href="#v1PackagesPackageIdVersionIdJsonGet"><code><span class="http-method">get</span> /v1/packages/{packageId}/{versionId}.json</code></a></li>
   </ul>
 
   <h1><a name="Default">Default</a></h1>
-  <div class="method"><a name="mcGameVersionManifestGet"/>
+  <div class="method"><a name="getMinecraftVersionManifest"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /mc/game/version_manifest</code></pre></div>
-    <div class="method-summary">Get Minecraft version manifest (<span class="nickname">mcGameVersionManifestGet</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /mc/game/version_manifest.json</code></pre></div>
+    <div class="method-summary">Get Minecraft version manifest (<span class="nickname">getMinecraftVersionManifest</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -216,7 +216,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#_mc_game_version_manifest_get_200_response">_mc_game_version_manifest_get_200_response</a>
+      <a href="#getMinecraftVersionManifest_200_response">getMinecraftVersionManifest_200_response</a>
       
     </div>
 
@@ -254,7 +254,7 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     A list of Minecraft versions with the latest and snapshot releases
-        <a href="#_mc_game_version_manifest_get_200_response">_mc_game_version_manifest_get_200_response</a>
+        <a href="#getMinecraftVersionManifest_200_response">getMinecraftVersionManifest_200_response</a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="v1PackagesPackageIdVersionIdJsonGet"/>
@@ -352,43 +352,16 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#_mc_game_version_manifest_get_200_response"><code>_mc_game_version_manifest_get_200_response</code> - </a></li>
-    <li><a href="#_mc_game_version_manifest_get_200_response_latest"><code>_mc_game_version_manifest_get_200_response_latest</code> - </a></li>
-    <li><a href="#_mc_game_version_manifest_get_200_response_versions_inner"><code>_mc_game_version_manifest_get_200_response_versions_inner</code> - </a></li>
     <li><a href="#_v1_packages__packageId___versionId__json_get_200_response"><code>_v1_packages__packageId___versionId__json_get_200_response</code> - </a></li>
     <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_assetIndex"><code>_v1_packages__packageId___versionId__json_get_200_response_assetIndex</code> - </a></li>
     <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads"><code>_v1_packages__packageId___versionId__json_get_200_response_downloads</code> - </a></li>
     <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_downloads_client"><code>_v1_packages__packageId___versionId__json_get_200_response_downloads_client</code> - </a></li>
     <li><a href="#_v1_packages__packageId___versionId__json_get_200_response_javaVersion"><code>_v1_packages__packageId___versionId__json_get_200_response_javaVersion</code> - </a></li>
+    <li><a href="#getMinecraftVersionManifest_200_response"><code>getMinecraftVersionManifest_200_response</code> - </a></li>
+    <li><a href="#getMinecraftVersionManifest_200_response_latest"><code>getMinecraftVersionManifest_200_response_latest</code> - </a></li>
+    <li><a href="#getMinecraftVersionManifest_200_response_versions_inner"><code>getMinecraftVersionManifest_200_response_versions_inner</code> - </a></li>
   </ol>
 
-  <div class="model">
-    <h3><a name="_mc_game_version_manifest_get_200_response"><code>_mc_game_version_manifest_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#_mc_game_version_manifest_get_200_response_latest">_mc_game_version_manifest_get_200_response_latest</a></span>  </div>
-<div class="param">versions (optional)</div><div class="param-desc"><span class="param-type"><a href="#_mc_game_version_manifest_get_200_response_versions_inner">array[_mc_game_version_manifest_get_200_response_versions_inner]</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="_mc_game_version_manifest_get_200_response_latest"><code>_mc_game_version_manifest_get_200_response_latest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">release (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">snapshot (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="_mc_game_version_manifest_get_200_response_versions_inner"><code>_mc_game_version_manifest_get_200_response_versions_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-<div class="param">releaseTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-    </div>  <!-- field-items -->
-  </div>
   <div class="model">
     <h3><a name="_v1_packages__packageId___versionId__json_get_200_response"><code>_v1_packages__packageId___versionId__json_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
@@ -443,6 +416,33 @@ font-style: italic;
     <div class="field-items">
       <div class="param">component (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">majorVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="getMinecraftVersionManifest_200_response"><code>getMinecraftVersionManifest_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#getMinecraftVersionManifest_200_response_latest">getMinecraftVersionManifest_200_response_latest</a></span>  </div>
+<div class="param">versions (optional)</div><div class="param-desc"><span class="param-type"><a href="#getMinecraftVersionManifest_200_response_versions_inner">array[getMinecraftVersionManifest_200_response_versions_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="getMinecraftVersionManifest_200_response_latest"><code>getMinecraftVersionManifest_200_response_latest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">release (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">snapshot (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="getMinecraftVersionManifest_200_response_versions_inner"><code>getMinecraftVersionManifest_200_response_versions_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">releaseTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
     </div>  <!-- field-items -->
   </div>
   </body>

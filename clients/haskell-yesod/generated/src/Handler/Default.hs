@@ -7,9 +7,9 @@ import           Import
 
 -- | Get Minecraft version manifest
 --
--- operationId: mcGameVersionManifestGet
-getMcGameVersionManifestR :: Handler Value
-getMcGameVersionManifestR = notImplemented
+-- operationId: getMinecraftVersionManifest
+getMcGameVersionManifestJsonR :: Handler Value
+getMcGameVersionManifestJsonR = notImplemented
 
 -- | Get Minecraft version package details
 --

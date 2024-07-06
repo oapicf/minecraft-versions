@@ -22,10 +22,10 @@ package .Skeletons is
 
 
    --  Get Minecraft version manifest
-   procedure Mc_Game_Version_Manifest_Get
+   procedure Get_Minecraft_Version_Manifest
       (Server : in out Server_Type
        ;
-       Result  : out .Models.McGameVersionManifestGet200Response_Type;
+       Result  : out .Models.GetMinecraftVersionManifest200Response_Type;
        Context : in out Swagger.Servers.Context_Type) is abstract;
 
    --  Get Minecraft version package details
@@ -45,7 +45,7 @@ package .Skeletons is
 
 
       --  Get Minecraft version manifest
-      procedure Mc_Game_Version_Manifest_Get
+      procedure Get_Minecraft_Version_Manifest
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
@@ -70,7 +70,7 @@ package .Skeletons is
 
 
       --  Get Minecraft version manifest
-      procedure Mc_Game_Version_Manifest_Get
+      procedure Get_Minecraft_Version_Manifest
          (Req     : in out Swagger.Servers.Request'Class;
           Reply   : in out Swagger.Servers.Response'Class;
           Stream  : in out Swagger.Servers.Output_Stream'Class;
@@ -89,8 +89,8 @@ package .Skeletons is
       protected Server is
 
          --  Get Minecraft version manifest
-         procedure Mc_Game_Version_Manifest_Get
-            (Result  : out .Models.McGameVersionManifestGet200Response_Type;
+         procedure Get_Minecraft_Version_Manifest
+            (Result  : out .Models.GetMinecraftVersionManifest200Response_Type;
              Context : in out Swagger.Servers.Context_Type);
 
          --  Get Minecraft version package details

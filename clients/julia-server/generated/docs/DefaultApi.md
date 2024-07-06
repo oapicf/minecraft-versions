@@ -4,12 +4,12 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mc_game_version_manifest_get**](DefaultApi.md#mc_game_version_manifest_get) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**get_minecraft_version_manifest**](DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1_packages_package_id_version_id_json_get**](DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
-# **mc_game_version_manifest_get**
-> mc_game_version_manifest_get(req::HTTP.Request;) -> McGameVersionManifestGet200Response
+# **get_minecraft_version_manifest**
+> get_minecraft_version_manifest(req::HTTP.Request;) -> GetMinecraftVersionManifest200Response
 
 Get Minecraft version manifest
 
@@ -18,7 +18,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

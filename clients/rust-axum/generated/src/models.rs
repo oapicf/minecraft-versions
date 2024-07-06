@@ -24,32 +24,32 @@ use crate::{models, types::*};
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct McGameVersionManifestGet200Response {
+pub struct GetMinecraftVersionManifest200Response {
     #[serde(rename = "latest")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub latest: Option<models::McGameVersionManifestGet200ResponseLatest>,
+    pub latest: Option<models::GetMinecraftVersionManifest200ResponseLatest>,
 
     #[serde(rename = "versions")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub versions: Option<Vec<models::McGameVersionManifestGet200ResponseVersionsInner>>,
+    pub versions: Option<Vec<models::GetMinecraftVersionManifest200ResponseVersionsInner>>,
 
 }
 
 
-impl McGameVersionManifestGet200Response {
+impl GetMinecraftVersionManifest200Response {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> McGameVersionManifestGet200Response {
-        McGameVersionManifestGet200Response {
+    pub fn new() -> GetMinecraftVersionManifest200Response {
+        GetMinecraftVersionManifest200Response {
             latest: None,
             versions: None,
         }
     }
 }
 
-/// Converts the McGameVersionManifestGet200Response value to the Query Parameters representation (style=form, explode=false)
+/// Converts the GetMinecraftVersionManifest200Response value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for McGameVersionManifestGet200Response {
+impl std::fmt::Display for GetMinecraftVersionManifest200Response {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             // Skipping latest in query parameter serialization
@@ -62,10 +62,10 @@ impl std::fmt::Display for McGameVersionManifestGet200Response {
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a McGameVersionManifestGet200Response value
+/// Converts Query Parameters representation (style=form, explode=false) to a GetMinecraftVersionManifest200Response value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for McGameVersionManifestGet200Response {
+impl std::str::FromStr for GetMinecraftVersionManifest200Response {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -73,8 +73,8 @@ impl std::str::FromStr for McGameVersionManifestGet200Response {
         #[derive(Default)]
         #[allow(dead_code)]
         struct IntermediateRep {
-            pub latest: Vec<models::McGameVersionManifestGet200ResponseLatest>,
-            pub versions: Vec<Vec<models::McGameVersionManifestGet200ResponseVersionsInner>>,
+            pub latest: Vec<models::GetMinecraftVersionManifest200ResponseLatest>,
+            pub versions: Vec<Vec<models::GetMinecraftVersionManifest200ResponseVersionsInner>>,
         }
 
         let mut intermediate_rep = IntermediateRep::default();
@@ -86,16 +86,16 @@ impl std::str::FromStr for McGameVersionManifestGet200Response {
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing McGameVersionManifestGet200Response".to_string())
+                None => return std::result::Result::Err("Missing value while parsing GetMinecraftVersionManifest200Response".to_string())
             };
 
             if let Some(key) = key_result {
                 #[allow(clippy::match_single_binding)]
                 match key {
                     #[allow(clippy::redundant_clone)]
-                    "latest" => intermediate_rep.latest.push(<models::McGameVersionManifestGet200ResponseLatest as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    "versions" => return std::result::Result::Err("Parsing a container in this style is not supported in McGameVersionManifestGet200Response".to_string()),
-                    _ => return std::result::Result::Err("Unexpected key while parsing McGameVersionManifestGet200Response".to_string())
+                    "latest" => intermediate_rep.latest.push(<models::GetMinecraftVersionManifest200ResponseLatest as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "versions" => return std::result::Result::Err("Parsing a container in this style is not supported in GetMinecraftVersionManifest200Response".to_string()),
+                    _ => return std::result::Result::Err("Unexpected key while parsing GetMinecraftVersionManifest200Response".to_string())
                 }
             }
 
@@ -104,41 +104,41 @@ impl std::str::FromStr for McGameVersionManifestGet200Response {
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(McGameVersionManifestGet200Response {
+        std::result::Result::Ok(GetMinecraftVersionManifest200Response {
             latest: intermediate_rep.latest.into_iter().next(),
             versions: intermediate_rep.versions.into_iter().next(),
         })
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<McGameVersionManifestGet200Response> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<GetMinecraftVersionManifest200Response> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<McGameVersionManifestGet200Response>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<GetMinecraftVersionManifest200Response>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<McGameVersionManifestGet200Response>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<GetMinecraftVersionManifest200Response>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for McGameVersionManifestGet200Response - value: {} is invalid {}",
+                 format!("Invalid header value for GetMinecraftVersionManifest200Response - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<McGameVersionManifestGet200Response> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraftVersionManifest200Response> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <McGameVersionManifestGet200Response as std::str::FromStr>::from_str(value) {
+                    match <GetMinecraftVersionManifest200Response as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into McGameVersionManifestGet200Response - {}",
+                            format!("Unable to convert header value '{}' into GetMinecraftVersionManifest200Response - {}",
                                 value, err))
                     }
              },
@@ -157,7 +157,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<McGameVersio
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct McGameVersionManifestGet200ResponseLatest {
+pub struct GetMinecraftVersionManifest200ResponseLatest {
     #[serde(rename = "release")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub release: Option<String>,
@@ -169,20 +169,20 @@ pub struct McGameVersionManifestGet200ResponseLatest {
 }
 
 
-impl McGameVersionManifestGet200ResponseLatest {
+impl GetMinecraftVersionManifest200ResponseLatest {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> McGameVersionManifestGet200ResponseLatest {
-        McGameVersionManifestGet200ResponseLatest {
+    pub fn new() -> GetMinecraftVersionManifest200ResponseLatest {
+        GetMinecraftVersionManifest200ResponseLatest {
             release: None,
             snapshot: None,
         }
     }
 }
 
-/// Converts the McGameVersionManifestGet200ResponseLatest value to the Query Parameters representation (style=form, explode=false)
+/// Converts the GetMinecraftVersionManifest200ResponseLatest value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for McGameVersionManifestGet200ResponseLatest {
+impl std::fmt::Display for GetMinecraftVersionManifest200ResponseLatest {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
@@ -207,10 +207,10 @@ impl std::fmt::Display for McGameVersionManifestGet200ResponseLatest {
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a McGameVersionManifestGet200ResponseLatest value
+/// Converts Query Parameters representation (style=form, explode=false) to a GetMinecraftVersionManifest200ResponseLatest value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for McGameVersionManifestGet200ResponseLatest {
+impl std::str::FromStr for GetMinecraftVersionManifest200ResponseLatest {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -231,7 +231,7 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseLatest {
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing McGameVersionManifestGet200ResponseLatest".to_string())
+                None => return std::result::Result::Err("Missing value while parsing GetMinecraftVersionManifest200ResponseLatest".to_string())
             };
 
             if let Some(key) = key_result {
@@ -241,7 +241,7 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseLatest {
                     "release" => intermediate_rep.release.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "snapshot" => intermediate_rep.snapshot.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing McGameVersionManifestGet200ResponseLatest".to_string())
+                    _ => return std::result::Result::Err("Unexpected key while parsing GetMinecraftVersionManifest200ResponseLatest".to_string())
                 }
             }
 
@@ -250,41 +250,41 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseLatest {
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(McGameVersionManifestGet200ResponseLatest {
+        std::result::Result::Ok(GetMinecraftVersionManifest200ResponseLatest {
             release: intermediate_rep.release.into_iter().next(),
             snapshot: intermediate_rep.snapshot.into_iter().next(),
         })
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<McGameVersionManifestGet200ResponseLatest> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<McGameVersionManifestGet200ResponseLatest>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<McGameVersionManifestGet200ResponseLatest>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for McGameVersionManifestGet200ResponseLatest - value: {} is invalid {}",
+                 format!("Invalid header value for GetMinecraftVersionManifest200ResponseLatest - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<McGameVersionManifestGet200ResponseLatest> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseLatest> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <McGameVersionManifestGet200ResponseLatest as std::str::FromStr>::from_str(value) {
+                    match <GetMinecraftVersionManifest200ResponseLatest as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into McGameVersionManifestGet200ResponseLatest - {}",
+                            format!("Unable to convert header value '{}' into GetMinecraftVersionManifest200ResponseLatest - {}",
                                 value, err))
                     }
              },
@@ -303,7 +303,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<McGameVersio
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct McGameVersionManifestGet200ResponseVersionsInner {
+pub struct GetMinecraftVersionManifest200ResponseVersionsInner {
     #[serde(rename = "id")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
@@ -327,10 +327,10 @@ pub struct McGameVersionManifestGet200ResponseVersionsInner {
 }
 
 
-impl McGameVersionManifestGet200ResponseVersionsInner {
+impl GetMinecraftVersionManifest200ResponseVersionsInner {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
-    pub fn new() -> McGameVersionManifestGet200ResponseVersionsInner {
-        McGameVersionManifestGet200ResponseVersionsInner {
+    pub fn new() -> GetMinecraftVersionManifest200ResponseVersionsInner {
+        GetMinecraftVersionManifest200ResponseVersionsInner {
             id: None,
             r#type: None,
             url: None,
@@ -340,10 +340,10 @@ impl McGameVersionManifestGet200ResponseVersionsInner {
     }
 }
 
-/// Converts the McGameVersionManifestGet200ResponseVersionsInner value to the Query Parameters representation (style=form, explode=false)
+/// Converts the GetMinecraftVersionManifest200ResponseVersionsInner value to the Query Parameters representation (style=form, explode=false)
 /// specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde serializer
-impl std::fmt::Display for McGameVersionManifestGet200ResponseVersionsInner {
+impl std::fmt::Display for GetMinecraftVersionManifest200ResponseVersionsInner {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
 
@@ -380,10 +380,10 @@ impl std::fmt::Display for McGameVersionManifestGet200ResponseVersionsInner {
     }
 }
 
-/// Converts Query Parameters representation (style=form, explode=false) to a McGameVersionManifestGet200ResponseVersionsInner value
+/// Converts Query Parameters representation (style=form, explode=false) to a GetMinecraftVersionManifest200ResponseVersionsInner value
 /// as specified in https://swagger.io/docs/specification/serialization/
 /// Should be implemented in a serde deserializer
-impl std::str::FromStr for McGameVersionManifestGet200ResponseVersionsInner {
+impl std::str::FromStr for GetMinecraftVersionManifest200ResponseVersionsInner {
     type Err = String;
 
     fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
@@ -407,7 +407,7 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseVersionsInner {
         while key_result.is_some() {
             let val = match string_iter.next() {
                 Some(x) => x,
-                None => return std::result::Result::Err("Missing value while parsing McGameVersionManifestGet200ResponseVersionsInner".to_string())
+                None => return std::result::Result::Err("Missing value while parsing GetMinecraftVersionManifest200ResponseVersionsInner".to_string())
             };
 
             if let Some(key) = key_result {
@@ -423,7 +423,7 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseVersionsInner {
                     "time" => intermediate_rep.time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "releaseTime" => intermediate_rep.release_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
-                    _ => return std::result::Result::Err("Unexpected key while parsing McGameVersionManifestGet200ResponseVersionsInner".to_string())
+                    _ => return std::result::Result::Err("Unexpected key while parsing GetMinecraftVersionManifest200ResponseVersionsInner".to_string())
                 }
             }
 
@@ -432,7 +432,7 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseVersionsInner {
         }
 
         // Use the intermediate representation to return the struct
-        std::result::Result::Ok(McGameVersionManifestGet200ResponseVersionsInner {
+        std::result::Result::Ok(GetMinecraftVersionManifest200ResponseVersionsInner {
             id: intermediate_rep.id.into_iter().next(),
             r#type: intermediate_rep.r#type.into_iter().next(),
             url: intermediate_rep.url.into_iter().next(),
@@ -442,34 +442,34 @@ impl std::str::FromStr for McGameVersionManifestGet200ResponseVersionsInner {
     }
 }
 
-// Methods for converting between header::IntoHeaderValue<McGameVersionManifestGet200ResponseVersionsInner> and HeaderValue
+// Methods for converting between header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner> and HeaderValue
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<header::IntoHeaderValue<McGameVersionManifestGet200ResponseVersionsInner>> for HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner>> for HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<McGameVersionManifestGet200ResponseVersionsInner>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for McGameVersionManifestGet200ResponseVersionsInner - value: {} is invalid {}",
+                 format!("Invalid header value for GetMinecraftVersionManifest200ResponseVersionsInner - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(feature = "server")]
-impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<McGameVersionManifestGet200ResponseVersionsInner> {
+impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<GetMinecraftVersionManifest200ResponseVersionsInner> {
     type Error = String;
 
     fn try_from(hdr_value: HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <McGameVersionManifestGet200ResponseVersionsInner as std::str::FromStr>::from_str(value) {
+                    match <GetMinecraftVersionManifest200ResponseVersionsInner as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into McGameVersionManifestGet200ResponseVersionsInner - {}",
+                            format!("Unable to convert header value '{}' into GetMinecraftVersionManifest200ResponseVersionsInner - {}",
                                 value, err))
                     }
              },

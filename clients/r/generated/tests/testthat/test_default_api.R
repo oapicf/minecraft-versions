@@ -5,11 +5,11 @@ context("Test DefaultApi")
 
 api_instance <- DefaultApi$new()
 
-test_that("McGameVersionManifestGet", {
-  # tests for McGameVersionManifestGet
+test_that("GetMinecraftVersionManifest", {
+  # tests for GetMinecraftVersionManifest
   # base path: https://launchermeta.mojang.com
   # Get Minecraft version manifest
-  # @return [McGameVersionManifestGet200Response]
+  # @return [GetMinecraftVersionManifest200Response]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

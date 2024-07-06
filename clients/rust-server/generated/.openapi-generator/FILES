@@ -4,9 +4,9 @@
 Cargo.toml
 README.md
 api/openapi.yaml
-docs/McGameVersionManifestGet200Response.md
-docs/McGameVersionManifestGet200ResponseLatest.md
-docs/McGameVersionManifestGet200ResponseVersionsInner.md
+docs/GetMinecraftVersionManifest200Response.md
+docs/GetMinecraftVersionManifest200ResponseLatest.md
+docs/GetMinecraftVersionManifest200ResponseVersionsInner.md
 docs/V1PackagesPackageIdVersionIdJsonGet200Response.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md
 docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md

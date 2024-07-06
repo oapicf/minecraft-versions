@@ -4,9 +4,9 @@ api/api.ts
 configuration.ts
 git_push.sh
 index.ts
-model/McGameVersionManifestGet200Response.ts
-model/McGameVersionManifestGet200ResponseLatest.ts
-model/McGameVersionManifestGet200ResponseVersionsInner.ts
+model/GetMinecraftVersionManifest200Response.ts
+model/GetMinecraftVersionManifest200ResponseLatest.ts
+model/GetMinecraftVersionManifest200ResponseVersionsInner.ts
 model/V1PackagesPackageIdVersionIdJsonGet200Response.ts
 model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts
 model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.ts

@@ -12,7 +12,7 @@
 
 package org.openapitools.server.api
 
-import org.openapitools.server.model.McGameVersionManifestGet200Response
+import org.openapitools.server.model.GetMinecraftVersionManifest200Response
 import org.openapitools.server.model.V1PackagesPackageIdVersionIdJsonGet200Response
 
 import java.io.File
@@ -40,12 +40,12 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
   }
   
 
-  val mcGameVersionManifestGetOperation = (apiOperation[McGameVersionManifestGet200Response]("mcGameVersionManifestGet")
+  val getMinecraftVersionManifestOperation = (apiOperation[GetMinecraftVersionManifest200Response]("getMinecraftVersionManifest")
     summary "Get Minecraft version manifest"
     parameters()
   )
 
-  get("/mc/game/version_manifest", operation(mcGameVersionManifestGetOperation)) {
+  get("/mc/game/version_manifest.json", operation(getMinecraftVersionManifestOperation)) {
   }
 
   

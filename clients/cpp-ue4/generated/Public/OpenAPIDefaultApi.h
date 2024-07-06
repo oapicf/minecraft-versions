@@ -38,19 +38,19 @@ public:
 	void SetHttpRetryManager(FHttpRetrySystem::FManager& RetryManager);
 	FHttpRetrySystem::FManager& GetHttpRetryManager();
 
-	class McGameVersionManifestGetRequest;
-	class McGameVersionManifestGetResponse;
+	class GetMinecraftVersionManifestRequest;
+	class GetMinecraftVersionManifestResponse;
 	class V1PackagesPackageIdVersionIdJsonGetRequest;
 	class V1PackagesPackageIdVersionIdJsonGetResponse;
 	
-    DECLARE_DELEGATE_OneParam(FMcGameVersionManifestGetDelegate, const McGameVersionManifestGetResponse&);
+    DECLARE_DELEGATE_OneParam(FGetMinecraftVersionManifestDelegate, const GetMinecraftVersionManifestResponse&);
     DECLARE_DELEGATE_OneParam(FV1PackagesPackageIdVersionIdJsonGetDelegate, const V1PackagesPackageIdVersionIdJsonGetResponse&);
     
-    FHttpRequestPtr McGameVersionManifestGet(const McGameVersionManifestGetRequest& Request, const FMcGameVersionManifestGetDelegate& Delegate = FMcGameVersionManifestGetDelegate()) const;
+    FHttpRequestPtr GetMinecraftVersionManifest(const GetMinecraftVersionManifestRequest& Request, const FGetMinecraftVersionManifestDelegate& Delegate = FGetMinecraftVersionManifestDelegate()) const;
     FHttpRequestPtr V1PackagesPackageIdVersionIdJsonGet(const V1PackagesPackageIdVersionIdJsonGetRequest& Request, const FV1PackagesPackageIdVersionIdJsonGetDelegate& Delegate = FV1PackagesPackageIdVersionIdJsonGetDelegate()) const;
     
 private:
-    void OnMcGameVersionManifestGetResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FMcGameVersionManifestGetDelegate Delegate) const;
+    void OnGetMinecraftVersionManifestResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetMinecraftVersionManifestDelegate Delegate) const;
     void OnV1PackagesPackageIdVersionIdJsonGetResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FV1PackagesPackageIdVersionIdJsonGetDelegate Delegate) const;
     
 	FHttpRequestRef CreateHttpRequest(const Request& Request) const;

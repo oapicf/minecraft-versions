@@ -13,16 +13,16 @@ inherit
 feature -- Test routines
 
 
-    test_mc_game_version_manifest_get
+    test_minecraft_version_manifest
             -- Get Minecraft version manifest
             --
             -- 
         local
-            l_response: MODEL_MC_GAME_VERSION_MANIFEST_GET_200_RESPONSE
+            l_response: GET_MINECRAFT_VERSION_MANIFEST_200_RESPONSE
         do
             -- TODO: Initialize required params.
 
-            -- l_response := api.mc_game_version_manifest_get
+            -- l_response := api.minecraft_version_manifest
             assert ("not_implemented", False)
         end
 

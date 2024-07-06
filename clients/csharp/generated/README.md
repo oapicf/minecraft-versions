@@ -92,12 +92,12 @@ namespace Example
             try
             {
                 // Get Minecraft version manifest
-                McGameVersionManifestGet200Response result = apiInstance.McGameVersionManifestGet();
+                GetMinecraftVersionManifest200Response result = apiInstance.GetMinecraftVersionManifest();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling DefaultApi.McGameVersionManifestGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionManifest: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -114,16 +114,16 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**McGameVersionManifestGet**](docs/DefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**GetMinecraftVersionManifest**](docs/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**V1PackagesPackageIdVersionIdJsonGet**](docs/DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [Model.McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [Model.McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [Model.GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [Model.GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [Model.GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [Model.V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [Model.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [Model.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

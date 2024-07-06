@@ -7,9 +7,9 @@ Encapsulates generated server code for APIServer
 
 The following server methods must be implemented:
 
-- **mc_game_version_manifest_get**
-    - *invocation:* GET /mc/game/version_manifest
-    - *signature:* mc_game_version_manifest_get(req::HTTP.Request;) -> McGameVersionManifestGet200Response
+- **get_minecraft_version_manifest**
+    - *invocation:* GET /mc/game/version_manifest.json
+    - *signature:* get_minecraft_version_manifest(req::HTTP.Request;) -> GetMinecraftVersionManifest200Response
 - **v1_packages_package_id_version_id_json_get**
     - *invocation:* GET /v1/packages/{packageId}/{versionId}.json
     - *signature:* v1_packages_package_id_version_id_json_get(req::HTTP.Request, package_id::String, version_id::String;) -> V1PackagesPackageIdVersionIdJsonGet200Response

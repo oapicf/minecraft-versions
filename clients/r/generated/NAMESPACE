@@ -13,9 +13,9 @@ export(ApiClient)
 export(ApiResponse)
 
 # Models
-export(McGameVersionManifestGet200Response)
-export(McGameVersionManifestGet200ResponseLatest)
-export(McGameVersionManifestGet200ResponseVersionsInner)
+export(GetMinecraftVersionManifest200Response)
+export(GetMinecraftVersionManifest200ResponseLatest)
+export(GetMinecraftVersionManifest200ResponseVersionsInner)
 export(V1PackagesPackageIdVersionIdJsonGet200Response)
 export(V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex)
 export(V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads)

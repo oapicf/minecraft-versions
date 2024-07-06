@@ -4,12 +4,12 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**McGameVersionManifestGet**](DefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest |
+| [**GetMinecraftVersionManifest**](DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
 | [**V1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
 
-<a id="mcgameversionmanifestget"></a>
-# **McGameVersionManifestGet**
-> McGameVersionManifestGet200Response McGameVersionManifestGet ()
+<a id="getminecraftversionmanifest"></a>
+# **GetMinecraftVersionManifest**
+> GetMinecraftVersionManifest200Response GetMinecraftVersionManifest ()
 
 Get Minecraft version manifest
 
@@ -23,7 +23,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class McGameVersionManifestGetExample
+    public class GetMinecraftVersionManifestExample
     {
         public static void Main()
         {
@@ -34,12 +34,12 @@ namespace Example
             try
             {
                 // Get Minecraft version manifest
-                McGameVersionManifestGet200Response result = apiInstance.McGameVersionManifestGet();
+                GetMinecraftVersionManifest200Response result = apiInstance.GetMinecraftVersionManifest();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.McGameVersionManifestGet: " + e.Message);
+                Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionManifest: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -48,21 +48,21 @@ namespace Example
 }
 ```
 
-#### Using the McGameVersionManifestGetWithHttpInfo variant
+#### Using the GetMinecraftVersionManifestWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get Minecraft version manifest
-    ApiResponse<McGameVersionManifestGet200Response> response = apiInstance.McGameVersionManifestGetWithHttpInfo();
+    ApiResponse<GetMinecraftVersionManifest200Response> response = apiInstance.GetMinecraftVersionManifestWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling DefaultApi.McGameVersionManifestGetWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionManifestWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -72,7 +72,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

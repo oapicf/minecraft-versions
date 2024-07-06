@@ -238,9 +238,9 @@ use WWW::OpenAPIClient::DefaultApi;
 
 To load the models:
 ```perl
-use WWW::OpenAPIClient::Object::McGameVersionManifestGet200Response;
-use WWW::OpenAPIClient::Object::McGameVersionManifestGet200ResponseLatest;
-use WWW::OpenAPIClient::Object::McGameVersionManifestGet200ResponseVersionsInner;
+use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200Response;
+use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseLatest;
+use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseVersionsInner;
 use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200Response;
 use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
 use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
@@ -260,9 +260,9 @@ use warnings;
 use WWW::OpenAPIClient::DefaultApi;
 
 # load the models
-use WWW::OpenAPIClient::Object::McGameVersionManifestGet200Response;
-use WWW::OpenAPIClient::Object::McGameVersionManifestGet200ResponseLatest;
-use WWW::OpenAPIClient::Object::McGameVersionManifestGet200ResponseVersionsInner;
+use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200Response;
+use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseLatest;
+use WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseVersionsInner;
 use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200Response;
 use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex;
 use WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads;
@@ -278,11 +278,11 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 
 
 eval {
-    my $result = $api_instance->mc_game_version_manifest_get();
+    my $result = $api_instance->get_minecraft_version_manifest();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->mc_game_version_manifest_get: $@\n";
+    warn "Exception when calling DefaultApi->get_minecraft_version_manifest: $@\n";
 }
 
 ```
@@ -293,14 +293,14 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mc_game_version_manifest_get**](docs/DefaultApi.md#mc_game_version_manifest_get) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**get_minecraft_version_manifest**](docs/DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**v1_packages_package_id_version_id_json_get**](docs/DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 # DOCUMENTATION FOR MODELS
- - [WWW::OpenAPIClient::Object::McGameVersionManifestGet200Response](docs/McGameVersionManifestGet200Response.md)
- - [WWW::OpenAPIClient::Object::McGameVersionManifestGet200ResponseLatest](docs/McGameVersionManifestGet200ResponseLatest.md)
- - [WWW::OpenAPIClient::Object::McGameVersionManifestGet200ResponseVersionsInner](docs/McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200Response](docs/GetMinecraftVersionManifest200Response.md)
+ - [WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseLatest](docs/GetMinecraftVersionManifest200ResponseLatest.md)
+ - [WWW::OpenAPIClient::Object::GetMinecraftVersionManifest200ResponseVersionsInner](docs/GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200Response](docs/V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [WWW::OpenAPIClient::Object::V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

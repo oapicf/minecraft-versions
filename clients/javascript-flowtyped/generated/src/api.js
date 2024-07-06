@@ -73,36 +73,36 @@ export class RequiredError extends Error {
  * 
  * @export
  */
-export type McGameVersionManifestGet200Response = {
+export type GetMinecraftVersionManifest200Response = {
     /**
      * 
-     * @type {McGameVersionManifestGet200ResponseLatest}
-     * @memberof McGameVersionManifestGet200Response
+     * @type {GetMinecraftVersionManifest200ResponseLatest}
+     * @memberof GetMinecraftVersionManifest200Response
      */
-    latest?: McGameVersionManifestGet200ResponseLatest;
+    latest?: GetMinecraftVersionManifest200ResponseLatest;
     /**
      * 
-     * @type {Array<McGameVersionManifestGet200ResponseVersionsInner>}
-     * @memberof McGameVersionManifestGet200Response
+     * @type {Array<GetMinecraftVersionManifest200ResponseVersionsInner>}
+     * @memberof GetMinecraftVersionManifest200Response
      */
-    versions?: Array<McGameVersionManifestGet200ResponseVersionsInner>;
+    versions?: Array<GetMinecraftVersionManifest200ResponseVersionsInner>;
 }
 
 /**
  * 
  * @export
  */
-export type McGameVersionManifestGet200ResponseLatest = {
+export type GetMinecraftVersionManifest200ResponseLatest = {
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseLatest
+     * @memberof GetMinecraftVersionManifest200ResponseLatest
      */
     release?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseLatest
+     * @memberof GetMinecraftVersionManifest200ResponseLatest
      */
     snapshot?: string;
 }
@@ -111,35 +111,35 @@ export type McGameVersionManifestGet200ResponseLatest = {
  * 
  * @export
  */
-export type McGameVersionManifestGet200ResponseVersionsInner = {
+export type GetMinecraftVersionManifest200ResponseVersionsInner = {
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     id?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     type?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     url?: string;
     /**
      * 
      * @type {Date}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     time?: Date;
     /**
      * 
      * @type {Date}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     releaseTime?: Date;
 }
@@ -348,8 +348,8 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
          * @summary Get Minecraft version manifest
          * @throws {RequiredError}
          */
-        mcGameVersionManifestGet(options: RequestOptions): FetchArgs {
-            const localVarPath = `/mc/game/version_manifest`;
+        getMinecraftVersionManifest(options: RequestOptions): FetchArgs {
+            const localVarPath = `/mc/game/version_manifest.json`;
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -401,7 +401,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
 };
 
 export type DefaultApiType = { 
-    mcGameVersionManifestGet(options?: RequestOptions): Promise<McGameVersionManifestGet200Response>,
+    getMinecraftVersionManifest(options?: RequestOptions): Promise<GetMinecraftVersionManifest200Response>,
 
     v1PackagesPackageIdVersionIdJsonGet(packageId: string, versionId: string, options?: RequestOptions): Promise<V1PackagesPackageIdVersionIdJsonGet200Response>,
 }
@@ -418,8 +418,8 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * @summary Get Minecraft version manifest
          * @throws {RequiredError}
          */
-        mcGameVersionManifestGet(options?: RequestOptions = {}): Promise<McGameVersionManifestGet200Response> {
-            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).mcGameVersionManifestGet(options);
+        getMinecraftVersionManifest(options?: RequestOptions = {}): Promise<GetMinecraftVersionManifest200Response> {
+            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).getMinecraftVersionManifest(options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

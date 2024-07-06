@@ -6,9 +6,9 @@ HttpResponse.ts
 IAPIConfiguration.ts
 IHttpClient.ts
 api/default.service.ts
-model/mcGameVersionManifestGet200Response.ts
-model/mcGameVersionManifestGet200ResponseLatest.ts
-model/mcGameVersionManifestGet200ResponseVersionsInner.ts
+model/getMinecraftVersionManifest200Response.ts
+model/getMinecraftVersionManifest200ResponseLatest.ts
+model/getMinecraftVersionManifest200ResponseVersionsInner.ts
 model/v1PackagesPackageIdVersionIdJsonGet200Response.ts
 model/v1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.ts
 model/v1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.ts

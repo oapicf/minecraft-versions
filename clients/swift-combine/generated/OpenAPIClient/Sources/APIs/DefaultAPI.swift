@@ -29,15 +29,15 @@ open class DefaultAPI {
 
 
     /// Get Minecraft version manifest
-    /// - GET /mc/game/version_manifest
-    /// - returns: AnyPublisher<McGameVersionManifestGet200Response, Error> 
-    open func mcGameVersionManifestGet() -> AnyPublisher<McGameVersionManifestGet200Response, Error> {
+    /// - GET /mc/game/version_manifest.json
+    /// - returns: AnyPublisher<GetMinecraftVersionManifest200Response, Error> 
+    open func getMinecraftVersionManifest() -> AnyPublisher<GetMinecraftVersionManifest200Response, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                let path = "/mc/game/version_manifest"
+                let path = "/mc/game/version_manifest.json"
                 let url = baseURL.appendingPathComponent(path)
                 let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -47,10 +47,10 @@ open class DefaultAPI {
                 request.httpMethod = "GET"
                 return request
             }.publisher
-        }.flatMap { request -> AnyPublisher<McGameVersionManifestGet200Response, Error> in 
+        }.flatMap { request -> AnyPublisher<GetMinecraftVersionManifest200Response, Error> in 
             return self.transport.send(request: request)
                 .tryMap { response in
-                    try self.decoder.decode(McGameVersionManifestGet200Response.self, from: response.data)
+                    try self.decoder.decode(GetMinecraftVersionManifest200Response.self, from: response.data)
                 }
                 .eraseToAnyPublisher()
         }.eraseToAnyPublisher()

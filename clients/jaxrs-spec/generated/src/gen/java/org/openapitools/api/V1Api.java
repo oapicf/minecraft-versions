@@ -18,7 +18,7 @@ import javax.validation.Valid;
 */
 @Path("/v1/packages/{packageId}/{versionId}.json")
 @Api(description = "the v1 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-06T01:33:27.601676284Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-06T08:45:13.809273220Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Api {
 
     @GET

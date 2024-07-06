@@ -4,14 +4,14 @@ All URIs are relative to https://launchermeta.mojang.com, except if the operatio
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**mcGameVersionManifestGet()**](DefaultApi.md#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest |
+| [**getMinecraftVersionManifest()**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
 | [**v1PackagesPackageIdVersionIdJsonGet()**](DefaultApi.md#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details |
 
 
-## `mcGameVersionManifestGet()`
+## `getMinecraftVersionManifest()`
 
 ```php
-mcGameVersionManifestGet(): \OpenAPI\Client\Model\McGameVersionManifestGet200Response
+getMinecraftVersionManifest(): \OpenAPI\Client\Model\GetMinecraftVersionManifest200Response
 ```
 
 Get Minecraft version manifest
@@ -31,10 +31,10 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
 );
 
 try {
-    $result = $apiInstance->mcGameVersionManifestGet();
+    $result = $apiInstance->getMinecraftVersionManifest();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->mcGameVersionManifestGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getMinecraftVersionManifest: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\McGameVersionManifestGet200Response**](../Model/McGameVersionManifestGet200Response.md)
+[**\OpenAPI\Client\Model\GetMinecraftVersionManifest200Response**](../Model/GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

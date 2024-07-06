@@ -14,14 +14,14 @@ package body .Servers is
 
    --  Get Minecraft version manifest
    overriding
-   procedure Mc_Game_Version_Manifest_Get
+   procedure Get_Minecraft_Version_Manifest
       (Server : in out Server_Type
        ;
-       Result  : out .Models.McGameVersionManifestGet200Response_Type;
+       Result  : out .Models.GetMinecraftVersionManifest200Response_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
-   end Mc_Game_Version_Manifest_Get;
+   end Get_Minecraft_Version_Manifest;
 
    --  Get Minecraft version package details
    overriding

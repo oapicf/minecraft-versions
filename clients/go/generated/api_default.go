@@ -22,44 +22,44 @@ import (
 // DefaultAPIService DefaultAPI service
 type DefaultAPIService service
 
-type ApiMcGameVersionManifestGetRequest struct {
+type ApiGetMinecraftVersionManifestRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 }
 
-func (r ApiMcGameVersionManifestGetRequest) Execute() (*McGameVersionManifestGet200Response, *http.Response, error) {
-	return r.ApiService.McGameVersionManifestGetExecute(r)
+func (r ApiGetMinecraftVersionManifestRequest) Execute() (*GetMinecraftVersionManifest200Response, *http.Response, error) {
+	return r.ApiService.GetMinecraftVersionManifestExecute(r)
 }
 
 /*
-McGameVersionManifestGet Get Minecraft version manifest
+GetMinecraftVersionManifest Get Minecraft version manifest
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMcGameVersionManifestGetRequest
+ @return ApiGetMinecraftVersionManifestRequest
 */
-func (a *DefaultAPIService) McGameVersionManifestGet(ctx context.Context) ApiMcGameVersionManifestGetRequest {
-	return ApiMcGameVersionManifestGetRequest{
+func (a *DefaultAPIService) GetMinecraftVersionManifest(ctx context.Context) ApiGetMinecraftVersionManifestRequest {
+	return ApiGetMinecraftVersionManifestRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return McGameVersionManifestGet200Response
-func (a *DefaultAPIService) McGameVersionManifestGetExecute(r ApiMcGameVersionManifestGetRequest) (*McGameVersionManifestGet200Response, *http.Response, error) {
+//  @return GetMinecraftVersionManifest200Response
+func (a *DefaultAPIService) GetMinecraftVersionManifestExecute(r ApiGetMinecraftVersionManifestRequest) (*GetMinecraftVersionManifest200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *McGameVersionManifestGet200Response
+		localVarReturnValue  *GetMinecraftVersionManifest200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.McGameVersionManifestGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetMinecraftVersionManifest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/mc/game/version_manifest"
+	localVarPath := localBasePath + "/mc/game/version_manifest.json"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -8,8 +8,8 @@
 
 const Controller = require('./Controller');
 const service = require('../services/DefaultService');
-const mcGameVersionManifestGET = async (request, response) => {
-  await Controller.handleRequest(request, response, service.mcGameVersionManifestGET);
+const getMinecraftVersionManifest = async (request, response) => {
+  await Controller.handleRequest(request, response, service.getMinecraftVersionManifest);
 };
 
 const v1PackagesPackageIdVersionIdJsonGET = async (request, response) => {
@@ -18,6 +18,6 @@ const v1PackagesPackageIdVersionIdJsonGET = async (request, response) => {
 
 
 module.exports = {
-  mcGameVersionManifestGET,
+  getMinecraftVersionManifest,
   v1PackagesPackageIdVersionIdJsonGET,
 };

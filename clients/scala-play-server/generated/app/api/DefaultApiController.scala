@@ -4,18 +4,18 @@ import org.openapitools.OpenApiExceptions
 import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
-import model.McGameVersionManifestGet200Response
+import model.GetMinecraftVersionManifest200Response
 import model.V1PackagesPackageIdVersionIdJsonGet200Response
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-06T01:37:06.044701330Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-06T08:47:35.761849206Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Singleton
 class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) extends AbstractController(cc) {
   /**
-    * GET /mc/game/version_manifest
+    * GET /mc/game/version_manifest.json
     */
-  def mcGameVersionManifestGet(): Action[AnyContent] = Action { request =>
-    def executeApi(): McGameVersionManifestGet200Response = {
-      api.mcGameVersionManifestGet()
+  def getMinecraftVersionManifest(): Action[AnyContent] = Action { request =>
+    def executeApi(): GetMinecraftVersionManifest200Response = {
+      api.getMinecraftVersionManifest()
     }
 
     val result = executeApi()

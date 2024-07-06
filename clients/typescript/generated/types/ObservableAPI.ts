@@ -2,9 +2,9 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
-import { McGameVersionManifestGet200Response } from '../models/McGameVersionManifestGet200Response';
-import { McGameVersionManifestGet200ResponseLatest } from '../models/McGameVersionManifestGet200ResponseLatest';
-import { McGameVersionManifestGet200ResponseVersionsInner } from '../models/McGameVersionManifestGet200ResponseVersionsInner';
+import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
+import { GetMinecraftVersionManifest200ResponseLatest } from '../models/GetMinecraftVersionManifest200ResponseLatest';
+import { GetMinecraftVersionManifest200ResponseVersionsInner } from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -30,8 +30,8 @@ export class ObservableDefaultApi {
     /**
      * Get Minecraft version manifest
      */
-    public mcGameVersionManifestGetWithHttpInfo(_options?: Configuration): Observable<HttpInfo<McGameVersionManifestGet200Response>> {
-        const requestContextPromise = this.requestFactory.mcGameVersionManifestGet(_options);
+    public getMinecraftVersionManifestWithHttpInfo(_options?: Configuration): Observable<HttpInfo<GetMinecraftVersionManifest200Response>> {
+        const requestContextPromise = this.requestFactory.getMinecraftVersionManifest(_options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -45,15 +45,15 @@ export class ObservableDefaultApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.mcGameVersionManifestGetWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getMinecraftVersionManifestWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * Get Minecraft version manifest
      */
-    public mcGameVersionManifestGet(_options?: Configuration): Observable<McGameVersionManifestGet200Response> {
-        return this.mcGameVersionManifestGetWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<McGameVersionManifestGet200Response>) => apiResponse.data));
+    public getMinecraftVersionManifest(_options?: Configuration): Observable<GetMinecraftVersionManifest200Response> {
+        return this.getMinecraftVersionManifestWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<GetMinecraftVersionManifest200Response>) => apiResponse.data));
     }
 
     /**

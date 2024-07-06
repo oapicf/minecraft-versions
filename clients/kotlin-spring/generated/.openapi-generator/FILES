@@ -10,9 +10,9 @@ src/main/kotlin/org/openapitools/api/ApiUtil.kt
 src/main/kotlin/org/openapitools/api/Exceptions.kt
 src/main/kotlin/org/openapitools/api/McApiController.kt
 src/main/kotlin/org/openapitools/api/V1ApiController.kt
-src/main/kotlin/org/openapitools/model/McGameVersionManifestGet200Response.kt
-src/main/kotlin/org/openapitools/model/McGameVersionManifestGet200ResponseLatest.kt
-src/main/kotlin/org/openapitools/model/McGameVersionManifestGet200ResponseVersionsInner.kt
+src/main/kotlin/org/openapitools/model/GetMinecraftVersionManifest200Response.kt
+src/main/kotlin/org/openapitools/model/GetMinecraftVersionManifest200ResponseLatest.kt
+src/main/kotlin/org/openapitools/model/GetMinecraftVersionManifest200ResponseVersionsInner.kt
 src/main/kotlin/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200Response.kt
 src/main/kotlin/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.kt
 src/main/kotlin/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.kt

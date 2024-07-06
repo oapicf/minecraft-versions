@@ -50,14 +50,14 @@ QHttpEngine::Socket* OAIDefaultApiRequest::getRawSocket(){
 }
 
 
-void OAIDefaultApiRequest::mcGameVersionManifestGetRequest(){
-    qDebug() << "/mc/game/version_manifest";
-    connect(this, &OAIDefaultApiRequest::mcGameVersionManifestGet, handler.data(), &OAIDefaultApiHandler::mcGameVersionManifestGet);
+void OAIDefaultApiRequest::getMinecraftVersionManifestRequest(){
+    qDebug() << "/mc/game/version_manifest.json";
+    connect(this, &OAIDefaultApiRequest::getMinecraftVersionManifest, handler.data(), &OAIDefaultApiHandler::getMinecraftVersionManifest);
 
     
 
 
-    Q_EMIT mcGameVersionManifestGet();
+    Q_EMIT getMinecraftVersionManifest();
 }
 
 
@@ -77,7 +77,7 @@ void OAIDefaultApiRequest::v1PackagesPackageIdVersionIdJsonGetRequest(const QStr
 
 
 
-void OAIDefaultApiRequest::mcGameVersionManifestGetResponse(const OAI_mc_game_version_manifest_get_200_response& res){
+void OAIDefaultApiRequest::getMinecraftVersionManifestResponse(const OAIGetMinecraftVersionManifest_200_response& res){
     setSocketResponseHeaders();
     QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
     socket->writeJson(resDoc);
@@ -96,7 +96,7 @@ void OAIDefaultApiRequest::v1PackagesPackageIdVersionIdJsonGetResponse(const OAI
 }
 
 
-void OAIDefaultApiRequest::mcGameVersionManifestGetError(const OAI_mc_game_version_manifest_get_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str){
+void OAIDefaultApiRequest::getMinecraftVersionManifestError(const OAIGetMinecraftVersionManifest_200_response& res, QNetworkReply::NetworkError error_type, QString& error_str){
     Q_UNUSED(error_type); // TODO: Remap error_type to QHttpEngine::Socket errors
     setSocketResponseHeaders();
     Q_UNUSED(error_str);  // response will be used instead of error string

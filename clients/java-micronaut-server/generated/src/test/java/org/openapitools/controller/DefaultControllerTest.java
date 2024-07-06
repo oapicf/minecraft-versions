@@ -1,6 +1,6 @@
 package org.openapitools.controller;
 
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import io.micronaut.http.client.HttpClient;
@@ -48,7 +48,7 @@ public class DefaultControllerTest {
     DefaultController controller;
 
     /**
-     * This test is used to validate the implementation of mcGameVersionManifestGet() method
+     * This test is used to validate the implementation of getMinecraftVersionManifest() method
      *
      * The method should: Get Minecraft version manifest
      *
@@ -56,11 +56,11 @@ public class DefaultControllerTest {
      */
     @Test
     @Disabled("Not Implemented")
-    void mcGameVersionManifestGetMethodTest() {
+    void getMinecraftVersionManifestMethodTest() {
         // given
 
         // when
-        McGameVersionManifestGet200Response result = controller.mcGameVersionManifestGet().block();
+        GetMinecraftVersionManifest200Response result = controller.getMinecraftVersionManifest().block();
 
         // then
         Assertions.assertTrue(true);
@@ -68,20 +68,20 @@ public class DefaultControllerTest {
 
     /**
      * This test is used to check that the api available to client through
-     * '/mc/game/version_manifest' to the features of mcGameVersionManifestGet() works as desired.
+     * '/mc/game/version_manifest.json' to the features of getMinecraftVersionManifest() works as desired.
      *
      * TODO fill in the request parameters and test response.
      */
     @Test
     @Disabled("Not Implemented")
-    void mcGameVersionManifestGetClientApiTest() throws IOException {
+    void getMinecraftVersionManifestClientApiTest() throws IOException {
         // given
-        String uri = UriTemplate.of("/mc/game/version_manifest").expand(new HashMap<>());
+        String uri = UriTemplate.of("/mc/game/version_manifest.json").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5560bcdf");
+            .accept("[Ljava.lang.String;@bb095");
 
         // when
-        HttpResponse<?> response = client.toBlocking().exchange(request, McGameVersionManifestGet200Response.class);
+        HttpResponse<?> response = client.toBlocking().exchange(request, GetMinecraftVersionManifest200Response.class);
 
         // then
         Assertions.assertEquals(HttpStatus.OK, response.status());
@@ -124,7 +124,7 @@ public class DefaultControllerTest {
             put("versionId", "1.21");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@b558294");
+            .accept("[Ljava.lang.String;@777c350f");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, V1PackagesPackageIdVersionIdJsonGet200Response.class);

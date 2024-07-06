@@ -2,7 +2,7 @@ const DefaultApi = require('../apis/DefaultApi');
 const { searchMiddleware, hasSearchRequisites, isSearchAction } = require('../utils/utils');
 
 const actions = {
-    [DefaultApi.mcGameVersionManifestGet.key]: DefaultApi.mcGameVersionManifestGet,
+    [DefaultApi.getMinecraftVersionManifest.key]: DefaultApi.getMinecraftVersionManifest,
     [DefaultApi.v1PackagesPackageIdVersionIdJsonGet.key]: DefaultApi.v1PackagesPackageIdVersionIdJsonGet,
 }
 

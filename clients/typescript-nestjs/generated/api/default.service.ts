@@ -15,7 +15,7 @@ import { Inject, Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
-import { McGameVersionManifestGet200Response } from '../model/mcGameVersionManifestGet200Response';
+import { GetMinecraftVersionManifest200Response } from '../model/getMinecraftVersionManifest200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../model/v1PackagesPackageIdVersionIdJsonGet200Response';
 import { Configuration } from '../configuration';
 import { COLLECTION_FORMATS } from '../variables';
@@ -48,8 +48,8 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public mcGameVersionManifestGet(): Observable<AxiosResponse<McGameVersionManifestGet200Response>>;
-    public mcGameVersionManifestGet(): Observable<any> {
+    public getMinecraftVersionManifest(): Observable<AxiosResponse<GetMinecraftVersionManifest200Response>>;
+    public getMinecraftVersionManifest(): Observable<any> {
 
         let headers = {...this.defaultHeaders};
 
@@ -73,7 +73,7 @@ export class DefaultService {
                     headers['Authorization'] = `Bearer ${accessToken}`;
                 }
 
-                return this.httpClient.get<McGameVersionManifestGet200Response>(`${this.basePath}/mc/game/version_manifest`,
+                return this.httpClient.get<GetMinecraftVersionManifest200Response>(`${this.basePath}/mc/game/version_manifest.json`,
                     {
                         withCredentials: this.configuration.withCredentials,
                         headers: headers

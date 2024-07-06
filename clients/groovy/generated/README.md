@@ -6,7 +6,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 0.9.0-pre.0
 - Package version: 0.9.0-pre.0
-- Build date: 2024-07-06T01:31:43.898140466Z[Etc/UTC]
+- Build date: 2024-07-06T08:43:53.457919658Z[Etc/UTC]
 - Generator version: 7.6.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
@@ -36,10 +36,10 @@ Then, run:
 ```groovy
 def apiInstance = new DefaultApi()
 
-apiInstance.mcGameVersionManifestGet()
+apiInstance.getMinecraftVersionManifest()
     {
     // on success
-    def result = (McGameVersionManifestGet200Response)it
+    def result = (GetMinecraftVersionManifest200Response)it
     println result
     
 }

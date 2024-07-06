@@ -1,9 +1,9 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
-import { McGameVersionManifestGet200Response } from '../models/McGameVersionManifestGet200Response';
-import { McGameVersionManifestGet200ResponseLatest } from '../models/McGameVersionManifestGet200ResponseLatest';
-import { McGameVersionManifestGet200ResponseVersionsInner } from '../models/McGameVersionManifestGet200ResponseVersionsInner';
+import { GetMinecraftVersionManifest200Response } from '../models/GetMinecraftVersionManifest200Response';
+import { GetMinecraftVersionManifest200ResponseLatest } from '../models/GetMinecraftVersionManifest200ResponseLatest';
+import { GetMinecraftVersionManifest200ResponseVersionsInner } from '../models/GetMinecraftVersionManifest200ResponseVersionsInner';
 import { V1PackagesPackageIdVersionIdJsonGet200Response } from '../models/V1PackagesPackageIdVersionIdJsonGet200Response';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex';
 import { V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads } from '../models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads';
@@ -26,16 +26,16 @@ export class PromiseDefaultApi {
     /**
      * Get Minecraft version manifest
      */
-    public mcGameVersionManifestGetWithHttpInfo(_options?: Configuration): Promise<HttpInfo<McGameVersionManifestGet200Response>> {
-        const result = this.api.mcGameVersionManifestGetWithHttpInfo(_options);
+    public getMinecraftVersionManifestWithHttpInfo(_options?: Configuration): Promise<HttpInfo<GetMinecraftVersionManifest200Response>> {
+        const result = this.api.getMinecraftVersionManifestWithHttpInfo(_options);
         return result.toPromise();
     }
 
     /**
      * Get Minecraft version manifest
      */
-    public mcGameVersionManifestGet(_options?: Configuration): Promise<McGameVersionManifestGet200Response> {
-        const result = this.api.mcGameVersionManifestGet(_options);
+    public getMinecraftVersionManifest(_options?: Configuration): Promise<GetMinecraftVersionManifest200Response> {
+        const result = this.api.getMinecraftVersionManifest(_options);
         return result.toPromise();
     }
 

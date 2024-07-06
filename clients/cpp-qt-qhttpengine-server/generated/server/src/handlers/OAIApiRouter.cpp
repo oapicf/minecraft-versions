@@ -41,9 +41,9 @@ void OAIApiRouter::setOAIDefaultApiHandler(QSharedPointer<OAIDefaultApiHandler> 
 
 void OAIApiRouter::setUpRoutes() {
     
-    Routes.insert(QString("%1 %2").arg("GET").arg("/mc/game/version_manifest").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/mc/game/version_manifest.json").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIDefaultApiRequest(socket, mOAIDefaultApiHandler);
-            reqObj->mcGameVersionManifestGetRequest();
+            reqObj->getMinecraftVersionManifestRequest();
     });
 }
 

@@ -19,8 +19,8 @@ void main() {
   group('tests for DefaultApi', () {
     // Get Minecraft version manifest
     //
-    //Future<McGameVersionManifestGet200Response> mcGameVersionManifestGet() async
-    test('test mcGameVersionManifestGet', () async {
+    //Future<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest() async
+    test('test getMinecraftVersionManifest', () async {
       // TODO
     });
 

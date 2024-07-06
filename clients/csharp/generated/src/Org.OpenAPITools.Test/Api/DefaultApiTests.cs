@@ -54,14 +54,14 @@ namespace Org.OpenAPITools.Test.Api
         }
 
         /// <summary>
-        /// Test McGameVersionManifestGet
+        /// Test GetMinecraftVersionManifest
         /// </summary>
         [Fact]
-        public void McGameVersionManifestGetTest()
+        public void GetMinecraftVersionManifestTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.McGameVersionManifestGet();
-            //Assert.IsType<McGameVersionManifestGet200Response>(response);
+            //var response = instance.GetMinecraftVersionManifest();
+            //Assert.IsType<GetMinecraftVersionManifest200Response>(response);
         }
 
         /// <summary>

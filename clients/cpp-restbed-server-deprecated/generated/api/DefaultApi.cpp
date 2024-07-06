@@ -87,49 +87,49 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-DefaultApiMcGameVersion_manifestResource::DefaultApiMcGameVersion_manifestResource(const std::string& context /* = "" */)
+DefaultApiMcGameVersion_manifest.jsonResource::DefaultApiMcGameVersion_manifest.jsonResource(const std::string& context /* = "" */)
 {
-	this->set_path(context + "/mc/game/version_manifest/");
+	this->set_path(context + "/mc/game/version_manifest.json/");
 	this->set_method_handler("GET",
-		std::bind(&DefaultApiMcGameVersion_manifestResource::handler_GET_internal, this,
+		std::bind(&DefaultApiMcGameVersion_manifest.jsonResource::handler_GET_internal, this,
 			std::placeholders::_1));
 }
 
-DefaultApiMcGameVersion_manifestResource::~DefaultApiMcGameVersion_manifestResource()
+DefaultApiMcGameVersion_manifest.jsonResource::~DefaultApiMcGameVersion_manifest.jsonResource()
 {
 }
 
-std::pair<int, std::string> DefaultApiMcGameVersion_manifestResource::handleDefaultApiException(const DefaultApiException& e)
+std::pair<int, std::string> DefaultApiMcGameVersion_manifest.jsonResource::handleDefaultApiException(const DefaultApiException& e)
 {
     return std::make_pair<int, std::string>(e.getStatus(), e.what());
 }
 
-std::pair<int, std::string> DefaultApiMcGameVersion_manifestResource::handleStdException(const std::exception& e)
+std::pair<int, std::string> DefaultApiMcGameVersion_manifest.jsonResource::handleStdException(const std::exception& e)
 {
     return std::make_pair<int, std::string>(500, e.what());
 }
 
-std::pair<int, std::string> DefaultApiMcGameVersion_manifestResource::handleUnspecifiedException()
+std::pair<int, std::string> DefaultApiMcGameVersion_manifest.jsonResource::handleUnspecifiedException()
 {
     return std::make_pair<int, std::string>(500, "Unknown exception occurred");
 }
 
-void DefaultApiMcGameVersion_manifestResource::setResponseHeader(const std::shared_ptr<restbed::Session>& session, const std::string& header)
+void DefaultApiMcGameVersion_manifest.jsonResource::setResponseHeader(const std::shared_ptr<restbed::Session>& session, const std::string& header)
 {
     session->set_header(header, "");
 }
 
-void DefaultApiMcGameVersion_manifestResource::returnResponse(const std::shared_ptr<restbed::Session>& session, const int status, const std::string& result, const std::string& contentType)
+void DefaultApiMcGameVersion_manifest.jsonResource::returnResponse(const std::shared_ptr<restbed::Session>& session, const int status, const std::string& result, const std::string& contentType)
 {
     session->close(status, result, { {"Connection", "close"}, {"Content-Type", contentType} });
 }
 
-void DefaultApiMcGameVersion_manifestResource::defaultSessionClose(const std::shared_ptr<restbed::Session>& session, const int status, const std::string& result)
+void DefaultApiMcGameVersion_manifest.jsonResource::defaultSessionClose(const std::shared_ptr<restbed::Session>& session, const int status, const std::string& result)
 {
     session->close(status, result, { {"Connection", "close"} });
 }
 
-void DefaultApiMcGameVersion_manifestResource::handler_GET_internal(const std::shared_ptr<restbed::Session> session)
+void DefaultApiMcGameVersion_manifest.jsonResource::handler_GET_internal(const std::shared_ptr<restbed::Session> session)
 {
     const auto request = session->get_request();
 
@@ -137,7 +137,7 @@ void DefaultApiMcGameVersion_manifestResource::handler_GET_internal(const std::s
 
 
     int status_code = 500;
-    std::shared_ptr<_mc_game_version_manifest_get_200_response> resultObject = std::make_shared<_mc_game_version_manifest_get_200_response>();
+    std::shared_ptr<GetMinecraftVersionManifest_200_response> resultObject = std::make_shared<GetMinecraftVersionManifest_200_response>();
     std::string result = "";
 
     try {
@@ -165,14 +165,14 @@ void DefaultApiMcGameVersion_manifestResource::handler_GET_internal(const std::s
 }
 
 
-std::pair<int, std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultApiMcGameVersion_manifestResource::handler_GET(
+std::pair<int, std::shared_ptr<GetMinecraftVersionManifest_200_response>> DefaultApiMcGameVersion_manifest.jsonResource::handler_GET(
         )
 {
     throw DefaultApiException(501, "Not implemented");
 }
 
 
-std::string DefaultApiMcGameVersion_manifestResource::extractBodyContent(const std::shared_ptr<restbed::Session>& session) {
+std::string DefaultApiMcGameVersion_manifest.jsonResource::extractBodyContent(const std::shared_ptr<restbed::Session>& session) {
   const auto request = session->get_request();
   int content_length = request->get_header("Content-Length", 0);
   std::string bodyContent;
@@ -292,9 +292,9 @@ DefaultApi::DefaultApi(std::shared_ptr<restbed::Service> const& restbedService)
 
 DefaultApi::~DefaultApi() {}
 
-void DefaultApi::setDefaultApiMcGameVersion_manifestResource(std::shared_ptr<DefaultApiMcGameVersion_manifestResource> spDefaultApiMcGameVersion_manifestResource) {
-    m_spDefaultApiMcGameVersion_manifestResource = spDefaultApiMcGameVersion_manifestResource;
-    m_service->publish(m_spDefaultApiMcGameVersion_manifestResource);
+void DefaultApi::setDefaultApiMcGameVersion_manifest.jsonResource(std::shared_ptr<DefaultApiMcGameVersion_manifest.jsonResource> spDefaultApiMcGameVersion_manifest.jsonResource) {
+    m_spDefaultApiMcGameVersion_manifest.jsonResource = spDefaultApiMcGameVersion_manifest.jsonResource;
+    m_service->publish(m_spDefaultApiMcGameVersion_manifest.jsonResource);
 }
 void DefaultApi::setDefaultApiV1PackagesPackageId{versionId}.jsonResource(std::shared_ptr<DefaultApiV1PackagesPackageId{versionId}.jsonResource> spDefaultApiV1PackagesPackageId{versionId}.jsonResource) {
     m_spDefaultApiV1PackagesPackageId{versionId}.jsonResource = spDefaultApiV1PackagesPackageId{versionId}.jsonResource;
@@ -303,8 +303,8 @@ void DefaultApi::setDefaultApiV1PackagesPackageId{versionId}.jsonResource(std::s
 
 
 void DefaultApi::publishDefaultResources() {
-    if (!m_spDefaultApiMcGameVersion_manifestResource) {
-        setDefaultApiMcGameVersion_manifestResource(std::make_shared<DefaultApiMcGameVersion_manifestResource>());
+    if (!m_spDefaultApiMcGameVersion_manifest.jsonResource) {
+        setDefaultApiMcGameVersion_manifest.jsonResource(std::make_shared<DefaultApiMcGameVersion_manifest.jsonResource>());
     }
     if (!m_spDefaultApiV1PackagesPackageId{versionId}.jsonResource) {
         setDefaultApiV1PackagesPackageId{versionId}.jsonResource(std::make_shared<DefaultApiV1PackagesPackageId{versionId}.jsonResource>());

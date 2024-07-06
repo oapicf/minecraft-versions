@@ -69,15 +69,15 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenAPIClient.APIs.DefaultApi* | [**McGameVersionManifestGet**](DefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*OpenAPIClient.APIs.DefaultApi* | [**GetMinecraftVersionManifest**](DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *OpenAPIClient.APIs.DefaultApi* | [**V1PackagesPackageIdVersionIdJsonGet**](DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
 ## Documentation For Models
 
- - [OpenAPIClient.Models.McGameVersionManifestGet200Response](McGameVersionManifestGet200Response.md)
- - [OpenAPIClient.Models.McGameVersionManifestGet200ResponseLatest](McGameVersionManifestGet200ResponseLatest.md)
- - [OpenAPIClient.Models.McGameVersionManifestGet200ResponseVersionsInner](McGameVersionManifestGet200ResponseVersionsInner.md)
+ - [OpenAPIClient.Models.GetMinecraftVersionManifest200Response](GetMinecraftVersionManifest200Response.md)
+ - [OpenAPIClient.Models.GetMinecraftVersionManifest200ResponseLatest](GetMinecraftVersionManifest200ResponseLatest.md)
+ - [OpenAPIClient.Models.GetMinecraftVersionManifest200ResponseVersionsInner](GetMinecraftVersionManifest200ResponseVersionsInner.md)
  - [OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200Response](V1PackagesPackageIdVersionIdJsonGet200Response.md)
  - [OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
  - [OpenAPIClient.Models.V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

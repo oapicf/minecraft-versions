@@ -15,12 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  McGameVersionManifestGet200Response,
+  GetMinecraftVersionManifest200Response,
   V1PackagesPackageIdVersionIdJsonGet200Response,
 } from '../models/index';
 import {
-    McGameVersionManifestGet200ResponseFromJSON,
-    McGameVersionManifestGet200ResponseToJSON,
+    GetMinecraftVersionManifest200ResponseFromJSON,
+    GetMinecraftVersionManifest200ResponseToJSON,
     V1PackagesPackageIdVersionIdJsonGet200ResponseFromJSON,
     V1PackagesPackageIdVersionIdJsonGet200ResponseToJSON,
 } from '../models/index';
@@ -38,26 +38,26 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get Minecraft version manifest
      */
-    async mcGameVersionManifestGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<McGameVersionManifestGet200Response>> {
+    async getMinecraftVersionManifestRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetMinecraftVersionManifest200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/mc/game/version_manifest`,
+            path: `/mc/game/version_manifest.json`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => McGameVersionManifestGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetMinecraftVersionManifest200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Get Minecraft version manifest
      */
-    async mcGameVersionManifestGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<McGameVersionManifestGet200Response> {
-        const response = await this.mcGameVersionManifestGetRaw(initOverrides);
+    async getMinecraftVersionManifest(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMinecraftVersionManifest200Response> {
+        const response = await this.getMinecraftVersionManifestRaw(initOverrides);
         return await response.value();
     }
 

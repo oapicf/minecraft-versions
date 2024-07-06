@@ -21,8 +21,8 @@ import { ApiExecuterI, ApiError, checkRequiredParams } from "/ApiHelper"
  * @param fe Callback interface that runs the fetch query
  * @response 200 [~Object+] A list of Minecraft versions with the latest and snapshot releases
  */
-export public async function DefaultApi__mcGameVersionManifestGet(fe : ApiExecuterI, ) : Promise<~Object+, Object> {
-    checkRequiredParams('mcGameVersionManifestGet', {  });
+export public async function DefaultApi__getMinecraftVersionManifest(fe : ApiExecuterI, ) : Promise<~Object+, Object> {
+    checkRequiredParams('getMinecraftVersionManifest', {  });
 
     const _pathParams = { };
     const _queryParams = { };
@@ -30,7 +30,7 @@ export public async function DefaultApi__mcGameVersionManifestGet(fe : ApiExecut
     const _body = undefined;
 
     return await fe.<~Object+, undefined>exec(
-        'GET', '' + '/mc/game/version_manifest',
+        'GET', '' + '/mc/game/version_manifest.json',
         _pathParams, _queryParams, _headerParams,
         undefined,
         _body

@@ -21,11 +21,11 @@ describe "DefaultApi" do
     end
   end
 
-  # unit tests for mc_game_version_manifest_get
+  # unit tests for get_minecraft_version_manifest
   # Get Minecraft version manifest
   # @param [Hash] opts the optional parameters
-  # @return [McGameVersionManifestGet200Response]
-  describe "mc_game_version_manifest_get test" do
+  # @return [GetMinecraftVersionManifest200Response]
+  describe "get_minecraft_version_manifest test" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end

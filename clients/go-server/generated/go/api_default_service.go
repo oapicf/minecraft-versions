@@ -26,15 +26,15 @@ func NewDefaultAPIService() *DefaultAPIService {
 	return &DefaultAPIService{}
 }
 
-// McGameVersionManifestGet - Get Minecraft version manifest
-func (s *DefaultAPIService) McGameVersionManifestGet(ctx context.Context) (ImplResponse, error) {
-	// TODO - update McGameVersionManifestGet with the required logic for this service method.
+// GetMinecraftVersionManifest - Get Minecraft version manifest
+func (s *DefaultAPIService) GetMinecraftVersionManifest(ctx context.Context) (ImplResponse, error) {
+	// TODO - update GetMinecraftVersionManifest with the required logic for this service method.
 	// Add api_default_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	// TODO: Uncomment the next line to return response Response(200, McGameVersionManifestGet200Response{}) or use other options such as http.Ok ...
-	// return Response(200, McGameVersionManifestGet200Response{}), nil
+	// TODO: Uncomment the next line to return response Response(200, GetMinecraftVersionManifest200Response{}) or use other options such as http.Ok ...
+	// return Response(200, GetMinecraftVersionManifest200Response{}), nil
 
-	return Response(http.StatusNotImplemented, nil), errors.New("McGameVersionManifestGet method not implemented")
+	return Response(http.StatusNotImplemented, nil), errors.New("GetMinecraftVersionManifest method not implemented")
 }
 
 // V1PackagesPackageIdVersionIdJsonGet - Get Minecraft version package details

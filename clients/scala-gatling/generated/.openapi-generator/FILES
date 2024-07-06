@@ -8,9 +8,9 @@ src/gatling/resources/conf/logback.xml
 src/gatling/resources/conf/longevity.conf
 src/gatling/resources/conf/stress.conf
 src/gatling/scala/org/openapitools/client/api/DefaultApiSimulation.scala
-src/gatling/scala/org/openapitools/client/model/McGameVersionManifestGet200Response.scala
-src/gatling/scala/org/openapitools/client/model/McGameVersionManifestGet200ResponseLatest.scala
-src/gatling/scala/org/openapitools/client/model/McGameVersionManifestGet200ResponseVersionsInner.scala
+src/gatling/scala/org/openapitools/client/model/GetMinecraftVersionManifest200Response.scala
+src/gatling/scala/org/openapitools/client/model/GetMinecraftVersionManifest200ResponseLatest.scala
+src/gatling/scala/org/openapitools/client/model/GetMinecraftVersionManifest200ResponseVersionsInner.scala
 src/gatling/scala/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200Response.scala
 src/gatling/scala/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.scala
 src/gatling/scala/org/openapitools/client/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.scala

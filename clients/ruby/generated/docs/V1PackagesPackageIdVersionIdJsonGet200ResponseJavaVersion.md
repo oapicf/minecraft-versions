@@ -1,4 +1,4 @@
-# OpenapiClient::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+# MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'minecraft_versions'
 
-instance = OpenapiClient::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.new(
+instance = MinecraftVersionsClient::V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion.new(
   component: null,
   major_version: null
 )

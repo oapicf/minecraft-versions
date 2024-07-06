@@ -56,7 +56,7 @@ class DefaultApiSimulation extends Simulation {
     }
 
     // Setup all the operations per second for the test to ultimately be generated from configs
-    val mcGameVersionManifestGetPerSecond = config.getDouble("performance.operationsPerSecond.mcGameVersionManifestGet") * rateMultiplier * instanceMultiplier
+    val getMinecraftVersionManifestPerSecond = config.getDouble("performance.operationsPerSecond.getMinecraftVersionManifest") * rateMultiplier * instanceMultiplier
     val v1PackagesPackageIdVersionIdJsonGetPerSecond = config.getDouble("performance.operationsPerSecond.v1PackagesPackageIdVersionIdJsonGet") * rateMultiplier * instanceMultiplier
 
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
@@ -67,16 +67,16 @@ class DefaultApiSimulation extends Simulation {
     // Setup all scenarios
 
     
-    val scnmcGameVersionManifestGet = scenario("mcGameVersionManifestGetSimulation")
-        .exec(http("mcGameVersionManifestGet")
-        .httpRequest("GET","/mc/game/version_manifest")
+    val scngetMinecraftVersionManifest = scenario("getMinecraftVersionManifestSimulation")
+        .exec(http("getMinecraftVersionManifest")
+        .httpRequest("GET","/mc/game/version_manifest.json")
 )
 
-    // Run scnmcGameVersionManifestGet with warm up and reach a constant rate for entire duration
-    scenarioBuilders += scnmcGameVersionManifestGet.inject(
-        rampUsersPerSec(1) to(mcGameVersionManifestGetPerSecond) during(rampUpSeconds),
-        constantUsersPerSec(mcGameVersionManifestGetPerSecond) during(durationSeconds),
-        rampUsersPerSec(mcGameVersionManifestGetPerSecond) to(1) during(rampDownSeconds)
+    // Run scngetMinecraftVersionManifest with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scngetMinecraftVersionManifest.inject(
+        rampUsersPerSec(1) to(getMinecraftVersionManifestPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(getMinecraftVersionManifestPerSecond) during(durationSeconds),
+        rampUsersPerSec(getMinecraftVersionManifestPerSecond) to(1) during(rampDownSeconds)
     )
 
     

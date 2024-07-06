@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T01:33:17.904737996Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T08:45:08.613318098Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public interface V1ApiService {
       Response v1PackagesPackageIdVersionIdJsonGet(String packageId,String versionId,SecurityContext securityContext)
       throws NotFoundException;

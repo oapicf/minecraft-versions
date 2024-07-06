@@ -18,14 +18,15 @@
     "url" : "https://piston-meta.mojang.com"
   } ],
   "paths" : {
-    "/mc/game/version_manifest" : {
+    "/mc/game/version_manifest.json" : {
       "get" : {
+        "operationId" : "getMinecraftVersionManifest",
         "responses" : {
           "200" : {
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response"
+                  "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response"
                 }
               }
             },
@@ -141,14 +142,28 @@
         },
         "type" : "object"
       },
-      "_mc_game_version_manifest_get_200_response_latest" : {
+      "getMinecraftVersionManifest_200_response_versions_inner" : {
         "properties" : {
-          "release" : {
-            "example" : "1.21",
+          "id" : {
+            "example" : "24w14potato",
             "type" : "string"
           },
-          "snapshot" : {
-            "example" : "24w14potato",
+          "type" : {
+            "example" : "snapshot",
+            "type" : "string"
+          },
+          "url" : {
+            "example" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+            "type" : "string"
+          },
+          "time" : {
+            "example" : "2024-04-01T11:14:41Z",
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "releaseTime" : {
+            "example" : "2024-04-01T11:07:19Z",
+            "format" : "date-time",
             "type" : "string"
           }
         },
@@ -188,28 +203,28 @@
         },
         "type" : "object"
       },
-      "_mc_game_version_manifest_get_200_response_versions_inner" : {
+      "getMinecraftVersionManifest_200_response" : {
         "properties" : {
-          "id" : {
+          "latest" : {
+            "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_latest"
+          },
+          "versions" : {
+            "items" : {
+              "$ref" : "#/components/schemas/getMinecraftVersionManifest_200_response_versions_inner"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "getMinecraftVersionManifest_200_response_latest" : {
+        "properties" : {
+          "release" : {
+            "example" : "1.21",
+            "type" : "string"
+          },
+          "snapshot" : {
             "example" : "24w14potato",
-            "type" : "string"
-          },
-          "type" : {
-            "example" : "snapshot",
-            "type" : "string"
-          },
-          "url" : {
-            "example" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
-            "type" : "string"
-          },
-          "time" : {
-            "example" : "2024-04-01T11:14:41Z",
-            "format" : "date-time",
-            "type" : "string"
-          },
-          "releaseTime" : {
-            "example" : "2024-04-01T11:07:19Z",
-            "format" : "date-time",
             "type" : "string"
           }
         },
@@ -222,20 +237,6 @@
           },
           "majorVersion" : {
             "type" : "integer"
-          }
-        },
-        "type" : "object"
-      },
-      "_mc_game_version_manifest_get_200_response" : {
-        "properties" : {
-          "latest" : {
-            "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response_latest"
-          },
-          "versions" : {
-            "items" : {
-              "$ref" : "#/components/schemas/_mc_game_version_manifest_get_200_response_versions_inner"
-            },
-            "type" : "array"
           }
         },
         "type" : "object"

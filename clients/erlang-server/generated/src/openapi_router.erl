@@ -55,8 +55,8 @@ group_paths() ->
 
 get_operations() ->
     #{ 
-        'McGameVersionManifestGet' => #{
-            path => "/mc/game/version_manifest",
+        'GetMinecraftVersionManifest' => #{
+            path => "/mc/game/version_manifest.json",
             method => <<"GET">>,
             handler => 'openapi_default_handler'
         },

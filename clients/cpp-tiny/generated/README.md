@@ -30,16 +30,16 @@ All URIs are relative to https://launchermeta.mojang.comhttps://launchermeta.moj
 ### DefaultApi
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|*mcGameVersionManifestGet* | *GET* /mc/game/version_manifest | Get Minecraft version manifest.|
+|*getMinecraftVersionManifest* | *GET* /mc/game/version_manifest.json | Get Minecraft version manifest.|
 |*v1PackagesPackageIdVersionIdJsonGet* | *GET* /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details.|
 
 
 ## What are the Model files for the data structures/objects?
 |Class | Description|
 |------------- | -------------|
-|*_mc_game_version_manifest_get_200_response* | |
-|*_mc_game_version_manifest_get_200_response_latest* | |
-|*_mc_game_version_manifest_get_200_response_versions_inner* | |
+|*GetMinecraftVersionManifest_200_response* | |
+|*GetMinecraftVersionManifest_200_response_latest* | |
+|*GetMinecraftVersionManifest_200_response_versions_inner* | |
 |*_v1_packages__packageId___versionId__json_get_200_response* | |
 |*_v1_packages__packageId___versionId__json_get_200_response_assetIndex* | |
 |*_v1_packages__packageId___versionId__json_get_200_response_downloads* | |

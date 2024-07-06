@@ -18,7 +18,7 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAI_mc_game_version_manifest_get_200_response.h"
+#include "OAIGetMinecraftVersionManifest_200_response.h"
 #include "OAI_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <QString>
 
@@ -59,7 +59,7 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
 
-    void mcGameVersionManifestGet();
+    void getMinecraftVersionManifest();
 
     /**
     * @param[in]  package_id QString [required]
@@ -90,27 +90,27 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void mcGameVersionManifestGetCallback(OAIHttpRequestWorker *worker);
+    void getMinecraftVersionManifestCallback(OAIHttpRequestWorker *worker);
     void v1PackagesPackageIdVersionIdJsonGetCallback(OAIHttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void mcGameVersionManifestGetSignal(OAI_mc_game_version_manifest_get_200_response summary);
+    void getMinecraftVersionManifestSignal(OAIGetMinecraftVersionManifest_200_response summary);
     void v1PackagesPackageIdVersionIdJsonGetSignal(OAI_v1_packages__packageId___versionId__json_get_200_response summary);
 
-    void mcGameVersionManifestGetSignalFull(OAIHttpRequestWorker *worker, OAI_mc_game_version_manifest_get_200_response summary);
+    void getMinecraftVersionManifestSignalFull(OAIHttpRequestWorker *worker, OAIGetMinecraftVersionManifest_200_response summary);
     void v1PackagesPackageIdVersionIdJsonGetSignalFull(OAIHttpRequestWorker *worker, OAI_v1_packages__packageId___versionId__json_get_200_response summary);
 
-    Q_DECL_DEPRECATED_X("Use mcGameVersionManifestGetSignalError() instead")
-    void mcGameVersionManifestGetSignalE(OAI_mc_game_version_manifest_get_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void mcGameVersionManifestGetSignalError(OAI_mc_game_version_manifest_get_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getMinecraftVersionManifestSignalError() instead")
+    void getMinecraftVersionManifestSignalE(OAIGetMinecraftVersionManifest_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getMinecraftVersionManifestSignalError(OAIGetMinecraftVersionManifest_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use v1PackagesPackageIdVersionIdJsonGetSignalError() instead")
     void v1PackagesPackageIdVersionIdJsonGetSignalE(OAI_v1_packages__packageId___versionId__json_get_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1PackagesPackageIdVersionIdJsonGetSignalError(OAI_v1_packages__packageId___versionId__json_get_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use mcGameVersionManifestGetSignalErrorFull() instead")
-    void mcGameVersionManifestGetSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void mcGameVersionManifestGetSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getMinecraftVersionManifestSignalErrorFull() instead")
+    void getMinecraftVersionManifestSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getMinecraftVersionManifestSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use v1PackagesPackageIdVersionIdJsonGetSignalErrorFull() instead")
     void v1PackagesPackageIdVersionIdJsonGetSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void v1PackagesPackageIdVersionIdJsonGetSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

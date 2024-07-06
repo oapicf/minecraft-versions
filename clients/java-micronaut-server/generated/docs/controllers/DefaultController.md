@@ -6,20 +6,20 @@ The controller class is defined in **[DefaultController.java](../../src/main/jav
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mcGameVersionManifestGet**](#mcGameVersionManifestGet) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**getMinecraftVersionManifest**](#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1PackagesPackageIdVersionIdJsonGet**](#v1PackagesPackageIdVersionIdJsonGet) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
-<a id="mcGameVersionManifestGet"></a>
-# **mcGameVersionManifestGet**
+<a id="getMinecraftVersionManifest"></a>
+# **getMinecraftVersionManifest**
 ```java
-Mono<McGameVersionManifestGet200Response> DefaultController.mcGameVersionManifestGet()
+Mono<GetMinecraftVersionManifest200Response> DefaultController.getMinecraftVersionManifest()
 ```
 
 Get Minecraft version manifest
 
 
 ### Return type
-[**McGameVersionManifestGet200Response**](../../docs/models/McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](../../docs/models/GetMinecraftVersionManifest200Response.md)
 
 
 ### HTTP request headers

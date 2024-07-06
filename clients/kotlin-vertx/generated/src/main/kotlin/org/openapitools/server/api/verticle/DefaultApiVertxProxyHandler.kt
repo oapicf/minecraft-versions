@@ -16,7 +16,7 @@ import io.vertx.core.json.Json
 import io.vertx.core.json.JsonArray
 import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
-import org.openapitools.server.api.model.McGameVersionManifestGet200Response
+import org.openapitools.server.api.model.GetMinecraftVersionManifest200Response
 import org.openapitools.server.api.model.V1PackagesPackageIdVersionIdJsonGet200Response
 
 class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service: DefaultApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
@@ -65,7 +65,7 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
             val context = OperationRequest(contextSerialized)
             when (action) {
         
-                "mcGameVersionManifestGet" -> {
+                "getMinecraftVersionManifest" -> {
                 }
         
                 "v1PackagesPackageIdVersionIdJsonGet" -> {

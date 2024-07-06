@@ -57,10 +57,10 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
 );
 
 try {
-    $result = $apiInstance->mcGameVersionManifestGet();
+    $result = $apiInstance->getMinecraftVersionManifest();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->mcGameVersionManifestGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getMinecraftVersionManifest: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -71,14 +71,14 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mcGameVersionManifestGet**](docs/Api/DefaultApi.md#mcgameversionmanifestget) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+*DefaultApi* | [**getMinecraftVersionManifest**](docs/Api/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 *DefaultApi* | [**v1PackagesPackageIdVersionIdJsonGet**](docs/Api/DefaultApi.md#v1packagespackageidversionidjsonget) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 ## Models
 
-- [McGameVersionManifestGet200Response](docs/Model/McGameVersionManifestGet200Response.md)
-- [McGameVersionManifestGet200ResponseLatest](docs/Model/McGameVersionManifestGet200ResponseLatest.md)
-- [McGameVersionManifestGet200ResponseVersionsInner](docs/Model/McGameVersionManifestGet200ResponseVersionsInner.md)
+- [GetMinecraftVersionManifest200Response](docs/Model/GetMinecraftVersionManifest200Response.md)
+- [GetMinecraftVersionManifest200ResponseLatest](docs/Model/GetMinecraftVersionManifest200ResponseLatest.md)
+- [GetMinecraftVersionManifest200ResponseVersionsInner](docs/Model/GetMinecraftVersionManifest200ResponseVersionsInner.md)
 - [V1PackagesPackageIdVersionIdJsonGet200Response](docs/Model/V1PackagesPackageIdVersionIdJsonGet200Response.md)
 - [V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex](docs/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.md)
 - [V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads](docs/Model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.md)

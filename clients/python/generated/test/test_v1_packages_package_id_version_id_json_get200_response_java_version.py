@@ -13,7 +13,7 @@
 
 import unittest
 
-from openapi_client.models.v1_packages_package_id_version_id_json_get200_response_java_version import V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
+from minecraftversions.models.v1_packages_package_id_version_id_json_get200_response_java_version import V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion
 
 class TestV1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion(unittest.TestCase):
     """V1PackagesPackageIdVersionIdJsonGet200ResponseJavaVersion unit test stubs"""

@@ -20,7 +20,7 @@ import io.micronaut.security.rules.SecurityRule;
 import reactor.core.publisher.Mono;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.exceptions.HttpStatusException;
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import javax.annotation.Generated;
 import java.util.ArrayList;
@@ -38,29 +38,29 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-06T01:32:35.829750844Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-06T08:44:36.167329976Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 @Tag(name = "Default", description = "The Default API")
 public class DefaultController {
     /**
      * Get Minecraft version manifest
      *
-     * @return McGameVersionManifestGet200Response
+     * @return GetMinecraftVersionManifest200Response
      */
     @Operation(
-        operationId = "mcGameVersionManifestGet",
+        operationId = "getMinecraftVersionManifest",
         summary = "Get Minecraft version manifest",
         responses = {
             @ApiResponse(responseCode = "200", description = "A list of Minecraft versions with the latest and snapshot releases", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = McGameVersionManifestGet200Response.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = GetMinecraftVersionManifest200Response.class))
             })
         }
     )
-    @Get(uri="/mc/game/version_manifest")
+    @Get(uri="/mc/game/version_manifest.json")
     @Produces(value = {"application/json"})
     @Secured({SecurityRule.IS_ANONYMOUS})
-    public Mono<McGameVersionManifestGet200Response> mcGameVersionManifestGet() {
-        // TODO implement mcGameVersionManifestGet();
+    public Mono<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest() {
+        // TODO implement getMinecraftVersionManifest();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
     }
 

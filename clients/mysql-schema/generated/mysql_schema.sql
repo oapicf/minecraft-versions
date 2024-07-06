@@ -6,28 +6,28 @@
 -- --------------------------------------------------------
 
 --
--- Table structure for table `_mc_game_version_manifest_get_200_response` generated from model 'UnderscoremcUnderscoregameUnderscoreversionUnderscoremanifestUnderscoregetUnderscore200Underscoreresponse'
+-- Table structure for table `getMinecraftVersionManifest_200_response` generated from model 'getMinecraftVersionManifestUnderscore200Underscoreresponse'
 --
 
-CREATE TABLE IF NOT EXISTS `_mc_game_version_manifest_get_200_response` (
+CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response` (
   `latest` TEXT DEFAULT NULL,
   `versions` JSON DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `_mc_game_version_manifest_get_200_response_latest` generated from model 'UnderscoremcUnderscoregameUnderscoreversionUnderscoremanifestUnderscoregetUnderscore200UnderscoreresponseUnderscorelatest'
+-- Table structure for table `getMinecraftVersionManifest_200_response_latest` generated from model 'getMinecraftVersionManifestUnderscore200UnderscoreresponseUnderscorelatest'
 --
 
-CREATE TABLE IF NOT EXISTS `_mc_game_version_manifest_get_200_response_latest` (
+CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_latest` (
   `release` TEXT DEFAULT NULL,
   `snapshot` TEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Table structure for table `_mc_game_version_manifest_get_200_response_versions_inner` generated from model 'UnderscoremcUnderscoregameUnderscoreversionUnderscoremanifestUnderscoregetUnderscore200UnderscoreresponseUnderscoreversionsUnderscoreinner'
+-- Table structure for table `getMinecraftVersionManifest_200_response_versions_inner` generated from model 'getMinecraftVersionManifestUnderscore200UnderscoreresponseUnderscoreversionsUnderscoreinner'
 --
 
-CREATE TABLE IF NOT EXISTS `_mc_game_version_manifest_get_200_response_versions_inner` (
+CREATE TABLE IF NOT EXISTS `getMinecraftVersionManifest_200_response_versions_inner` (
   `id` TEXT DEFAULT NULL,
   `type` TEXT DEFAULT NULL,
   `url` TEXT DEFAULT NULL,

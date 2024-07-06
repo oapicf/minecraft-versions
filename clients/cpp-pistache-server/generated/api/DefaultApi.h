@@ -28,7 +28,7 @@
 #include <optional>
 #include <utility>
 
-#include "_mc_game_version_manifest_get_200_response.h"
+#include "GetMinecraftVersionManifest_200_response.h"
 #include "_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <string>
 
@@ -46,7 +46,7 @@ public:
 private:
     void setupRoutes();
 
-    void mc_game_version_manifest_get_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
+    void get_minecraft_version_manifest_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void v1_packages_package_id_version_id_json_get_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void default_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
 
@@ -70,7 +70,7 @@ private:
     /// <remarks>
     /// 
     /// </remarks>
-    virtual void mc_game_version_manifest_get(Pistache::Http::ResponseWriter &response) = 0;
+    virtual void get_minecraft_version_manifest(Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
     /// Get Minecraft version package details
     /// </summary>

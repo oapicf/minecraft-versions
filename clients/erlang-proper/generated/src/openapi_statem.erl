@@ -58,13 +58,13 @@ cleanup() -> ok.
 initial_state() -> #{}.
 
 %%==============================================================================
-%% mc_game_version_manifest_get
+%% get_minecraft_version_manifest
 %%==============================================================================
 
-mc_game_version_manifest_get() ->
-  openapi_api:mc_game_version_manifest_get().
+get_minecraft_version_manifest() ->
+  openapi_api:get_minecraft_version_manifest().
 
-mc_game_version_manifest_get_args(_S) ->
+get_minecraft_version_manifest_args(_S) ->
   [].
 
 %%==============================================================================

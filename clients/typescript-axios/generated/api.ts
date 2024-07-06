@@ -26,75 +26,75 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface McGameVersionManifestGet200Response
+ * @interface GetMinecraftVersionManifest200Response
  */
-export interface McGameVersionManifestGet200Response {
+export interface GetMinecraftVersionManifest200Response {
     /**
      * 
-     * @type {McGameVersionManifestGet200ResponseLatest}
-     * @memberof McGameVersionManifestGet200Response
+     * @type {GetMinecraftVersionManifest200ResponseLatest}
+     * @memberof GetMinecraftVersionManifest200Response
      */
-    'latest'?: McGameVersionManifestGet200ResponseLatest;
+    'latest'?: GetMinecraftVersionManifest200ResponseLatest;
     /**
      * 
-     * @type {Array<McGameVersionManifestGet200ResponseVersionsInner>}
-     * @memberof McGameVersionManifestGet200Response
+     * @type {Array<GetMinecraftVersionManifest200ResponseVersionsInner>}
+     * @memberof GetMinecraftVersionManifest200Response
      */
-    'versions'?: Array<McGameVersionManifestGet200ResponseVersionsInner>;
+    'versions'?: Array<GetMinecraftVersionManifest200ResponseVersionsInner>;
 }
 /**
  * 
  * @export
- * @interface McGameVersionManifestGet200ResponseLatest
+ * @interface GetMinecraftVersionManifest200ResponseLatest
  */
-export interface McGameVersionManifestGet200ResponseLatest {
+export interface GetMinecraftVersionManifest200ResponseLatest {
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseLatest
+     * @memberof GetMinecraftVersionManifest200ResponseLatest
      */
     'release'?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseLatest
+     * @memberof GetMinecraftVersionManifest200ResponseLatest
      */
     'snapshot'?: string;
 }
 /**
  * 
  * @export
- * @interface McGameVersionManifestGet200ResponseVersionsInner
+ * @interface GetMinecraftVersionManifest200ResponseVersionsInner
  */
-export interface McGameVersionManifestGet200ResponseVersionsInner {
+export interface GetMinecraftVersionManifest200ResponseVersionsInner {
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     'type'?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     'url'?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     'time'?: string;
     /**
      * 
      * @type {string}
-     * @memberof McGameVersionManifestGet200ResponseVersionsInner
+     * @memberof GetMinecraftVersionManifest200ResponseVersionsInner
      */
     'releaseTime'?: string;
 }
@@ -302,8 +302,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mcGameVersionManifestGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/mc/game/version_manifest`;
+        getMinecraftVersionManifest: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/mc/game/version_manifest.json`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -380,10 +380,10 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mcGameVersionManifestGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<McGameVersionManifestGet200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mcGameVersionManifestGet(options);
+        async getMinecraftVersionManifest(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetMinecraftVersionManifest200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMinecraftVersionManifest(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.mcGameVersionManifestGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getMinecraftVersionManifest']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -416,8 +416,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mcGameVersionManifestGet(options?: any): AxiosPromise<McGameVersionManifestGet200Response> {
-            return localVarFp.mcGameVersionManifestGet(options).then((request) => request(axios, basePath));
+        getMinecraftVersionManifest(options?: any): AxiosPromise<GetMinecraftVersionManifest200Response> {
+            return localVarFp.getMinecraftVersionManifest(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -447,8 +447,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public mcGameVersionManifestGet(options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).mcGameVersionManifestGet(options).then((request) => request(this.axios, this.basePath));
+    public getMinecraftVersionManifest(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getMinecraftVersionManifest(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

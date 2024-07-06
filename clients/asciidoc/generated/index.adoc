@@ -28,10 +28,10 @@ SDK for Minecraft versions info
 === Default
 
 
-[.mcGameVersionManifestGet]
-==== mcGameVersionManifestGet
+[.getMinecraftVersionManifest]
+==== getMinecraftVersionManifest
 
-`GET /mc/game/version_manifest`
+`GET /mc/game/version_manifest.json`
 
 Get Minecraft version manifest
 
@@ -40,7 +40,7 @@ Get Minecraft version manifest
 
 
 
-// markup not found, no include::{specDir}mc/game/version_manifest/GET/spec.adoc[opts=optional]
+// markup not found, no include::{specDir}mc/game/version_manifest.json/GET/spec.adoc[opts=optional]
 
 
 
@@ -54,7 +54,7 @@ Get Minecraft version manifest
 
 ===== Return Type
 
-<<_mc_game_version_manifest_get_200_response>>
+<<getMinecraftVersionManifest_200_response>>
 
 
 ===== Content Type
@@ -71,27 +71,27 @@ Get Minecraft version manifest
 
 | 200
 | A list of Minecraft versions with the latest and snapshot releases
-|  <<_mc_game_version_manifest_get_200_response>>
+|  <<getMinecraftVersionManifest_200_response>>
 
 |===
 
 ===== Samples
 
 
-// markup not found, no include::{snippetDir}mc/game/version_manifest/GET/http-request.adoc[opts=optional]
+// markup not found, no include::{snippetDir}mc/game/version_manifest.json/GET/http-request.adoc[opts=optional]
 
 
-// markup not found, no include::{snippetDir}mc/game/version_manifest/GET/http-response.adoc[opts=optional]
+// markup not found, no include::{snippetDir}mc/game/version_manifest.json/GET/http-response.adoc[opts=optional]
 
 
 
-// file not found, no * wiremock data link :mc/game/version_manifest/GET/GET.json[]
+// file not found, no * wiremock data link :mc/game/version_manifest.json/GET/GET.json[]
 
 
 ifdef::internal-generation[]
 ===== Implementation
 
-// markup not found, no include::{specDir}mc/game/version_manifest/GET/implementation.adoc[opts=optional]
+// markup not found, no include::{specDir}mc/game/version_manifest.json/GET/implementation.adoc[opts=optional]
 
 
 endif::internal-generation[]
@@ -189,13 +189,13 @@ endif::internal-generation[]
 == Models
 
 
-[#McGameVersionManifestGet200Response]
-=== _McGameVersionManifestGet200Response_ 
+[#GetMinecraftVersionManifest200Response]
+=== _GetMinecraftVersionManifest200Response_ 
 
 
 
 
-[.fields-McGameVersionManifestGet200Response]
+[.fields-GetMinecraftVersionManifest200Response]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -203,14 +203,14 @@ endif::internal-generation[]
 | latest
 | 
 | 
-| <<_mc_game_version_manifest_get_200_response_latest>>    
+| <<getMinecraftVersionManifest_200_response_latest>>    
 | 
 |     
 
 | versions
 | 
 | 
-|   List   of <<_mc_game_version_manifest_get_200_response_versions_inner>>
+|   List   of <<getMinecraftVersionManifest_200_response_versions_inner>>
 | 
 |     
 
@@ -218,13 +218,13 @@ endif::internal-generation[]
 
 
 
-[#McGameVersionManifestGet200ResponseLatest]
-=== _McGameVersionManifestGet200ResponseLatest_ 
+[#GetMinecraftVersionManifest200ResponseLatest]
+=== _GetMinecraftVersionManifest200ResponseLatest_ 
 
 
 
 
-[.fields-McGameVersionManifestGet200ResponseLatest]
+[.fields-GetMinecraftVersionManifest200ResponseLatest]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -247,13 +247,13 @@ endif::internal-generation[]
 
 
 
-[#McGameVersionManifestGet200ResponseVersionsInner]
-=== _McGameVersionManifestGet200ResponseVersionsInner_ 
+[#GetMinecraftVersionManifest200ResponseVersionsInner]
+=== _GetMinecraftVersionManifest200ResponseVersionsInner_ 
 
 
 
 
-[.fields-McGameVersionManifestGet200ResponseVersionsInner]
+[.fields-GetMinecraftVersionManifest200ResponseVersionsInner]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format

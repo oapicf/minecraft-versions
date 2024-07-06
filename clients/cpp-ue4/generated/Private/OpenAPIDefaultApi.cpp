@@ -133,7 +133,7 @@ void OpenAPIDefaultApi::HandleResponse(FHttpResponsePtr HttpResponse, bool bSucc
 	InOutResponse.SetHttpResponseCode(EHttpResponseCodes::RequestTimeout);
 }
 
-FHttpRequestPtr OpenAPIDefaultApi::McGameVersionManifestGet(const McGameVersionManifestGetRequest& Request, const FMcGameVersionManifestGetDelegate& Delegate /*= FMcGameVersionManifestGetDelegate()*/) const
+FHttpRequestPtr OpenAPIDefaultApi::GetMinecraftVersionManifest(const GetMinecraftVersionManifestRequest& Request, const FGetMinecraftVersionManifestDelegate& Delegate /*= FGetMinecraftVersionManifestDelegate()*/) const
 {
 	if (!IsValid())
 		return nullptr;
@@ -148,14 +148,14 @@ FHttpRequestPtr OpenAPIDefaultApi::McGameVersionManifestGet(const McGameVersionM
 
 	Request.SetupHttpRequest(HttpRequest);
 
-	HttpRequest->OnProcessRequestComplete().BindRaw(this, &OpenAPIDefaultApi::OnMcGameVersionManifestGetResponse, Delegate);
+	HttpRequest->OnProcessRequestComplete().BindRaw(this, &OpenAPIDefaultApi::OnGetMinecraftVersionManifestResponse, Delegate);
 	HttpRequest->ProcessRequest();
 	return HttpRequest;
 }
 
-void OpenAPIDefaultApi::OnMcGameVersionManifestGetResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FMcGameVersionManifestGetDelegate Delegate) const
+void OpenAPIDefaultApi::OnGetMinecraftVersionManifestResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetMinecraftVersionManifestDelegate Delegate) const
 {
-	McGameVersionManifestGetResponse Response;
+	GetMinecraftVersionManifestResponse Response;
 	HandleResponse(HttpResponse, bSucceeded, Response);
 	Delegate.ExecuteIfBound(Response);
 }

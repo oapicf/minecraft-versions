@@ -10,7 +10,7 @@ dependencies:
 Articus\PathHandler\RouteInjectionFactory:
   paths:
     '':
-    - App\Handler\McGameVersionManifest
+    - App\Handler\McGameVersionManifestJson
     - App\Handler\V1PackagesPackageIdVersionIdJson
 
 Articus\PathHandler\Handler\PluginManager:
@@ -30,5 +30,5 @@ Articus\PathHandler\Handler\PluginManager:
 #  invokables:
 
 Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory:
-  App\Handler\McGameVersionManifest: []
+  App\Handler\McGameVersionManifestJson: []
   App\Handler\V1PackagesPackageIdVersionIdJson: []

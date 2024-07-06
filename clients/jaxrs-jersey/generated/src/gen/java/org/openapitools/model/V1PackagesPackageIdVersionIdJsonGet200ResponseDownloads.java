@@ -33,7 +33,7 @@ import javax.validation.Valid;
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.JSON_PROPERTY_SERVER,
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.JSON_PROPERTY_SERVER_MAPPINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T01:33:12.790227571Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T08:45:05.905032694Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads   {
   public static final String JSON_PROPERTY_CLIENT = "client";
   @JsonProperty(JSON_PROPERTY_CLIENT)

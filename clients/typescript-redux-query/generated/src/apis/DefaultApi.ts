@@ -15,9 +15,9 @@
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
 import {
-    McGameVersionManifestGet200Response,
-    McGameVersionManifestGet200ResponseFromJSON,
-    McGameVersionManifestGet200ResponseToJSON,
+    GetMinecraftVersionManifest200Response,
+    GetMinecraftVersionManifest200ResponseFromJSON,
+    GetMinecraftVersionManifest200ResponseToJSON,
     V1PackagesPackageIdVersionIdJsonGet200Response,
     V1PackagesPackageIdVersionIdJsonGet200ResponseFromJSON,
     V1PackagesPackageIdVersionIdJsonGet200ResponseToJSON,
@@ -32,7 +32,7 @@ export interface V1PackagesPackageIdVersionIdJsonGetRequest {
 /**
  * Get Minecraft version manifest
  */
-function mcGameVersionManifestGetRaw<T>( requestConfig: runtime.TypedQueryConfig<T, McGameVersionManifestGet200Response> = {}): QueryConfig<T> {
+function getMinecraftVersionManifestRaw<T>( requestConfig: runtime.TypedQueryConfig<T, GetMinecraftVersionManifest200Response> = {}): QueryConfig<T> {
     let queryParameters = null;
 
 
@@ -42,7 +42,7 @@ function mcGameVersionManifestGetRaw<T>( requestConfig: runtime.TypedQueryConfig
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/mc/game/version_manifest`,
+        url: `${runtime.Configuration.basePath}/mc/game/version_manifest.json`,
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -58,7 +58,7 @@ function mcGameVersionManifestGetRaw<T>( requestConfig: runtime.TypedQueryConfig
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(McGameVersionManifestGet200ResponseFromJSON(body), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(GetMinecraftVersionManifest200ResponseFromJSON(body), text);
     }
 
     return config;
@@ -67,8 +67,8 @@ function mcGameVersionManifestGetRaw<T>( requestConfig: runtime.TypedQueryConfig
 /**
 * Get Minecraft version manifest
 */
-export function mcGameVersionManifestGet<T>( requestConfig?: runtime.TypedQueryConfig<T, McGameVersionManifestGet200Response>): QueryConfig<T> {
-    return mcGameVersionManifestGetRaw( requestConfig);
+export function getMinecraftVersionManifest<T>( requestConfig?: runtime.TypedQueryConfig<T, GetMinecraftVersionManifest200Response>): QueryConfig<T> {
+    return getMinecraftVersionManifestRaw( requestConfig);
 }
 
 /**

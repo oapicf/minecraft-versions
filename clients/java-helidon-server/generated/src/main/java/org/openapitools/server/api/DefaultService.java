@@ -1,6 +1,6 @@
 package org.openapitools.server.api;
 
-import org.openapitools.server.model.McGameVersionManifestGet200Response;
+import org.openapitools.server.model.GetMinecraftVersionManifest200Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openapitools.server.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
@@ -17,17 +17,17 @@ public interface DefaultService extends Service {
      */
     @Override
     default void update(Routing.Rules rules) {
-        rules.get("/mc/game/version_manifest", this::mcGameVersionManifestGet);
+        rules.get("/mc/game/version_manifest.json", this::getMinecraftVersionManifest);
         rules.get("/v1/packages/{packageId}/{versionId}.json", this::v1PackagesPackageIdVersionIdJsonGet);
     }
 
 
     /**
-     * GET /mc/game/version_manifest : Get Minecraft version manifest.
+     * GET /mc/game/version_manifest.json : Get Minecraft version manifest.
      * @param request the server request
      * @param response the server response
      */
-    void mcGameVersionManifestGet(ServerRequest request, ServerResponse response);
+    void getMinecraftVersionManifest(ServerRequest request, ServerResponse response);
 
     /**
      * GET /v1/packages/{packageId}/{versionId}.json : Get Minecraft version package details.

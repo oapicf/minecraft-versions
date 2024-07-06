@@ -3,7 +3,7 @@ package org.openapitools.apis
 import org.openapitools.apis.path._
 import org.openapitools.apis.query._
 
-import org.openapitools.models.McGameVersionManifestGet200Response
+import org.openapitools.models.GetMinecraftVersionManifest200Response
 import org.openapitools.models.V1PackagesPackageIdVersionIdJsonGet200Response
 
 
@@ -20,19 +20,19 @@ import org.http4s.circe.CirceEntityEncoder._
 final case class DefaultApiRoutes[
   F[_]: JsonDecoder: Monad
 ](delegate: DefaultApiDelegate[F]) extends Http4sDsl[F] {
-  object mcGameVersionManifestGet {
-    import DefaultApiDelegate.mcGameVersionManifestGetResponses
+  object getMinecraftVersionManifest {
+    import DefaultApiDelegate.getMinecraftVersionManifestResponses
 
 
     val route = HttpRoutes.of[F] {
-      case req @ GET -> Root / "mc" / "game" / "version_manifest" =>
-        delegate.mcGameVersionManifestGet.handle(req, responses)
+      case req @ GET -> Root / "mc" / "game" / "version_manifest.json" =>
+        delegate.getMinecraftVersionManifest.handle(req, responses)
 
     }
 
 
-    val responses: mcGameVersionManifestGetResponses[F] = new mcGameVersionManifestGetResponses[F] {
-      def resp200(value: McGameVersionManifestGet200Response): F[Response[F]] = Ok(value)
+    val responses: getMinecraftVersionManifestResponses[F] = new getMinecraftVersionManifestResponses[F] {
+      def resp200(value: GetMinecraftVersionManifest200Response): F[Response[F]] = Ok(value)
     }
   }
   object v1PackagesPackageIdVersionIdJsonGet {
@@ -52,13 +52,13 @@ final case class DefaultApiRoutes[
   }
 
   val routes =
-    mcGameVersionManifestGet.route <+>
+    getMinecraftVersionManifest.route <+>
     v1PackagesPackageIdVersionIdJsonGet.route
 }
 
 object DefaultApiDelegate {
-  trait mcGameVersionManifestGetResponses[F[_]] {
-    def resp200(value: McGameVersionManifestGet200Response): F[Response[F]]
+  trait getMinecraftVersionManifestResponses[F[_]] {
+    def resp200(value: GetMinecraftVersionManifest200Response): F[Response[F]]
   }
 
   trait v1PackagesPackageIdVersionIdJsonGetResponses[F[_]] {
@@ -69,16 +69,16 @@ object DefaultApiDelegate {
 
 trait DefaultApiDelegate[F[_]] {
 
-  trait mcGameVersionManifestGet {
-    import DefaultApiDelegate.mcGameVersionManifestGetResponses
+  trait getMinecraftVersionManifest {
+    import DefaultApiDelegate.getMinecraftVersionManifestResponses
 
     def handle(
       req: Request[F],
-      responses: mcGameVersionManifestGetResponses[F]
+      responses: getMinecraftVersionManifestResponses[F]
     ): F[Response[F]]
 
   }
-  def mcGameVersionManifestGet: mcGameVersionManifestGet
+  def getMinecraftVersionManifest: getMinecraftVersionManifest
 
 
   trait v1PackagesPackageIdVersionIdJsonGet {

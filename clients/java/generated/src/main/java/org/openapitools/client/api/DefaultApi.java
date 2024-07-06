@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.McGameVersionManifestGet200Response;
+import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import java.lang.reflect.Type;
@@ -74,7 +74,7 @@ public class DefaultApi {
     }
 
     /**
-     * Build call for mcGameVersionManifestGet
+     * Build call for getMinecraftVersionManifest
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -84,7 +84,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call mcGameVersionManifestGetCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMinecraftVersionManifestCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -101,7 +101,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/mc/game/version_manifest";
+        String localVarPath = "/mc/game/version_manifest.json";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -129,15 +129,15 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call mcGameVersionManifestGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return mcGameVersionManifestGetCall(_callback);
+    private okhttp3.Call getMinecraftVersionManifestValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getMinecraftVersionManifestCall(_callback);
 
     }
 
     /**
      * Get Minecraft version manifest
      * 
-     * @return McGameVersionManifestGet200Response
+     * @return GetMinecraftVersionManifest200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -145,15 +145,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public McGameVersionManifestGet200Response mcGameVersionManifestGet() throws ApiException {
-        ApiResponse<McGameVersionManifestGet200Response> localVarResp = mcGameVersionManifestGetWithHttpInfo();
+    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest() throws ApiException {
+        ApiResponse<GetMinecraftVersionManifest200Response> localVarResp = getMinecraftVersionManifestWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get Minecraft version manifest
      * 
-     * @return ApiResponse&lt;McGameVersionManifestGet200Response&gt;
+     * @return ApiResponse&lt;GetMinecraftVersionManifest200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -161,9 +161,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<McGameVersionManifestGet200Response> mcGameVersionManifestGetWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = mcGameVersionManifestGetValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<McGameVersionManifestGet200Response>(){}.getType();
+    public ApiResponse<GetMinecraftVersionManifest200Response> getMinecraftVersionManifestWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getMinecraftVersionManifestValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<GetMinecraftVersionManifest200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -179,10 +179,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A list of Minecraft versions with the latest and snapshot releases </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call mcGameVersionManifestGetAsync(final ApiCallback<McGameVersionManifestGet200Response> _callback) throws ApiException {
+    public okhttp3.Call getMinecraftVersionManifestAsync(final ApiCallback<GetMinecraftVersionManifest200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = mcGameVersionManifestGetValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<McGameVersionManifestGet200Response>(){}.getType();
+        okhttp3.Call localVarCall = getMinecraftVersionManifestValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<GetMinecraftVersionManifest200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

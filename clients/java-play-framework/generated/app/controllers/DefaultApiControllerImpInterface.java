@@ -1,6 +1,6 @@
 package controllers;
 
-import apimodels.McGameVersionManifestGet200Response;
+import apimodels.GetMinecraftVersionManifest200Response;
 import apimodels.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import com.google.inject.Inject;
@@ -28,8 +28,8 @@ public abstract class DefaultApiControllerImpInterface {
     @Inject private SecurityAPIUtils securityAPIUtils;
     private ObjectMapper mapper = new ObjectMapper();
 
-    public Result mcGameVersionManifestGetHttp(Http.Request request) throws Exception {
-        McGameVersionManifestGet200Response obj = mcGameVersionManifestGet(request);
+    public Result getMinecraftVersionManifestHttp(Http.Request request) throws Exception {
+        GetMinecraftVersionManifest200Response obj = getMinecraftVersionManifest(request);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -41,7 +41,7 @@ public abstract class DefaultApiControllerImpInterface {
 
     }
 
-    public abstract McGameVersionManifestGet200Response mcGameVersionManifestGet(Http.Request request) throws Exception;
+    public abstract GetMinecraftVersionManifest200Response getMinecraftVersionManifest(Http.Request request) throws Exception;
 
     public Result v1PackagesPackageIdVersionIdJsonGetHttp(Http.Request request, String packageId, String versionId) throws Exception {
         V1PackagesPackageIdVersionIdJsonGet200Response obj = v1PackagesPackageIdVersionIdJsonGet(request, packageId, versionId);

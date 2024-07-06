@@ -31,7 +31,7 @@
 #include <corvusoft/restbed/service.hpp>
 #include <corvusoft/restbed/settings.hpp>
 
-#include "_mc_game_version_manifest_get_200_response.h"
+#include "GetMinecraftVersionManifest_200_response.h"
 #include "_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <string>
 
@@ -65,25 +65,25 @@ namespace DefaultApiResources {
 /// <remarks>
 /// 
 /// </remarks>
-class  McGameVersion_manifestResource: public restbed::Resource
+class  McGameVersion_manifest_jsonResource: public restbed::Resource
 {
 public:
-    McGameVersion_manifestResource(const std::string& context = "");
-    virtual ~McGameVersion_manifestResource() = default;
+    McGameVersion_manifest_jsonResource(const std::string& context = "");
+    virtual ~McGameVersion_manifest_jsonResource() = default;
 
-    McGameVersion_manifestResource(
-        const McGameVersion_manifestResource& other) = default; // copy constructor
-    McGameVersion_manifestResource(McGameVersion_manifestResource&& other) noexcept = default; // move constructor
+    McGameVersion_manifest_jsonResource(
+        const McGameVersion_manifest_jsonResource& other) = default; // copy constructor
+    McGameVersion_manifest_jsonResource(McGameVersion_manifest_jsonResource&& other) noexcept = default; // move constructor
 
-    McGameVersion_manifestResource& operator=(const McGameVersion_manifestResource& other) = default; // copy assignment
-    McGameVersion_manifestResource& operator=(McGameVersion_manifestResource&& other) noexcept = default; // move assignment
+    McGameVersion_manifest_jsonResource& operator=(const McGameVersion_manifest_jsonResource& other) = default; // copy assignment
+    McGameVersion_manifest_jsonResource& operator=(McGameVersion_manifest_jsonResource&& other) noexcept = default; // move assignment
 
     /////////////////////////////////////////////////////
     // Set these to implement the server functionality //
     /////////////////////////////////////////////////////
-    std::function<std::pair<int, _mc_game_version_manifest_get_200_response>(
+    std::function<std::pair<int, GetMinecraftVersionManifest_200_response>(
         )> handler_GET_func =
-            []() -> std::pair<int, _mc_game_version_manifest_get_200_response>
+            []() -> std::pair<int, GetMinecraftVersionManifest_200_response>
                 { throw DefaultApiException(501, "Not implemented"); };
 
 
@@ -93,7 +93,7 @@ protected:
     // override these to implement the server functionality //
     //////////////////////////////////////////////////////////
 
-    virtual std::pair<int, _mc_game_version_manifest_get_200_response> handler_GET(
+    virtual std::pair<int, GetMinecraftVersionManifest_200_response> handler_GET(
         );
 
 
@@ -185,7 +185,7 @@ private:
 
 } /* namespace DefaultApiResources */
 
-using DefaultApiMcGameVersion_manifestResource [[deprecated]] = DefaultApiResources::McGameVersion_manifestResource;
+using DefaultApiMcGameVersion_manifest_jsonResource [[deprecated]] = DefaultApiResources::McGameVersion_manifest_jsonResource;
 using DefaultApiV1PackagesPackageIdVersionId_jsonResource [[deprecated]] = DefaultApiResources::V1PackagesPackageIdVersionId_jsonResource;
 
 //
@@ -197,13 +197,13 @@ public:
     explicit DefaultApi(std::shared_ptr<restbed::Service> const& restbedService);
     virtual ~DefaultApi();
 
-    std::shared_ptr<DefaultApiResources::McGameVersion_manifestResource> getMcGameVersion_manifestResource();
+    std::shared_ptr<DefaultApiResources::McGameVersion_manifest_jsonResource> getMcGameVersion_manifest_jsonResource();
     std::shared_ptr<DefaultApiResources::V1PackagesPackageIdVersionId_jsonResource> getV1PackagesPackageIdVersionId_jsonResource();
 
-    void setResource(std::shared_ptr<DefaultApiResources::McGameVersion_manifestResource> resource);
+    void setResource(std::shared_ptr<DefaultApiResources::McGameVersion_manifest_jsonResource> resource);
     void setResource(std::shared_ptr<DefaultApiResources::V1PackagesPackageIdVersionId_jsonResource> resource);
     [[deprecated("use setResource()")]]
-    virtual void setDefaultApiMcGameVersion_manifestResource(std::shared_ptr<DefaultApiResources::McGameVersion_manifestResource> spDefaultApiMcGameVersion_manifestResource);
+    virtual void setDefaultApiMcGameVersion_manifest_jsonResource(std::shared_ptr<DefaultApiResources::McGameVersion_manifest_jsonResource> spDefaultApiMcGameVersion_manifest_jsonResource);
     [[deprecated("use setResource()")]]
     virtual void setDefaultApiV1PackagesPackageIdVersionId_jsonResource(std::shared_ptr<DefaultApiResources::V1PackagesPackageIdVersionId_jsonResource> spDefaultApiV1PackagesPackageIdVersionId_jsonResource);
 
@@ -212,7 +212,7 @@ public:
     virtual std::shared_ptr<restbed::Service> service();
 
 protected:
-    std::shared_ptr<DefaultApiResources::McGameVersion_manifestResource> m_spMcGameVersion_manifestResource;
+    std::shared_ptr<DefaultApiResources::McGameVersion_manifest_jsonResource> m_spMcGameVersion_manifest_jsonResource;
     std::shared_ptr<DefaultApiResources::V1PackagesPackageIdVersionId_jsonResource> m_spV1PackagesPackageIdVersionId_jsonResource;
 
 private:

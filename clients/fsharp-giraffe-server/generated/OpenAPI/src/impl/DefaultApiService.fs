@@ -1,5 +1,5 @@
 namespace OpenAPI
-open OpenAPI.Model.McGameVersionManifestGet200Response
+open OpenAPI.Model.GetMinecraftVersionManifest200Response
 open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
 open DefaultApiHandlerParams
 open DefaultApiServiceInterface
@@ -13,9 +13,9 @@ module DefaultApiServiceImplementation =
     type DefaultApiServiceImpl() =
       interface IDefaultApiService with
 
-        member this.McGameVersionManifestGet ctx  =
-            let content = "A list of Minecraft versions with the latest and snapshot releases" :> obj :?> McGameVersionManifestGet200Response // this cast is obviously wrong, and is only intended to allow generated project to compile   
-            McGameVersionManifestGetStatusCode200 { content = content }
+        member this.GetMinecraftVersionManifest ctx  =
+            let content = "A list of Minecraft versions with the latest and snapshot releases" :> obj :?> GetMinecraftVersionManifest200Response // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            GetMinecraftVersionManifestStatusCode200 { content = content }
 
         member this.V1PackagesPackageIdVersionIdJsonGet ctx args =
             let content = "Get package version details" :> obj :?> V1PackagesPackageIdVersionIdJsonGet200Response // this cast is obviously wrong, and is only intended to allow generated project to compile   

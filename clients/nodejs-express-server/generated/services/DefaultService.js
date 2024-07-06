@@ -4,9 +4,9 @@ const Service = require('./Service');
 /**
 * Get Minecraft version manifest
 *
-* returns _mc_game_version_manifest_get_200_response
+* returns getMinecraftVersionManifest_200_response
 * */
-const mcGameVersionManifestGET = () => new Promise(
+const getMinecraftVersionManifest = () => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
@@ -43,6 +43,6 @@ const v1PackagesPackageIdVersionIdJsonGET = ({ packageId, versionId }) => new Pr
 );
 
 module.exports = {
-  mcGameVersionManifestGET,
+  getMinecraftVersionManifest,
   v1PackagesPackageIdVersionIdJsonGET,
 };

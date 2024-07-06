@@ -94,7 +94,7 @@ impl<C> Server<C> {
 
 use openapi_client::{
     Api,
-    McGameVersionManifestGetResponse,
+    GetMinecraftVersionManifestResponse,
     V1PackagesPackageIdVersionIdJsonGetResponse,
 };
 use openapi_client::server::MakeService;
@@ -105,11 +105,11 @@ use swagger::ApiError;
 impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
 {
     /// Get Minecraft version manifest
-    async fn mc_game_version_manifest_get(
+    async fn get_minecraft_version_manifest(
         &self,
-        context: &C) -> Result<McGameVersionManifestGetResponse, ApiError>
+        context: &C) -> Result<GetMinecraftVersionManifestResponse, ApiError>
     {
-        info!("mc_game_version_manifest_get() - X-Span-ID: {:?}", context.get().0.clone());
+        info!("get_minecraft_version_manifest() - X-Span-ID: {:?}", context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
 

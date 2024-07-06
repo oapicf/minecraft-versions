@@ -9,9 +9,9 @@ src/main/scala/Server.scala
 src/main/scala/endpoint.scala
 src/main/scala/errors.scala
 src/main/scala/org/openapitools/apis/DefaultApi.scala
-src/main/scala/org/openapitools/models/McGameVersionManifestGet200Response.scala
-src/main/scala/org/openapitools/models/McGameVersionManifestGet200ResponseLatest.scala
-src/main/scala/org/openapitools/models/McGameVersionManifestGet200ResponseVersionsInner.scala
+src/main/scala/org/openapitools/models/GetMinecraftVersionManifest200Response.scala
+src/main/scala/org/openapitools/models/GetMinecraftVersionManifest200ResponseLatest.scala
+src/main/scala/org/openapitools/models/GetMinecraftVersionManifest200ResponseVersionsInner.scala
 src/main/scala/org/openapitools/models/V1PackagesPackageIdVersionIdJsonGet200Response.scala
 src/main/scala/org/openapitools/models/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.scala
 src/main/scala/org/openapitools/models/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.scala

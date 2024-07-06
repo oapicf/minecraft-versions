@@ -1,6 +1,6 @@
 package org.openapitools.api
 
-import org.openapitools.model.McGameVersionManifestGet200Response
+import org.openapitools.model.GetMinecraftVersionManifest200Response
 import io.swagger.v3.oas.annotations.*
 import io.swagger.v3.oas.annotations.enums.*
 import io.swagger.v3.oas.annotations.media.*
@@ -35,17 +35,17 @@ class McApiController() {
 
     @Operation(
         summary = "Get Minecraft version manifest",
-        operationId = "mcGameVersionManifestGet",
+        operationId = "getMinecraftVersionManifest",
         description = """""",
         responses = [
-            ApiResponse(responseCode = "200", description = "A list of Minecraft versions with the latest and snapshot releases", content = [Content(schema = Schema(implementation = McGameVersionManifestGet200Response::class))]) ]
+            ApiResponse(responseCode = "200", description = "A list of Minecraft versions with the latest and snapshot releases", content = [Content(schema = Schema(implementation = GetMinecraftVersionManifest200Response::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/mc/game/version_manifest"],
+        value = ["/mc/game/version_manifest.json"],
         produces = ["application/json"]
     )
-    fun mcGameVersionManifestGet(): ResponseEntity<McGameVersionManifestGet200Response> {
+    fun getMinecraftVersionManifest(): ResponseEntity<GetMinecraftVersionManifest200Response> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

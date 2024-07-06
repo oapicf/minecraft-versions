@@ -1,6 +1,6 @@
 package controllers;
 
-import apimodels.McGameVersionManifestGet200Response;
+import apimodels.GetMinecraftVersionManifest200Response;
 import apimodels.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import play.mvc.Http;
@@ -12,12 +12,12 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T01:32:47.203764015Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-07-06T08:44:44.955840895Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class DefaultApiControllerImp extends DefaultApiControllerImpInterface {
     @Override
-    public McGameVersionManifestGet200Response mcGameVersionManifestGet(Http.Request request) throws Exception {
+    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest(Http.Request request) throws Exception {
         //Do your magic!!!
-        return new McGameVersionManifestGet200Response();
+        return new GetMinecraftVersionManifest200Response();
     }
 
     @Override

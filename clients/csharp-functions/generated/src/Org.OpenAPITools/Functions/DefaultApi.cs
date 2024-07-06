@@ -17,12 +17,12 @@ namespace Org.OpenAPITools.Functions
 { 
     public partial class DefaultApi
     { 
-        [FunctionName("DefaultApi_McGameVersionManifestGet")]
-        public async Task<ActionResult<McGameVersionManifestGet200Response>> _McGameVersionManifestGet([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "mc/game/version_manifest")]HttpRequest req, ExecutionContext context)
+        [FunctionName("DefaultApi_GetMinecraftVersionManifest")]
+        public async Task<ActionResult<GetMinecraftVersionManifest200Response>> _GetMinecraftVersionManifest([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "mc/game/version_manifest.json")]HttpRequest req, ExecutionContext context)
         {
-            var method = this.GetType().GetMethod("McGameVersionManifestGet");
+            var method = this.GetType().GetMethod("GetMinecraftVersionManifest");
             return method != null
-                ? (await ((Task<McGameVersionManifestGet200Response>)method.Invoke(this, new object[] { req, context })).ConfigureAwait(false))
+                ? (await ((Task<GetMinecraftVersionManifest200Response>)method.Invoke(this, new object[] { req, context })).ConfigureAwait(false))
                 : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
         }
 

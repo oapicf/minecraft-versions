@@ -4,12 +4,12 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mc_game_version_manifest_get**](DefaultApi.md#mc_game_version_manifest_get) | **GET** /mc/game/version_manifest | Get Minecraft version manifest
+[**get_minecraft_version_manifest**](DefaultApi.md#get_minecraft_version_manifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
 [**v1_packages_package_id_version_id_json_get**](DefaultApi.md#v1_packages_package_id_version_id_json_get) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package details
 
 
-# **mc_game_version_manifest_get**
-> McGameVersionManifestGet200Response mc_game_version_manifest_get()
+# **get_minecraft_version_manifest**
+> GetMinecraftVersionManifest200Response get_minecraft_version_manifest()
 
 Get Minecraft version manifest
 
@@ -19,7 +19,7 @@ Get Minecraft version manifest
 import time
 import os
 import openapi_client
-from openapi_client.models.mc_game_version_manifest_get200_response import McGameVersionManifestGet200Response
+from openapi_client.models.get_minecraft_version_manifest200_response import GetMinecraftVersionManifest200Response
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -37,11 +37,11 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Minecraft version manifest
-        api_response = api_instance.mc_game_version_manifest_get()
-        print("The response of DefaultApi->mc_game_version_manifest_get:\n")
+        api_response = api_instance.get_minecraft_version_manifest()
+        print("The response of DefaultApi->get_minecraft_version_manifest:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->mc_game_version_manifest_get: %s\n" % e)
+        print("Exception when calling DefaultApi->get_minecraft_version_manifest: %s\n" % e)
 ```
 
 
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**McGameVersionManifestGet200Response**](McGameVersionManifestGet200Response.md)
+[**GetMinecraftVersionManifest200Response**](GetMinecraftVersionManifest200Response.md)
 
 ### Authorization
 

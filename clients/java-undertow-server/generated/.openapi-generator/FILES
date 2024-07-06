@@ -3,9 +3,9 @@ README.md
 pom.xml
 src/main/java/org/openapitools/handler/PathHandlerInterface.java
 src/main/java/org/openapitools/handler/PathHandlerProvider.java
-src/main/java/org/openapitools/model/McGameVersionManifestGet200Response.java
-src/main/java/org/openapitools/model/McGameVersionManifestGet200ResponseLatest.java
-src/main/java/org/openapitools/model/McGameVersionManifestGet200ResponseVersionsInner.java
+src/main/java/org/openapitools/model/GetMinecraftVersionManifest200Response.java
+src/main/java/org/openapitools/model/GetMinecraftVersionManifest200ResponseLatest.java
+src/main/java/org/openapitools/model/GetMinecraftVersionManifest200ResponseVersionsInner.java
 src/main/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200Response.java
 src/main/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.java
 src/main/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.java

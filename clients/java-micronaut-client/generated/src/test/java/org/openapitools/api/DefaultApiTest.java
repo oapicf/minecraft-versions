@@ -1,6 +1,6 @@
 package org.openapitools.api;
 
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
@@ -29,14 +29,14 @@ public class DefaultApiTest {
      */
     @Test
     @Disabled("Not Implemented")
-    public void mcGameVersionManifestGetTest() {
+    public void getMinecraftVersionManifestTest() {
         // given
 
         // when
-        McGameVersionManifestGet200Response body = api.mcGameVersionManifestGet().block();
+        GetMinecraftVersionManifest200Response body = api.getMinecraftVersionManifest().block();
 
         // then
-        // TODO implement the mcGameVersionManifestGetTest()
+        // TODO implement the getMinecraftVersionManifestTest()
     }
 
     

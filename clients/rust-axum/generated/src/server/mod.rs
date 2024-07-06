@@ -21,8 +21,8 @@ where
 {
     // build our application with a route
     Router::new()
-        .route("/mc/game/version_manifest",
-            get(mc_game_version_manifest_get::<I, A>)
+        .route("/mc/game/version_manifest.json",
+            get(get_minecraft_version_manifest::<I, A>)
         )
         .route("/v1/packages/:package_id/:version_id.json",
             get(v1_packages_package_id_version_id_json_get::<I, A>)
@@ -32,7 +32,7 @@ where
 
 
 #[tracing::instrument(skip_all)]
-fn mc_game_version_manifest_get_validation(
+fn get_minecraft_version_manifest_validation(
 ) -> std::result::Result<(
 ), ValidationErrors>
 {
@@ -40,9 +40,9 @@ fn mc_game_version_manifest_get_validation(
 Ok((
 ))
 }
-/// McGameVersionManifestGet - GET /mc/game/version_manifest
+/// GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
 #[tracing::instrument(skip_all)]
-async fn mc_game_version_manifest_get<I, A>(
+async fn get_minecraft_version_manifest<I, A>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -55,7 +55,7 @@ where
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move || 
-    mc_game_version_manifest_get_validation(
+    get_minecraft_version_manifest_validation(
     )
   ).await.unwrap();
 
@@ -67,7 +67,7 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST); 
   };
 
-  let result = api_impl.as_ref().mc_game_version_manifest_get(
+  let result = api_impl.as_ref().get_minecraft_version_manifest(
       method,
       host,
       cookies,
@@ -77,7 +77,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                apis::default::McGameVersionManifestGetResponse::Status200_AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
+                                                apis::default::GetMinecraftVersionManifestResponse::Status200_AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
                                                     (body)
                                                 => {
 

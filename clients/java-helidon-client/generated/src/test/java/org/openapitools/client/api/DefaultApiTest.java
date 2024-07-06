@@ -13,7 +13,7 @@
 
 package org.openapitools.client.api;
 
-import org.openapitools.client.model.McGameVersionManifestGet200Response;
+import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -53,8 +53,8 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void mcGameVersionManifestGetTest() throws Exception {
-        //McGameVersionManifestGet200Response response = client.mcGameVersionManifestGet();
+    public void getMinecraftVersionManifestTest() throws Exception {
+        //GetMinecraftVersionManifest200Response response = client.getMinecraftVersionManifest();
         //assertNotNull(response);
     }
     

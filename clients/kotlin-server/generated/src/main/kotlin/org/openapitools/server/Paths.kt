@@ -20,7 +20,7 @@ object Paths {
      * Get Minecraft version manifest
      * 
      */
-    @Serializable @Resource("/mc/game/version_manifest") class mcGameVersionManifestGet
+    @Serializable @Resource("/mc/game/version_manifest.json") class getMinecraftVersionManifest
 
     /**
      * Get Minecraft version package details

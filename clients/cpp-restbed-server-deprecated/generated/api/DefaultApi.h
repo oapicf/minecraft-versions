@@ -30,7 +30,7 @@
 #include <corvusoft/restbed/service.hpp>
 #include <corvusoft/restbed/settings.hpp>
 
-#include "_mc_game_version_manifest_get_200_response.h"
+#include "GetMinecraftVersionManifest_200_response.h"
 #include "_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <string>
 
@@ -63,18 +63,18 @@ private:
 /// <remarks>
 /// 
 /// </remarks>
-class  DefaultApiMcGameVersion_manifestResource: public restbed::Resource
+class  DefaultApiMcGameVersion_manifest.jsonResource: public restbed::Resource
 {
 public:
-    DefaultApiMcGameVersion_manifestResource(const std::string& context = "");
-    virtual ~DefaultApiMcGameVersion_manifestResource();
+    DefaultApiMcGameVersion_manifest.jsonResource(const std::string& context = "");
+    virtual ~DefaultApiMcGameVersion_manifest.jsonResource();
 
 protected:
     //////////////////////////////////////////////////////////
     // Override these to implement the server functionality //
     //////////////////////////////////////////////////////////
 
-    virtual std::pair<int, std::shared_ptr<_mc_game_version_manifest_get_200_response>> handler_GET(
+    virtual std::pair<int, std::shared_ptr<GetMinecraftVersionManifest_200_response>> handler_GET(
         );
 
 
@@ -173,7 +173,7 @@ public:
     explicit DefaultApi(std::shared_ptr<restbed::Service> const& restbedService);
     virtual ~DefaultApi();
 
-    virtual void setDefaultApiMcGameVersion_manifestResource(std::shared_ptr<DefaultApiMcGameVersion_manifestResource> spDefaultApiMcGameVersion_manifestResource);
+    virtual void setDefaultApiMcGameVersion_manifest.jsonResource(std::shared_ptr<DefaultApiMcGameVersion_manifest.jsonResource> spDefaultApiMcGameVersion_manifest.jsonResource);
     virtual void setDefaultApiV1PackagesPackageId{versionId}.jsonResource(std::shared_ptr<DefaultApiV1PackagesPackageId{versionId}.jsonResource> spDefaultApiV1PackagesPackageId{versionId}.jsonResource);
 
     virtual void publishDefaultResources();
@@ -181,7 +181,7 @@ public:
     virtual std::shared_ptr<restbed::Service> service();
 
 protected:
-    std::shared_ptr<DefaultApiMcGameVersion_manifestResource> m_spDefaultApiMcGameVersion_manifestResource;
+    std::shared_ptr<DefaultApiMcGameVersion_manifest.jsonResource> m_spDefaultApiMcGameVersion_manifest.jsonResource;
     std::shared_ptr<DefaultApiV1PackagesPackageId{versionId}.jsonResource> m_spDefaultApiV1PackagesPackageId{versionId}.jsonResource;
 
 private:

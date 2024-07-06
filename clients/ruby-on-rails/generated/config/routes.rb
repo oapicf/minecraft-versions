@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     match full_path, to: "#{opts.fetch(:controller_name)}##{opts[:action_name]}", via: http_method
   end
 
-  add_openapi_route 'GET', '/mc/game/version_manifest', controller_name: 'default', action_name: 'mc_game_version_manifest_get'
+  add_openapi_route 'GET', '/mc/game/version_manifest.json', controller_name: 'default', action_name: 'get_minecraft_version_manifest'
   add_openapi_route 'GET', '/v1/packages/{packageId}/{versionId}.json', controller_name: 'default', action_name: 'v1_packages_package_id_version_id_json_get'
 end

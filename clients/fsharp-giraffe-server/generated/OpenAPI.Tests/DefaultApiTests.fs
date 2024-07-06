@@ -16,7 +16,7 @@ open TestHelper
 open DefaultApiHandlerTestsHelper
 open OpenAPI.DefaultApiHandler
 open OpenAPI.DefaultApiHandlerParams
-open OpenAPI.Model.McGameVersionManifestGet200Response
+open OpenAPI.Model.GetMinecraftVersionManifest200Response
 open OpenAPI.Model.V1PackagesPackageIdVersionIdJsonGet200Response
 
 module DefaultApiHandlerTests =
@@ -26,14 +26,14 @@ module DefaultApiHandlerTests =
   // ---------------------------------
 
   [<Fact>]
-  let ``McGameVersionManifestGet - Get Minecraft version manifest returns 200 where A list of Minecraft versions with the latest and snapshot releases`` () =
+  let ``GetMinecraftVersionManifest - Get Minecraft version manifest returns 200 where A list of Minecraft versions with the latest and snapshot releases`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
 
       // add your setup code here
 
-      let path = "/mc/game/version_manifest"
+      let path = "/mc/game/version_manifest.json"
 
       HttpGet client path
         |> isStatus (enum<HttpStatusCode>(200))

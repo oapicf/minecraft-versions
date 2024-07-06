@@ -11,9 +11,9 @@ The following models have been auto-generated from the provided OpenAPI schema:
 - model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsModel.fs
 - model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndexModel.fs
 - model/V1PackagesPackageIdVersionIdJsonGet200ResponseModel.fs
-- model/McGameVersionManifestGet200ResponseVersionsInnerModel.fs
-- model/McGameVersionManifestGet200ResponseLatestModel.fs
-- model/McGameVersionManifestGet200ResponseModel.fs
+- model/GetMinecraftVersionManifest200ResponseVersionsInnerModel.fs
+- model/GetMinecraftVersionManifest200ResponseLatestModel.fs
+- model/GetMinecraftVersionManifest200ResponseModel.fs
 
 ## Operations
 

@@ -1,6 +1,6 @@
 package org.openapitools.api;
 
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 import java.io.InputStream;
@@ -29,12 +29,12 @@ public interface DefaultApi  {
      *
      */
     @GET
-    @Path("/mc/game/version_manifest")
+    @Path("/mc/game/version_manifest.json")
     @Produces({ "application/json" })
     @ApiOperation(value = "Get Minecraft version manifest", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = McGameVersionManifestGet200Response.class) })
-    public McGameVersionManifestGet200Response mcGameVersionManifestGet();
+        @ApiResponse(code = 200, message = "A list of Minecraft versions with the latest and snapshot releases", response = GetMinecraftVersionManifest200Response.class) })
+    public GetMinecraftVersionManifest200Response getMinecraftVersionManifest();
 
     /**
      * Get Minecraft version package details

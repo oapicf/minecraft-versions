@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.DefaultApi
-import org.openapitools.client.models.McGameVersionManifestGet200Response
+import org.openapitools.client.models.GetMinecraftVersionManifest200Response
 import org.openapitools.client.models.V1PackagesPackageIdVersionIdJsonGet200Response
 
 class DefaultApiTest : ShouldSpec() {
@@ -27,10 +27,10 @@ class DefaultApiTest : ShouldSpec() {
         // uncomment below to create an instance of DefaultApi
         //val apiInstance = DefaultApi()
 
-        // to test mcGameVersionManifestGet
-        should("test mcGameVersionManifestGet") {
-            // uncomment below to test mcGameVersionManifestGet
-            //val result : McGameVersionManifestGet200Response = apiInstance.mcGameVersionManifestGet()
+        // to test getMinecraftVersionManifest
+        should("test getMinecraftVersionManifest") {
+            // uncomment below to test getMinecraftVersionManifest
+            //val result : GetMinecraftVersionManifest200Response = apiInstance.getMinecraftVersionManifest()
             //result shouldBe ("TODO")
         }
 

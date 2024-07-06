@@ -24,13 +24,13 @@ build = {
 	type = "builtin",
 	modules = {
 		["openapiclient.api.default_api"] = "openapiclient/api/default_api.lua";
-		["openapiclient.model._mc_game_version_manifest_get_200_response"] = "openapiclient/model/_mc_game_version_manifest_get_200_response.lua";
-		["openapiclient.model._mc_game_version_manifest_get_200_response_latest"] = "openapiclient/model/_mc_game_version_manifest_get_200_response_latest.lua";
-		["openapiclient.model._mc_game_version_manifest_get_200_response_versions_inner"] = "openapiclient/model/_mc_game_version_manifest_get_200_response_versions_inner.lua";
 		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response.lua";
 		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_asset_index"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_asset_index.lua";
 		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_downloads"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_downloads.lua";
 		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_downloads_client"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_downloads_client.lua";
 		["openapiclient.model._v1_packages__package_id___version_id__json_get_200_response_java_version"] = "openapiclient/model/_v1_packages__package_id___version_id__json_get_200_response_java_version.lua";
+		["openapiclient.model.get_minecraft_version_manifest_200_response"] = "openapiclient/model/get_minecraft_version_manifest_200_response.lua";
+		["openapiclient.model.get_minecraft_version_manifest_200_response_latest"] = "openapiclient/model/get_minecraft_version_manifest_200_response_latest.lua";
+		["openapiclient.model.get_minecraft_version_manifest_200_response_versions_inner"] = "openapiclient/model/get_minecraft_version_manifest_200_response_versions_inner.lua";
 	}
 }

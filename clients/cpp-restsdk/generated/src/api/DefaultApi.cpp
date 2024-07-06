@@ -36,12 +36,12 @@ DefaultApi::~DefaultApi()
 {
 }
 
-pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultApi::mcGameVersionManifestGet() const
+pplx::task<std::shared_ptr<GetMinecraftVersionManifest_200_response>> DefaultApi::getMinecraftVersionManifest() const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/mc/game/version_manifest");
+    utility::string_t localVarPath = utility::conversions::to_string_t("/mc/game/version_manifest.json");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -70,7 +70,7 @@ pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultA
     }
     else
     {
-        throw ApiException(400, utility::conversions::to_string_t("DefaultApi->mcGameVersionManifestGet does not produce any supported media type"));
+        throw ApiException(400, utility::conversions::to_string_t("DefaultApi->getMinecraftVersionManifest does not produce any supported media type"));
     }
 
     localVarHeaderParams[utility::conversions::to_string_t("Accept")] = localVarResponseHttpContentType;
@@ -97,7 +97,7 @@ pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultA
     }
     else
     {
-        throw ApiException(415, utility::conversions::to_string_t("DefaultApi->mcGameVersionManifestGet does not consume any supported media type"));
+        throw ApiException(415, utility::conversions::to_string_t("DefaultApi->getMinecraftVersionManifest does not consume any supported media type"));
     }
 
 
@@ -117,7 +117,7 @@ pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultA
         if (localVarResponse.status_code() >= 400)
         {
             throw ApiException(localVarResponse.status_code()
-                , utility::conversions::to_string_t("error calling mcGameVersionManifestGet: ") + localVarResponse.reason_phrase()
+                , utility::conversions::to_string_t("error calling getMinecraftVersionManifest: ") + localVarResponse.reason_phrase()
                 , std::make_shared<std::stringstream>(localVarResponse.extract_utf8string(true).get()));
         }
 
@@ -128,7 +128,7 @@ pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultA
             if( localVarContentType.find(localVarResponseHttpContentType) == std::string::npos )
             {
                 throw ApiException(500
-                    , utility::conversions::to_string_t("error calling mcGameVersionManifestGet: unexpected response type: ") + localVarContentType
+                    , utility::conversions::to_string_t("error calling getMinecraftVersionManifest: unexpected response type: ") + localVarContentType
                     , std::make_shared<std::stringstream>(localVarResponse.extract_utf8string(true).get()));
             }
         }
@@ -137,7 +137,7 @@ pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultA
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<_mc_game_version_manifest_get_200_response> localVarResult(new _mc_game_version_manifest_get_200_response());
+        std::shared_ptr<GetMinecraftVersionManifest_200_response> localVarResult(new GetMinecraftVersionManifest_200_response());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -152,7 +152,7 @@ pplx::task<std::shared_ptr<_mc_game_version_manifest_get_200_response>> DefaultA
         else
         {
             throw ApiException(500
-                , utility::conversions::to_string_t("error calling mcGameVersionManifestGet: unsupported response type"));
+                , utility::conversions::to_string_t("error calling getMinecraftVersionManifest: unsupported response type"));
         }
 
         return localVarResult;

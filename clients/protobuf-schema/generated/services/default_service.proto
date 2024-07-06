@@ -13,11 +13,11 @@ syntax = "proto3";
 package openapitools.services.defaultservice;
 
 import "google/protobuf/empty.proto";
-import public "models/mc_game_version_manifest_get200_response.proto";
+import public "models/get_minecraft_version_manifest200_response.proto";
 import public "models/v1_packages_package_id_version_id_json_get200_response.proto";
 
 service DefaultService {
-  rpc McGameVersionManifestGet (google.protobuf.Empty) returns (McGameVersionManifestGet200Response);
+  rpc GetMinecraftVersionManifest (google.protobuf.Empty) returns (GetMinecraftVersionManifest200Response);
 
   rpc V1PackagesPackageIdVersionIdJsonGet (V1PackagesPackageIdVersionIdJsonGetRequest) returns (V1PackagesPackageIdVersionIdJsonGet200Response);
 

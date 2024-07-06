@@ -17,8 +17,8 @@ import tables
 import typetraits
 import uri
 
-import ../models/model__mc_game_version_manifest_get_200_response
 import ../models/model__v1_packages__package_id___version_id__json_get_200_response
+import ../models/model_get_minecraft_version_manifest_200_response
 
 const basepath = "https://launchermeta.mojang.com"
 
@@ -38,11 +38,11 @@ template constructResult[T](response: Response): untyped =
     (none(T.typedesc), response)
 
 
-proc mcGameVersionManifestGet*(httpClient: HttpClient): (Option[_mc_game_version_manifest_get_200_response], Response) =
+proc getMinecraftVersionManifest*(httpClient: HttpClient): (Option[getMinecraftVersionManifest_200_response], Response) =
   ## Get Minecraft version manifest
 
-  let response = httpClient.get(basepath & "/mc/game/version_manifest")
-  constructResult[_mc_game_version_manifest_get_200_response](response)
+  let response = httpClient.get(basepath & "/mc/game/version_manifest.json")
+  constructResult[getMinecraftVersionManifest_200_response](response)
 
 
 proc v1PackagesPackageIdVersionIdJsonGet*(httpClient: HttpClient, packageId: string, versionId: string): (Option[_v1_packages__packageId___versionId__json_get_200_response], Response) =

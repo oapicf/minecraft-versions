@@ -1,7 +1,7 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import org.openapitools.model.McGameVersionManifestGet200Response
+import org.openapitools.model.GetMinecraftVersionManifest200Response
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response
 
 class DefaultApi {
@@ -9,8 +9,8 @@ class DefaultApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def mcGameVersionManifestGet ( Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/mc/game/version_manifest"
+    def getMinecraftVersionManifest ( Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mc/game/version_manifest.json"
 
         // params
         def queryParams = [:]
@@ -25,7 +25,7 @@ class DefaultApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    McGameVersionManifestGet200Response.class )
+                    GetMinecraftVersionManifest200Response.class )
 
     }
 

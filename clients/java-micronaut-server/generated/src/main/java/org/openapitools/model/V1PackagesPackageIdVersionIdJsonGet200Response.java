@@ -45,7 +45,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   V1PackagesPackageIdVersionIdJsonGet200Response.JSON_PROPERTY_TYPE
 })
 @JsonTypeName("_v1_packages__packageId___versionId__json_get_200_response")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-06T01:32:35.829750844Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-06T08:44:36.167329976Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Introspected
 public class V1PackagesPackageIdVersionIdJsonGet200Response {
     public static final String JSON_PROPERTY_VERSION = "version";

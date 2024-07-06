@@ -14,7 +14,7 @@
 package com.prokarma.pkmst.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prokarma.pkmst.model.McGameVersionManifestGet200Response;
+import com.prokarma.pkmst.model.GetMinecraftVersionManifest200Response;
 import com.prokarma.pkmst.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -49,8 +49,8 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void mcGameVersionManifestGetTest() throws Exception {
-    ResponseEntity<McGameVersionManifestGet200Response> response = api.mcGameVersionManifestGet(  accept);
+    public void getMinecraftVersionManifestTest() throws Exception {
+    ResponseEntity<GetMinecraftVersionManifest200Response> response = api.getMinecraftVersionManifest(  accept);
 
         // TODO: test validations
     }

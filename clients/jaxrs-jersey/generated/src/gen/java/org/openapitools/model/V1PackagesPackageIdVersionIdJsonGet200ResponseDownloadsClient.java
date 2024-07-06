@@ -31,7 +31,7 @@ import javax.validation.Valid;
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.JSON_PROPERTY_SIZE,
   V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T01:33:12.790227571Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-06T08:45:05.905032694Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PackagesPackageIdVersionIdJsonGet200ResponseDownloadsClient   {
   public static final String JSON_PROPERTY_SHA1 = "sha1";
   @JsonProperty(JSON_PROPERTY_SHA1)

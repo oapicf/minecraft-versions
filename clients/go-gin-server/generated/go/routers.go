@@ -68,10 +68,10 @@ type ApiHandleFunctions struct {
 func getRoutes(handleFunctions ApiHandleFunctions) []Route {
 	return []Route{ 
 		{
-			"McGameVersionManifestGet",
+			"GetMinecraftVersionManifest",
 			http.MethodGet,
-			"/mc/game/version_manifest",
-			handleFunctions.DefaultAPI.McGameVersionManifestGet,
+			"/mc/game/version_manifest.json",
+			handleFunctions.DefaultAPI.GetMinecraftVersionManifest,
 		},
 		{
 			"V1PackagesPackageIdVersionIdJsonGet",

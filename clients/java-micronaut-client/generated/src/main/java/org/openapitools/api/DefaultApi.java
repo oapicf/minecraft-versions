@@ -17,7 +17,7 @@ import io.micronaut.core.annotation.*;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.core.convert.format.Format;
 import reactor.core.publisher.Mono;
-import org.openapitools.model.McGameVersionManifestGet200Response;
+import org.openapitools.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 import javax.annotation.Generated;
 import java.util.ArrayList;
@@ -27,17 +27,17 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-06T01:32:32.036634709Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-06T08:44:33.176951613Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Client("${openapi-micronaut-client-base-path}")
 public interface DefaultApi {
     /**
      * Get Minecraft version manifest
      *
-     * @return McGameVersionManifestGet200Response
+     * @return GetMinecraftVersionManifest200Response
      */
-    @Get(uri="/mc/game/version_manifest")
+    @Get(uri="/mc/game/version_manifest.json")
     @Consumes({"application/json"})
-    Mono<McGameVersionManifestGet200Response> mcGameVersionManifestGet();
+    Mono<GetMinecraftVersionManifest200Response> getMinecraftVersionManifest();
 
     /**
      * Get Minecraft version package details

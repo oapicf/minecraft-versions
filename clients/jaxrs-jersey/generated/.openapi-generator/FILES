@@ -12,9 +12,9 @@ src/gen/java/org/openapitools/api/RFC3339DateFormat.java
 src/gen/java/org/openapitools/api/StringUtil.java
 src/gen/java/org/openapitools/api/V1Api.java
 src/gen/java/org/openapitools/api/V1ApiService.java
-src/gen/java/org/openapitools/model/McGameVersionManifestGet200Response.java
-src/gen/java/org/openapitools/model/McGameVersionManifestGet200ResponseLatest.java
-src/gen/java/org/openapitools/model/McGameVersionManifestGet200ResponseVersionsInner.java
+src/gen/java/org/openapitools/model/GetMinecraftVersionManifest200Response.java
+src/gen/java/org/openapitools/model/GetMinecraftVersionManifest200ResponseLatest.java
+src/gen/java/org/openapitools/model/GetMinecraftVersionManifest200ResponseVersionsInner.java
 src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200Response.java
 src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseAssetIndex.java
 src/gen/java/org/openapitools/model/V1PackagesPackageIdVersionIdJsonGet200ResponseDownloads.java

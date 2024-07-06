@@ -14,8 +14,8 @@
 
 goog.provide('API.Client.DefaultApi');
 
-goog.require('API.Client._mc_game_version_manifest_get_200_response');
 goog.require('API.Client._v1_packages__packageId___versionId__json_get_200_response');
+goog.require('API.Client.getMinecraftVersionManifest_200_response');
 
 /**
  * @constructor
@@ -48,11 +48,11 @@ API.Client.DefaultApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
  * Get Minecraft version manifest
  * 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client._mc_game_version_manifest_get_200_response>}
+ * @return {!angular.$q.Promise<!API.Client.getMinecraftVersionManifest_200_response>}
  */
-API.Client.DefaultApi.prototype.mcGameVersionManifestGet = function(opt_extraHttpRequestParams) {
+API.Client.DefaultApi.prototype.getMinecraftVersionManifest = function(opt_extraHttpRequestParams) {
   /** @const {string} */
-  var path = this.basePath_ + '/mc/game/version_manifest';
+  var path = this.basePath_ + '/mc/game/version_manifest.json';
 
   /** @type {!Object} */
   var queryParameters = {};

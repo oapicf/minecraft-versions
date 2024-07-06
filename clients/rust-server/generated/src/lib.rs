@@ -15,10 +15,10 @@ pub const BASE_PATH: &str = "";
 pub const API_VERSION: &str = "0.9.0-pre.0";
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum McGameVersionManifestGetResponse {
+pub enum GetMinecraftVersionManifestResponse {
     /// A list of Minecraft versions with the latest and snapshot releases
     AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
-    (models::McGameVersionManifestGet200Response)
+    (models::GetMinecraftVersionManifest200Response)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -37,9 +37,9 @@ pub trait Api<C: Send + Sync> {
     }
 
     /// Get Minecraft version manifest
-    async fn mc_game_version_manifest_get(
+    async fn get_minecraft_version_manifest(
         &self,
-        context: &C) -> Result<McGameVersionManifestGetResponse, ApiError>;
+        context: &C) -> Result<GetMinecraftVersionManifestResponse, ApiError>;
 
     /// Get Minecraft version package details
     async fn v1_packages_package_id_version_id_json_get(
@@ -60,9 +60,9 @@ pub trait ApiNoContext<C: Send + Sync> {
     fn context(&self) -> &C;
 
     /// Get Minecraft version manifest
-    async fn mc_game_version_manifest_get(
+    async fn get_minecraft_version_manifest(
         &self,
-        ) -> Result<McGameVersionManifestGetResponse, ApiError>;
+        ) -> Result<GetMinecraftVersionManifestResponse, ApiError>;
 
     /// Get Minecraft version package details
     async fn v1_packages_package_id_version_id_json_get(
@@ -97,12 +97,12 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     }
 
     /// Get Minecraft version manifest
-    async fn mc_game_version_manifest_get(
+    async fn get_minecraft_version_manifest(
         &self,
-        ) -> Result<McGameVersionManifestGetResponse, ApiError>
+        ) -> Result<GetMinecraftVersionManifestResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().mc_game_version_manifest_get(&context).await
+        self.api().get_minecraft_version_manifest(&context).await
     }
 
     /// Get Minecraft version package details

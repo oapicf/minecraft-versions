@@ -15,7 +15,7 @@
 
 #include <QObject>
 
-#include "OAI_mc_game_version_manifest_get_200_response.h"
+#include "OAIGetMinecraftVersionManifest_200_response.h"
 #include "OAI_v1_packages__packageId___versionId__json_get_200_response.h"
 #include <QString>
 
@@ -31,7 +31,7 @@ public:
 
 
 public Q_SLOTS:
-    virtual void mcGameVersionManifestGet();
+    virtual void getMinecraftVersionManifest();
     virtual void v1PackagesPackageIdVersionIdJsonGet(QString package_id, QString version_id);
     
 

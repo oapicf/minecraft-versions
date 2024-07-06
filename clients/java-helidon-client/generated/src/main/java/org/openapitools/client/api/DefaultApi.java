@@ -25,7 +25,7 @@ import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import org.openapitools.client.model.McGameVersionManifestGet200Response;
+import org.openapitools.client.model.GetMinecraftVersionManifest200Response;
 import org.openapitools.client.model.V1PackagesPackageIdVersionIdJsonGet200Response;
 
 @RegisterRestClient
@@ -37,9 +37,9 @@ public interface DefaultApi  {
      * Get Minecraft version manifest
      */
     @GET
-    @Path("/mc/game/version_manifest")
+    @Path("/mc/game/version_manifest.json")
     @Produces({ "application/json" })
-    McGameVersionManifestGet200Response mcGameVersionManifestGet() throws ApiException, ProcessingException;
+    GetMinecraftVersionManifest200Response getMinecraftVersionManifest() throws ApiException, ProcessingException;
 
     /**
      * Get Minecraft version package details
