@@ -24,42 +24,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  latest:
-                    type: object
-                    properties:
-                      release:
-                        type: string
-                        example: "1.21"
-                      snapshot:
-                        type: string
-                        example: "24w14potato"
-                  versions:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          example: "24w14potato"
-                        type:
-                          type: string
-                          example: "snapshot"
-                        url:
-                          type: string
-                          example: "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-                        time:
-                          type: string
-                          format: date-time
-                          example: "2024-04-01T11:14:41+00:00"
-                        releaseTime:
-                          type: string
-                          format: date-time
-                          example: "2024-04-01T11:07:19+00:00"
+                $ref: '#/components/schemas/VersionManifest'
   /v1/packages/{packageId}/{versionId}.json:
     get:
-      summary: Get Minecraft version package details
+      summary: Get Minecraft version package info
+      operationId: getMinecraftVersionPackageInfo
       parameters:
         - name: packageId
           in: path
@@ -79,89 +48,110 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  version:
-                    type: string
-                  assetIndex:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                      sha1:
-                        type: string
-                      size:
-                        type: integer
-                      totalSize:
-                        type: integer
-                      url:
-                        type: string
-                  assets:
-                    type: integer
-                  complianceLevel:
-                    type: integer
-                  downloads:
-                    type: object
-                    properties:
-                      client:
-                        type: object
-                        properties:
-                          sha1:
-                            type: string
-                          size:
-                            type: integer
-                          url:
-                            type: string
-                      client_mappings:
-                        type: object
-                        properties:
-                          sha1:
-                            type: string
-                          size:
-                            type: integer
-                          url:
-                            type: string
-                      server:
-                        type: object
-                        properties:
-                          sha1:
-                            type: string
-                          size:
-                            type: integer
-                          url:
-                            type: string
-                      server_mappings:
-                        type: object
-                        properties:
-                          sha1:
-                            type: string
-                          size:
-                            type: integer
-                          url:
-                            type: string
-                  id:
-                    type: string
-                  javaVersion:
-                    type: object
-                    properties:
-                      component:
-                        type: string
-                      majorVersion:
-                        type: integer
-                  mainClass:
-                    type: string
-                    example: "net.minecraft.client.main.Main"
-                  minimumLauncherVersion:
-                    type: integer
-                    example: 21
-                  time:
-                    type: string
-                    format: date-time
-                    example: "2024-04-01T11:14:41+00:00"
-                  releaseTime:
-                    type: string
-                    format: date-time
-                    example: "2024-04-01T11:07:19+00:00"
-                  type:
-                    type: string
-                    example: "snapshot"
+                $ref: '#/components/schemas/VersionPackageInfo'
+components:
+  schemas:
+    VersionManifest:
+      type: object
+      properties:
+        latest:
+          type: object
+          properties:
+            release:
+              type: string
+              example: 1.21
+            snapshot:
+              type: string
+              example: 24w14potato
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+    Version:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 24w14potato
+        type:
+          type: string
+          example: snapshot
+        url:
+          type: string
+          example: https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+        time:
+          type: string
+          format: date-time
+          example: 2024-04-01T11:14:41+00:00
+        releaseTime:
+          type: string
+          format: date-time
+          example: 2024-04-01T11:07:19+00:00
+    VersionPackageInfo:
+      type: object
+      properties:
+        version:
+          type: string
+        assetIndex:
+          type: object
+          properties:
+            id:
+              type: string
+            sha1:
+              type: string
+            size:
+              type: integer
+            totalSize:
+              type: integer
+            url:
+              type: string
+        assets:
+          type: integer
+        complianceLevel:
+          type: integer
+        downloads:
+          type: object
+          properties:
+            client:
+              $ref: '#/components/schemas/Download'
+            client_mappings:
+              $ref: '#/components/schemas/Download'
+            server:
+              $ref: '#/components/schemas/Download'
+            server_mappings:
+              $ref: '#/components/schemas/Download'
+        id:
+          type: string
+        javaVersion:
+          type: object
+          properties:
+            component:
+              type: string
+            majorVersion:
+              type: integer
+        mainClass:
+          type: string
+          example: net.minecraft.client.main.Main
+        minimumLauncherVersion:
+          type: integer
+          example: 21
+        time:
+          type: string
+          format: date-time
+          example: 2024-04-01T11:14:41+00:00
+        releaseTime:
+          type: string
+          format: date-time
+          example: 2024-04-01T11:07:19+00:00
+        type:
+          type: string
+          example: snapshot
+    Download:
+      type: object
+      properties:
+        sha1:
+          type: string
+        size:
+          type: integer
+        url:
+          type: string
