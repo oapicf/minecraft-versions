@@ -1,4 +1,12 @@
 {
+  "gemName": "minecraft_versions",
+  "moduleName": "MinecraftVersionsClient",
+  "gemVersion": "0.9.0-pre.0",
+  "gemAuthor": "OpenAPI Clients Factory",
+  "gemAuthorEmail": "blah+oapicf@cliffano.com",
+  "gemHomepage": "https://github.com/oapicf/minecraft-versions",
+  "gemLicense": "MIT",
+  "gemRequiredRubyVersion": ">= 3.0",
   "gitUserId": "oapicf",
   "gitRepoId": "minecraft-versions"
 }
