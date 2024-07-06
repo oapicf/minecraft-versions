@@ -13,7 +13,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 0.9.0-pre.0
-- Build date: 2024-07-06T11:26:25.063871054Z[Etc/UTC]
+- Build date: 2024-07-06T13:10:43.992638582Z[Etc/UTC]
 - Generator version: 7.6.0
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
 

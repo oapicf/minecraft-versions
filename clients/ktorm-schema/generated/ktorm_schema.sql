@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `VersionManifest_latest` (
 CREATE TABLE IF NOT EXISTS `VersionPackageInfo` (
   `version` text,
   `assetIndex` long,
-  `assets` int,
+  `assets` text,
   `complianceLevel` int,
   `downloads` long,
   `id` text PRIMARY KEY,

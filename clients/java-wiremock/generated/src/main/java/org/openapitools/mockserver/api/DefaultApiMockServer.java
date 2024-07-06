@@ -70,7 +70,7 @@ public class DefaultApiMockServer {
     }
 
     public static String getMinecraftVersionPackageInfo200ResponseSample1() {
-        return "{ \"assets\" : 1, \"releaseTime\" : \"2024-04-01T11:07:19Z\", \"mainClass\" : \"net.minecraft.client.main.Main\", \"downloads\" : { \"server\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"server_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" } }, \"javaVersion\" : { \"component\" : \"component\", \"majorVersion\" : 2 }, \"complianceLevel\" : 5, \"minimumLauncherVersion\" : 21, \"assetIndex\" : { \"sha1\" : \"sha1\", \"totalSize\" : 6, \"size\" : 0, \"id\" : \"id\", \"url\" : \"url\" }, \"id\" : \"id\", \"time\" : \"2024-04-01T11:14:41Z\", \"type\" : \"snapshot\", \"version\" : \"version\" }";
+        return "{ \"assets\" : \"assets\", \"releaseTime\" : \"2024-04-01T11:07:19Z\", \"mainClass\" : \"net.minecraft.client.main.Main\", \"downloads\" : { \"server\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"server_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" } }, \"javaVersion\" : { \"component\" : \"component\", \"majorVersion\" : 5 }, \"complianceLevel\" : 1, \"minimumLauncherVersion\" : 21, \"assetIndex\" : { \"sha1\" : \"sha1\", \"totalSize\" : 6, \"size\" : 0, \"id\" : \"id\", \"url\" : \"url\" }, \"id\" : \"id\", \"time\" : \"2024-04-01T11:14:41Z\", \"type\" : \"snapshot\", \"version\" : \"version\" }";
     }
 
 

@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `VersionManifest_latest` (
 CREATE TABLE IF NOT EXISTS `VersionPackageInfo` (
   `version` TEXT DEFAULT NULL,
   `assetIndex` TEXT DEFAULT NULL,
-  `assets` INT DEFAULT NULL,
+  `assets` TEXT DEFAULT NULL,
   `complianceLevel` INT DEFAULT NULL,
   `downloads` TEXT DEFAULT NULL,
   `id` TEXT DEFAULT NULL,

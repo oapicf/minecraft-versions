@@ -82,7 +82,7 @@ type alias VersionManifestLatest =
 type alias VersionPackageInfo =
     { version : Maybe String
     , assetIndex : Maybe VersionPackageInfoAssetIndex
-    , assets : Maybe Int
+    , assets : Maybe String
     , complianceLevel : Maybe Int
     , downloads : Maybe VersionPackageInfoDownloads
     , id : Maybe String
@@ -225,7 +225,7 @@ encodeVersionPackageInfoPairs model =
         pairs =
             [ maybeEncode "version" Json.Encode.string model.version
             , maybeEncode "assetIndex" encodeVersionPackageInfoAssetIndex model.assetIndex
-            , maybeEncode "assets" Json.Encode.int model.assets
+            , maybeEncode "assets" Json.Encode.string model.assets
             , maybeEncode "complianceLevel" Json.Encode.int model.complianceLevel
             , maybeEncode "downloads" encodeVersionPackageInfoDownloads model.downloads
             , maybeEncode "id" Json.Encode.string model.id
@@ -348,7 +348,7 @@ versionPackageInfoDecoder =
     Json.Decode.succeed VersionPackageInfo
         |> maybeDecode "version" Json.Decode.string Nothing
         |> maybeDecode "assetIndex" versionPackageInfoAssetIndexDecoder Nothing
-        |> maybeDecode "assets" Json.Decode.int Nothing
+        |> maybeDecode "assets" Json.Decode.string Nothing
         |> maybeDecode "complianceLevel" Json.Decode.int Nothing
         |> maybeDecode "downloads" versionPackageInfoDownloadsDecoder Nothing
         |> maybeDecode "id" Json.Decode.string Nothing

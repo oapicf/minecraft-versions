@@ -147,7 +147,7 @@ h2. Models
         ||Field Name||Required||Type||Description||Enum||Example||
          |version |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          |assetIndex |(x) |{noformat:nopanel=true}VersionPackageInfo_assetIndex{noformat} |  |  | null
-         |assets |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
+         |assets |(x) |{noformat:nopanel=true}String{noformat} |  |  | null
          |complianceLevel |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | null
          |downloads |(x) |{noformat:nopanel=true}VersionPackageInfo_downloads{noformat} |  |  | null
          |id |(x) |{noformat:nopanel=true}String{noformat} |  |  | null

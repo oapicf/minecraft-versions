@@ -128,7 +128,7 @@
             "$ref" : "#/components/schemas/VersionPackageInfo_assetIndex"
           },
           "assets" : {
-            "type" : "integer"
+            "type" : "string"
           },
           "complianceLevel" : {
             "type" : "integer"

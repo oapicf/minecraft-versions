@@ -106,7 +106,7 @@ components:
             url:
               type: string
         assets:
-          type: integer
+          type: string
         complianceLevel:
           type: integer
         downloads:

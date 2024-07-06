@@ -44,7 +44,7 @@ class InitTables < ActiveRecord::Migration
     create_table "version_package_info".pluralize.to_sym, id: false do |t|
       t.string :version
       t.string :asset_index
-      t.integer :assets
+      t.string :assets
       t.integer :compliance_level
       t.string :downloads
       t.string :id

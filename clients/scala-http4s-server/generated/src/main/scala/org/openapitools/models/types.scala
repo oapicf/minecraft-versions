@@ -96,7 +96,7 @@ object VersionManifestLatest {
 case class VersionPackageInfo(
   version: Option[String],
   assetIndex: Option[VersionPackageInfoAssetIndex],
-  assets: Option[Int],
+  assets: Option[String],
   complianceLevel: Option[Int],
   downloads: Option[VersionPackageInfoDownloads],
   id: Option[String],

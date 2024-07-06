@@ -1,0 +1,55 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server VersionPackageInfoAssetIndex"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a VersionPackageInfoAssetIndex"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  VersionPackageInfoAssetIndex {
+    title = VersionPackageInfoAssetIndex
+    description = VersionPackageInfoAssetIndex
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        sha1 {
+          type =  string
+          description = ""
+          optional = false
+        }
+        size {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        total_size {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        url {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  VersionPackageInfoAssetIndex {
+    title = VersionPackageInfoAssetIndex
+    description = VersionPackageInfoAssetIndex
+    implements = openapi_server.resourceTypes.VersionPackageInfoAssetIndex
+
+  }
+}

@@ -161,7 +161,7 @@ genVersionPackageInfo n =
   VersionPackageInfo
     <$> arbitraryReducedMaybe n -- versionPackageInfoVersion :: Maybe Text
     <*> arbitraryReducedMaybe n -- versionPackageInfoAssetIndex :: Maybe VersionPackageInfoAssetIndex
-    <*> arbitraryReducedMaybe n -- versionPackageInfoAssets :: Maybe Int
+    <*> arbitraryReducedMaybe n -- versionPackageInfoAssets :: Maybe Text
     <*> arbitraryReducedMaybe n -- versionPackageInfoComplianceLevel :: Maybe Int
     <*> arbitraryReducedMaybe n -- versionPackageInfoDownloads :: Maybe VersionPackageInfoDownloads
     <*> arbitraryReducedMaybe n -- versionPackageInfoId :: Maybe Text

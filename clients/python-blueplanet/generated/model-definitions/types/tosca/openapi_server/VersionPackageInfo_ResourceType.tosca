@@ -1,0 +1,93 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server VersionPackageInfo"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a VersionPackageInfo"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  VersionPackageInfoAssetIndex = openapi_server.resourceTypes.VersionPackageInfoAssetIndex
+  VersionPackageInfoDownloads = openapi_server.resourceTypes.VersionPackageInfoDownloads
+  VersionPackageInfoJavaVersion = openapi_server.resourceTypes.VersionPackageInfoJavaVersion
+}
+resourceTypes {
+
+  VersionPackageInfo {
+    title = VersionPackageInfo
+    description = VersionPackageInfo
+    derivedFrom = Root
+    properties {
+        version {
+          type =  string
+          description = ""
+          optional = false
+        }
+        asset_index {
+          type = VersionPackageInfoAssetIndex
+          description = ""
+          optional = false
+        }
+        assets {
+          type =  string
+          description = ""
+          optional = false
+        }
+        compliance_level {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        downloads {
+          type = VersionPackageInfoDownloads
+          description = ""
+          optional = false
+        }
+        id {
+          type =  string
+          description = ""
+          optional = false
+        }
+        java_version {
+          type = VersionPackageInfoJavaVersion
+          description = ""
+          optional = false
+        }
+        main_class {
+          type =  string
+          description = ""
+          optional = false
+        }
+        minimum_launcher_version {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        time {
+          type =  string
+          description = ""
+          optional = false
+        }
+        release_time {
+          type =  string
+          description = ""
+          optional = false
+        }
+        type {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  VersionPackageInfo {
+    title = VersionPackageInfo
+    description = VersionPackageInfo
+    implements = openapi_server.resourceTypes.VersionPackageInfo
+
+  }
+}

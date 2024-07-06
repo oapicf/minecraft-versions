@@ -1,0 +1,45 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server Download"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a Download"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  Download {
+    title = Download
+    description = Download
+    derivedFrom = Root
+    properties {
+        sha1 {
+          type =  string
+          description = ""
+          optional = false
+        }
+        size {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        url {
+          type =  string
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Download {
+    title = Download
+    description = Download
+    implements = openapi_server.resourceTypes.Download
+
+  }
+}

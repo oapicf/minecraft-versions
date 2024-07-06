@@ -29,7 +29,7 @@ entity VersionManifestLatest {
 entity VersionPackageInfo {
     version: String
     assetIndex: VersionPackageInfoAssetIndex
-    assets: Integer
+    assets: String
     complianceLevel: Integer
     downloads: VersionPackageInfoDownloads
     id: String

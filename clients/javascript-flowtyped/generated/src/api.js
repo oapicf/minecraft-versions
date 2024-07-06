@@ -188,10 +188,10 @@ export type VersionPackageInfo = {
     assetIndex?: VersionPackageInfoAssetIndex;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof VersionPackageInfo
      */
-    assets?: number;
+    assets?: string;
     /**
      * 
      * @type {number}

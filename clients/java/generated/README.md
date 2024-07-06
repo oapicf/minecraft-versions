@@ -2,7 +2,7 @@
 
 
 - API version: 0.9.0-pre.0
-  - Build date: 2024-07-06T11:26:59.170924933Z[Etc/UTC]
+  - Build date: 2024-07-06T13:11:16.515719371Z[Etc/UTC]
   - Generator version: 7.6.0
 
 SDK for Minecraft versions info

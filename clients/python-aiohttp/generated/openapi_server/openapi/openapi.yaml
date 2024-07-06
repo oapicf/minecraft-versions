@@ -115,7 +115,7 @@ components:
       type: object
     VersionPackageInfo:
       example:
-        assets: 1
+        assets: assets
         releaseTime: 2024-04-01T11:07:19Z
         mainClass: net.minecraft.client.main.Main
         downloads:
@@ -137,8 +137,8 @@ components:
             url: url
         javaVersion:
           component: component
-          majorVersion: 2
-        complianceLevel: 5
+          majorVersion: 5
+        complianceLevel: 1
         minimumLauncherVersion: 21
         assetIndex:
           sha1: sha1
@@ -158,7 +158,7 @@ components:
           $ref: '#/components/schemas/VersionPackageInfo_assetIndex'
         assets:
           title: assets
-          type: integer
+          type: string
         complianceLevel:
           title: complianceLevel
           type: integer
@@ -282,7 +282,7 @@ components:
     VersionPackageInfo_javaVersion:
       example:
         component: component
-        majorVersion: 2
+        majorVersion: 5
       properties:
         component:
           title: component

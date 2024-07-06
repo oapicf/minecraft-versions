@@ -66,7 +66,7 @@ fun Route.DefaultApi() {
     get<Paths.getMinecraftVersionPackageInfo> {
         val exampleContentType = "application/json"
         val exampleContentString = """{
-          "assets" : 1,
+          "assets" : "assets",
           "releaseTime" : "2024-04-01T11:07:19Z",
           "mainClass" : "net.minecraft.client.main.Main",
           "downloads" : {
@@ -93,9 +93,9 @@ fun Route.DefaultApi() {
           },
           "javaVersion" : {
             "component" : "component",
-            "majorVersion" : 2
+            "majorVersion" : 5
           },
-          "complianceLevel" : 5,
+          "complianceLevel" : 1,
           "minimumLauncherVersion" : 21,
           "assetIndex" : {
             "sha1" : "sha1",

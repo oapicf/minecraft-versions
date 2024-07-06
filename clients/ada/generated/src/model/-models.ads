@@ -210,7 +210,7 @@ package .Models is
      record
        Version : Swagger.Nullable_UString;
        Asset_Index : .Models.VersionPackageInfoAssetIndex_Type;
-       Assets : Swagger.Nullable_Integer;
+       Assets : Swagger.Nullable_UString;
        Compliance_Level : Swagger.Nullable_Integer;
        Downloads : .Models.VersionPackageInfoDownloads_Type;
        Id : Swagger.Nullable_UString;

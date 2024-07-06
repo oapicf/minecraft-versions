@@ -134,7 +134,7 @@ optionsVersionManifestLatest =
 data VersionPackageInfo = VersionPackageInfo
   { versionPackageInfoVersion :: Maybe Text -- ^ 
   , versionPackageInfoAssetIndex :: Maybe VersionPackageInfoAssetIndex -- ^ 
-  , versionPackageInfoAssets :: Maybe Int -- ^ 
+  , versionPackageInfoAssets :: Maybe Text -- ^ 
   , versionPackageInfoComplianceLevel :: Maybe Int -- ^ 
   , versionPackageInfoDownloads :: Maybe VersionPackageInfoDownloads -- ^ 
   , versionPackageInfoId :: Maybe Text -- ^ 

@@ -626,7 +626,7 @@ pub struct VersionPackageInfo {
 
     #[serde(rename = "assets")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub assets: Option<i32>,
+    pub assets: Option<String>,
 
     #[serde(rename = "complianceLevel")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -778,7 +778,7 @@ impl std::str::FromStr for VersionPackageInfo {
         struct IntermediateRep {
             pub version: Vec<String>,
             pub asset_index: Vec<models::VersionPackageInfoAssetIndex>,
-            pub assets: Vec<i32>,
+            pub assets: Vec<String>,
             pub compliance_level: Vec<i32>,
             pub downloads: Vec<models::VersionPackageInfoDownloads>,
             pub id: Vec<String>,
@@ -810,7 +810,7 @@ impl std::str::FromStr for VersionPackageInfo {
                     #[allow(clippy::redundant_clone)]
                     "assetIndex" => intermediate_rep.asset_index.push(<models::VersionPackageInfoAssetIndex as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "assets" => intermediate_rep.assets.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "assets" => intermediate_rep.assets.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "complianceLevel" => intermediate_rep.compliance_level.push(<i32 as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]

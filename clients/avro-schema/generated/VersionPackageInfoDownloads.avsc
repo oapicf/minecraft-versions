@@ -1,0 +1,33 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "VersionPackageInfoDownloads",
+  "fields": [
+    {
+      "name": "client",
+      "type": ["null", "model.Download"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "client_mappings",
+      "type": ["null", "model.Download"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "server",
+      "type": ["null", "model.Download"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "server_mappings",
+      "type": ["null", "model.Download"],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

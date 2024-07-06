@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T11:30:22.703239748Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T13:14:27.991580528Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Validated
 @Tag(name = "v1", description = "the v1 API")
 public interface V1Api {
@@ -70,7 +70,7 @@ public interface V1Api {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"assets\" : 1, \"releaseTime\" : \"2024-04-01T11:07:19Z\", \"mainClass\" : \"net.minecraft.client.main.Main\", \"downloads\" : { \"server\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"server_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" } }, \"javaVersion\" : { \"component\" : \"component\", \"majorVersion\" : 2 }, \"complianceLevel\" : 5, \"minimumLauncherVersion\" : 21, \"assetIndex\" : { \"sha1\" : \"sha1\", \"totalSize\" : 6, \"size\" : 0, \"id\" : \"id\", \"url\" : \"url\" }, \"id\" : \"id\", \"time\" : \"2024-04-01T11:14:41Z\", \"type\" : \"snapshot\", \"version\" : \"version\" }";
+                    String exampleString = "{ \"assets\" : \"assets\", \"releaseTime\" : \"2024-04-01T11:07:19Z\", \"mainClass\" : \"net.minecraft.client.main.Main\", \"downloads\" : { \"server\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"server_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" }, \"client_mappings\" : { \"sha1\" : \"sha1\", \"size\" : 5, \"url\" : \"url\" } }, \"javaVersion\" : { \"component\" : \"component\", \"majorVersion\" : 5 }, \"complianceLevel\" : 1, \"minimumLauncherVersion\" : 21, \"assetIndex\" : { \"sha1\" : \"sha1\", \"totalSize\" : 6, \"size\" : 0, \"id\" : \"id\", \"url\" : \"url\" }, \"id\" : \"id\", \"time\" : \"2024-04-01T11:14:41Z\", \"type\" : \"snapshot\", \"version\" : \"version\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

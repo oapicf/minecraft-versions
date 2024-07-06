@@ -42,7 +42,7 @@ export interface VersionManifestLatest {
 export interface VersionPackageInfo {
   version?: string;
   assetIndex?: VersionPackageInfoAssetIndex;
-  assets?: number;
+  assets?: string;
   complianceLevel?: number;
   downloads?: VersionPackageInfoDownloads;
   id?: string;
