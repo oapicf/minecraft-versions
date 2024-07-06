@@ -1,5 +1,6 @@
 var assert = require('assert');
 var OpenapiJsClient = require('openapi-js-client');
+const { version } = require('os');
 
 describe('minecraft versions', function() {
 
@@ -13,6 +14,14 @@ describe('minecraft versions', function() {
         done(error);
       } else {
         console.log('API called successfully. Returned data: ' + data);
+        const versionManifest = data;
+        const versions = versionManifest.versions;
+        for (var i = 0; i < versions.length; i++) {
+          const version = versions[i];
+          console.log('version: ' + version.id);
+          console.log('type: ' + version.type);
+          console.log('url: ' + version.url);
+        }
         done();
       }
     };
@@ -29,6 +38,22 @@ describe('minecraft versions', function() {
         done(error);
       } else {
         console.log('API called successfully. Returned data: ' + data);
+        const versionPackageInfo = data;
+        console.log('version: ' + versionPackageInfo.id);
+        assert.equal(typeof(versionPackageInfo.id), 'string')
+        console.log('type: ' + versionPackageInfo.type);
+        assert.equal(typeof(versionPackageInfo.type), 'string')
+        const downloads = versionPackageInfo.downloads;
+        for (var key in downloads) {
+          console.log('download: ' + key);
+          assert.equal(typeof(key), 'string')
+          console.log('sha1: ' + downloads[key].sha1);
+          assert.equal(typeof(downloads[key].sha1), 'string')
+          console.log('size: ' + downloads[key].size);
+          assert.equal(typeof(downloads[key].size), 'number')
+          console.log('url: ' + downloads[key].url);
+          assert.equal(typeof(downloads[key].url), 'string')
+        }
         done();
       }
     };
