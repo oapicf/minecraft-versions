@@ -1,8 +1,7 @@
----
 openapi: 3.0.0
 info:
-  version: 0.9.0-pre.0
-  title:
+  version: 0.10.0
+  title: null
   description: SDK for Minecraft versions info
   license:
     name: MIT
@@ -78,15 +77,16 @@ components:
           example: snapshot
         url:
           type: string
-          example: https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
+          example: >-
+            https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
         time:
           type: string
           format: date-time
-          example: 2024-04-01T11:14:41+00:00
+          example: 2024-04-01T11:14:41.000Z
         releaseTime:
           type: string
           format: date-time
-          example: 2024-04-01T11:07:19+00:00
+          example: 2024-04-01T11:07:19.000Z
     VersionPackageInfo:
       type: object
       properties:
@@ -138,11 +138,11 @@ components:
         time:
           type: string
           format: date-time
-          example: 2024-04-01T11:14:41+00:00
+          example: 2024-04-01T11:14:41.000Z
         releaseTime:
           type: string
           format: date-time
-          example: 2024-04-01T11:07:19+00:00
+          example: 2024-04-01T11:07:19.000Z
         type:
           type: string
           example: snapshot
