@@ -1,5 +1,5 @@
 var assert = require('assert');
-var MinecraftVersions = require('minecraftversions');
+var MinecraftVersions = require('minecraftverse');
 
 describe('minecraft versions', function() {
 

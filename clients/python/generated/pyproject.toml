@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "minecraftverse"
-version = "0.10.1-pre.0"
+version = "0.11.1-pre.0"
 description = ""
 authors = ["Minecraft Versions <blah+oapicf@cliffano.com>"]
 license = "MIT"

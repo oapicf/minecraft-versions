@@ -1,4 +1,4 @@
-# Minecraftversions.Download
+# Minecraftverse.Download
 
 ## Properties
 

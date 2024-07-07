@@ -1,4 +1,4 @@
-# Minecraftversions.VersionManifest
+# Minecraftverse.VersionManifest
 
 ## Properties
 

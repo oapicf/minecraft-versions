@@ -1,4 +1,4 @@
-# Minecraftversions.VersionPackageInfoAssetIndex
+# Minecraftverse.VersionPackageInfoAssetIndex
 
 ## Properties
 
