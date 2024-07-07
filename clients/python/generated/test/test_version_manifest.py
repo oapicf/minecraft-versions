@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.models.version_manifest import VersionManifest
+from minecraft_versions.models.version_manifest import VersionManifest
 
 class TestVersionManifest(unittest.TestCase):
     """VersionManifest unit test stubs"""
@@ -34,11 +34,11 @@ class TestVersionManifest(unittest.TestCase):
         model = VersionManifest()
         if include_optional:
             return VersionManifest(
-                latest = minecraftversions.models.version_manifest_latest.VersionManifest_latest(
+                latest = minecraft_versions.models.version_manifest_latest.VersionManifest_latest(
                     release = '1.21', 
                     snapshot = '24w14potato', ),
                 versions = [
-                    minecraftversions.models.version.Version(
+                    minecraft_versions.models.version.Version(
                         id = '24w14potato', 
                         type = 'snapshot', 
                         url = 'https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json', 

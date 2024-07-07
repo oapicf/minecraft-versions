@@ -16,12 +16,12 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from minecraftversions.models.version_manifest import VersionManifest
-from minecraftversions.models.version_package_info import VersionPackageInfo
+from minecraft_versions.models.version_manifest import VersionManifest
+from minecraft_versions.models.version_package_info import VersionPackageInfo
 
-from minecraftversions.api_client import ApiClient, RequestSerialized
-from minecraftversions.api_response import ApiResponse
-from minecraftversions.rest import RESTResponseType
+from minecraft_versions.api_client import ApiClient, RequestSerialized
+from minecraft_versions.api_response import ApiResponse
+from minecraft_versions.rest import RESTResponseType
 
 
 class DefaultApi:

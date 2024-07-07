@@ -19,9 +19,9 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from minecraftversions.models.version_package_info_asset_index import VersionPackageInfoAssetIndex
-from minecraftversions.models.version_package_info_downloads import VersionPackageInfoDownloads
-from minecraftversions.models.version_package_info_java_version import VersionPackageInfoJavaVersion
+from minecraft_versions.models.version_package_info_asset_index import VersionPackageInfoAssetIndex
+from minecraft_versions.models.version_package_info_downloads import VersionPackageInfoDownloads
+from minecraft_versions.models.version_package_info_java_version import VersionPackageInfoJavaVersion
 from typing import Optional, Set
 from typing_extensions import Self
 

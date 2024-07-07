@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.models.version_package_info_asset_index import VersionPackageInfoAssetIndex
+from minecraft_versions.models.version_package_info_asset_index import VersionPackageInfoAssetIndex
 
 class TestVersionPackageInfoAssetIndex(unittest.TestCase):
     """VersionPackageInfoAssetIndex unit test stubs"""

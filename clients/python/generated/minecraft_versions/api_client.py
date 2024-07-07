@@ -24,11 +24,11 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
-from minecraftversions.configuration import Configuration
-from minecraftversions.api_response import ApiResponse, T as ApiResponseT
-import minecraftversions.models
-from minecraftversions import rest
-from minecraftversions.exceptions import (
+from minecraft_versions.configuration import Configuration
+from minecraft_versions.api_response import ApiResponse, T as ApiResponseT
+import minecraft_versions.models
+from minecraft_versions import rest
+from minecraft_versions.exceptions import (
     ApiValueError,
     ApiException,
     BadRequestException,
@@ -432,7 +432,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(minecraftversions.models, klass)
+                klass = getattr(minecraft_versions.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

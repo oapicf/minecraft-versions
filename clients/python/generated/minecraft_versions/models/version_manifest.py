@@ -18,19 +18,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from minecraftversions.models.download import Download
+from minecraft_versions.models.version import Version
+from minecraft_versions.models.version_manifest_latest import VersionManifestLatest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VersionPackageInfoDownloads(BaseModel):
+class VersionManifest(BaseModel):
     """
-    VersionPackageInfoDownloads
+    VersionManifest
     """ # noqa: E501
-    client: Optional[Download] = None
-    client_mappings: Optional[Download] = None
-    server: Optional[Download] = None
-    server_mappings: Optional[Download] = None
-    __properties: ClassVar[List[str]] = ["client", "client_mappings", "server", "server_mappings"]
+    latest: Optional[VersionManifestLatest] = None
+    versions: Optional[List[Version]] = None
+    __properties: ClassVar[List[str]] = ["latest", "versions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class VersionPackageInfoDownloads(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VersionPackageInfoDownloads from a JSON string"""
+        """Create an instance of VersionManifest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,23 +70,21 @@ class VersionPackageInfoDownloads(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of client
-        if self.client:
-            _dict['client'] = self.client.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of client_mappings
-        if self.client_mappings:
-            _dict['client_mappings'] = self.client_mappings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of server
-        if self.server:
-            _dict['server'] = self.server.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of server_mappings
-        if self.server_mappings:
-            _dict['server_mappings'] = self.server_mappings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of latest
+        if self.latest:
+            _dict['latest'] = self.latest.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in versions (list)
+        _items = []
+        if self.versions:
+            for _item in self.versions:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['versions'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VersionPackageInfoDownloads from a dict"""
+        """Create an instance of VersionManifest from a dict"""
         if obj is None:
             return None
 
@@ -95,10 +92,8 @@ class VersionPackageInfoDownloads(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "client": Download.from_dict(obj["client"]) if obj.get("client") is not None else None,
-            "client_mappings": Download.from_dict(obj["client_mappings"]) if obj.get("client_mappings") is not None else None,
-            "server": Download.from_dict(obj["server"]) if obj.get("server") is not None else None,
-            "server_mappings": Download.from_dict(obj["server_mappings"]) if obj.get("server_mappings") is not None else None
+            "latest": VersionManifestLatest.from_dict(obj["latest"]) if obj.get("latest") is not None else None,
+            "versions": [Version.from_dict(_item) for _item in obj["versions"]] if obj.get("versions") is not None else None
         })
         return _obj
 

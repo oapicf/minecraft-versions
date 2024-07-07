@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.api.default_api import DefaultApi
+from minecraft_versions.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):

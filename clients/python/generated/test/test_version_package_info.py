@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.models.version_package_info import VersionPackageInfo
+from minecraft_versions.models.version_package_info import VersionPackageInfo
 
 class TestVersionPackageInfo(unittest.TestCase):
     """VersionPackageInfo unit test stubs"""
@@ -35,7 +35,7 @@ class TestVersionPackageInfo(unittest.TestCase):
         if include_optional:
             return VersionPackageInfo(
                 version = '',
-                asset_index = minecraftversions.models.version_package_info_asset_index.VersionPackageInfo_assetIndex(
+                asset_index = minecraft_versions.models.version_package_info_asset_index.VersionPackageInfo_assetIndex(
                     id = '', 
                     sha1 = '', 
                     size = 56, 
@@ -43,19 +43,19 @@ class TestVersionPackageInfo(unittest.TestCase):
                     url = '', ),
                 assets = '',
                 compliance_level = 56,
-                downloads = minecraftversions.models.version_package_info_downloads.VersionPackageInfo_downloads(
-                    client = minecraftversions.models.download.Download(
+                downloads = minecraft_versions.models.version_package_info_downloads.VersionPackageInfo_downloads(
+                    client = minecraft_versions.models.download.Download(
                         sha1 = '', 
                         size = 56, 
                         url = '', ), 
-                    client_mappings = minecraftversions.models.download.Download(
+                    client_mappings = minecraft_versions.models.download.Download(
                         sha1 = '', 
                         size = 56, 
                         url = '', ), 
                     server = , 
                     server_mappings = , ),
                 id = '',
-                java_version = minecraftversions.models.version_package_info_java_version.VersionPackageInfo_javaVersion(
+                java_version = minecraft_versions.models.version_package_info_java_version.VersionPackageInfo_javaVersion(
                     component = '', 
                     major_version = 56, ),
                 main_class = 'net.minecraft.client.main.Main',

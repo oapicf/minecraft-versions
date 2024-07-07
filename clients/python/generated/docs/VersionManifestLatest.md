@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from minecraftversions.models.version_manifest_latest import VersionManifestLatest
+from minecraft_versions.models.version_manifest_latest import VersionManifestLatest
 
 # TODO update the JSON string below
 json = "{}"

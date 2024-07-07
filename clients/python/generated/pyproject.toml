@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "minecraftversions"
+name = "minecraft_versions"
 version = "0.9.0-pre.0"
 description = ""
 authors = ["Minecraft Versions <blah+oapicf@cliffano.com>"]
@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 repository = "https://github.com/oapicf/minecraft-versions"
 keywords = ["OpenAPI", "OpenAPI-Generator", ""]
-include = ["minecraftversions/py.typed"]
+include = ["minecraft_versions/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -34,7 +34,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "minecraftversions",
+  "minecraft_versions",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

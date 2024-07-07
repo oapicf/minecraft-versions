@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.models.version_package_info_java_version import VersionPackageInfoJavaVersion
+from minecraft_versions.models.version_package_info_java_version import VersionPackageInfoJavaVersion
 
 class TestVersionPackageInfoJavaVersion(unittest.TestCase):
     """VersionPackageInfoJavaVersion unit test stubs"""

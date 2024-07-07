@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.models.download import Download
+from minecraft_versions.models.download import Download
 
 class TestDownload(unittest.TestCase):
     """Download unit test stubs"""

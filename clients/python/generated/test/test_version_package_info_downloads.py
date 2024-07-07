@@ -13,7 +13,7 @@
 
 import unittest
 
-from minecraftversions.models.version_package_info_downloads import VersionPackageInfoDownloads
+from minecraft_versions.models.version_package_info_downloads import VersionPackageInfoDownloads
 
 class TestVersionPackageInfoDownloads(unittest.TestCase):
     """VersionPackageInfoDownloads unit test stubs"""
@@ -34,19 +34,19 @@ class TestVersionPackageInfoDownloads(unittest.TestCase):
         model = VersionPackageInfoDownloads()
         if include_optional:
             return VersionPackageInfoDownloads(
-                client = minecraftversions.models.download.Download(
+                client = minecraft_versions.models.download.Download(
                     sha1 = '', 
                     size = 56, 
                     url = '', ),
-                client_mappings = minecraftversions.models.download.Download(
+                client_mappings = minecraft_versions.models.download.Download(
                     sha1 = '', 
                     size = 56, 
                     url = '', ),
-                server = minecraftversions.models.download.Download(
+                server = minecraft_versions.models.download.Download(
                     sha1 = '', 
                     size = 56, 
                     url = '', ),
-                server_mappings = minecraftversions.models.download.Download(
+                server_mappings = minecraft_versions.models.download.Download(
                     sha1 = '', 
                     size = 56, 
                     url = '', )

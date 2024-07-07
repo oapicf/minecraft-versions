@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from minecraftversions.models.download import Download
+from minecraft_versions.models.download import Download
 
 # TODO update the JSON string below
 json = "{}"

@@ -19,7 +19,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "minecraftversions"
+NAME = "minecraft-versions"
 VERSION = "0.9.0-pre.0"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     SDK for Minecraft versions info
     """,  # noqa: E501
-    package_data={"minecraftversions": ["py.typed"]},
+    package_data={"minecraft_versions": ["py.typed"]},
 )

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from minecraftversions.models.version_package_info_downloads import VersionPackageInfoDownloads
+from minecraft_versions.models.version_package_info_downloads import VersionPackageInfoDownloads
 
 # TODO update the JSON string below
 json = "{}"
