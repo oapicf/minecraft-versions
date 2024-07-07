@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Rename javascript package to minecraftversions
+- Rename python package to minecraftverse
+
 ## 0.10.0 - 2024-07-07
 ### Added
 - Initial version

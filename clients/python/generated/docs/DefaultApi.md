@@ -1,4 +1,4 @@
-# minecraft_versions.DefaultApi
+# minecraftverse.DefaultApi
 
 All URIs are relative to *https://launchermeta.mojang.com*
 
@@ -17,22 +17,22 @@ Get Minecraft version manifest
 
 
 ```python
-import minecraft_versions
-from minecraft_versions.models.version_manifest import VersionManifest
-from minecraft_versions.rest import ApiException
+import minecraftverse
+from minecraftverse.models.version_manifest import VersionManifest
+from minecraftverse.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://launchermeta.mojang.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = minecraft_versions.Configuration(
+configuration = minecraftverse.Configuration(
     host = "https://launchermeta.mojang.com"
 )
 
 
 # Enter a context with an instance of the API client
-with minecraft_versions.ApiClient(configuration) as api_client:
+with minecraftverse.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = minecraft_versions.DefaultApi(api_client)
+    api_instance = minecraftverse.DefaultApi(api_client)
 
     try:
         # Get Minecraft version manifest
@@ -79,22 +79,22 @@ Get Minecraft version package info
 
 
 ```python
-import minecraft_versions
-from minecraft_versions.models.version_package_info import VersionPackageInfo
-from minecraft_versions.rest import ApiException
+import minecraftverse
+from minecraftverse.models.version_package_info import VersionPackageInfo
+from minecraftverse.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://launchermeta.mojang.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = minecraft_versions.Configuration(
+configuration = minecraftverse.Configuration(
     host = "https://launchermeta.mojang.com"
 )
 
 
 # Enter a context with an instance of the API client
-with minecraft_versions.ApiClient(configuration) as api_client:
+with minecraftverse.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = minecraft_versions.DefaultApi(api_client)
+    api_instance = minecraftverse.DefaultApi(api_client)
     package_id = '177e49d3233cb6eac42f0495c0a48e719870c2ae' # str | 
     version_id = '1.21' # str | 
 

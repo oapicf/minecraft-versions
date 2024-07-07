@@ -3,7 +3,7 @@
 #
 # ref: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: minecraft_versions Python package
+name: minecraftverse Python package
 
 on: [push, pull_request]
 

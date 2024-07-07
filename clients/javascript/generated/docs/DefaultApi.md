@@ -1,4 +1,4 @@
-# OpenapiJsClient.DefaultApi
+# Minecraftversions.DefaultApi
 
 All URIs are relative to *https://launchermeta.mojang.com*
 
@@ -18,9 +18,9 @@ Get Minecraft version manifest
 ### Example
 
 ```javascript
-import OpenapiJsClient from 'openapi-js-client';
+import Minecraftversions from 'minecraftversions';
 
-let apiInstance = new OpenapiJsClient.DefaultApi();
+let apiInstance = new Minecraftversions.DefaultApi();
 apiInstance.getMinecraftVersionManifest((error, data, response) => {
   if (error) {
     console.error(error);
@@ -57,9 +57,9 @@ Get Minecraft version package info
 ### Example
 
 ```javascript
-import OpenapiJsClient from 'openapi-js-client';
+import Minecraftversions from 'minecraftversions';
 
-let apiInstance = new OpenapiJsClient.DefaultApi();
+let apiInstance = new Minecraftversions.DefaultApi();
 let packageId = "177e49d3233cb6eac42f0495c0a48e719870c2ae"; // String | 
 let versionId = "1.21"; // String | 
 apiInstance.getMinecraftVersionPackageInfo(packageId, versionId, (error, data, response) => {

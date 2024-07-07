@@ -1,5 +1,6 @@
 {
-  "packageName": "minecraft_versions",
+  "projectName": "minecraftverse",
+  "packageName": "minecraftverse",
   "packageVersion": "0.10.1-pre.0",
   "packageUrl": "https://github.com/oapicf/minecraft-versions",
   "gitUserId": "oapicf",

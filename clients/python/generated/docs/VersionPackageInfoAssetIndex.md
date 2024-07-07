@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from minecraft_versions.models.version_package_info_asset_index import VersionPackageInfoAssetIndex
+from minecraftverse.models.version_package_info_asset_index import VersionPackageInfoAssetIndex
 
 # TODO update the JSON string below
 json = "{}"

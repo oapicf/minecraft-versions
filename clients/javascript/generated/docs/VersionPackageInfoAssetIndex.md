@@ -1,4 +1,4 @@
-# OpenapiJsClient.VersionPackageInfoAssetIndex
+# Minecraftversions.VersionPackageInfoAssetIndex
 
 ## Properties
 

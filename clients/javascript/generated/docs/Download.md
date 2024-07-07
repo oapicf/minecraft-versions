@@ -1,4 +1,4 @@
-# OpenapiJsClient.Download
+# Minecraftversions.Download
 
 ## Properties
 

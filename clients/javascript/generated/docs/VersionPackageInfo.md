@@ -1,4 +1,4 @@
-# OpenapiJsClient.VersionPackageInfo
+# Minecraftversions.VersionPackageInfo
 
 ## Properties
 

@@ -1,13 +1,12 @@
 var assert = require('assert');
-var OpenapiJsClient = require('openapi-js-client');
-const { version } = require('os');
+var MinecraftVersions = require('minecraftversions');
 
 describe('minecraft versions', function() {
 
   it('should get version manifest', function(done) {
 
-    const apiClient = new OpenapiJsClient.ApiClient('https://launchermeta.mojang.com');
-    const api = new OpenapiJsClient.DefaultApi(apiClient);
+    const apiClient = new MinecraftVersions.ApiClient('https://launchermeta.mojang.com');
+    const api = new MinecraftVersions.DefaultApi(apiClient);
 
     var callback = function(error, data, response) {
       if (error) {
@@ -30,8 +29,8 @@ describe('minecraft versions', function() {
 
   it('should get version package info', function(done) {
 
-    const apiClient = new OpenapiJsClient.ApiClient('https://piston-meta.mojang.com');
-    const api = new OpenapiJsClient.DefaultApi(apiClient);
+    const apiClient = new MinecraftVersions.ApiClient('https://piston-meta.mojang.com');
+    const api = new MinecraftVersions.DefaultApi(apiClient);
 
     var callback = function(error, data, response) {
       if (error) {
