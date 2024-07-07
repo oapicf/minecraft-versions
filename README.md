@@ -14,7 +14,7 @@ Published packages
 | Language | Package | Status | Documentation |
 |----------|---------|--------|---------------|
 | JavaScript | [minecraftversions]((http://www.npmjs.com/package/minecraftversions)) | [![Published Version](https://img.shields.io/npm/v/minecraftversions.svg)](http://www.npmjs.com/package/minecraftversions) | [README](https://github.com/oapicf/minecraft-versions/blob/main/clients/javascript/generated/README.md) |
-| Python | [minecraftversions]((https://pypi.python.org/pypi/minecraftversions)) | [![Published Version](https://img.shields.io/pypi/v/minecraftversions.svg)](https://pypi.python.org/pypi/minecraftversions) | [README](https://github.com/oapicf/minecraft-versions/blob/main/clients/python/generated/README.md) |
+| Python | [minecraft-versions]((https://pypi.python.org/pypi/minecraft-versions)) | [![Published Version](https://img.shields.io/pypi/v/minecraft-versions.svg)](https://pypi.python.org/pypi/minecraft-versions) | [README](https://github.com/oapicf/minecraft-versions/blob/main/clients/python/generated/README.md) |
 | Ruby | [minecraft_versions]((https://rubygems.org/gems/minecraft_versions)) | [![Published Version](https://img.shields.io/gem/v/minecraft_versions.svg)](https://rubygems.org/gems/minecraft_versions) | [README](https://github.com/oapicf/minecraft-versions/blob/main/clients/ruby/generated/README.md) |
 
 Version matrix
@@ -22,7 +22,7 @@ Version matrix
 
 | Minecraft Versions Version | OpenAPI Version | OpenAPI Generator Version |
 |----------------------------|-----------------|---------------------------|
-| ... | ... | ... |
+| 0.9.0 | 3.0.0 | 7.6.0 |
 
 Installation
 ------------
@@ -37,7 +37,7 @@ Install JavaScript client:
 
 Install Python client:
 
-    pip install minecraftversions
+    pip install minecraft-versions
 
 Install Ruby client:
 
