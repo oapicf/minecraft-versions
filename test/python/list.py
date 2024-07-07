@@ -1,19 +1,19 @@
 import unittest
-import minecraftversions
-from minecraftversions.rest import ApiException
+import minecraft_versions
+from minecraft_versions.rest import ApiException
 from pprint import pprint
 
 class TestMinecraftVersion(unittest.TestCase):
 
     def test_get_version_manifest(self):
 
-      configuration = minecraftversions.Configuration(
+      configuration = minecraft_versions.Configuration(
           host = "https://launchermeta.mojang.com"
       )
 
-      with minecraftversions.ApiClient(configuration) as api_client:
+      with minecraft_versions.ApiClient(configuration) as api_client:
 
-          api_instance = minecraftversions.DefaultApi(api_client)
+          api_instance = minecraft_versions.DefaultApi(api_client)
 
           try:
               api_response = api_instance.get_minecraft_version_manifest()
@@ -34,13 +34,13 @@ class TestMinecraftVersion(unittest.TestCase):
 
     def test_get_version_package_info(self):
 
-      configuration = minecraftversions.Configuration(
+      configuration = minecraft_versions.Configuration(
           host = "https://piston-meta.mojang.com"
       )
 
-      with minecraftversions.ApiClient(configuration) as api_client:
+      with minecraft_versions.ApiClient(configuration) as api_client:
 
-          api_instance = minecraftversions.DefaultApi(api_client)
+          api_instance = minecraft_versions.DefaultApi(api_client)
 
           try:
               api_response = api_instance.get_minecraft_version_package_info('177e49d3233cb6eac42f0495c0a48e719870c2ae', '1.21')
