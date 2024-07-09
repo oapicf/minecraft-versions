@@ -33,7 +33,7 @@ Or you can use the published packages like below:
 
 Install JavaScript client:
 
-    npm install minecraftversions
+    npm install minecraftverse
 
 Install Python client:
 
