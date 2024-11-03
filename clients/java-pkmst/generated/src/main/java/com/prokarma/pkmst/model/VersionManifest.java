@@ -19,7 +19,7 @@ import java.util.List;
  * VersionManifest
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionManifest   {
   @JsonProperty("latest")
   private VersionManifestLatest latest;
@@ -33,10 +33,10 @@ public class VersionManifest   {
     return this;
   }
 
-   /**
+  /**
    * Get latest
    * @return latest
-  **/
+   */
   @ApiModelProperty(value = "")
   public VersionManifestLatest getLatest() {
     return latest;
@@ -59,10 +59,10 @@ public class VersionManifest   {
     return this;
   }
 
-   /**
+  /**
    * Get versions
    * @return versions
-  **/
+   */
   @ApiModelProperty(value = "")
   public List<Version> getVersions() {
     return versions;

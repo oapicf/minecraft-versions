@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 0.9.0-pre.0
+ * API version: 0.12.1-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 

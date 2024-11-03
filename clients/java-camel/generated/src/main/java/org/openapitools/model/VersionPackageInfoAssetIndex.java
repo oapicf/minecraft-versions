@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_assetIndex")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-06T13:11:52.486513096Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-11-03T05:50:59.622218574Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoAssetIndex {
 
   private String id;
@@ -41,7 +41,7 @@ public class VersionPackageInfoAssetIndex {
   /**
    * Get id
    * @return id
-  */
+   */
   
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
@@ -61,7 +61,7 @@ public class VersionPackageInfoAssetIndex {
   /**
    * Get sha1
    * @return sha1
-  */
+   */
   
   @Schema(name = "sha1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("sha1")
@@ -81,7 +81,7 @@ public class VersionPackageInfoAssetIndex {
   /**
    * Get size
    * @return size
-  */
+   */
   
   @Schema(name = "size", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("size")
@@ -101,7 +101,7 @@ public class VersionPackageInfoAssetIndex {
   /**
    * Get totalSize
    * @return totalSize
-  */
+   */
   
   @Schema(name = "totalSize", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("totalSize")
@@ -121,7 +121,7 @@ public class VersionPackageInfoAssetIndex {
   /**
    * Get url
    * @return url
-  */
+   */
   
   @Schema(name = "url", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")

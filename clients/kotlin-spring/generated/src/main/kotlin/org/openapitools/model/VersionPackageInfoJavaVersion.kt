@@ -25,7 +25,7 @@ data class VersionPackageInfoJavaVersion(
 
     @Schema(example = "null", description = "")
     @get:JsonProperty("majorVersion") val majorVersion: kotlin.Int? = null
-) {
+    ) {
 
 }
 

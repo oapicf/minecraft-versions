@@ -44,5 +44,8 @@ data class VersionPackageInfoDownloads (
     @Json(name = "server_mappings")
     val serverMappings: Download? = null
 
-)
+) {
+
+
+}
 

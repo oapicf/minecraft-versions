@@ -16,17 +16,15 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, DefaultApi } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DefaultApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
 
-let body:any = {};
+const request = {};
 
-apiInstance.getMinecraftVersionManifest(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.getMinecraftVersionManifest(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -63,22 +61,21 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetMinecraftVersionPackageInfoRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DefaultApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
 
-let body:.DefaultApiGetMinecraftVersionPackageInfoRequest = {
-  // string
+const request: DefaultApiGetMinecraftVersionPackageInfoRequest = {
+  
   packageId: "177e49d3233cb6eac42f0495c0a48e719870c2ae",
-  // string
+  
   versionId: "1.21",
 };
 
-apiInstance.getMinecraftVersionPackageInfo(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.getMinecraftVersionPackageInfo(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

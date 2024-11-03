@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * VersionManifestLatest
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionManifestLatest   {
   @JsonProperty("release")
   private String release;
@@ -28,10 +28,10 @@ public class VersionManifestLatest   {
     return this;
   }
 
-   /**
+  /**
    * Get release
    * @return release
-  **/
+   */
   @ApiModelProperty(example = "1.21", value = "")
   public String getRelease() {
     return release;
@@ -46,10 +46,10 @@ public class VersionManifestLatest   {
     return this;
   }
 
-   /**
+  /**
    * Get snapshot
    * @return snapshot
-  **/
+   */
   @ApiModelProperty(example = "24w14potato", value = "")
   public String getSnapshot() {
     return snapshot;

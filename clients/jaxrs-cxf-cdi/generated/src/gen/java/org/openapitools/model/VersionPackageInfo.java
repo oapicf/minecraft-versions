@@ -212,7 +212,7 @@ public class VersionPackageInfo   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   @JsonProperty("time")
   public java.util.Date getTime() {
     return time;
@@ -230,7 +230,7 @@ public class VersionPackageInfo   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   @JsonProperty("releaseTime")
   public java.util.Date getReleaseTime() {
     return releaseTime;

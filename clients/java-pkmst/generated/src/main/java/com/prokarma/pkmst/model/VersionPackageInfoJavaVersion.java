@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * VersionPackageInfoJavaVersion
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoJavaVersion   {
   @JsonProperty("component")
   private String component;
@@ -28,10 +28,10 @@ public class VersionPackageInfoJavaVersion   {
     return this;
   }
 
-   /**
+  /**
    * Get component
    * @return component
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getComponent() {
     return component;
@@ -46,10 +46,10 @@ public class VersionPackageInfoJavaVersion   {
     return this;
   }
 
-   /**
+  /**
    * Get majorVersion
    * @return majorVersion
-  **/
+   */
   @ApiModelProperty(value = "")
   public Integer getMajorVersion() {
     return majorVersion;

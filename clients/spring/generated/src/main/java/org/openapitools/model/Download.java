@@ -18,7 +18,7 @@ import javax.annotation.Generated;
  * Download
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T13:14:27.991580528Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Download {
 
   private String sha1;
@@ -35,7 +35,7 @@ public class Download {
   /**
    * Get sha1
    * @return sha1
-  */
+   */
   
   @Schema(name = "sha1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("sha1")
@@ -55,7 +55,7 @@ public class Download {
   /**
    * Get size
    * @return size
-  */
+   */
   
   @Schema(name = "size", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("size")
@@ -75,7 +75,7 @@ public class Download {
   /**
    * Get url
    * @return url
-  */
+   */
   
   @Schema(name = "url", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")

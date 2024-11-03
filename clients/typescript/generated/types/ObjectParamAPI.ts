@@ -19,12 +19,14 @@ export interface DefaultApiGetMinecraftVersionManifestRequest {
 export interface DefaultApiGetMinecraftVersionPackageInfoRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof DefaultApigetMinecraftVersionPackageInfo
      */
     packageId: string
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof DefaultApigetMinecraftVersionPackageInfo
      */

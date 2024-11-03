@@ -35,5 +35,8 @@ data class VersionManifestLatest (
     @Json(name = "snapshot")
     val snapshot: kotlin.String? = null
 
-)
+) {
+
+
+}
 

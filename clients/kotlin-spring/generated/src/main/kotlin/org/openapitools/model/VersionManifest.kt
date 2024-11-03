@@ -29,7 +29,7 @@ data class VersionManifest(
     @field:Valid
     @Schema(example = "null", description = "")
     @get:JsonProperty("versions") val versions: kotlin.collections.List<Version>? = null
-) {
+    ) {
 
 }
 

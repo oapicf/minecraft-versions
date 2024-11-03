@@ -12,13 +12,13 @@ class BaseDefaultApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseDefaultApi.subclasses = BaseDefaultApi.subclasses + (cls,)
-    def get_minecraft_version_manifest(
+    async def get_minecraft_version_manifest(
         self,
     ) -> VersionManifest:
         ...
 
 
-    def get_minecraft_version_package_info(
+    async def get_minecraft_version_package_info(
         self,
         packageId: str,
         versionId: str,

@@ -15,7 +15,7 @@ import java.time.OffsetDateTime;
  * Version
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Version   {
   @JsonProperty("id")
   private String id;
@@ -37,10 +37,10 @@ public class Version   {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @ApiModelProperty(example = "24w14potato", value = "")
   public String getId() {
     return id;
@@ -55,10 +55,10 @@ public class Version   {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @ApiModelProperty(example = "snapshot", value = "")
   public String getType() {
     return type;
@@ -73,10 +73,10 @@ public class Version   {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @ApiModelProperty(example = "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json", value = "")
   public String getUrl() {
     return url;
@@ -91,11 +91,11 @@ public class Version   {
     return this;
   }
 
-   /**
+  /**
    * Get time
    * @return time
-  **/
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+   */
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   public OffsetDateTime getTime() {
     return time;
   }
@@ -109,11 +109,11 @@ public class Version   {
     return this;
   }
 
-   /**
+  /**
    * Get releaseTime
    * @return releaseTime
-  **/
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+   */
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   public OffsetDateTime getReleaseTime() {
     return releaseTime;
   }

@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * SDK for Minecraft versions info
- * The version of the OpenAPI document: 0.9.0-pre.0
+ * The version of the OpenAPI document: 0.12.1-pre.0
  */
 class ApiClient extends OAGAC\AbstractApiClient
 {

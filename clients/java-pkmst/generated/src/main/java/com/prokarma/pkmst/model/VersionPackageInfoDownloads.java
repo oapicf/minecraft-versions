@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * VersionPackageInfoDownloads
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoDownloads   {
   @JsonProperty("client")
   private Download client;
@@ -35,10 +35,10 @@ public class VersionPackageInfoDownloads   {
     return this;
   }
 
-   /**
+  /**
    * Get client
    * @return client
-  **/
+   */
   @ApiModelProperty(value = "")
   public Download getClient() {
     return client;
@@ -53,10 +53,10 @@ public class VersionPackageInfoDownloads   {
     return this;
   }
 
-   /**
+  /**
    * Get clientMappings
    * @return clientMappings
-  **/
+   */
   @ApiModelProperty(value = "")
   public Download getClientMappings() {
     return clientMappings;
@@ -71,10 +71,10 @@ public class VersionPackageInfoDownloads   {
     return this;
   }
 
-   /**
+  /**
    * Get server
    * @return server
-  **/
+   */
   @ApiModelProperty(value = "")
   public Download getServer() {
     return server;
@@ -89,10 +89,10 @@ public class VersionPackageInfoDownloads   {
     return this;
   }
 
-   /**
+  /**
    * Get serverMappings
    * @return serverMappings
-  **/
+   */
   @ApiModelProperty(value = "")
   public Download getServerMappings() {
     return serverMappings;

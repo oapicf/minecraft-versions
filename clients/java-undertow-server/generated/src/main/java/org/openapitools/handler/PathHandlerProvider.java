@@ -3,7 +3,7 @@
  *
  * SDK for Minecraft versions info
  *
- * OpenAPI document version: 0.9.0-pre.0
+ * OpenAPI document version: 0.12.1-pre.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!

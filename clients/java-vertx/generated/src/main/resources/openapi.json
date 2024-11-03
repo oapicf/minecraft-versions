@@ -1,5 +1,5 @@
 {
-  "openapi" : "3.0.0",
+  "openapi" : "3.1.0",
   "info" : {
     "contact" : {
       "email" : "blah+oapicf@cliffano.com",
@@ -10,7 +10,7 @@
     "license" : {
       "name" : "MIT"
     },
-    "version" : "0.9.0-pre.0"
+    "version" : "0.12.1-pre.0"
   },
   "servers" : [ {
     "url" : "https://launchermeta.mojang.com"
@@ -87,20 +87,20 @@
       "VersionManifest" : {
         "example" : {
           "versions" : [ {
-            "releaseTime" : "2024-04-01T11:07:19Z",
+            "releaseTime" : "2024-04-01T11:07:19.000Z",
             "id" : "24w14potato",
-            "time" : "2024-04-01T11:14:41Z",
+            "time" : "2024-04-01T11:14:41.000Z",
             "type" : "snapshot",
             "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
           }, {
-            "releaseTime" : "2024-04-01T11:07:19Z",
+            "releaseTime" : "2024-04-01T11:07:19.000Z",
             "id" : "24w14potato",
-            "time" : "2024-04-01T11:14:41Z",
+            "time" : "2024-04-01T11:14:41.000Z",
             "type" : "snapshot",
             "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
           } ],
           "latest" : {
-            "release" : "1.21",
+            "release" : 1.21,
             "snapshot" : "24w14potato"
           }
         },
@@ -114,14 +114,13 @@
             },
             "type" : "array"
           }
-        },
-        "type" : "object"
+        }
       },
       "Version" : {
         "example" : {
-          "releaseTime" : "2024-04-01T11:07:19Z",
+          "releaseTime" : "2024-04-01T11:07:19.000Z",
           "id" : "24w14potato",
-          "time" : "2024-04-01T11:14:41Z",
+          "time" : "2024-04-01T11:14:41.000Z",
           "type" : "snapshot",
           "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
         },
@@ -139,22 +138,21 @@
             "type" : "string"
           },
           "time" : {
-            "example" : "2024-04-01T11:14:41Z",
+            "example" : "2024-04-01T11:14:41.000Z",
             "format" : "date-time",
             "type" : "string"
           },
           "releaseTime" : {
-            "example" : "2024-04-01T11:07:19Z",
+            "example" : "2024-04-01T11:07:19.000Z",
             "format" : "date-time",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "VersionPackageInfo" : {
         "example" : {
           "assets" : "assets",
-          "releaseTime" : "2024-04-01T11:07:19Z",
+          "releaseTime" : "2024-04-01T11:07:19.000Z",
           "mainClass" : "net.minecraft.client.main.Main",
           "downloads" : {
             "server" : {
@@ -192,7 +190,7 @@
             "url" : "url"
           },
           "id" : "id",
-          "time" : "2024-04-01T11:14:41Z",
+          "time" : "2024-04-01T11:14:41.000Z",
           "type" : "snapshot",
           "version" : "version"
         },
@@ -227,12 +225,12 @@
             "type" : "integer"
           },
           "time" : {
-            "example" : "2024-04-01T11:14:41Z",
+            "example" : "2024-04-01T11:14:41.000Z",
             "format" : "date-time",
             "type" : "string"
           },
           "releaseTime" : {
-            "example" : "2024-04-01T11:07:19Z",
+            "example" : "2024-04-01T11:07:19.000Z",
             "format" : "date-time",
             "type" : "string"
           },
@@ -240,8 +238,7 @@
             "example" : "snapshot",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "Download" : {
         "example" : {
@@ -259,25 +256,23 @@
           "url" : {
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "VersionManifest_latest" : {
         "example" : {
-          "release" : "1.21",
+          "release" : 1.21,
           "snapshot" : "24w14potato"
         },
         "properties" : {
           "release" : {
-            "example" : "1.21",
+            "example" : 1.21,
             "type" : "string"
           },
           "snapshot" : {
             "example" : "24w14potato",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "VersionPackageInfo_assetIndex" : {
         "example" : {
@@ -303,8 +298,7 @@
           "url" : {
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "VersionPackageInfo_downloads" : {
         "example" : {
@@ -342,8 +336,7 @@
           "server_mappings" : {
             "$ref" : "#/components/schemas/Download"
           }
-        },
-        "type" : "object"
+        }
       },
       "VersionPackageInfo_javaVersion" : {
         "example" : {
@@ -357,8 +350,7 @@
           "majorVersion" : {
             "type" : "integer"
           }
-        },
-        "type" : "object"
+        }
       }
     }
   }

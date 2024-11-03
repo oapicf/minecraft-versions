@@ -12,8 +12,8 @@ import java.time.OffsetDateTime
  * @param javaVersion  for example: ''null''
  * @param mainClass  for example: ''net.minecraft.client.main.Main''
  * @param minimumLauncherVersion  for example: ''21''
- * @param time  for example: ''2024-04-01T11:14:41Z''
- * @param releaseTime  for example: ''2024-04-01T11:07:19Z''
+ * @param time  for example: ''2024-04-01T11:14:41.000Z''
+ * @param releaseTime  for example: ''2024-04-01T11:07:19.000Z''
  * @param `type`  for example: ''snapshot''
 */
 final case class VersionPackageInfo (

@@ -41,8 +41,8 @@ export class PromiseDefaultApi {
 
     /**
      * Get Minecraft version package info
-     * @param packageId 
-     * @param versionId 
+     * @param packageId
+     * @param versionId
      */
     public getMinecraftVersionPackageInfoWithHttpInfo(packageId: string, versionId: string, _options?: Configuration): Promise<HttpInfo<VersionPackageInfo>> {
         const result = this.api.getMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId, _options);
@@ -51,8 +51,8 @@ export class PromiseDefaultApi {
 
     /**
      * Get Minecraft version package info
-     * @param packageId 
-     * @param versionId 
+     * @param packageId
+     * @param versionId
      */
     public getMinecraftVersionPackageInfo(packageId: string, versionId: string, _options?: Configuration): Promise<VersionPackageInfo> {
         const result = this.api.getMinecraftVersionPackageInfo(packageId, versionId, _options);

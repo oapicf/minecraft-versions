@@ -18,7 +18,7 @@ import javax.validation.Valid;
 */
 @Path("/mc/game/version_manifest.json")
 @Api(description = "the mc API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-06T13:12:09.534237786Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-03T05:51:21.494053955Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class McApi {
 
     @GET

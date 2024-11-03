@@ -1,26 +1,35 @@
 package org.openapitools.server.api;
 
+import java.util.HexFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.helidon.http.Status;
 import org.openapitools.server.model.VersionManifest;
 import org.openapitools.server.model.VersionPackageInfo;
-import java.util.logging.Logger;
-
-import io.helidon.webserver.ServerRequest;
-import io.helidon.webserver.ServerResponse;
+import io.helidon.webserver.http.ServerRequest;
+import io.helidon.webserver.http.ServerResponse;
 
 public class DefaultServiceImpl implements DefaultService {
-
-    private static final int HTTP_CODE_NOT_IMPLEMENTED = 501;
-    private static final Logger LOGGER = Logger.getLogger(DefaultService.class.getName());
     private static final ObjectMapper MAPPER = JsonProvider.objectMapper();
 
 
+    @Override
     public void getMinecraftVersionManifest(ServerRequest request, ServerResponse response) {
-        response.status(HTTP_CODE_NOT_IMPLEMENTED).send();
+        ValidatorUtils.Validator validator = ValidatorUtils.validator();
+
+        response.status(Status.NOT_IMPLEMENTED_501).send();
     }
 
+    @Override
     public void getMinecraftVersionPackageInfo(ServerRequest request, ServerResponse response) {
-        response.status(HTTP_CODE_NOT_IMPLEMENTED).send();
+        ValidatorUtils.Validator validator = ValidatorUtils.validator();
+
+        response.status(Status.NOT_IMPLEMENTED_501).send();
+    }
+
+
+    @Override
+    public void afterStop() {
+        System.out.println("Service DefaultService is down. Goodbye!");
     }
 
 }

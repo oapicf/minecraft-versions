@@ -19,8 +19,7 @@ Download <- R6::R6Class(
     `sha1` = NULL,
     `size` = NULL,
     `url` = NULL,
-    #' Initialize a new Download class.
-    #'
+
     #' @description
     #' Initialize a new Download class.
     #'
@@ -28,7 +27,6 @@ Download <- R6::R6Class(
     #' @param size size
     #' @param url url
     #' @param ... Other optional arguments.
-    #' @export
     initialize = function(`sha1` = NULL, `size` = NULL, `url` = NULL, ...) {
       if (!is.null(`sha1`)) {
         if (!(is.character(`sha1`) && length(`sha1`) == 1)) {
@@ -49,13 +47,11 @@ Download <- R6::R6Class(
         self$`url` <- `url`
       }
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return Download in JSON format
-    #' @export
     toJSON = function() {
       DownloadObject <- list()
       if (!is.null(self$`sha1`)) {
@@ -72,14 +68,12 @@ Download <- R6::R6Class(
       }
       DownloadObject
     },
-    #' Deserialize JSON string into an instance of Download
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of Download
     #'
     #' @param input_json the JSON input
     #' @return the instance of Download
-    #' @export
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`sha1`)) {
@@ -93,13 +87,11 @@ Download <- R6::R6Class(
       }
       self
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return Download in JSON format
-    #' @export
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`sha1`)) {
@@ -130,14 +122,12 @@ Download <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
     },
-    #' Deserialize JSON string into an instance of Download
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of Download
     #'
     #' @param input_json the JSON input
     #' @return the instance of Download
-    #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`sha1` <- this_object$`sha1`
@@ -145,53 +135,42 @@ Download <- R6::R6Class(
       self$`url` <- this_object$`url`
       self
     },
-    #' Validate JSON input with respect to Download
-    #'
+
     #' @description
     #' Validate JSON input with respect to Download and throw an exception if invalid
     #'
     #' @param input the JSON input
-    #' @export
     validateJSON = function(input) {
       input_json <- jsonlite::fromJSON(input)
     },
-    #' To string (JSON format)
-    #'
+
     #' @description
     #' To string (JSON format)
     #'
     #' @return String representation of Download
-    #' @export
     toString = function() {
       self$toJSONString()
     },
-    #' Return true if the values in all fields are valid.
-    #'
+
     #' @description
     #' Return true if the values in all fields are valid.
     #'
     #' @return true if the values in all fields are valid.
-    #' @export
     isValid = function() {
       TRUE
     },
-    #' Return a list of invalid fields (if any).
-    #'
+
     #' @description
     #' Return a list of invalid fields (if any).
     #'
     #' @return A list of invalid fields (if any).
-    #' @export
     getInvalidFields = function() {
       invalid_fields <- list()
       invalid_fields
     },
-    #' Print the object
-    #'
+
     #' @description
     #' Print the object
-    #'
-    #' @export
     print = function() {
       print(jsonlite::prettify(self$toJSONString()))
       invisible(self)

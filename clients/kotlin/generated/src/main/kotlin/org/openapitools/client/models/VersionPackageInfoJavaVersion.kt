@@ -35,5 +35,8 @@ data class VersionPackageInfoJavaVersion (
     @Json(name = "majorVersion")
     val majorVersion: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

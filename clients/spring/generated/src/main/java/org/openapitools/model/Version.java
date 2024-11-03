@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * Version
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T13:14:27.991580528Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Version {
 
   private String id;
@@ -43,7 +43,7 @@ public class Version {
   /**
    * Get id
    * @return id
-  */
+   */
   
   @Schema(name = "id", example = "24w14potato", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
@@ -63,7 +63,7 @@ public class Version {
   /**
    * Get type
    * @return type
-  */
+   */
   
   @Schema(name = "type", example = "snapshot", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("type")
@@ -83,7 +83,7 @@ public class Version {
   /**
    * Get url
    * @return url
-  */
+   */
   
   @Schema(name = "url", example = "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")
@@ -103,9 +103,9 @@ public class Version {
   /**
    * Get time
    * @return time
-  */
+   */
   @Valid 
-  @Schema(name = "time", example = "2024-04-01T11:14:41Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "time", example = "2024-04-01T11:14:41.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
   public OffsetDateTime getTime() {
     return time;
@@ -123,9 +123,9 @@ public class Version {
   /**
    * Get releaseTime
    * @return releaseTime
-  */
+   */
   @Valid 
-  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseTime")
   public OffsetDateTime getReleaseTime() {
     return releaseTime;

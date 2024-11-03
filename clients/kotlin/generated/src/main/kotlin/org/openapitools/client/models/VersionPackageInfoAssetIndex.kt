@@ -47,5 +47,8 @@ data class VersionPackageInfoAssetIndex (
     @Json(name = "url")
     val url: kotlin.String? = null
 
-)
+) {
+
+
+}
 

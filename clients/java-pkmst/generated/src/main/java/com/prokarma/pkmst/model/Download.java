@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Download
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Download   {
   @JsonProperty("sha1")
   private String sha1;
@@ -30,10 +30,10 @@ public class Download   {
     return this;
   }
 
-   /**
+  /**
    * Get sha1
    * @return sha1
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getSha1() {
     return sha1;
@@ -48,10 +48,10 @@ public class Download   {
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
+   */
   @ApiModelProperty(value = "")
   public Integer getSize() {
     return size;
@@ -66,10 +66,10 @@ public class Download   {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;

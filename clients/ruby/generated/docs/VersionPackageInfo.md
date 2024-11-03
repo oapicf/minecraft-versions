@@ -32,8 +32,8 @@ instance = MinecraftVersionsClient::VersionPackageInfo.new(
   java_version: null,
   main_class: net.minecraft.client.main.Main,
   minimum_launcher_version: 21,
-  time: 2024-04-01T11:14:41Z,
-  release_time: 2024-04-01T11:07:19Z,
+  time: 2024-04-01T11:14:41.000Z,
+  release_time: 2024-04-01T11:07:19.000Z,
   type: snapshot
 )
 ```

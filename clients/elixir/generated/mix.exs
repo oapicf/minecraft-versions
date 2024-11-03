@@ -4,7 +4,7 @@ defmodule OpenAPI.Client.Mixfile do
   def project do
     [
       app: :"open_api/client",
-      version: "0.9.0-pre.0",
+      version: "1.0.0",
       elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,

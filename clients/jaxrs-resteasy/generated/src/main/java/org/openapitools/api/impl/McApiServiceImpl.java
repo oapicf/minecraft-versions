@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-07-06T13:12:04.426552064Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-11-03T05:51:15.080738744Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class McApiServiceImpl implements McApiService {
       public Response getMinecraftVersionManifest(SecurityContext securityContext)
       throws NotFoundException {

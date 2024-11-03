@@ -2,10 +2,10 @@
 # VersionManifestLatest
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**release** | **kotlin.String** |  |  [optional]
-**snapshot** | **kotlin.String** |  |  [optional]
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **release** | **kotlin.String** |  |  [optional] |
+| **snapshot** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -37,5 +37,8 @@ data class VersionManifest (
     @Json(name = "versions")
     val versions: kotlin.collections.List<Version>? = null
 
-)
+) {
+
+
+}
 

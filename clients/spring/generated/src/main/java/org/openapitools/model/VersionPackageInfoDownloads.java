@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_downloads")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T13:14:27.991580528Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoDownloads {
 
   private Download client;
@@ -40,7 +40,7 @@ public class VersionPackageInfoDownloads {
   /**
    * Get client
    * @return client
-  */
+   */
   @Valid 
   @Schema(name = "client", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("client")
@@ -60,7 +60,7 @@ public class VersionPackageInfoDownloads {
   /**
    * Get clientMappings
    * @return clientMappings
-  */
+   */
   @Valid 
   @Schema(name = "client_mappings", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("client_mappings")
@@ -80,7 +80,7 @@ public class VersionPackageInfoDownloads {
   /**
    * Get server
    * @return server
-  */
+   */
   @Valid 
   @Schema(name = "server", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("server")
@@ -100,7 +100,7 @@ public class VersionPackageInfoDownloads {
   /**
    * Get serverMappings
    * @return serverMappings
-  */
+   */
   @Valid 
   @Schema(name = "server_mappings", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("server_mappings")

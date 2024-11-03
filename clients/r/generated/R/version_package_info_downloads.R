@@ -21,8 +21,7 @@ VersionPackageInfoDownloads <- R6::R6Class(
     `client_mappings` = NULL,
     `server` = NULL,
     `server_mappings` = NULL,
-    #' Initialize a new VersionPackageInfoDownloads class.
-    #'
+
     #' @description
     #' Initialize a new VersionPackageInfoDownloads class.
     #'
@@ -31,7 +30,6 @@ VersionPackageInfoDownloads <- R6::R6Class(
     #' @param server server
     #' @param server_mappings server_mappings
     #' @param ... Other optional arguments.
-    #' @export
     initialize = function(`client` = NULL, `client_mappings` = NULL, `server` = NULL, `server_mappings` = NULL, ...) {
       if (!is.null(`client`)) {
         stopifnot(R6::is.R6(`client`))
@@ -50,13 +48,11 @@ VersionPackageInfoDownloads <- R6::R6Class(
         self$`server_mappings` <- `server_mappings`
       }
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return VersionPackageInfoDownloads in JSON format
-    #' @export
     toJSON = function() {
       VersionPackageInfoDownloadsObject <- list()
       if (!is.null(self$`client`)) {
@@ -77,14 +73,12 @@ VersionPackageInfoDownloads <- R6::R6Class(
       }
       VersionPackageInfoDownloadsObject
     },
-    #' Deserialize JSON string into an instance of VersionPackageInfoDownloads
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of VersionPackageInfoDownloads
     #'
     #' @param input_json the JSON input
     #' @return the instance of VersionPackageInfoDownloads
-    #' @export
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`client`)) {
@@ -109,13 +103,11 @@ VersionPackageInfoDownloads <- R6::R6Class(
       }
       self
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return VersionPackageInfoDownloads in JSON format
-    #' @export
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`client`)) {
@@ -154,14 +146,12 @@ VersionPackageInfoDownloads <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
     },
-    #' Deserialize JSON string into an instance of VersionPackageInfoDownloads
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of VersionPackageInfoDownloads
     #'
     #' @param input_json the JSON input
     #' @return the instance of VersionPackageInfoDownloads
-    #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`client` <- Download$new()$fromJSON(jsonlite::toJSON(this_object$`client`, auto_unbox = TRUE, digits = NA))
@@ -170,53 +160,42 @@ VersionPackageInfoDownloads <- R6::R6Class(
       self$`server_mappings` <- Download$new()$fromJSON(jsonlite::toJSON(this_object$`server_mappings`, auto_unbox = TRUE, digits = NA))
       self
     },
-    #' Validate JSON input with respect to VersionPackageInfoDownloads
-    #'
+
     #' @description
     #' Validate JSON input with respect to VersionPackageInfoDownloads and throw an exception if invalid
     #'
     #' @param input the JSON input
-    #' @export
     validateJSON = function(input) {
       input_json <- jsonlite::fromJSON(input)
     },
-    #' To string (JSON format)
-    #'
+
     #' @description
     #' To string (JSON format)
     #'
     #' @return String representation of VersionPackageInfoDownloads
-    #' @export
     toString = function() {
       self$toJSONString()
     },
-    #' Return true if the values in all fields are valid.
-    #'
+
     #' @description
     #' Return true if the values in all fields are valid.
     #'
     #' @return true if the values in all fields are valid.
-    #' @export
     isValid = function() {
       TRUE
     },
-    #' Return a list of invalid fields (if any).
-    #'
+
     #' @description
     #' Return a list of invalid fields (if any).
     #'
     #' @return A list of invalid fields (if any).
-    #' @export
     getInvalidFields = function() {
       invalid_fields <- list()
       invalid_fields
     },
-    #' Print the object
-    #'
+
     #' @description
     #' Print the object
-    #'
-    #' @export
     print = function() {
       print(jsonlite::prettify(self$toJSONString()))
       invisible(self)

@@ -14,6 +14,7 @@ from fastapi import (  # noqa: F401
     Depends,
     Form,
     Header,
+    HTTPException,
     Path,
     Query,
     Response,
@@ -44,7 +45,9 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
 )
 async def get_minecraft_version_manifest(
 ) -> VersionManifest:
-    ...
+    if not BaseDefaultApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseDefaultApi.subclasses[0]().get_minecraft_version_manifest()
 
 
 @router.get(
@@ -60,4 +63,6 @@ async def get_minecraft_version_package_info(
     packageId: str = Path(..., description=""),
     versionId: str = Path(..., description=""),
 ) -> VersionPackageInfo:
-    ...
+    if not BaseDefaultApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseDefaultApi.subclasses[0]().get_minecraft_version_package_info(packageId, versionId)

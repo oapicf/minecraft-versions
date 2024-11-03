@@ -44,11 +44,11 @@ public class VersionPackageInfo  {
   @ApiModelProperty(example = "21", value = "")
   private Integer minimumLauncherVersion;
 
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'hh:mm:ss.SSSX")
   private Date time;
 
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'hh:mm:ss.SSSX")
   private Date releaseTime;
 

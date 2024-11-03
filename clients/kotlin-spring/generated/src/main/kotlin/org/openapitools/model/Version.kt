@@ -32,12 +32,12 @@ data class Version(
     @Schema(example = "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json", description = "")
     @get:JsonProperty("url") val url: kotlin.String? = null,
 
-    @Schema(example = "2024-04-01T11:14:41Z", description = "")
+    @Schema(example = "2024-04-01T11:14:41.000Z", description = "")
     @get:JsonProperty("time") val time: java.time.OffsetDateTime? = null,
 
-    @Schema(example = "2024-04-01T11:07:19Z", description = "")
+    @Schema(example = "2024-04-01T11:07:19.000Z", description = "")
     @get:JsonProperty("releaseTime") val releaseTime: java.time.OffsetDateTime? = null
-) {
+    ) {
 
 }
 

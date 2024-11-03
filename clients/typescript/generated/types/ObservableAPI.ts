@@ -35,14 +35,14 @@ export class ObservableDefaultApi {
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
+        for (const middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
         }
 
         return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
             pipe(mergeMap((response: ResponseContext) => {
                 let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
+                for (const middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getMinecraftVersionManifestWithHttpInfo(rsp)));
@@ -58,22 +58,22 @@ export class ObservableDefaultApi {
 
     /**
      * Get Minecraft version package info
-     * @param packageId 
-     * @param versionId 
+     * @param packageId
+     * @param versionId
      */
     public getMinecraftVersionPackageInfoWithHttpInfo(packageId: string, versionId: string, _options?: Configuration): Observable<HttpInfo<VersionPackageInfo>> {
         const requestContextPromise = this.requestFactory.getMinecraftVersionPackageInfo(packageId, versionId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
+        for (const middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
         }
 
         return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
             pipe(mergeMap((response: ResponseContext) => {
                 let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
+                for (const middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getMinecraftVersionPackageInfoWithHttpInfo(rsp)));
@@ -82,8 +82,8 @@ export class ObservableDefaultApi {
 
     /**
      * Get Minecraft version package info
-     * @param packageId 
-     * @param versionId 
+     * @param packageId
+     * @param versionId
      */
     public getMinecraftVersionPackageInfo(packageId: string, versionId: string, _options?: Configuration): Observable<VersionPackageInfo> {
         return this.getMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId, _options).pipe(map((apiResponse: HttpInfo<VersionPackageInfo>) => apiResponse.data));

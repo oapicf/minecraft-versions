@@ -78,5 +78,8 @@ data class VersionPackageInfo (
     @Json(name = "type")
     val type: kotlin.String? = null
 
-)
+) {
+
+
+}
 

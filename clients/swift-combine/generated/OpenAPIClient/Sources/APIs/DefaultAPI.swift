@@ -37,9 +37,9 @@ open class DefaultAPI {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                let path = "/mc/game/version_manifest.json"
-                let url = baseURL.appendingPathComponent(path)
-                let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+                let localVarPath = "/mc/game/version_manifest.json"
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
                     throw OpenAPITransportError.badURLError()
                 }
@@ -68,11 +68,11 @@ open class DefaultAPI {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var path = "/v1/packages/{packageId}/{versionId}.json"
-                path = path.replacingOccurrences(of: "{packageId}", with: packageId)
-                path = path.replacingOccurrences(of: "{versionId}", with: versionId)
-                let url = baseURL.appendingPathComponent(path)
-                let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+                var localVarPath = "/v1/packages/{packageId}/{versionId}.json"
+                localVarPath = localVarPath.replacingOccurrences(of: "{packageId}", with: packageId)
+                localVarPath = localVarPath.replacingOccurrences(of: "{versionId}", with: versionId)
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
                     throw OpenAPITransportError.badURLError()
                 }

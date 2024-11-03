@@ -11,7 +11,7 @@ import org.openapitools.model.Download;
 /**
  * VersionPackageInfoDownloads
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-06T13:11:37.755941612Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-03T05:50:40.177030495Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoDownloads   {
   @JsonProperty("client")
   private Download client;

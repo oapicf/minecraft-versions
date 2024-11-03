@@ -63,15 +63,15 @@ data class VersionPackageInfo(
     @Schema(example = "21", description = "")
     @get:JsonProperty("minimumLauncherVersion") val minimumLauncherVersion: kotlin.Int? = null,
 
-    @Schema(example = "2024-04-01T11:14:41Z", description = "")
+    @Schema(example = "2024-04-01T11:14:41.000Z", description = "")
     @get:JsonProperty("time") val time: java.time.OffsetDateTime? = null,
 
-    @Schema(example = "2024-04-01T11:07:19Z", description = "")
+    @Schema(example = "2024-04-01T11:07:19.000Z", description = "")
     @get:JsonProperty("releaseTime") val releaseTime: java.time.OffsetDateTime? = null,
 
     @Schema(example = "snapshot", description = "")
     @get:JsonProperty("type") val type: kotlin.String? = null
-) {
+    ) {
 
 }
 

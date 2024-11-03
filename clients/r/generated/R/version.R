@@ -23,8 +23,7 @@ Version <- R6::R6Class(
     `url` = NULL,
     `time` = NULL,
     `releaseTime` = NULL,
-    #' Initialize a new Version class.
-    #'
+
     #' @description
     #' Initialize a new Version class.
     #'
@@ -34,7 +33,6 @@ Version <- R6::R6Class(
     #' @param time time
     #' @param releaseTime releaseTime
     #' @param ... Other optional arguments.
-    #' @export
     initialize = function(`id` = NULL, `type` = NULL, `url` = NULL, `time` = NULL, `releaseTime` = NULL, ...) {
       if (!is.null(`id`)) {
         if (!(is.character(`id`) && length(`id`) == 1)) {
@@ -67,13 +65,11 @@ Version <- R6::R6Class(
         self$`releaseTime` <- `releaseTime`
       }
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return Version in JSON format
-    #' @export
     toJSON = function() {
       VersionObject <- list()
       if (!is.null(self$`id`)) {
@@ -98,14 +94,12 @@ Version <- R6::R6Class(
       }
       VersionObject
     },
-    #' Deserialize JSON string into an instance of Version
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of Version
     #'
     #' @param input_json the JSON input
     #' @return the instance of Version
-    #' @export
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`id`)) {
@@ -125,13 +119,11 @@ Version <- R6::R6Class(
       }
       self
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return Version in JSON format
-    #' @export
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -178,14 +170,12 @@ Version <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
     },
-    #' Deserialize JSON string into an instance of Version
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of Version
     #'
     #' @param input_json the JSON input
     #' @return the instance of Version
-    #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
@@ -195,53 +185,42 @@ Version <- R6::R6Class(
       self$`releaseTime` <- this_object$`releaseTime`
       self
     },
-    #' Validate JSON input with respect to Version
-    #'
+
     #' @description
     #' Validate JSON input with respect to Version and throw an exception if invalid
     #'
     #' @param input the JSON input
-    #' @export
     validateJSON = function(input) {
       input_json <- jsonlite::fromJSON(input)
     },
-    #' To string (JSON format)
-    #'
+
     #' @description
     #' To string (JSON format)
     #'
     #' @return String representation of Version
-    #' @export
     toString = function() {
       self$toJSONString()
     },
-    #' Return true if the values in all fields are valid.
-    #'
+
     #' @description
     #' Return true if the values in all fields are valid.
     #'
     #' @return true if the values in all fields are valid.
-    #' @export
     isValid = function() {
       TRUE
     },
-    #' Return a list of invalid fields (if any).
-    #'
+
     #' @description
     #' Return a list of invalid fields (if any).
     #'
     #' @return A list of invalid fields (if any).
-    #' @export
     getInvalidFields = function() {
       invalid_fields <- list()
       invalid_fields
     },
-    #' Print the object
-    #'
+
     #' @description
     #' Print the object
-    #'
-    #' @export
     print = function() {
       print(jsonlite::prettify(self$toJSONString()))
       invisible(self)

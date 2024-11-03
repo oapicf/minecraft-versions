@@ -18,7 +18,7 @@ import java.time.OffsetDateTime;
  * VersionPackageInfo
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfo   {
   @JsonProperty("version")
   private String version;
@@ -61,10 +61,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getVersion() {
     return version;
@@ -79,10 +79,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get assetIndex
    * @return assetIndex
-  **/
+   */
   @ApiModelProperty(value = "")
   public VersionPackageInfoAssetIndex getAssetIndex() {
     return assetIndex;
@@ -97,10 +97,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get assets
    * @return assets
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getAssets() {
     return assets;
@@ -115,10 +115,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get complianceLevel
    * @return complianceLevel
-  **/
+   */
   @ApiModelProperty(value = "")
   public Integer getComplianceLevel() {
     return complianceLevel;
@@ -133,10 +133,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get downloads
    * @return downloads
-  **/
+   */
   @ApiModelProperty(value = "")
   public VersionPackageInfoDownloads getDownloads() {
     return downloads;
@@ -151,10 +151,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getId() {
     return id;
@@ -169,10 +169,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get javaVersion
    * @return javaVersion
-  **/
+   */
   @ApiModelProperty(value = "")
   public VersionPackageInfoJavaVersion getJavaVersion() {
     return javaVersion;
@@ -187,10 +187,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get mainClass
    * @return mainClass
-  **/
+   */
   @ApiModelProperty(example = "net.minecraft.client.main.Main", value = "")
   public String getMainClass() {
     return mainClass;
@@ -205,10 +205,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get minimumLauncherVersion
    * @return minimumLauncherVersion
-  **/
+   */
   @ApiModelProperty(example = "21", value = "")
   public Integer getMinimumLauncherVersion() {
     return minimumLauncherVersion;
@@ -223,11 +223,11 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get time
    * @return time
-  **/
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+   */
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   public OffsetDateTime getTime() {
     return time;
   }
@@ -241,11 +241,11 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get releaseTime
    * @return releaseTime
-  **/
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+   */
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   public OffsetDateTime getReleaseTime() {
     return releaseTime;
   }
@@ -259,10 +259,10 @@ public class VersionPackageInfo   {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @ApiModelProperty(example = "snapshot", value = "")
   public String getType() {
     return type;

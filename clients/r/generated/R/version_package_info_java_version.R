@@ -17,15 +17,13 @@ VersionPackageInfoJavaVersion <- R6::R6Class(
   public = list(
     `component` = NULL,
     `majorVersion` = NULL,
-    #' Initialize a new VersionPackageInfoJavaVersion class.
-    #'
+
     #' @description
     #' Initialize a new VersionPackageInfoJavaVersion class.
     #'
     #' @param component component
     #' @param majorVersion majorVersion
     #' @param ... Other optional arguments.
-    #' @export
     initialize = function(`component` = NULL, `majorVersion` = NULL, ...) {
       if (!is.null(`component`)) {
         if (!(is.character(`component`) && length(`component`) == 1)) {
@@ -40,13 +38,11 @@ VersionPackageInfoJavaVersion <- R6::R6Class(
         self$`majorVersion` <- `majorVersion`
       }
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return VersionPackageInfoJavaVersion in JSON format
-    #' @export
     toJSON = function() {
       VersionPackageInfoJavaVersionObject <- list()
       if (!is.null(self$`component`)) {
@@ -59,14 +55,12 @@ VersionPackageInfoJavaVersion <- R6::R6Class(
       }
       VersionPackageInfoJavaVersionObject
     },
-    #' Deserialize JSON string into an instance of VersionPackageInfoJavaVersion
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of VersionPackageInfoJavaVersion
     #'
     #' @param input_json the JSON input
     #' @return the instance of VersionPackageInfoJavaVersion
-    #' @export
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`component`)) {
@@ -77,13 +71,11 @@ VersionPackageInfoJavaVersion <- R6::R6Class(
       }
       self
     },
-    #' To JSON string
-    #'
+
     #' @description
     #' To JSON String
     #'
     #' @return VersionPackageInfoJavaVersion in JSON format
-    #' @export
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`component`)) {
@@ -106,67 +98,54 @@ VersionPackageInfoJavaVersion <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
     },
-    #' Deserialize JSON string into an instance of VersionPackageInfoJavaVersion
-    #'
+
     #' @description
     #' Deserialize JSON string into an instance of VersionPackageInfoJavaVersion
     #'
     #' @param input_json the JSON input
     #' @return the instance of VersionPackageInfoJavaVersion
-    #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       self$`component` <- this_object$`component`
       self$`majorVersion` <- this_object$`majorVersion`
       self
     },
-    #' Validate JSON input with respect to VersionPackageInfoJavaVersion
-    #'
+
     #' @description
     #' Validate JSON input with respect to VersionPackageInfoJavaVersion and throw an exception if invalid
     #'
     #' @param input the JSON input
-    #' @export
     validateJSON = function(input) {
       input_json <- jsonlite::fromJSON(input)
     },
-    #' To string (JSON format)
-    #'
+
     #' @description
     #' To string (JSON format)
     #'
     #' @return String representation of VersionPackageInfoJavaVersion
-    #' @export
     toString = function() {
       self$toJSONString()
     },
-    #' Return true if the values in all fields are valid.
-    #'
+
     #' @description
     #' Return true if the values in all fields are valid.
     #'
     #' @return true if the values in all fields are valid.
-    #' @export
     isValid = function() {
       TRUE
     },
-    #' Return a list of invalid fields (if any).
-    #'
+
     #' @description
     #' Return a list of invalid fields (if any).
     #'
     #' @return A list of invalid fields (if any).
-    #' @export
     getInvalidFields = function() {
       invalid_fields <- list()
       invalid_fields
     },
-    #' Print the object
-    #'
+
     #' @description
     #' Print the object
-    #'
-    #' @export
     print = function() {
       print(jsonlite::prettify(self$toJSONString()))
       invisible(self)

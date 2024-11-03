@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * VersionPackageInfoAssetIndex
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-06T13:11:40.207723572Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T05:50:43.311573788Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoAssetIndex   {
   @JsonProperty("id")
   private String id;
@@ -37,10 +37,10 @@ public class VersionPackageInfoAssetIndex   {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getId() {
     return id;
@@ -55,10 +55,10 @@ public class VersionPackageInfoAssetIndex   {
     return this;
   }
 
-   /**
+  /**
    * Get sha1
    * @return sha1
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getSha1() {
     return sha1;
@@ -73,10 +73,10 @@ public class VersionPackageInfoAssetIndex   {
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
+   */
   @ApiModelProperty(value = "")
   public Integer getSize() {
     return size;
@@ -91,10 +91,10 @@ public class VersionPackageInfoAssetIndex   {
     return this;
   }
 
-   /**
+  /**
    * Get totalSize
    * @return totalSize
-  **/
+   */
   @ApiModelProperty(value = "")
   public Integer getTotalSize() {
     return totalSize;
@@ -109,10 +109,10 @@ public class VersionPackageInfoAssetIndex   {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;

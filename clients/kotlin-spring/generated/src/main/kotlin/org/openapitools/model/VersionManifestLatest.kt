@@ -25,7 +25,7 @@ data class VersionManifestLatest(
 
     @Schema(example = "24w14potato", description = "")
     @get:JsonProperty("snapshot") val snapshot: kotlin.String? = null
-) {
+    ) {
 
 }
 

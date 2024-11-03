@@ -14,7 +14,7 @@ import org.openapitools.model.VersionPackageInfoJavaVersion;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-07-06T13:11:30.079690525Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-11-03T05:50:29.580421926Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfo   {
   @JsonProperty("version")
   private String version;
@@ -213,7 +213,7 @@ public class VersionPackageInfo   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   @JsonProperty("time")
   public Date getTime() {
     return time;
@@ -230,7 +230,7 @@ public class VersionPackageInfo   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   @JsonProperty("releaseTime")
   public Date getReleaseTime() {
     return releaseTime;

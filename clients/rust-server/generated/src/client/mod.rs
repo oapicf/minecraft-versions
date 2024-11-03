@@ -429,11 +429,13 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
-                let body = serde_json::from_str::<models::VersionManifest>(body).map_err(|e| {
-                    ApiError(format!("Response body did not match the schema: {}", e))
-                })?;
+                let body = serde_json::from_str::<models::VersionManifest>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {}", e)))?;
+
+
                 Ok(GetMinecraftVersionManifestResponse::AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
                     (body)
                 )
@@ -510,11 +512,13 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
-                let body = serde_json::from_str::<models::VersionPackageInfo>(body).map_err(|e| {
-                    ApiError(format!("Response body did not match the schema: {}", e))
-                })?;
+                let body = serde_json::from_str::<models::VersionPackageInfo>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {}", e)))?;
+
+
                 Ok(GetMinecraftVersionPackageInfoResponse::GetPackageVersionDetails
                     (body)
                 )

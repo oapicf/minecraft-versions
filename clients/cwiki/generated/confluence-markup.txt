@@ -2,7 +2,7 @@ h1. OpenAPI Sample
 
 SDK for Minecraft versions info
 
-*Version:* 0.9.0-pre.0
+*Version:* 0.12.1-pre.0
 
 ----
 
@@ -115,8 +115,8 @@ h2. Models
          |id |(x) |{noformat:nopanel=true}String{noformat} |  |  | 24w14potato
          |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | snapshot
          |url |(x) |{noformat:nopanel=true}String{noformat} |  |  | https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json
-         |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41Z
-         |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19Z
+         |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41.000Z
+         |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19.000Z
          
         {anchor:VersionManifestModelAnchor}
         h3. VersionManifest
@@ -154,8 +154,8 @@ h2. Models
          |javaVersion |(x) |{noformat:nopanel=true}VersionPackageInfo_javaVersion{noformat} |  |  | null
          |mainClass |(x) |{noformat:nopanel=true}String{noformat} |  |  | net.minecraft.client.main.Main
          |minimumLauncherVersion |(x) |{noformat:nopanel=true}Integer{noformat} |  |  | 21
-         |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41Z
-         |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19Z
+         |time |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:14:41.000Z
+         |releaseTime |(x) |{noformat:nopanel=true}Date{noformat} |  |  | 2024-04-01T11:07:19.000Z
          |type |(x) |{noformat:nopanel=true}String{noformat} |  |  | snapshot
          
         {anchor:VersionPackageInfoAssetIndexModelAnchor}

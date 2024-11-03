@@ -1,8 +1,8 @@
 # openapi-client
 
 
-- API version: 0.9.0-pre.0
-  - Generator version: 7.6.0
+- API version: 0.12.1-pre.0
+  - Generator version: 7.9.0
 
 SDK for Minecraft versions info
 

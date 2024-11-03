@@ -47,5 +47,8 @@ data class Version (
     @Json(name = "releaseTime")
     val releaseTime: java.time.OffsetDateTime? = null
 
-)
+) {
+
+
+}
 

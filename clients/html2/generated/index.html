@@ -845,7 +845,6 @@ ul.nav-tabs {
     // Script section to load models into a JS Var
     var defs = {}
     defs["Download"] = {
-  "type" : "object",
   "properties" : {
     "sha1" : {
       "type" : "string"
@@ -859,7 +858,6 @@ ul.nav-tabs {
   }
 };
     defs["Version"] = {
-  "type" : "object",
   "properties" : {
     "id" : {
       "type" : "string",
@@ -876,17 +874,16 @@ ul.nav-tabs {
     "time" : {
       "type" : "string",
       "format" : "date-time",
-      "example" : "2024-04-01T11:14:41Z"
+      "example" : "2024-04-01T11:14:41.000Z"
     },
     "releaseTime" : {
       "type" : "string",
       "format" : "date-time",
-      "example" : "2024-04-01T11:07:19Z"
+      "example" : "2024-04-01T11:07:19.000Z"
     }
   }
 };
     defs["VersionManifest"] = {
-  "type" : "object",
   "properties" : {
     "latest" : {
       "$ref" : "#/components/schemas/VersionManifest_latest"
@@ -900,11 +897,10 @@ ul.nav-tabs {
   }
 };
     defs["VersionManifest_latest"] = {
-  "type" : "object",
   "properties" : {
     "release" : {
       "type" : "string",
-      "example" : "1.21"
+      "example" : 1.21
     },
     "snapshot" : {
       "type" : "string",
@@ -913,7 +909,6 @@ ul.nav-tabs {
   }
 };
     defs["VersionPackageInfo"] = {
-  "type" : "object",
   "properties" : {
     "version" : {
       "type" : "string"
@@ -947,12 +942,12 @@ ul.nav-tabs {
     "time" : {
       "type" : "string",
       "format" : "date-time",
-      "example" : "2024-04-01T11:14:41Z"
+      "example" : "2024-04-01T11:14:41.000Z"
     },
     "releaseTime" : {
       "type" : "string",
       "format" : "date-time",
-      "example" : "2024-04-01T11:07:19Z"
+      "example" : "2024-04-01T11:07:19.000Z"
     },
     "type" : {
       "type" : "string",
@@ -961,7 +956,6 @@ ul.nav-tabs {
   }
 };
     defs["VersionPackageInfo_assetIndex"] = {
-  "type" : "object",
   "properties" : {
     "id" : {
       "type" : "string"
@@ -981,7 +975,6 @@ ul.nav-tabs {
   }
 };
     defs["VersionPackageInfo_downloads"] = {
-  "type" : "object",
   "properties" : {
     "client" : {
       "$ref" : "#/components/schemas/Download"
@@ -998,7 +991,6 @@ ul.nav-tabs {
   }
 };
     defs["VersionPackageInfo_javaVersion"] = {
-  "type" : "object",
   "properties" : {
     "component" : {
       "type" : "string"
@@ -1047,7 +1039,7 @@ ul.nav-tabs {
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 0.9.0-pre.0</div>
+              <div class="app-desc">Version: 0.12.1-pre.0</div>
             <hr>
             <div id="app-description" class="app-desc">
                 SDK for Minecraft versions info

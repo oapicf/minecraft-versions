@@ -1,5 +1,9 @@
 ## @
 
+SDK for Minecraft versions info
+
+The version of the OpenAPI document: 0.12.1-pre.0
+
 ### Building
 
 To install the required dependencies and to build the typescript sources run:

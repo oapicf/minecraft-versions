@@ -29,7 +29,7 @@ data class Download(
 
     @Schema(example = "null", description = "")
     @get:JsonProperty("url") val url: kotlin.String? = null
-) {
+    ) {
 
 }
 

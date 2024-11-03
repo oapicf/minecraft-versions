@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_javaVersion")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T13:14:27.991580528Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionPackageInfoJavaVersion {
 
   private String component;
@@ -35,7 +35,7 @@ public class VersionPackageInfoJavaVersion {
   /**
    * Get component
    * @return component
-  */
+   */
   
   @Schema(name = "component", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("component")
@@ -55,7 +55,7 @@ public class VersionPackageInfoJavaVersion {
   /**
    * Get majorVersion
    * @return majorVersion
-  */
+   */
   
   @Schema(name = "majorVersion", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("majorVersion")

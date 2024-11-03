@@ -39,10 +39,10 @@ public class VersionPackageInfo  {
   @ApiModelProperty(example = "21", value = "")
   private Integer minimumLauncherVersion;
 
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   private Date time;
 
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   private Date releaseTime;
 
   @ApiModelProperty(example = "snapshot", value = "")

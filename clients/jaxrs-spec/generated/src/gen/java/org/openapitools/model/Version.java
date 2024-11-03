@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("Version")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-06T13:12:09.534237786Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-03T05:51:21.494053955Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Version   {
   private String id;
   private String type;
@@ -89,7 +89,7 @@ public class Version   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   @JsonProperty("time")
   public Date getTime() {
     return time;
@@ -108,7 +108,7 @@ public class Version   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   @JsonProperty("releaseTime")
   public Date getReleaseTime() {
     return releaseTime;

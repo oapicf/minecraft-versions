@@ -3,7 +3,7 @@
  *
  * SDK for Minecraft versions info
  *
- * OpenAPI document version: 0.9.0-pre.0
+ * OpenAPI document version: 0.12.1-pre.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -21,7 +21,7 @@ import java.util.Date;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-06T13:11:45.287225984Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-03T05:50:50.371129934Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Version   {
   
   private String id;
@@ -89,7 +89,7 @@ public class Version   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:14:41Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
   @JsonProperty("time")
   public Date getTime() {
     return time;
@@ -106,7 +106,7 @@ public class Version   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:07:19Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
   @JsonProperty("releaseTime")
   public Date getReleaseTime() {
     return releaseTime;

@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://launchermeta.mojang.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest
-[**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
+| [**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 <a id="getMinecraftVersionManifest"></a>
@@ -77,11 +77,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **packageId** | **kotlin.String**|  |
- **versionId** | **kotlin.String**|  |
+| **packageId** | **kotlin.String**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **versionId** | **kotlin.String**|  | |
 
 ### Return type
 

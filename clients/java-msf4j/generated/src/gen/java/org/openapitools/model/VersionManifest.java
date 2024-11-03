@@ -14,7 +14,7 @@ import org.openapitools.model.VersionManifestLatest;
 /**
  * VersionManifest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-06T13:11:37.755941612Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-03T05:50:40.177030495Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionManifest   {
   @JsonProperty("latest")
   private VersionManifestLatest latest;

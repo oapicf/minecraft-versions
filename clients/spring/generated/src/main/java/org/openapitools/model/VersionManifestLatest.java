@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionManifest_latest")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-06T13:14:27.991580528Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class VersionManifestLatest {
 
   private String release;
@@ -35,7 +35,7 @@ public class VersionManifestLatest {
   /**
    * Get release
    * @return release
-  */
+   */
   
   @Schema(name = "release", example = "1.21", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("release")
@@ -55,7 +55,7 @@ public class VersionManifestLatest {
   /**
    * Get snapshot
    * @return snapshot
-  */
+   */
   
   @Schema(name = "snapshot", example = "24w14potato", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("snapshot")

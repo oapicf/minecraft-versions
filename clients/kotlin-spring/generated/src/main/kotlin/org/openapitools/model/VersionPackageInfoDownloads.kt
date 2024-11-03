@@ -38,7 +38,7 @@ data class VersionPackageInfoDownloads(
     @field:Valid
     @Schema(example = "null", description = "")
     @get:JsonProperty("server_mappings") val serverMappings: Download? = null
-) {
+    ) {
 
 }
 
