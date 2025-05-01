@@ -4,7 +4,7 @@
 ################################################################
 
 # The version of Swaggy C
-SWAGGY_C_VERSION = 4.9.0
+SWAGGY_C_VERSION = 4.10.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.12.0
@@ -63,6 +63,10 @@ else
   APP_BASE_DIR=$(shell yq .base_dir.local swaggy-c.yml)
 	endif
 endif
+
+define python_venv
+	. .venv/bin/activate && $(1)
+endef
 
 $(info ################################################################)
 $(info Building Swaggy C application with user configurations:)
@@ -168,12 +172,12 @@ build-javascript:
 	  npm link ../../clients/javascript/generated/
 
 build-python:
-	apt-get install -y python-setuptools
-	pip install twine wheel pytest validators
 	cd clients/python/generated/ && \
-	  pip install -r requirements.txt && \
-	  python3 setup.py sdist bdist_wheel && \
-	  python3 setup.py install
+	  python3 -m venv .venv && \
+	  $(call python_venv,pip install twine wheel pytest setuptools validators) && \
+	  $(call python_venv,pip install -r requirements.txt) && \
+	  $(call python_venv,python3 setup.py sdist bdist_wheel) && \
+	  $(call python_venv,python3 setup.py install --single-version-externally-managed --record record.txt)
 
 build-ruby:
 	apt-get install libyaml-dev
@@ -196,8 +200,8 @@ test-javascript: build-javascript
 
 test-python: build-python
 	cd clients/python/generated/ && \
-	  twine check dist/*
-	pytest -v test/python/*.py --capture=no
+	  $(call python_venv,twine check dist/*) && \
+	  $(call python_venv,pytest -v ../../../test/python/*.py --capture=no)
 
 test-ruby: build-ruby
 
@@ -210,7 +214,7 @@ publish-javascript: build-javascript
 
 publish-python: build-python
 	cd clients/python/generated/ && \
-	  twine upload dist/*
+	  $(call python_venv,twine upload dist/*)
 
 publish-ruby: build-ruby
 	cd clients/ruby/generated/ && \
