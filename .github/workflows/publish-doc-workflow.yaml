@@ -19,4 +19,4 @@ jobs:
           CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot
           <blah+pakkun@cliffano.com>" --repo "https://cliffano:${{
           secrets.OAPICF_GITHUB_TOKEN
-          }}@github.com/oapicf/minecraft-versions.git"
+          }}@github.com/${{ github.repository }}.git"
