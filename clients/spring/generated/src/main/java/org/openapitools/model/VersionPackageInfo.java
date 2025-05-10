@@ -9,6 +9,7 @@ import org.openapitools.model.VersionPackageInfoAssetIndex;
 import org.openapitools.model.VersionPackageInfoDownloads;
 import org.openapitools.model.VersionPackageInfoJavaVersion;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -23,34 +24,34 @@ import javax.annotation.Generated;
  * VersionPackageInfo
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionPackageInfo {
 
-  private String version;
+  private @Nullable String version;
 
-  private VersionPackageInfoAssetIndex assetIndex;
+  private @Nullable VersionPackageInfoAssetIndex assetIndex;
 
-  private String assets;
+  private @Nullable String assets;
 
-  private Integer complianceLevel;
+  private @Nullable Integer complianceLevel;
 
-  private VersionPackageInfoDownloads downloads;
+  private @Nullable VersionPackageInfoDownloads downloads;
 
-  private String id;
+  private @Nullable String id;
 
-  private VersionPackageInfoJavaVersion javaVersion;
+  private @Nullable VersionPackageInfoJavaVersion javaVersion;
 
-  private String mainClass;
+  private @Nullable String mainClass;
 
-  private Integer minimumLauncherVersion;
-
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime time;
+  private @Nullable Integer minimumLauncherVersion;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime releaseTime;
+  private @Nullable OffsetDateTime time;
 
-  private String type;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private @Nullable OffsetDateTime releaseTime;
+
+  private @Nullable String type;
 
   public VersionPackageInfo version(String version) {
     this.version = version;

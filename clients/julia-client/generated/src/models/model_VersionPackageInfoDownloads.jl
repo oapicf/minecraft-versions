@@ -39,4 +39,8 @@ function check_required(o::VersionPackageInfoDownloads)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfoDownloads }, name::Symbol, val)
+
+
+
+
 end

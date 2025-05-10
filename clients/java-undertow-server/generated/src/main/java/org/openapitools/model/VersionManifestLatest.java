@@ -3,7 +3,7 @@
  *
  * SDK for Minecraft versions info
  *
- * OpenAPI document version: 0.12.1-pre.0
+ * OpenAPI document version: 1.1.1-pre.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-03T05:50:50.371129934Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2025-05-10T01:44:19.984836271Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionManifestLatest   {
   
   private String release;

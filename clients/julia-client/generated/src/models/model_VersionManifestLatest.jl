@@ -31,4 +31,6 @@ function check_required(o::VersionManifestLatest)
 end
 
 function OpenAPI.validate_property(::Type{ VersionManifestLatest }, name::Symbol, val)
+
+
 end

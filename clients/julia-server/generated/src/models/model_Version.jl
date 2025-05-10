@@ -43,9 +43,14 @@ function check_required(o::Version)
 end
 
 function OpenAPI.validate_property(::Type{ Version }, name::Symbol, val)
+
+
+
+
     if name === Symbol("time")
         OpenAPI.validate_param(name, "Version", :format, val, "date-time")
     end
+
     if name === Symbol("releaseTime")
         OpenAPI.validate_param(name, "Version", :format, val, "date-time")
     end

@@ -1,9 +1,9 @@
 # openapi-java-client
 
 
-- API version: 0.12.1-pre.0
-  - Build date: 2024-11-03T05:50:14.104307196Z[Etc/UTC]
-  - Generator version: 7.9.0
+- API version: 1.1.1-pre.0
+  - Build date: 2025-05-10T01:44:03.457407048Z[Etc/UTC]
+  - Generator version: 7.12.0
 
 SDK for Minecraft versions info
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>0.12.1-pre.0</version>
+  <version>1.1.1-pre.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:0.12.1-pre.0"
+     implementation "org.openapitools:openapi-java-client:1.1.1-pre.0"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-0.12.1-pre.0.jar`
+* `target/openapi-java-client-1.1.1-pre.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

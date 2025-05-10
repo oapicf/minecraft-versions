@@ -1,6 +1,5 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/DefaultApi.md
@@ -26,12 +25,3 @@ src/model/VersionPackageInfo.js
 src/model/VersionPackageInfoAssetIndex.js
 src/model/VersionPackageInfoDownloads.js
 src/model/VersionPackageInfoJavaVersion.js
-test/api/DefaultApi.spec.js
-test/model/Download.spec.js
-test/model/Version.spec.js
-test/model/VersionManifest.spec.js
-test/model/VersionManifestLatest.spec.js
-test/model/VersionPackageInfo.spec.js
-test/model/VersionPackageInfoAssetIndex.spec.js
-test/model/VersionPackageInfoDownloads.spec.js
-test/model/VersionPackageInfoJavaVersion.spec.js

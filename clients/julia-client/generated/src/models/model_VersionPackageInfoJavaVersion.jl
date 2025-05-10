@@ -31,4 +31,6 @@ function check_required(o::VersionPackageInfoJavaVersion)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfoJavaVersion }, name::Symbol, val)
+
+
 end

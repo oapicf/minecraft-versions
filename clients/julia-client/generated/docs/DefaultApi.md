@@ -43,8 +43,8 @@ Get Minecraft version package info
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_api** | **DefaultApi** | API context | 
-**package_id** | **String**|  | [default to nothing]
-**version_id** | **String**|  | [default to nothing]
+**package_id** | **String** |  |
+**version_id** | **String** |  |
 
 ### Return type
 

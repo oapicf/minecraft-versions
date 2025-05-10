@@ -2,7 +2,7 @@ h1. OpenAPI Sample
 
 SDK for Minecraft versions info
 
-*Version:* 0.12.1-pre.0
+*Version:* 1.1.1-pre.0
 
 ----
 

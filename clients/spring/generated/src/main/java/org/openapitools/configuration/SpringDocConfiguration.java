@@ -30,7 +30,7 @@ public class SpringDocConfiguration {
                                                 .name("MIT")
                                                 .url("http://unlicense.org")
                                 )
-                                .version("0.12.1-pre.0")
+                                .version("1.1.1-pre.0")
                 )
         ;
     }

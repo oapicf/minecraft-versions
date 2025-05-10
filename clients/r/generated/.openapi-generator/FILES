@@ -2,7 +2,6 @@
 .github/workflows/r-client.yaml
 .gitignore
 .lintr
-.openapi-generator-ignore
 .travis.yml
 DESCRIPTION
 NAMESPACE
@@ -29,12 +28,3 @@ docs/VersionPackageInfoDownloads.md
 docs/VersionPackageInfoJavaVersion.md
 git_push.sh
 tests/testthat.R
-tests/testthat/test_default_api.R
-tests/testthat/test_download.R
-tests/testthat/test_version.R
-tests/testthat/test_version_manifest.R
-tests/testthat/test_version_manifest_latest.R
-tests/testthat/test_version_package_info.R
-tests/testthat/test_version_package_info_asset_index.R
-tests/testthat/test_version_package_info_downloads.R
-tests/testthat/test_version_package_info_java_version.R

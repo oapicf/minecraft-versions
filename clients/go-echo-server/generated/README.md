@@ -12,9 +12,9 @@ To see how to make this your own, look here:
 
 [README](https://openapi-generator.tech)
 
-- API version: 0.12.1-pre.0
-- Build date: 2024-11-03T05:49:31.425041307Z[Etc/UTC]
-- Generator version: 7.9.0
+- API version: 1.1.1-pre.0
+- Build date: 2025-05-10T01:43:46.598866008Z[Etc/UTC]
+- Generator version: 7.12.0
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
 
 ### Running the server

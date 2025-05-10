@@ -23,6 +23,7 @@ from fastapi import (  # noqa: F401
 )
 
 from openapi_server.models.extra_models import TokenModel  # noqa: F401
+from pydantic import StrictStr
 from openapi_server.models.version_manifest import VersionManifest
 from openapi_server.models.version_package_info import VersionPackageInfo
 
@@ -60,8 +61,8 @@ async def get_minecraft_version_manifest(
     response_model_by_alias=True,
 )
 async def get_minecraft_version_package_info(
-    packageId: str = Path(..., description=""),
-    versionId: str = Path(..., description=""),
+    packageId: StrictStr = Path(..., description=""),
+    versionId: StrictStr = Path(..., description=""),
 ) -> VersionPackageInfo:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")

@@ -1,5 +1,3 @@
-.openapi-generator-ignore
-README.md
 docs/DefaultApi.md
 docs/Download.md
 docs/Version.md
@@ -9,7 +7,6 @@ docs/VersionPackageInfo.md
 docs/VersionPackageInfoAssetIndex.md
 docs/VersionPackageInfoDownloads.md
 docs/VersionPackageInfoJavaVersion.md
-pom.xml
 src/main/java/org/openapitools/client/JavaTimeFormatter.java
 src/main/java/org/openapitools/client/RFC3339DateFormat.java
 src/main/java/org/openapitools/client/api/ApiException.java
@@ -23,12 +20,3 @@ src/main/java/org/openapitools/client/model/VersionPackageInfo.java
 src/main/java/org/openapitools/client/model/VersionPackageInfoAssetIndex.java
 src/main/java/org/openapitools/client/model/VersionPackageInfoDownloads.java
 src/main/java/org/openapitools/client/model/VersionPackageInfoJavaVersion.java
-src/test/java/org/openapitools/client/api/DefaultApiTest.java
-src/test/java/org/openapitools/client/model/DownloadTest.java
-src/test/java/org/openapitools/client/model/VersionManifestLatestTest.java
-src/test/java/org/openapitools/client/model/VersionManifestTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoAssetIndexTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoDownloadsTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoJavaVersionTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoTest.java
-src/test/java/org/openapitools/client/model/VersionTest.java

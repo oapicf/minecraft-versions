@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -20,20 +21,20 @@ import javax.annotation.Generated;
  * Version
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Version {
 
-  private String id;
+  private @Nullable String id;
 
-  private String type;
+  private @Nullable String type;
 
-  private String url;
-
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime time;
+  private @Nullable String url;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime releaseTime;
+  private @Nullable OffsetDateTime time;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private @Nullable OffsetDateTime releaseTime;
 
   public Version id(String id) {
     this.id = id;

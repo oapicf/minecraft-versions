@@ -124,10 +124,35 @@ VersionPackageInfo <- R6::R6Class(
     },
 
     #' @description
-    #' To JSON String
-    #'
-    #' @return VersionPackageInfo in JSON format
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
     toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return VersionPackageInfo as a base R list.
+    #' @examples
+    #' # convert array of VersionPackageInfo (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert VersionPackageInfo to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
       VersionPackageInfoObject <- list()
       if (!is.null(self$`version`)) {
         VersionPackageInfoObject[["version"]] <-
@@ -135,7 +160,7 @@ VersionPackageInfo <- R6::R6Class(
       }
       if (!is.null(self$`assetIndex`)) {
         VersionPackageInfoObject[["assetIndex"]] <-
-          self$`assetIndex`$toJSON()
+          self$`assetIndex`$toSimpleType()
       }
       if (!is.null(self$`assets`)) {
         VersionPackageInfoObject[["assets"]] <-
@@ -147,7 +172,7 @@ VersionPackageInfo <- R6::R6Class(
       }
       if (!is.null(self$`downloads`)) {
         VersionPackageInfoObject[["downloads"]] <-
-          self$`downloads`$toJSON()
+          self$`downloads`$toSimpleType()
       }
       if (!is.null(self$`id`)) {
         VersionPackageInfoObject[["id"]] <-
@@ -155,7 +180,7 @@ VersionPackageInfo <- R6::R6Class(
       }
       if (!is.null(self$`javaVersion`)) {
         VersionPackageInfoObject[["javaVersion"]] <-
-          self$`javaVersion`$toJSON()
+          self$`javaVersion`$toSimpleType()
       }
       if (!is.null(self$`mainClass`)) {
         VersionPackageInfoObject[["mainClass"]] <-
@@ -177,7 +202,7 @@ VersionPackageInfo <- R6::R6Class(
         VersionPackageInfoObject[["type"]] <-
           self$`type`
       }
-      VersionPackageInfoObject
+      return(VersionPackageInfoObject)
     },
 
     #' @description
@@ -234,109 +259,13 @@ VersionPackageInfo <- R6::R6Class(
 
     #' @description
     #' To JSON String
-    #'
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
     #' @return VersionPackageInfo in JSON format
-    toJSONString = function() {
-      jsoncontent <- c(
-        if (!is.null(self$`version`)) {
-          sprintf(
-          '"version":
-            "%s"
-                    ',
-          self$`version`
-          )
-        },
-        if (!is.null(self$`assetIndex`)) {
-          sprintf(
-          '"assetIndex":
-          %s
-          ',
-          jsonlite::toJSON(self$`assetIndex`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`assets`)) {
-          sprintf(
-          '"assets":
-            "%s"
-                    ',
-          self$`assets`
-          )
-        },
-        if (!is.null(self$`complianceLevel`)) {
-          sprintf(
-          '"complianceLevel":
-            %d
-                    ',
-          self$`complianceLevel`
-          )
-        },
-        if (!is.null(self$`downloads`)) {
-          sprintf(
-          '"downloads":
-          %s
-          ',
-          jsonlite::toJSON(self$`downloads`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`id`)) {
-          sprintf(
-          '"id":
-            "%s"
-                    ',
-          self$`id`
-          )
-        },
-        if (!is.null(self$`javaVersion`)) {
-          sprintf(
-          '"javaVersion":
-          %s
-          ',
-          jsonlite::toJSON(self$`javaVersion`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`mainClass`)) {
-          sprintf(
-          '"mainClass":
-            "%s"
-                    ',
-          self$`mainClass`
-          )
-        },
-        if (!is.null(self$`minimumLauncherVersion`)) {
-          sprintf(
-          '"minimumLauncherVersion":
-            %d
-                    ',
-          self$`minimumLauncherVersion`
-          )
-        },
-        if (!is.null(self$`time`)) {
-          sprintf(
-          '"time":
-            "%s"
-                    ',
-          self$`time`
-          )
-        },
-        if (!is.null(self$`releaseTime`)) {
-          sprintf(
-          '"releaseTime":
-            "%s"
-                    ',
-          self$`releaseTime`
-          )
-        },
-        if (!is.null(self$`type`)) {
-          sprintf(
-          '"type":
-            "%s"
-                    ',
-          self$`type`
-          )
-        }
-      )
-      jsoncontent <- paste(jsoncontent, collapse = ",")
-      json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
     },
 
     #' @description

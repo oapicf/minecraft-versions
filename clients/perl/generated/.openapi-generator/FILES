@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 bin/autodoc
@@ -28,12 +27,3 @@ lib/WWW/OpenAPIClient/Object/VersionPackageInfoDownloads.pm
 lib/WWW/OpenAPIClient/Object/VersionPackageInfoJavaVersion.pm
 lib/WWW/OpenAPIClient/Role.pm
 lib/WWW/OpenAPIClient/Role/AutoDoc.pm
-t/DefaultApiTest.t
-t/DownloadTest.t
-t/VersionManifestLatestTest.t
-t/VersionManifestTest.t
-t/VersionPackageInfoAssetIndexTest.t
-t/VersionPackageInfoDownloadsTest.t
-t/VersionPackageInfoJavaVersionTest.t
-t/VersionPackageInfoTest.t
-t/VersionTest.t

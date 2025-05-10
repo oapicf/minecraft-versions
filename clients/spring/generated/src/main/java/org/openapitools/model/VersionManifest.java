@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.Version;
 import org.openapitools.model.VersionManifestLatest;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -23,10 +24,10 @@ import javax.annotation.Generated;
  * VersionManifest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionManifest {
 
-  private VersionManifestLatest latest;
+  private @Nullable VersionManifestLatest latest;
 
   @Valid
   private List<@Valid Version> versions = new ArrayList<>();

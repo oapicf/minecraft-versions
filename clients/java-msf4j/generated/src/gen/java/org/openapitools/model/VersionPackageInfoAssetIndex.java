@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * VersionPackageInfoAssetIndex
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-03T05:50:40.177030495Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2025-05-10T01:44:16.356714070Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionPackageInfoAssetIndex   {
   @JsonProperty("id")
   private String id;

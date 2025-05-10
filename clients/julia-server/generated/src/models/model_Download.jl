@@ -35,4 +35,7 @@ function check_required(o::Download)
 end
 
 function OpenAPI.validate_property(::Type{ Download }, name::Symbol, val)
+
+
+
 end

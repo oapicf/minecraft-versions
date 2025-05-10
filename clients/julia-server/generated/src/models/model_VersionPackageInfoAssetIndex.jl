@@ -43,4 +43,9 @@ function check_required(o::VersionPackageInfoAssetIndex)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfoAssetIndex }, name::Symbol, val)
+
+
+
+
+
 end

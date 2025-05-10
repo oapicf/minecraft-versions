@@ -47,6 +47,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /mc/game/version_manifest.json
      * Get Minecraft version manifest
      * 
      * @return VersionManifest
@@ -77,6 +78,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /mc/game/version_manifest.json
      * Get Minecraft version manifest
      * 
      * @return ApiResponse<VersionManifest?>
@@ -115,6 +117,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /v1/packages/{packageId}/{versionId}.json
      * Get Minecraft version package info
      * 
      * @param packageId 
@@ -147,6 +150,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /v1/packages/{packageId}/{versionId}.json
      * Get Minecraft version package info
      * 
      * @param packageId 

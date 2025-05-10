@@ -1,5 +1,6 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration} from '../configuration'
+import { Configuration, ConfigurationOptions, PromiseConfigurationOptions } from '../configuration'
+import { PromiseMiddleware, Middleware, PromiseMiddlewareWrapper } from '../middleware';
 
 import { Download } from '../models/Download';
 import { Version } from '../models/Version';
@@ -26,16 +27,40 @@ export class PromiseDefaultApi {
     /**
      * Get Minecraft version manifest
      */
-    public getMinecraftVersionManifestWithHttpInfo(_options?: Configuration): Promise<HttpInfo<VersionManifest>> {
-        const result = this.api.getMinecraftVersionManifestWithHttpInfo(_options);
+    public getMinecraftVersionManifestWithHttpInfo(_options?: PromiseConfigurationOptions): Promise<HttpInfo<VersionManifest>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getMinecraftVersionManifestWithHttpInfo(observableOptions);
         return result.toPromise();
     }
 
     /**
      * Get Minecraft version manifest
      */
-    public getMinecraftVersionManifest(_options?: Configuration): Promise<VersionManifest> {
-        const result = this.api.getMinecraftVersionManifest(_options);
+    public getMinecraftVersionManifest(_options?: PromiseConfigurationOptions): Promise<VersionManifest> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getMinecraftVersionManifest(observableOptions);
         return result.toPromise();
     }
 
@@ -44,8 +69,20 @@ export class PromiseDefaultApi {
      * @param packageId
      * @param versionId
      */
-    public getMinecraftVersionPackageInfoWithHttpInfo(packageId: string, versionId: string, _options?: Configuration): Promise<HttpInfo<VersionPackageInfo>> {
-        const result = this.api.getMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId, _options);
+    public getMinecraftVersionPackageInfoWithHttpInfo(packageId: string, versionId: string, _options?: PromiseConfigurationOptions): Promise<HttpInfo<VersionPackageInfo>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId, observableOptions);
         return result.toPromise();
     }
 
@@ -54,8 +91,20 @@ export class PromiseDefaultApi {
      * @param packageId
      * @param versionId
      */
-    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, _options?: Configuration): Promise<VersionPackageInfo> {
-        const result = this.api.getMinecraftVersionPackageInfo(packageId, versionId, _options);
+    public getMinecraftVersionPackageInfo(packageId: string, versionId: string, _options?: PromiseConfigurationOptions): Promise<VersionPackageInfo> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getMinecraftVersionPackageInfo(packageId, versionId, observableOptions);
         return result.toPromise();
     }
 

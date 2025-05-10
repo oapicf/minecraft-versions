@@ -5,6 +5,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -20,18 +21,18 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_assetIndex")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionPackageInfoAssetIndex {
 
-  private String id;
+  private @Nullable String id;
 
-  private String sha1;
+  private @Nullable String sha1;
 
-  private Integer size;
+  private @Nullable Integer size;
 
-  private Integer totalSize;
+  private @Nullable Integer totalSize;
 
-  private String url;
+  private @Nullable String url;
 
   public VersionPackageInfoAssetIndex id(String id) {
     this.id = id;

@@ -13,6 +13,8 @@ Method | HTTP request | Description
 
 Get Minecraft version manifest
 
+
+
 ### Example
 
 ```python
@@ -73,6 +75,8 @@ No authorization required
 > VersionPackageInfo get_minecraft_version_package_info(package_id, version_id)
 
 Get Minecraft version package info
+
+
 
 ### Example
 

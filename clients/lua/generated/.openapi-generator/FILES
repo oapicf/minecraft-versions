@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 git_push.sh
 openapiclient-1.0.0-1.rockspec
 openapiclient/api/default_api.lua
@@ -11,12 +10,3 @@ openapiclient/model/version_package_info.lua
 openapiclient/model/version_package_info_asset_index.lua
 openapiclient/model/version_package_info_downloads.lua
 openapiclient/model/version_package_info_java_version.lua
-spec/default_api_spec.lua
-spec/download_spec.lua
-spec/version_manifest_latest_spec.lua
-spec/version_manifest_spec.lua
-spec/version_package_info_asset_index_spec.lua
-spec/version_package_info_downloads_spec.lua
-spec/version_package_info_java_version_spec.lua
-spec/version_package_info_spec.lua
-spec/version_spec.lua

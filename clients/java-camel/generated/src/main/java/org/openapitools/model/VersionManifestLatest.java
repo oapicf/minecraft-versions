@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionManifest_latest")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-11-03T05:50:59.622218574Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2025-05-10T01:44:23.523300269Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionManifestLatest {
 
   private String release;

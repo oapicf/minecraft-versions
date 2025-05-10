@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @JsonTypeName("VersionPackageInfo")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-03T05:51:21.494053955Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-10T01:44:31.966794260Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionPackageInfo   {
   private String version;
   private VersionPackageInfoAssetIndex assetIndex;
@@ -33,6 +33,9 @@ public class VersionPackageInfo   {
   private Date time;
   private Date releaseTime;
   private String type;
+
+  public VersionPackageInfo() {
+  }
 
   /**
    **/

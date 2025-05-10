@@ -67,10 +67,35 @@ Version <- R6::R6Class(
     },
 
     #' @description
-    #' To JSON String
-    #'
-    #' @return Version in JSON format
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
     toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return Version as a base R list.
+    #' @examples
+    #' # convert array of Version (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert Version to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
       VersionObject <- list()
       if (!is.null(self$`id`)) {
         VersionObject[["id"]] <-
@@ -92,7 +117,7 @@ Version <- R6::R6Class(
         VersionObject[["releaseTime"]] <-
           self$`releaseTime`
       }
-      VersionObject
+      return(VersionObject)
     },
 
     #' @description
@@ -122,53 +147,13 @@ Version <- R6::R6Class(
 
     #' @description
     #' To JSON String
-    #'
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
     #' @return Version in JSON format
-    toJSONString = function() {
-      jsoncontent <- c(
-        if (!is.null(self$`id`)) {
-          sprintf(
-          '"id":
-            "%s"
-                    ',
-          self$`id`
-          )
-        },
-        if (!is.null(self$`type`)) {
-          sprintf(
-          '"type":
-            "%s"
-                    ',
-          self$`type`
-          )
-        },
-        if (!is.null(self$`url`)) {
-          sprintf(
-          '"url":
-            "%s"
-                    ',
-          self$`url`
-          )
-        },
-        if (!is.null(self$`time`)) {
-          sprintf(
-          '"time":
-            "%s"
-                    ',
-          self$`time`
-          )
-        },
-        if (!is.null(self$`releaseTime`)) {
-          sprintf(
-          '"releaseTime":
-            "%s"
-                    ',
-          self$`releaseTime`
-          )
-        }
-      )
-      jsoncontent <- paste(jsoncontent, collapse = ",")
-      json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
     },
 
     #' @description

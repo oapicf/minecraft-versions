@@ -5,6 +5,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -20,12 +21,12 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_javaVersion")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T05:54:21.326388536Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionPackageInfoJavaVersion {
 
-  private String component;
+  private @Nullable String component;
 
-  private Integer majorVersion;
+  private @Nullable Integer majorVersion;
 
   public VersionPackageInfoJavaVersion component(String component) {
     this.component = component;

@@ -50,28 +50,53 @@ VersionPackageInfoDownloads <- R6::R6Class(
     },
 
     #' @description
-    #' To JSON String
-    #'
-    #' @return VersionPackageInfoDownloads in JSON format
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
     toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return VersionPackageInfoDownloads as a base R list.
+    #' @examples
+    #' # convert array of VersionPackageInfoDownloads (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert VersionPackageInfoDownloads to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
       VersionPackageInfoDownloadsObject <- list()
       if (!is.null(self$`client`)) {
         VersionPackageInfoDownloadsObject[["client"]] <-
-          self$`client`$toJSON()
+          self$`client`$toSimpleType()
       }
       if (!is.null(self$`client_mappings`)) {
         VersionPackageInfoDownloadsObject[["client_mappings"]] <-
-          self$`client_mappings`$toJSON()
+          self$`client_mappings`$toSimpleType()
       }
       if (!is.null(self$`server`)) {
         VersionPackageInfoDownloadsObject[["server"]] <-
-          self$`server`$toJSON()
+          self$`server`$toSimpleType()
       }
       if (!is.null(self$`server_mappings`)) {
         VersionPackageInfoDownloadsObject[["server_mappings"]] <-
-          self$`server_mappings`$toJSON()
+          self$`server_mappings`$toSimpleType()
       }
-      VersionPackageInfoDownloadsObject
+      return(VersionPackageInfoDownloadsObject)
     },
 
     #' @description
@@ -106,45 +131,13 @@ VersionPackageInfoDownloads <- R6::R6Class(
 
     #' @description
     #' To JSON String
-    #'
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
     #' @return VersionPackageInfoDownloads in JSON format
-    toJSONString = function() {
-      jsoncontent <- c(
-        if (!is.null(self$`client`)) {
-          sprintf(
-          '"client":
-          %s
-          ',
-          jsonlite::toJSON(self$`client`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`client_mappings`)) {
-          sprintf(
-          '"client_mappings":
-          %s
-          ',
-          jsonlite::toJSON(self$`client_mappings`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`server`)) {
-          sprintf(
-          '"server":
-          %s
-          ',
-          jsonlite::toJSON(self$`server`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`server_mappings`)) {
-          sprintf(
-          '"server_mappings":
-          %s
-          ',
-          jsonlite::toJSON(self$`server_mappings`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        }
-      )
-      jsoncontent <- paste(jsoncontent, collapse = ",")
-      json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
     },
 
     #' @description

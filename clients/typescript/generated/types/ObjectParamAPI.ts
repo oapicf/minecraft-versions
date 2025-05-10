@@ -1,5 +1,6 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration} from '../configuration'
+import { Configuration, ConfigurationOptions } from '../configuration'
+import type { Middleware } from '../middleware';
 
 import { Download } from '../models/Download';
 import { Version } from '../models/Version';
@@ -44,7 +45,7 @@ export class ObjectDefaultApi {
      * Get Minecraft version manifest
      * @param param the request object
      */
-    public getMinecraftVersionManifestWithHttpInfo(param: DefaultApiGetMinecraftVersionManifestRequest = {}, options?: Configuration): Promise<HttpInfo<VersionManifest>> {
+    public getMinecraftVersionManifestWithHttpInfo(param: DefaultApiGetMinecraftVersionManifestRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<VersionManifest>> {
         return this.api.getMinecraftVersionManifestWithHttpInfo( options).toPromise();
     }
 
@@ -52,7 +53,7 @@ export class ObjectDefaultApi {
      * Get Minecraft version manifest
      * @param param the request object
      */
-    public getMinecraftVersionManifest(param: DefaultApiGetMinecraftVersionManifestRequest = {}, options?: Configuration): Promise<VersionManifest> {
+    public getMinecraftVersionManifest(param: DefaultApiGetMinecraftVersionManifestRequest = {}, options?: ConfigurationOptions): Promise<VersionManifest> {
         return this.api.getMinecraftVersionManifest( options).toPromise();
     }
 
@@ -60,7 +61,7 @@ export class ObjectDefaultApi {
      * Get Minecraft version package info
      * @param param the request object
      */
-    public getMinecraftVersionPackageInfoWithHttpInfo(param: DefaultApiGetMinecraftVersionPackageInfoRequest, options?: Configuration): Promise<HttpInfo<VersionPackageInfo>> {
+    public getMinecraftVersionPackageInfoWithHttpInfo(param: DefaultApiGetMinecraftVersionPackageInfoRequest, options?: ConfigurationOptions): Promise<HttpInfo<VersionPackageInfo>> {
         return this.api.getMinecraftVersionPackageInfoWithHttpInfo(param.packageId, param.versionId,  options).toPromise();
     }
 
@@ -68,7 +69,7 @@ export class ObjectDefaultApi {
      * Get Minecraft version package info
      * @param param the request object
      */
-    public getMinecraftVersionPackageInfo(param: DefaultApiGetMinecraftVersionPackageInfoRequest, options?: Configuration): Promise<VersionPackageInfo> {
+    public getMinecraftVersionPackageInfo(param: DefaultApiGetMinecraftVersionPackageInfoRequest, options?: ConfigurationOptions): Promise<VersionPackageInfo> {
         return this.api.getMinecraftVersionPackageInfo(param.packageId, param.versionId,  options).toPromise();
     }
 

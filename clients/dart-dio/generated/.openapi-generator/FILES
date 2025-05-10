@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 doc/DefaultApi.md
@@ -32,12 +31,3 @@ lib/src/model/version_package_info_downloads.dart
 lib/src/model/version_package_info_java_version.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/default_api_test.dart
-test/download_test.dart
-test/version_manifest_latest_test.dart
-test/version_manifest_test.dart
-test/version_package_info_asset_index_test.dart
-test/version_package_info_downloads_test.dart
-test/version_package_info_java_version_test.dart
-test/version_package_info_test.dart
-test/version_test.dart

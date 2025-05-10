@@ -1,6 +1,5 @@
 .coveralls.yml
 .gitignore
-.openapi-generator-ignore
 .php_cs.dist
 .travis.yml
 Api/ApiServer.php
@@ -28,17 +27,8 @@ Service/StrictJsonDeserializationVisitorFactory.php
 Service/SymfonyValidator.php
 Service/TypeMismatchException.php
 Service/ValidatorInterface.php
-Tests/Api/DefaultApiInterfaceTest.php
 Tests/AppKernel.php
 Tests/Controller/ControllerTest.php
-Tests/Model/DownloadTest.php
-Tests/Model/VersionManifestLatestTest.php
-Tests/Model/VersionManifestTest.php
-Tests/Model/VersionPackageInfoAssetIndexTest.php
-Tests/Model/VersionPackageInfoDownloadsTest.php
-Tests/Model/VersionPackageInfoJavaVersionTest.php
-Tests/Model/VersionPackageInfoTest.php
-Tests/Model/VersionTest.php
 Tests/test_config.yaml
 autoload.php
 composer.json

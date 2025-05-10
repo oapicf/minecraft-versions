@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 models/download.proto
 models/version.proto

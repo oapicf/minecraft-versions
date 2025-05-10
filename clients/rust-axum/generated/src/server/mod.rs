@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
 use tracing::error;
@@ -14,18 +14,20 @@ use crate::{apis, models};
 
 
 /// Setup API Server.
-pub fn new<I, A>(api_impl: I) -> Router
+pub fn new<I, A, E>(api_impl: I) -> Router
 where
     I: AsRef<A> + Clone + Send + Sync + 'static,
-    A: apis::default::Default + 'static,
+    A: apis::default::Default<E> + Send + Sync + 'static,
+    E: std::fmt::Debug + Send + Sync + 'static,
+    
 {
     // build our application with a route
     Router::new()
         .route("/mc/game/version_manifest.json",
-            get(get_minecraft_version_manifest::<I, A>)
+            get(get_minecraft_version_manifest::<I, A, E>)
         )
-        .route("/v1/packages/:package_id/:version_id.json",
-            get(get_minecraft_version_package_info::<I, A>)
+        .route("/v1/packages/{package_id}/{version_id}.json",
+            get(get_minecraft_version_package_info::<I, A, E>)
         )
         .with_state(api_impl)
 }
@@ -42,7 +44,7 @@ Ok((
 }
 /// GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
 #[tracing::instrument(skip_all)]
-async fn get_minecraft_version_manifest<I, A>(
+async fn get_minecraft_version_manifest<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -50,8 +52,10 @@ async fn get_minecraft_version_manifest<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::default::Default,
-{
+    A: apis::default::Default<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -68,9 +72,9 @@ where
   };
 
   let result = api_impl.as_ref().get_minecraft_version_manifest(
-      method,
-      host,
-      cookies,
+      &method,
+      &host,
+      &cookies,
   ).await;
 
   let mut response = Response::builder();
@@ -96,10 +100,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -122,7 +126,7 @@ Ok((
 }
 /// GetMinecraftVersionPackageInfo - GET /v1/packages/{packageId}/{versionId}.json
 #[tracing::instrument(skip_all)]
-async fn get_minecraft_version_package_info<I, A>(
+async fn get_minecraft_version_package_info<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -131,8 +135,10 @@ async fn get_minecraft_version_package_info<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::default::Default,
-{
+    A: apis::default::Default<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -151,10 +157,10 @@ where
   };
 
   let result = api_impl.as_ref().get_minecraft_version_package_info(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -180,10 +186,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 

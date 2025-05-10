@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * VersionPackageInfoDownloads
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-11-03T05:50:47.183358972Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-10T01:44:18.669511803Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class VersionPackageInfoDownloads   {
   @JsonProperty("client")

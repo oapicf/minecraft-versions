@@ -10,7 +10,7 @@
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <AssemblyName>Org.OpenAPITools</AssemblyName>
     <PackageId>Org.OpenAPITools</PackageId>
-    <UserSecretsId>db6b14cb-f48b-4bd6-a39d-e06ca8046493</UserSecretsId>
+    <UserSecretsId>bec24fcc-955a-4c7d-9ab7-ec6c98ec5df2</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>

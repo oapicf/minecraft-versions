@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build minecraft_versions.gemspec
-  - gem install ./minecraft_versions-0.12.1-pre.0.gem
+  - gem install ./minecraft_versions-1.1.1-pre.0.gem

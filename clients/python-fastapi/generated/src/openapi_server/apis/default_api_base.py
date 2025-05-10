@@ -2,6 +2,7 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictStr
 from openapi_server.models.version_manifest import VersionManifest
 from openapi_server.models.version_package_info import VersionPackageInfo
 
@@ -20,7 +21,7 @@ class BaseDefaultApi:
 
     async def get_minecraft_version_package_info(
         self,
-        packageId: str,
-        versionId: str,
+        packageId: StrictStr,
+        versionId: StrictStr,
     ) -> VersionPackageInfo:
         ...

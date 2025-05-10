@@ -11,9 +11,9 @@ server, you can easily generate a server stub.
 
 To see how to make this your own, look here: [README]((https://openapi-generator.tech))
 
-- API version: 0.12.1-pre.0
-- Build date: 2024-11-03T05:55:54.218501261Z[Etc/UTC]
-- Generator version: 7.9.0
+- API version: 1.1.1-pre.0
+- Build date: 2025-05-10T01:46:07.408898859Z[Etc/UTC]
+- Generator version: 7.12.0
 
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
 
@@ -44,9 +44,11 @@ struct ServerImpl {
 
 #[allow(unused_variables)]
 #[async_trait]
-impl openapi::Api for ServerImpl {
+impl openapi::apis::default::Api for ServerImpl {
   // API implementation goes here
 }
+
+impl openapi::apis::ErrorHandler for ServerImpl {}
 
 pub async fn start_server(addr: &str) {
     // initialize tracing

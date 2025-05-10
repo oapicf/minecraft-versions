@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-11-03T05:50:29.580421926Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2025-05-10T01:44:12.827040299Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class VersionManifestLatest   {
   @JsonProperty("release")
   private String release;

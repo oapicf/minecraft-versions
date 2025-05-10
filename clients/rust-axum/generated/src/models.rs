@@ -19,9 +19,6 @@ use crate::{models, types::*};
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Download {
@@ -38,6 +35,9 @@ pub struct Download {
     pub url: Option<String>,
 
 }
+
+
+
 
 
 impl Download {
@@ -182,9 +182,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Download> {
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Version {
@@ -209,6 +206,9 @@ pub struct Version {
     pub release_time: Option<chrono::DateTime::<chrono::Utc>>,
 
 }
+
+
+
 
 
 impl Version {
@@ -367,9 +367,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Version> {
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionManifest {
@@ -382,6 +379,9 @@ pub struct VersionManifest {
     pub versions: Option<Vec<models::Version>>,
 
 }
+
+
+
 
 
 impl VersionManifest {
@@ -500,9 +500,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManif
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionManifestLatest {
@@ -515,6 +512,9 @@ pub struct VersionManifestLatest {
     pub snapshot: Option<String>,
 
 }
+
+
+
 
 
 impl VersionManifestLatest {
@@ -646,9 +646,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManif
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfo {
@@ -701,6 +698,9 @@ pub struct VersionPackageInfo {
     pub r#type: Option<String>,
 
 }
+
+
+
 
 
 impl VersionPackageInfo {
@@ -932,9 +932,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoAssetIndex {
@@ -959,6 +956,9 @@ pub struct VersionPackageInfoAssetIndex {
     pub url: Option<String>,
 
 }
+
+
+
 
 
 impl VersionPackageInfoAssetIndex {
@@ -1129,9 +1129,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoDownloads {
@@ -1152,6 +1149,9 @@ pub struct VersionPackageInfoDownloads {
     pub server_mappings: Option<models::Download>,
 
 }
+
+
+
 
 
 impl VersionPackageInfoDownloads {
@@ -1285,9 +1285,6 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
 
 
 
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoJavaVersion {
@@ -1300,6 +1297,9 @@ pub struct VersionPackageInfoJavaVersion {
     pub major_version: Option<i32>,
 
 }
+
+
+
 
 
 impl VersionPackageInfoJavaVersion {
