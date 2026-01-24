@@ -1,3 +1,4 @@
+---
 name: Publish API Documentation
 'on':
   push:
