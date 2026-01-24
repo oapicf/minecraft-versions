@@ -26,20 +26,25 @@ Base.@kwdef mutable struct VersionPackageInfoAssetIndex <: OpenAPI.APIModel
     url::Union{Nothing, String} = nothing
 
     function VersionPackageInfoAssetIndex(id, sha1, size, totalSize, url, )
-        OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("id"), id)
-        OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("sha1"), sha1)
-        OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("size"), size)
-        OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("totalSize"), totalSize)
-        OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("url"), url)
-        return new(id, sha1, size, totalSize, url, )
+        o = new(id, sha1, size, totalSize, url, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type VersionPackageInfoAssetIndex
 
 const _property_types_VersionPackageInfoAssetIndex = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("sha1")=>"String", Symbol("size")=>"Int64", Symbol("totalSize")=>"Int64", Symbol("url")=>"String", )
 OpenAPI.property_type(::Type{ VersionPackageInfoAssetIndex }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionPackageInfoAssetIndex[name]))}
 
-function check_required(o::VersionPackageInfoAssetIndex)
+function OpenAPI.check_required(o::VersionPackageInfoAssetIndex)
     true
+end
+
+function OpenAPI.validate_properties(o::VersionPackageInfoAssetIndex)
+    OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("id"), o.id)
+    OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("sha1"), o.sha1)
+    OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("size"), o.size)
+    OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("totalSize"), o.totalSize)
+    OpenAPI.validate_property(VersionPackageInfoAssetIndex, Symbol("url"), o.url)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfoAssetIndex }, name::Symbol, val)

@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  * Version
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class Version {
 
   private @Nullable String id;
@@ -36,7 +36,7 @@ public class Version {
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime releaseTime;
 
-  public Version id(String id) {
+  public Version id(@Nullable String id) {
     this.id = id;
     return this;
   }
@@ -48,15 +48,15 @@ public class Version {
   
   @Schema(name = "id", example = "24w14potato", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
-  public String getId() {
+  public @Nullable String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@Nullable String id) {
     this.id = id;
   }
 
-  public Version type(String type) {
+  public Version type(@Nullable String type) {
     this.type = type;
     return this;
   }
@@ -68,15 +68,15 @@ public class Version {
   
   @Schema(name = "type", example = "snapshot", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("type")
-  public String getType() {
+  public @Nullable String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@Nullable String type) {
     this.type = type;
   }
 
-  public Version url(String url) {
+  public Version url(@Nullable String url) {
     this.url = url;
     return this;
   }
@@ -88,15 +88,15 @@ public class Version {
   
   @Schema(name = "url", example = "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")
-  public String getUrl() {
+  public @Nullable String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@Nullable String url) {
     this.url = url;
   }
 
-  public Version time(OffsetDateTime time) {
+  public Version time(@Nullable OffsetDateTime time) {
     this.time = time;
     return this;
   }
@@ -108,15 +108,15 @@ public class Version {
   @Valid 
   @Schema(name = "time", example = "2024-04-01T11:14:41.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
-  public OffsetDateTime getTime() {
+  public @Nullable OffsetDateTime getTime() {
     return time;
   }
 
-  public void setTime(OffsetDateTime time) {
+  public void setTime(@Nullable OffsetDateTime time) {
     this.time = time;
   }
 
-  public Version releaseTime(OffsetDateTime releaseTime) {
+  public Version releaseTime(@Nullable OffsetDateTime releaseTime) {
     this.releaseTime = releaseTime;
     return this;
   }
@@ -128,11 +128,11 @@ public class Version {
   @Valid 
   @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseTime")
-  public OffsetDateTime getReleaseTime() {
+  public @Nullable OffsetDateTime getReleaseTime() {
     return releaseTime;
   }
 
-  public void setReleaseTime(OffsetDateTime releaseTime) {
+  public void setReleaseTime(@Nullable OffsetDateTime releaseTime) {
     this.releaseTime = releaseTime;
   }
 

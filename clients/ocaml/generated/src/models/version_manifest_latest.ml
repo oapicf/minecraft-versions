@@ -5,13 +5,27 @@
  *
  *)
 
-type t = {
-    release: string option [@default None];
-    snapshot: string option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    release = None;
-    snapshot = None;
-}
+
+    
+        type t = {
+                              release: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "release"]
+                                              snapshot: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "snapshot"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            release = None;
+            snapshot = None;
+        }
+    
 

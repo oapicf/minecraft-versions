@@ -1,7 +1,7 @@
 /*
   SDK for Minecraft versions info
 
-  The version of the OpenAPI document: 1.1.1-pre.0
+  The version of the OpenAPI document: 1.1.2-pre.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -20,26 +20,27 @@ message VersionPackageInfo {
 
   string version = 351608024;
 
-  VersionPackageInfoAssetIndex assetIndex = 498639813;
+  VersionPackageInfoAssetIndex asset_index = 514097861;
 
   string assets = 334466175;
 
-  int32 complianceLevel = 208546778;
+  int32 compliance_level = 9441696;
 
   VersionPackageInfoDownloads downloads = 238962925;
 
   string id = 3355;
 
-  VersionPackageInfoJavaVersion javaVersion = 43040857;
+  VersionPackageInfoJavaVersion java_version = 58928059;
 
-  string mainClass = 277127361;
+  string main_class = 255730547;
 
-  int32 minimumLauncherVersion = 317514969;
+  int32 minimum_launcher_version = 520905548;
 
   string time = 3560141;
 
-  string releaseTime = 213357428;
+  string release_time = 354758654;
 
   string type = 3575610;
 
 }
+

@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .travis.yml
 README.md
@@ -16,6 +17,7 @@ git_push.sh
 lib/Api/DefaultApi.php
 lib/ApiException.php
 lib/Configuration.php
+lib/FormDataProcessor.php
 lib/HeaderSelector.php
 lib/Model/Download.php
 lib/Model/ModelInterface.php
@@ -28,3 +30,12 @@ lib/Model/VersionPackageInfoDownloads.php
 lib/Model/VersionPackageInfoJavaVersion.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/DefaultApiTest.php
+test/Model/DownloadTest.php
+test/Model/VersionManifestLatestTest.php
+test/Model/VersionManifestTest.php
+test/Model/VersionPackageInfoAssetIndexTest.php
+test/Model/VersionPackageInfoDownloadsTest.php
+test/Model/VersionPackageInfoJavaVersionTest.php
+test/Model/VersionPackageInfoTest.php
+test/Model/VersionTest.php

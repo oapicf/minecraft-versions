@@ -5,13 +5,27 @@
  *
  *)
 
-type t = {
-    component: string option [@default None];
-    major_version: int32 option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    component = None;
-    major_version = None;
-}
+
+    
+        type t = {
+                              component: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "component"]
+                                              major_version: int32
+                  
+                   option [@default None]
+                
+                
+                ; [@key "majorVersion"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            component = None;
+            major_version = None;
+        }
+    
 

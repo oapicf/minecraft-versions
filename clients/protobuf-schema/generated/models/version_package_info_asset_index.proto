@@ -1,7 +1,7 @@
 /*
   SDK for Minecraft versions info
 
-  The version of the OpenAPI document: 1.1.1-pre.0
+  The version of the OpenAPI document: 1.1.2-pre.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -21,8 +21,9 @@ message VersionPackageInfoAssetIndex {
 
   int32 size = 3530753;
 
-  int32 totalSize = 40440476;
+  int32 total_size = 168548325;
 
   string url = 116079;
 
 }
+

@@ -11,9 +11,9 @@ server, you can easily generate a server stub.
 
 To see how to make this your own, look here: [README]((https://openapi-generator.tech))
 
-- API version: 1.1.1-pre.0
-- Build date: 2025-05-10T01:46:07.408898859Z[Etc/UTC]
-- Generator version: 7.12.0
+- API version: 1.1.2-pre.0
+- Build date: 2026-01-24T10:37:35.354281414Z[Etc/UTC]
+- Generator version: 7.18.0
 
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
 

@@ -21,14 +21,14 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionManifest_latest")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionManifestLatest {
 
   private @Nullable String release;
 
   private @Nullable String snapshot;
 
-  public VersionManifestLatest release(String release) {
+  public VersionManifestLatest release(@Nullable String release) {
     this.release = release;
     return this;
   }
@@ -40,15 +40,15 @@ public class VersionManifestLatest {
   
   @Schema(name = "release", example = "1.21", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("release")
-  public String getRelease() {
+  public @Nullable String getRelease() {
     return release;
   }
 
-  public void setRelease(String release) {
+  public void setRelease(@Nullable String release) {
     this.release = release;
   }
 
-  public VersionManifestLatest snapshot(String snapshot) {
+  public VersionManifestLatest snapshot(@Nullable String snapshot) {
     this.snapshot = snapshot;
     return this;
   }
@@ -60,11 +60,11 @@ public class VersionManifestLatest {
   
   @Schema(name = "snapshot", example = "24w14potato", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("snapshot")
-  public String getSnapshot() {
+  public @Nullable String getSnapshot() {
     return snapshot;
   }
 
-  public void setSnapshot(String snapshot) {
+  public void setSnapshot(@Nullable String snapshot) {
     this.snapshot = snapshot;
   }
 

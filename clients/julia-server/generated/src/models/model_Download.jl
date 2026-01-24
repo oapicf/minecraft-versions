@@ -20,18 +20,23 @@ Base.@kwdef mutable struct Download <: OpenAPI.APIModel
     url::Union{Nothing, String} = nothing
 
     function Download(sha1, size, url, )
-        OpenAPI.validate_property(Download, Symbol("sha1"), sha1)
-        OpenAPI.validate_property(Download, Symbol("size"), size)
-        OpenAPI.validate_property(Download, Symbol("url"), url)
-        return new(sha1, size, url, )
+        o = new(sha1, size, url, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type Download
 
 const _property_types_Download = Dict{Symbol,String}(Symbol("sha1")=>"String", Symbol("size")=>"Int64", Symbol("url")=>"String", )
 OpenAPI.property_type(::Type{ Download }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Download[name]))}
 
-function check_required(o::Download)
+function OpenAPI.check_required(o::Download)
     true
+end
+
+function OpenAPI.validate_properties(o::Download)
+    OpenAPI.validate_property(Download, Symbol("sha1"), o.sha1)
+    OpenAPI.validate_property(Download, Symbol("size"), o.size)
+    OpenAPI.validate_property(Download, Symbol("url"), o.url)
 end
 
 function OpenAPI.validate_property(::Type{ Download }, name::Symbol, val)

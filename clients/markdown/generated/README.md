@@ -7,8 +7,8 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 | Class | Method | HTTP request | Description |
 |------------ | ------------- | ------------- | -------------|
-| *DefaultApi* | [**getMinecraftVersionManifest**](Apis/DefaultApi.md#getminecraftversionmanifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
-*DefaultApi* | [**getMinecraftVersionPackageInfo**](Apis/DefaultApi.md#getminecraftversionpackageinfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
+| *DefaultApi* | [**getMinecraftVersionManifest**](Apis/DefaultApi.md#getMinecraftVersionManifest) | **GET** /mc/game/version_manifest.json | Get Minecraft version manifest |
+*DefaultApi* | [**getMinecraftVersionPackageInfo**](Apis/DefaultApi.md#getMinecraftVersionPackageInfo) | **GET** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info |
 
 
 <a name="documentation-for-models"></a>

@@ -5,13 +5,25 @@
  *
  *)
 
-type t = {
-    latest: Version_manifest_latest.t option [@default None];
-    versions: Version.t list;
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    latest = None;
-    versions = [];
-}
+
+    
+        type t = {
+                              latest: Version_manifest_latest.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "latest"]
+                                              versions: Version.t list
+                 [@default []]
+                
+                ; [@key "versions"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            latest = None;
+            versions = [];
+        }
+    
 

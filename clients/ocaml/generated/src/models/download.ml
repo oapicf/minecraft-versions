@@ -5,15 +5,34 @@
  *
  *)
 
-type t = {
-    sha1: string option [@default None];
-    size: int32 option [@default None];
-    url: string option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    sha1 = None;
-    size = None;
-    url = None;
-}
+
+    
+        type t = {
+                              sha1: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "sha1"]
+                                              size: int32
+                  
+                   option [@default None]
+                
+                
+                ; [@key "size"]
+                                              url: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "url"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            sha1 = None;
+            size = None;
+            url = None;
+        }
+    
 

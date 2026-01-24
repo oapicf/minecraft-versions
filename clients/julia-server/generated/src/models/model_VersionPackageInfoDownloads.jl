@@ -23,19 +23,24 @@ Base.@kwdef mutable struct VersionPackageInfoDownloads <: OpenAPI.APIModel
     server_mappings = nothing # spec type: Union{ Nothing, Download }
 
     function VersionPackageInfoDownloads(client, client_mappings, server, server_mappings, )
-        OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("client"), client)
-        OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("client_mappings"), client_mappings)
-        OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("server"), server)
-        OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("server_mappings"), server_mappings)
-        return new(client, client_mappings, server, server_mappings, )
+        o = new(client, client_mappings, server, server_mappings, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type VersionPackageInfoDownloads
 
 const _property_types_VersionPackageInfoDownloads = Dict{Symbol,String}(Symbol("client")=>"Download", Symbol("client_mappings")=>"Download", Symbol("server")=>"Download", Symbol("server_mappings")=>"Download", )
 OpenAPI.property_type(::Type{ VersionPackageInfoDownloads }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionPackageInfoDownloads[name]))}
 
-function check_required(o::VersionPackageInfoDownloads)
+function OpenAPI.check_required(o::VersionPackageInfoDownloads)
     true
+end
+
+function OpenAPI.validate_properties(o::VersionPackageInfoDownloads)
+    OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("client"), o.client)
+    OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("client_mappings"), o.client_mappings)
+    OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("server"), o.server)
+    OpenAPI.validate_property(VersionPackageInfoDownloads, Symbol("server_mappings"), o.server_mappings)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfoDownloads }, name::Symbol, val)

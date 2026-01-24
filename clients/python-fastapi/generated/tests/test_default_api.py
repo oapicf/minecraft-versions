@@ -3,6 +3,7 @@
 from fastapi.testclient import TestClient
 
 
+from pydantic import StrictStr  # noqa: F401
 from openapi_server.models.version_manifest import VersionManifest  # noqa: F401
 from openapi_server.models.version_package_info import VersionPackageInfo  # noqa: F401
 

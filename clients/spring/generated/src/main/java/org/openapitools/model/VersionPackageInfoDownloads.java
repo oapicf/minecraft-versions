@@ -22,7 +22,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_downloads")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionPackageInfoDownloads {
 
   private @Nullable Download client;
@@ -33,7 +33,7 @@ public class VersionPackageInfoDownloads {
 
   private @Nullable Download serverMappings;
 
-  public VersionPackageInfoDownloads client(Download client) {
+  public VersionPackageInfoDownloads client(@Nullable Download client) {
     this.client = client;
     return this;
   }
@@ -45,15 +45,15 @@ public class VersionPackageInfoDownloads {
   @Valid 
   @Schema(name = "client", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("client")
-  public Download getClient() {
+  public @Nullable Download getClient() {
     return client;
   }
 
-  public void setClient(Download client) {
+  public void setClient(@Nullable Download client) {
     this.client = client;
   }
 
-  public VersionPackageInfoDownloads clientMappings(Download clientMappings) {
+  public VersionPackageInfoDownloads clientMappings(@Nullable Download clientMappings) {
     this.clientMappings = clientMappings;
     return this;
   }
@@ -65,15 +65,15 @@ public class VersionPackageInfoDownloads {
   @Valid 
   @Schema(name = "client_mappings", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("client_mappings")
-  public Download getClientMappings() {
+  public @Nullable Download getClientMappings() {
     return clientMappings;
   }
 
-  public void setClientMappings(Download clientMappings) {
+  public void setClientMappings(@Nullable Download clientMappings) {
     this.clientMappings = clientMappings;
   }
 
-  public VersionPackageInfoDownloads server(Download server) {
+  public VersionPackageInfoDownloads server(@Nullable Download server) {
     this.server = server;
     return this;
   }
@@ -85,15 +85,15 @@ public class VersionPackageInfoDownloads {
   @Valid 
   @Schema(name = "server", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("server")
-  public Download getServer() {
+  public @Nullable Download getServer() {
     return server;
   }
 
-  public void setServer(Download server) {
+  public void setServer(@Nullable Download server) {
     this.server = server;
   }
 
-  public VersionPackageInfoDownloads serverMappings(Download serverMappings) {
+  public VersionPackageInfoDownloads serverMappings(@Nullable Download serverMappings) {
     this.serverMappings = serverMappings;
     return this;
   }
@@ -105,11 +105,11 @@ public class VersionPackageInfoDownloads {
   @Valid 
   @Schema(name = "server_mappings", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("server_mappings")
-  public Download getServerMappings() {
+  public @Nullable Download getServerMappings() {
     return serverMappings;
   }
 
-  public void setServerMappings(Download serverMappings) {
+  public void setServerMappings(@Nullable Download serverMappings) {
     this.serverMappings = serverMappings;
   }
 

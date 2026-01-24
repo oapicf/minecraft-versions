@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 1.1.1-pre.0
+ * API version: 1.1.2-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -50,17 +50,39 @@ func NewDefaultAPIController(s DefaultAPIServicer, opts ...DefaultAPIOption) *De
 func (c *DefaultAPIController) Routes() Routes {
 	return Routes{
 		"GetMinecraftVersionManifest": Route{
+			"GetMinecraftVersionManifest",
 			strings.ToUpper("Get"),
 			"/mc/game/version_manifest.json",
 			c.GetMinecraftVersionManifest,
 		},
 		"GetMinecraftVersionPackageInfo": Route{
+			"GetMinecraftVersionPackageInfo",
 			strings.ToUpper("Get"),
 			"/v1/packages/{packageId}/{versionId}.json",
 			c.GetMinecraftVersionPackageInfo,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the DefaultAPIController
+func (c *DefaultAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"GetMinecraftVersionManifest",
+			strings.ToUpper("Get"),
+			"/mc/game/version_manifest.json",
+			c.GetMinecraftVersionManifest,
+		},
+		Route{
+			"GetMinecraftVersionPackageInfo",
+			strings.ToUpper("Get"),
+			"/v1/packages/{packageId}/{versionId}.json",
+			c.GetMinecraftVersionPackageInfo,
+		},
+	}
+}
+
+
 
 // GetMinecraftVersionManifest - Get Minecraft version manifest
 func (c *DefaultAPIController) GetMinecraftVersionManifest(w http.ResponseWriter, r *http.Request) {

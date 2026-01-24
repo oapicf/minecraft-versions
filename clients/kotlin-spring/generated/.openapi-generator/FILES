@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 build.gradle.kts
 gradle/wrapper/gradle-wrapper.jar
@@ -23,3 +24,5 @@ src/main/kotlin/org/openapitools/model/VersionPackageInfoDownloads.kt
 src/main/kotlin/org/openapitools/model/VersionPackageInfoJavaVersion.kt
 src/main/resources/application.yaml
 src/main/resources/openapi.yaml
+src/test/kotlin/org/openapitools/api/McApiTest.kt
+src/test/kotlin/org/openapitools/api/V1ApiTest.kt

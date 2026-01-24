@@ -26,20 +26,25 @@ Base.@kwdef mutable struct Version <: OpenAPI.APIModel
     releaseTime::Union{Nothing, ZonedDateTime} = nothing
 
     function Version(id, type, url, time, releaseTime, )
-        OpenAPI.validate_property(Version, Symbol("id"), id)
-        OpenAPI.validate_property(Version, Symbol("type"), type)
-        OpenAPI.validate_property(Version, Symbol("url"), url)
-        OpenAPI.validate_property(Version, Symbol("time"), time)
-        OpenAPI.validate_property(Version, Symbol("releaseTime"), releaseTime)
-        return new(id, type, url, time, releaseTime, )
+        o = new(id, type, url, time, releaseTime, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type Version
 
 const _property_types_Version = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("type")=>"String", Symbol("url")=>"String", Symbol("time")=>"ZonedDateTime", Symbol("releaseTime")=>"ZonedDateTime", )
 OpenAPI.property_type(::Type{ Version }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Version[name]))}
 
-function check_required(o::Version)
+function OpenAPI.check_required(o::Version)
     true
+end
+
+function OpenAPI.validate_properties(o::Version)
+    OpenAPI.validate_property(Version, Symbol("id"), o.id)
+    OpenAPI.validate_property(Version, Symbol("type"), o.type)
+    OpenAPI.validate_property(Version, Symbol("url"), o.url)
+    OpenAPI.validate_property(Version, Symbol("time"), o.time)
+    OpenAPI.validate_property(Version, Symbol("releaseTime"), o.releaseTime)
 end
 
 function OpenAPI.validate_property(::Type{ Version }, name::Symbol, val)

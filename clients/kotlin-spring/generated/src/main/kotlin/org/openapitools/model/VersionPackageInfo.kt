@@ -71,7 +71,7 @@ data class VersionPackageInfo(
 
     @Schema(example = "snapshot", description = "")
     @get:JsonProperty("type") val type: kotlin.String? = null
-    ) {
+) {
 
 }
 

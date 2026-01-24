@@ -14,7 +14,8 @@ end
 function get_minecraft_version_manifest_validate(handler)
     function get_minecraft_version_manifest_validate_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
-        
+        op = "get_minecraft_version_manifest"
+
         return handler(req)
     end
 end
@@ -43,7 +44,32 @@ end
 function get_minecraft_version_package_info_validate(handler)
     function get_minecraft_version_package_info_validate_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
+        op = "get_minecraft_version_package_info"
         
+        n = "packageId"
+        v = get(openapi_params, n, nothing)
+        isnothing(v) && throw(OpenAPI.ValidationException(;reason="missing parameter $n", operation_or_model=op))
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+        
+        n = "versionId"
+        v = get(openapi_params, n, nothing)
+        isnothing(v) && throw(OpenAPI.ValidationException(;reason="missing parameter $n", operation_or_model=op))
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+
         return handler(req)
     end
 end

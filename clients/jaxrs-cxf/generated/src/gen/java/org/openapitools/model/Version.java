@@ -12,18 +12,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Version  {
   
   @ApiModelProperty(example = "24w14potato", value = "")
+
   private String id;
 
   @ApiModelProperty(example = "snapshot", value = "")
+
   private String type;
 
   @ApiModelProperty(example = "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json", value = "")
+
   private String url;
 
   @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
+
   private Date time;
 
   @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
+
   private Date releaseTime;
  /**
    * Get id

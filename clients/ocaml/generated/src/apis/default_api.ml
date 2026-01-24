@@ -16,8 +16,36 @@ let get_minecraft_version_package_info ~package_id ~version_id =
     let open Lwt.Infix in
     let uri = Request.build_uri "/v1/packages/{packageId}/{versionId}.json" in
     let headers = Request.default_headers in
-    let uri = Request.replace_path_param uri "packageId" (fun x -> x) package_id in
-    let uri = Request.replace_path_param uri "versionId" (fun x -> x) version_id in
+    let uri = Request.replace_path_param uri "packageId"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ package_id in
+    let uri = Request.replace_path_param uri "versionId"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ version_id in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Version_package_info.of_yojson) resp body
 

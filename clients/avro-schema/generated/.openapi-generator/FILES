@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 Download.avsc
 Version.avsc
 VersionManifest.avsc

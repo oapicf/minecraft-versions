@@ -1,23 +1,28 @@
 #![allow(unused_qualifications)]
-
+#[cfg(not(feature = "validate"))]
 use validator::Validate;
 
 use crate::models;
 #[cfg(any(feature = "client", feature = "server"))]
 use crate::header;
+#[cfg(feature = "validate")]
+use serde_valid::Validate;
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Download {
     #[serde(rename = "sha1")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub sha1: Option<String>,
 
     #[serde(rename = "size")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub size: Option<i32>,
 
     #[serde(rename = "url")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
@@ -36,10 +41,10 @@ impl Download {
 }
 
 /// Converts the Download value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for Download {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for Download {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             self.sha1.as_ref().map(|sha1| {
                 [
@@ -61,12 +66,12 @@ impl std::string::ToString for Download {
             }),
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a Download value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for Download {
     type Err = String;
@@ -130,8 +135,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Download>> for hyper::header:
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Download - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for Download - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -146,13 +150,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <Download as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Download - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into Download - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -168,8 +170,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Download>>> for hyper::he
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -189,40 +190,43 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <Download as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into Download - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into Download - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Version {
     #[serde(rename = "id")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
 
     #[serde(rename = "type")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub r#type: Option<String>,
 
     #[serde(rename = "url")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
     #[serde(rename = "time")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub time: Option<chrono::DateTime::<chrono::Utc>>,
 
     #[serde(rename = "releaseTime")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub release_time: Option<chrono::DateTime::<chrono::Utc>>,
 
@@ -243,10 +247,10 @@ impl Version {
 }
 
 /// Converts the Version value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for Version {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for Version {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             self.id.as_ref().map(|id| {
                 [
@@ -270,12 +274,12 @@ impl std::string::ToString for Version {
             // Skipping non-primitive type releaseTime in query parameter serialization
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a Version value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for Version {
     type Err = String;
@@ -347,8 +351,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Version>> for hyper::header::
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Version - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for Version - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -363,13 +366,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <Version as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Version - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into Version - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -385,8 +386,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Version>>> for hyper::hea
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -406,28 +406,32 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <Version as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into Version - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into Version - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionManifest {
     #[serde(rename = "latest")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<models::VersionManifestLatest>,
 
     #[serde(rename = "versions")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub versions: Option<Vec<models::Version>>,
 
@@ -445,21 +449,21 @@ impl VersionManifest {
 }
 
 /// Converts the VersionManifest value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for VersionManifest {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for VersionManifest {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             // Skipping non-primitive type latest in query parameter serialization
             // Skipping non-primitive type versions in query parameter serialization
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a VersionManifest value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for VersionManifest {
     type Err = String;
@@ -518,8 +522,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionManifest>> for hyper::
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionManifest - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for VersionManifest - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -534,13 +537,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <VersionManifest as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionManifest - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into VersionManifest - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -556,8 +557,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionManifest>>> for hy
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -577,28 +577,28 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <VersionManifest as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into VersionManifest - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into VersionManifest - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionManifestLatest {
     #[serde(rename = "release")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub release: Option<String>,
 
     #[serde(rename = "snapshot")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub snapshot: Option<String>,
 
@@ -616,10 +616,10 @@ impl VersionManifestLatest {
 }
 
 /// Converts the VersionManifestLatest value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for VersionManifestLatest {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for VersionManifestLatest {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             self.release.as_ref().map(|release| {
                 [
@@ -635,12 +635,12 @@ impl std::string::ToString for VersionManifestLatest {
             }),
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a VersionManifestLatest value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for VersionManifestLatest {
     type Err = String;
@@ -700,8 +700,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionManifestLatest>> for h
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionManifestLatest - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for VersionManifestLatest - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -716,13 +715,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <VersionManifestLatest as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionManifestLatest - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into VersionManifestLatest - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -738,8 +735,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionManifestLatest>>> 
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -759,68 +755,84 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <VersionManifestLatest as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into VersionManifestLatest - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into VersionManifestLatest - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfo {
     #[serde(rename = "version")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub version: Option<String>,
 
     #[serde(rename = "assetIndex")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub asset_index: Option<models::VersionPackageInfoAssetIndex>,
 
     #[serde(rename = "assets")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub assets: Option<String>,
 
     #[serde(rename = "complianceLevel")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub compliance_level: Option<i32>,
 
     #[serde(rename = "downloads")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub downloads: Option<models::VersionPackageInfoDownloads>,
 
     #[serde(rename = "id")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
 
     #[serde(rename = "javaVersion")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub java_version: Option<models::VersionPackageInfoJavaVersion>,
 
     #[serde(rename = "mainClass")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub main_class: Option<String>,
 
     #[serde(rename = "minimumLauncherVersion")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub minimum_launcher_version: Option<i32>,
 
     #[serde(rename = "time")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub time: Option<chrono::DateTime::<chrono::Utc>>,
 
     #[serde(rename = "releaseTime")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub release_time: Option<chrono::DateTime::<chrono::Utc>>,
 
     #[serde(rename = "type")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub r#type: Option<String>,
 
@@ -848,10 +860,10 @@ impl VersionPackageInfo {
 }
 
 /// Converts the VersionPackageInfo value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for VersionPackageInfo {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for VersionPackageInfo {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             self.version.as_ref().map(|version| {
                 [
@@ -902,12 +914,12 @@ impl std::string::ToString for VersionPackageInfo {
             }),
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfo value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for VersionPackageInfo {
     type Err = String;
@@ -1007,8 +1019,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfo>> for hype
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfo - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for VersionPackageInfo - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -1023,13 +1034,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <VersionPackageInfo as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfo - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into VersionPackageInfo - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -1045,8 +1054,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfo>>> for
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -1066,40 +1074,43 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <VersionPackageInfo as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into VersionPackageInfo - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into VersionPackageInfo - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoAssetIndex {
     #[serde(rename = "id")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
 
     #[serde(rename = "sha1")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub sha1: Option<String>,
 
     #[serde(rename = "size")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub size: Option<i32>,
 
     #[serde(rename = "totalSize")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub total_size: Option<i32>,
 
     #[serde(rename = "url")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
@@ -1120,10 +1131,10 @@ impl VersionPackageInfoAssetIndex {
 }
 
 /// Converts the VersionPackageInfoAssetIndex value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for VersionPackageInfoAssetIndex {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for VersionPackageInfoAssetIndex {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             self.id.as_ref().map(|id| {
                 [
@@ -1157,12 +1168,12 @@ impl std::string::ToString for VersionPackageInfoAssetIndex {
             }),
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfoAssetIndex value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for VersionPackageInfoAssetIndex {
     type Err = String;
@@ -1234,8 +1245,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoAssetIndex>
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfoAssetIndex - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for VersionPackageInfoAssetIndex - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -1250,13 +1260,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <VersionPackageInfoAssetIndex as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfoAssetIndex - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into VersionPackageInfoAssetIndex - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -1272,8 +1280,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoAssetIn
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -1293,36 +1300,46 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <VersionPackageInfoAssetIndex as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into VersionPackageInfoAssetIndex - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into VersionPackageInfoAssetIndex - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoDownloads {
     #[serde(rename = "client")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub client: Option<models::Download>,
 
     #[serde(rename = "client_mappings")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub client_mappings: Option<models::Download>,
 
     #[serde(rename = "server")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub server: Option<models::Download>,
 
     #[serde(rename = "server_mappings")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub server_mappings: Option<models::Download>,
 
@@ -1342,10 +1359,10 @@ impl VersionPackageInfoDownloads {
 }
 
 /// Converts the VersionPackageInfoDownloads value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for VersionPackageInfoDownloads {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for VersionPackageInfoDownloads {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             // Skipping non-primitive type client in query parameter serialization
             // Skipping non-primitive type client_mappings in query parameter serialization
@@ -1353,12 +1370,12 @@ impl std::string::ToString for VersionPackageInfoDownloads {
             // Skipping non-primitive type server_mappings in query parameter serialization
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfoDownloads value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for VersionPackageInfoDownloads {
     type Err = String;
@@ -1426,8 +1443,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoDownloads>>
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfoDownloads - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for VersionPackageInfoDownloads - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -1442,13 +1458,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <VersionPackageInfoDownloads as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfoDownloads - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into VersionPackageInfoDownloads - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -1464,8 +1478,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoDownloa
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -1485,28 +1498,28 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <VersionPackageInfoDownloads as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into VersionPackageInfoDownloads - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into VersionPackageInfoDownloads - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoJavaVersion {
     #[serde(rename = "component")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub component: Option<String>,
 
     #[serde(rename = "majorVersion")]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub major_version: Option<i32>,
 
@@ -1524,10 +1537,10 @@ impl VersionPackageInfoJavaVersion {
 }
 
 /// Converts the VersionPackageInfoJavaVersion value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for VersionPackageInfoJavaVersion {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for VersionPackageInfoJavaVersion {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             self.component.as_ref().map(|component| {
                 [
@@ -1543,12 +1556,12 @@ impl std::string::ToString for VersionPackageInfoJavaVersion {
             }),
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a VersionPackageInfoJavaVersion value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for VersionPackageInfoJavaVersion {
     type Err = String;
@@ -1608,8 +1621,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoJavaVersion
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfoJavaVersion - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for VersionPackageInfoJavaVersion - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -1624,13 +1636,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <VersionPackageInfoJavaVersion as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfoJavaVersion - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into VersionPackageInfoJavaVersion - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -1646,8 +1656,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoJavaVer
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -1667,16 +1676,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <VersionPackageInfoJavaVersion as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into VersionPackageInfoJavaVersion - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into VersionPackageInfoJavaVersion - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }

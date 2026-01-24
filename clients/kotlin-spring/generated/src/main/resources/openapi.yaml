@@ -7,7 +7,7 @@ info:
   description: SDK for Minecraft versions info
   license:
     name: MIT
-  version: 1.1.1-pre.0
+  version: 1.1.2-pre.0
 servers:
 - url: https://launchermeta.mojang.com
 - url: https://piston-meta.mojang.com
@@ -20,7 +20,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VersionManifest'
+                $ref: "#/components/schemas/VersionManifest"
           description: A list of Minecraft versions with the latest and snapshot releases
       summary: Get Minecraft version manifest
   /v1/packages/{packageId}/{versionId}.json:
@@ -48,7 +48,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VersionPackageInfo'
+                $ref: "#/components/schemas/VersionPackageInfo"
           description: Get package version details
       summary: Get Minecraft version package info
 components:
@@ -71,10 +71,10 @@ components:
           snapshot: 24w14potato
       properties:
         latest:
-          $ref: '#/components/schemas/VersionManifest_latest'
+          $ref: "#/components/schemas/VersionManifest_latest"
         versions:
           items:
-            $ref: '#/components/schemas/Version'
+            $ref: "#/components/schemas/Version"
           type: array
     Version:
       example:
@@ -142,17 +142,17 @@ components:
         version:
           type: string
         assetIndex:
-          $ref: '#/components/schemas/VersionPackageInfo_assetIndex'
+          $ref: "#/components/schemas/VersionPackageInfo_assetIndex"
         assets:
           type: string
         complianceLevel:
           type: integer
         downloads:
-          $ref: '#/components/schemas/VersionPackageInfo_downloads'
+          $ref: "#/components/schemas/VersionPackageInfo_downloads"
         id:
           type: string
         javaVersion:
-          $ref: '#/components/schemas/VersionPackageInfo_javaVersion'
+          $ref: "#/components/schemas/VersionPackageInfo_javaVersion"
         mainClass:
           example: net.minecraft.client.main.Main
           type: string
@@ -231,13 +231,13 @@ components:
           url: url
       properties:
         client:
-          $ref: '#/components/schemas/Download'
+          $ref: "#/components/schemas/Download"
         client_mappings:
-          $ref: '#/components/schemas/Download'
+          $ref: "#/components/schemas/Download"
         server:
-          $ref: '#/components/schemas/Download'
+          $ref: "#/components/schemas/Download"
         server_mappings:
-          $ref: '#/components/schemas/Download'
+          $ref: "#/components/schemas/Download"
     VersionPackageInfo_javaVersion:
       example:
         component: component

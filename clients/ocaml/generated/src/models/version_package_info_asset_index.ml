@@ -5,19 +5,48 @@
  *
  *)
 
-type t = {
-    id: string option [@default None];
-    sha1: string option [@default None];
-    size: int32 option [@default None];
-    total_size: int32 option [@default None];
-    url: string option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    id = None;
-    sha1 = None;
-    size = None;
-    total_size = None;
-    url = None;
-}
+
+    
+        type t = {
+                              id: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "id"]
+                                              sha1: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "sha1"]
+                                              size: int32
+                  
+                   option [@default None]
+                
+                
+                ; [@key "size"]
+                                              total_size: int32
+                  
+                   option [@default None]
+                
+                
+                ; [@key "totalSize"]
+                                              url: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "url"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            id = None;
+            sha1 = None;
+            size = None;
+            total_size = None;
+            url = None;
+        }
+    
 

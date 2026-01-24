@@ -13,60 +13,6 @@ All URIs are relative to *https://launchermeta.mojang.com*
 
 Get Minecraft version manifest
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class GetMinecraftVersionManifestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://launchermeta.mojang.com";
-            var apiInstance = new DefaultApi(config);
-
-            try
-            {
-                // Get Minecraft version manifest
-                VersionManifest result = apiInstance.GetMinecraftVersionManifest();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionManifest: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetMinecraftVersionManifestWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get Minecraft version manifest
-    ApiResponse<VersionManifest> response = apiInstance.GetMinecraftVersionManifestWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionManifestWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -97,62 +43,6 @@ No authorization required
 
 Get Minecraft version package info
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class GetMinecraftVersionPackageInfoExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://launchermeta.mojang.com";
-            var apiInstance = new DefaultApi(config);
-            var packageId = 177e49d3233cb6eac42f0495c0a48e719870c2ae;  // string | 
-            var versionId = 1.21;  // string | 
-
-            try
-            {
-                // Get Minecraft version package info
-                VersionPackageInfo result = apiInstance.GetMinecraftVersionPackageInfo(packageId, versionId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionPackageInfo: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetMinecraftVersionPackageInfoWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get Minecraft version package info
-    ApiResponse<VersionPackageInfo> response = apiInstance.GetMinecraftVersionPackageInfoWithHttpInfo(packageId, versionId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling DefaultApi.GetMinecraftVersionPackageInfoWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
 
 ### Parameters
 

@@ -7,10 +7,69 @@ use validator::Validate;
 use crate::header;
 use crate::{models, types::*};
 
-      
-      
+#[allow(dead_code)]
+fn from_validation_error(e: validator::ValidationError) -> validator::ValidationErrors {
+  let mut errs = validator::ValidationErrors::new();
+  errs.add("na", e);
+  errs
+}
+
+#[allow(dead_code)]
+pub fn check_xss_string(v: &str) -> std::result::Result<(), validator::ValidationError> {
+    if ammonia::is_html(v) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_vec_string(v: &[String]) -> std::result::Result<(), validator::ValidationError> {
+    if v.iter().any(|i| ammonia::is_html(i)) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_map_string(
+    v: &std::collections::HashMap<String, String>,
+) -> std::result::Result<(), validator::ValidationError> {
+    if v.keys().any(|k| ammonia::is_html(k)) || v.values().any(|v| ammonia::is_html(v)) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_map_nested<T>(
+    v: &std::collections::HashMap<String, T>,
+) -> std::result::Result<(), validator::ValidationError>
+where
+    T: validator::Validate,
+{
+    if v.keys().any(|k| ammonia::is_html(k)) || v.values().any(|v| v.validate().is_err()) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_map<T>(v: &std::collections::HashMap<String, T>) -> std::result::Result<(), validator::ValidationError> {
+    if v.keys().any(|k| ammonia::is_html(k)) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+
+
     #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
-    #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))] 
+    #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
     pub struct GetMinecraftVersionPackageInfoPathParams {
                 pub package_id: String,
                 pub version_id: String,
@@ -23,6 +82,7 @@ use crate::{models, types::*};
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Download {
     #[serde(rename = "sha1")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub sha1: Option<String>,
 
@@ -31,6 +91,7 @@ pub struct Download {
     pub size: Option<i32>,
 
     #[serde(rename = "url")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
@@ -38,15 +99,13 @@ pub struct Download {
 
 
 
-
-
 impl Download {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> Download {
         Download {
-            sha1: None,
-            size: None,
-            url: None,
+ sha1: None,
+ size: None,
+ url: None,
         }
     }
 }
@@ -151,9 +210,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Download>> for HeaderValue {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Download - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for Download - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -167,18 +224,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Download> {
              std::result::Result::Ok(value) => {
                     match <Download as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Download - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into Download - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -186,14 +238,17 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Download> {
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Version {
     #[serde(rename = "id")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
 
     #[serde(rename = "type")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub r#type: Option<String>,
+    pub r_type: Option<String>,
 
     #[serde(rename = "url")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
@@ -209,17 +264,15 @@ pub struct Version {
 
 
 
-
-
 impl Version {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> Version {
         Version {
-            id: None,
-            r#type: None,
-            url: None,
-            time: None,
-            release_time: None,
+ id: None,
+ r_type: None,
+ url: None,
+ time: None,
+ release_time: None,
         }
     }
 }
@@ -239,10 +292,10 @@ impl std::fmt::Display for Version {
             }),
 
 
-            self.r#type.as_ref().map(|r#type| {
+            self.r_type.as_ref().map(|r_type| {
                 [
                     "type".to_string(),
-                    r#type.to_string(),
+                    r_type.to_string(),
                 ].join(",")
             }),
 
@@ -276,7 +329,7 @@ impl std::str::FromStr for Version {
         #[allow(dead_code)]
         struct IntermediateRep {
             pub id: Vec<String>,
-            pub r#type: Vec<String>,
+            pub r_type: Vec<String>,
             pub url: Vec<String>,
             pub time: Vec<chrono::DateTime::<chrono::Utc>>,
             pub release_time: Vec<chrono::DateTime::<chrono::Utc>>,
@@ -300,7 +353,7 @@ impl std::str::FromStr for Version {
                     #[allow(clippy::redundant_clone)]
                     "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "type" => intermediate_rep.r_type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
                     "url" => intermediate_rep.url.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
@@ -318,7 +371,7 @@ impl std::str::FromStr for Version {
         // Use the intermediate representation to return the struct
         std::result::Result::Ok(Version {
             id: intermediate_rep.id.into_iter().next(),
-            r#type: intermediate_rep.r#type.into_iter().next(),
+            r_type: intermediate_rep.r_type.into_iter().next(),
             url: intermediate_rep.url.into_iter().next(),
             time: intermediate_rep.time.into_iter().next(),
             release_time: intermediate_rep.release_time.into_iter().next(),
@@ -336,9 +389,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Version>> for HeaderValue {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Version - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for Version - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -352,18 +403,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Version> {
              std::result::Result::Ok(value) => {
                     match <Version as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Version - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into Version - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -371,10 +417,12 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Version> {
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionManifest {
     #[serde(rename = "latest")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<models::VersionManifestLatest>,
 
     #[serde(rename = "versions")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub versions: Option<Vec<models::Version>>,
 
@@ -382,14 +430,12 @@ pub struct VersionManifest {
 
 
 
-
-
 impl VersionManifest {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> VersionManifest {
         VersionManifest {
-            latest: None,
-            versions: None,
+ latest: None,
+ versions: None,
         }
     }
 }
@@ -469,9 +515,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionManifest>> for HeaderV
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionManifest - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for VersionManifest - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -485,18 +529,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManif
              std::result::Result::Ok(value) => {
                     match <VersionManifest as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionManifest - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into VersionManifest - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -504,10 +543,12 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManif
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionManifestLatest {
     #[serde(rename = "release")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub release: Option<String>,
 
     #[serde(rename = "snapshot")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub snapshot: Option<String>,
 
@@ -515,14 +556,12 @@ pub struct VersionManifestLatest {
 
 
 
-
-
 impl VersionManifestLatest {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> VersionManifestLatest {
         VersionManifestLatest {
-            release: None,
-            snapshot: None,
+ release: None,
+ snapshot: None,
         }
     }
 }
@@ -615,9 +654,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionManifestLatest>> for H
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionManifestLatest - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for VersionManifestLatest - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -631,18 +668,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManif
              std::result::Result::Ok(value) => {
                     match <VersionManifestLatest as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionManifestLatest - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into VersionManifestLatest - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -650,14 +682,17 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionManif
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfo {
     #[serde(rename = "version")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub version: Option<String>,
 
     #[serde(rename = "assetIndex")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub asset_index: Option<models::VersionPackageInfoAssetIndex>,
 
     #[serde(rename = "assets")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub assets: Option<String>,
 
@@ -666,18 +701,22 @@ pub struct VersionPackageInfo {
     pub compliance_level: Option<i32>,
 
     #[serde(rename = "downloads")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub downloads: Option<models::VersionPackageInfoDownloads>,
 
     #[serde(rename = "id")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
 
     #[serde(rename = "javaVersion")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub java_version: Option<models::VersionPackageInfoJavaVersion>,
 
     #[serde(rename = "mainClass")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub main_class: Option<String>,
 
@@ -694,12 +733,11 @@ pub struct VersionPackageInfo {
     pub release_time: Option<chrono::DateTime::<chrono::Utc>>,
 
     #[serde(rename = "type")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub r#type: Option<String>,
+    pub r_type: Option<String>,
 
 }
-
-
 
 
 
@@ -707,18 +745,18 @@ impl VersionPackageInfo {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> VersionPackageInfo {
         VersionPackageInfo {
-            version: None,
-            asset_index: None,
-            assets: None,
-            compliance_level: None,
-            downloads: None,
-            id: None,
-            java_version: None,
-            main_class: None,
-            minimum_launcher_version: None,
-            time: None,
-            release_time: None,
-            r#type: None,
+ version: None,
+ asset_index: None,
+ assets: None,
+ compliance_level: None,
+ downloads: None,
+ id: None,
+ java_version: None,
+ main_class: None,
+ minimum_launcher_version: None,
+ time: None,
+ release_time: None,
+ r_type: None,
         }
     }
 }
@@ -788,10 +826,10 @@ impl std::fmt::Display for VersionPackageInfo {
             // Skipping releaseTime in query parameter serialization
 
 
-            self.r#type.as_ref().map(|r#type| {
+            self.r_type.as_ref().map(|r_type| {
                 [
                     "type".to_string(),
-                    r#type.to_string(),
+                    r_type.to_string(),
                 ].join(",")
             }),
 
@@ -823,7 +861,7 @@ impl std::str::FromStr for VersionPackageInfo {
             pub minimum_launcher_version: Vec<i32>,
             pub time: Vec<chrono::DateTime::<chrono::Utc>>,
             pub release_time: Vec<chrono::DateTime::<chrono::Utc>>,
-            pub r#type: Vec<String>,
+            pub r_type: Vec<String>,
         }
 
         let mut intermediate_rep = IntermediateRep::default();
@@ -864,7 +902,7 @@ impl std::str::FromStr for VersionPackageInfo {
                     #[allow(clippy::redundant_clone)]
                     "releaseTime" => intermediate_rep.release_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     #[allow(clippy::redundant_clone)]
-                    "type" => intermediate_rep.r#type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
+                    "type" => intermediate_rep.r_type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| x.to_string())?),
                     _ => return std::result::Result::Err("Unexpected key while parsing VersionPackageInfo".to_string())
                 }
             }
@@ -886,7 +924,7 @@ impl std::str::FromStr for VersionPackageInfo {
             minimum_launcher_version: intermediate_rep.minimum_launcher_version.into_iter().next(),
             time: intermediate_rep.time.into_iter().next(),
             release_time: intermediate_rep.release_time.into_iter().next(),
-            r#type: intermediate_rep.r#type.into_iter().next(),
+            r_type: intermediate_rep.r_type.into_iter().next(),
         })
     }
 }
@@ -901,9 +939,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfo>> for Head
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfo - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for VersionPackageInfo - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -917,18 +953,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
              std::result::Result::Ok(value) => {
                     match <VersionPackageInfo as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfo - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into VersionPackageInfo - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -936,10 +967,12 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoAssetIndex {
     #[serde(rename = "id")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub id: Option<String>,
 
     #[serde(rename = "sha1")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub sha1: Option<String>,
 
@@ -952,6 +985,7 @@ pub struct VersionPackageInfoAssetIndex {
     pub total_size: Option<i32>,
 
     #[serde(rename = "url")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
@@ -959,17 +993,15 @@ pub struct VersionPackageInfoAssetIndex {
 
 
 
-
-
 impl VersionPackageInfoAssetIndex {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> VersionPackageInfoAssetIndex {
         VersionPackageInfoAssetIndex {
-            id: None,
-            sha1: None,
-            size: None,
-            total_size: None,
-            url: None,
+ id: None,
+ sha1: None,
+ size: None,
+ total_size: None,
+ url: None,
         }
     }
 }
@@ -1098,9 +1130,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoAssetIndex>
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfoAssetIndex - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for VersionPackageInfoAssetIndex - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -1114,18 +1144,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
              std::result::Result::Ok(value) => {
                     match <VersionPackageInfoAssetIndex as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfoAssetIndex - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into VersionPackageInfoAssetIndex - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -1133,18 +1158,22 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoDownloads {
     #[serde(rename = "client")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub client: Option<models::Download>,
 
     #[serde(rename = "client_mappings")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub client_mappings: Option<models::Download>,
 
     #[serde(rename = "server")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub server: Option<models::Download>,
 
     #[serde(rename = "server_mappings")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub server_mappings: Option<models::Download>,
 
@@ -1152,16 +1181,14 @@ pub struct VersionPackageInfoDownloads {
 
 
 
-
-
 impl VersionPackageInfoDownloads {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> VersionPackageInfoDownloads {
         VersionPackageInfoDownloads {
-            client: None,
-            client_mappings: None,
-            server: None,
-            server_mappings: None,
+ client: None,
+ client_mappings: None,
+ server: None,
+ server_mappings: None,
         }
     }
 }
@@ -1254,9 +1281,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoDownloads>>
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfoDownloads - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for VersionPackageInfoDownloads - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -1270,18 +1295,13 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
              std::result::Result::Ok(value) => {
                     match <VersionPackageInfoDownloads as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfoDownloads - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into VersionPackageInfoDownloads - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 
 
@@ -1289,6 +1309,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct VersionPackageInfoJavaVersion {
     #[serde(rename = "component")]
+          #[validate(custom(function = "check_xss_string"))]
     #[serde(skip_serializing_if="Option::is_none")]
     pub component: Option<String>,
 
@@ -1300,14 +1321,12 @@ pub struct VersionPackageInfoJavaVersion {
 
 
 
-
-
 impl VersionPackageInfoJavaVersion {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> VersionPackageInfoJavaVersion {
         VersionPackageInfoJavaVersion {
-            component: None,
-            major_version: None,
+ component: None,
+ major_version: None,
         }
     }
 }
@@ -1400,9 +1419,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<VersionPackageInfoJavaVersion
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for VersionPackageInfoJavaVersion - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for VersionPackageInfoJavaVersion - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -1416,17 +1433,12 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<VersionPacka
              std::result::Result::Ok(value) => {
                     match <VersionPackageInfoJavaVersion as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into VersionPackageInfoJavaVersion - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into VersionPackageInfoJavaVersion - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
-
 
 

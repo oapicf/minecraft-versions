@@ -1,7 +1,7 @@
 /*
 SDK for Minecraft versions info
 
-API version: 1.1.1-pre.0
+API version: 1.1.2-pre.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -40,7 +40,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the  API v1.1.1-pre.0
+// APIClient manages communication with the  API v1.1.2-pre.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

@@ -78,7 +78,7 @@ public class DefaultControllerTest {
         // given
         String uri = UriTemplate.of("/mc/game/version_manifest.json").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@58cec85b");
+            .accept("[Ljava.lang.String;@73ba6fe6");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, VersionManifest.class);
@@ -124,7 +124,7 @@ public class DefaultControllerTest {
             put("versionId", "1.21");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@629f066f");
+            .accept("[Ljava.lang.String;@79ab34c1");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, VersionPackageInfo.class);

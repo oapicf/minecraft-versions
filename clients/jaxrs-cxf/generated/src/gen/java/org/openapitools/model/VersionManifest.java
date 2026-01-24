@@ -16,11 +16,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VersionManifest  {
   
   @ApiModelProperty(value = "")
+
   @Valid
+
   private VersionManifestLatest latest;
 
   @ApiModelProperty(value = "")
+
   @Valid
+
   private List<@Valid Version> versions = new ArrayList<>();
  /**
    * Get latest

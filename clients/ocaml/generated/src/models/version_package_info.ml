@@ -5,33 +5,97 @@
  *
  *)
 
-type t = {
-    version: string option [@default None];
-    asset_index: Version_package_info_asset_index.t option [@default None];
-    assets: string option [@default None];
-    compliance_level: int32 option [@default None];
-    downloads: Version_package_info_downloads.t option [@default None];
-    id: string option [@default None];
-    java_version: Version_package_info_java_version.t option [@default None];
-    main_class: string option [@default None];
-    minimum_launcher_version: int32 option [@default None];
-    time: string option [@default None];
-    release_time: string option [@default None];
-    _type: string option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    version = None;
-    asset_index = None;
-    assets = None;
-    compliance_level = None;
-    downloads = None;
-    id = None;
-    java_version = None;
-    main_class = None;
-    minimum_launcher_version = None;
-    time = None;
-    release_time = None;
-    _type = None;
-}
+
+    
+        type t = {
+                              version: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "version"]
+                                              asset_index: Version_package_info_asset_index.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "assetIndex"]
+                                              assets: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "assets"]
+                                              compliance_level: int32
+                  
+                   option [@default None]
+                
+                
+                ; [@key "complianceLevel"]
+                                              downloads: Version_package_info_downloads.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "downloads"]
+                                              id: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "id"]
+                                              java_version: Version_package_info_java_version.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "javaVersion"]
+                                              main_class: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "mainClass"]
+                                              minimum_launcher_version: int32
+                  
+                   option [@default None]
+                
+                
+                ; [@key "minimumLauncherVersion"]
+                                              time: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "time"]
+                                              release_time: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "releaseTime"]
+                                              _type: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "type"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            version = None;
+            asset_index = None;
+            assets = None;
+            compliance_level = None;
+            downloads = None;
+            id = None;
+            java_version = None;
+            main_class = None;
+            minimum_launcher_version = None;
+            time = None;
+            release_time = None;
+            _type = None;
+        }
+    
 

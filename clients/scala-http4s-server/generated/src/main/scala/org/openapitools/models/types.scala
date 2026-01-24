@@ -29,7 +29,7 @@ object Download {
 /**
 * 
 * @param id 
-* @param _type 
+* @param `type` 
 * @param url 
 * @param time 
 * @param releaseTime 
@@ -37,7 +37,7 @@ object Download {
 
 case class Version(
   id: Option[String],
-  _type: Option[String],
+  `type`: Option[String],
   url: Option[String],
   time: Option[ZonedDateTime],
   releaseTime: Option[ZonedDateTime]
@@ -90,7 +90,7 @@ object VersionManifestLatest {
 * @param minimumLauncherVersion 
 * @param time 
 * @param releaseTime 
-* @param _type 
+* @param `type` 
 */
 
 case class VersionPackageInfo(
@@ -105,7 +105,7 @@ case class VersionPackageInfo(
   minimumLauncherVersion: Option[Int],
   time: Option[ZonedDateTime],
   releaseTime: Option[ZonedDateTime],
-  _type: Option[String]
+  `type`: Option[String]
 )
 object VersionPackageInfo {
   implicit val encoderVersionPackageInfo: Encoder[VersionPackageInfo] = deriveEncoder[VersionPackageInfo].mapJson(_.dropNullValues)

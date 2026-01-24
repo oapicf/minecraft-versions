@@ -5,7 +5,7 @@
 		    "content": "SDK for Minecraft versions info",
 		    "type": "text/markdown"
 		},
-		"version": "1.1.1-pre.0",
+		"version": "1.1.2-pre.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -19,41 +19,43 @@
                             {
                                 "name": "Get Minecraft version manifest",
                                 "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/mc/game/version_manifest.json",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "mc",
-                                            "game",
-                                            "version_manifest.json"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": ""
-                                }
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/mc/game/version_manifest.json",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "mc",
+        "game",
+        "version_manifest.json"
+    ],
+    "variable": [
+    ],
+    "query": [
+    ]
+    },
+    "description": ""
+}
+                                ,"response": [
+                            ]
                             }
                             ]
                         },
@@ -64,52 +66,54 @@
                             {
                                 "name": "Get Minecraft version package info",
                                 "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/v1/packages/:packageId/:versionId.json",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "v1",
-                                            "packages",
-                                            ":packageId",
-                                            ":versionId.json"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "packageId",
-                                                "value": "",
-                                                "description": ""
-                                            },
-                                            {
-                                                "key": "versionId",
-                                                "value": "",
-                                                "description": ""
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": ""
-                                }
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/v1/packages/:packageId/:versionId.json",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "v1",
+        "packages",
+        ":packageId",
+        ":versionId.json"
+    ],
+    "variable": [
+        {
+        "key": "packageId",
+        "value": "",
+        "description": ""
+        },
+        {
+        "key": "versionId",
+        "value": "",
+        "description": ""
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": ""
+}
+                                ,"response": [
+                            ]
                             }
                             ]
                         }

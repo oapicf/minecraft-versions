@@ -11,12 +11,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Download  {
   
   @ApiModelProperty(value = "")
+
   private String sha1;
 
   @ApiModelProperty(value = "")
+
   private Integer size;
 
   @ApiModelProperty(value = "")
+
   private String url;
  /**
    * Get sha1

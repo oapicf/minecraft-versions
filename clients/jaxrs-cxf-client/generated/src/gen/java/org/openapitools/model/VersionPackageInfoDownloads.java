@@ -10,15 +10,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VersionPackageInfoDownloads  {
   
   @ApiModelProperty(value = "")
+
   private Download client;
 
   @ApiModelProperty(value = "")
+
   private Download clientMappings;
 
   @ApiModelProperty(value = "")
+
   private Download server;
 
   @ApiModelProperty(value = "")
+
   private Download serverMappings;
  /**
    * Get client

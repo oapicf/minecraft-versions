@@ -1,5 +1,15 @@
+.openapi-generator-ignore
 apis/DefaultApi.ts
 apis/index.ts
+docs/DefaultApi.md
+docs/Download.md
+docs/Version.md
+docs/VersionManifest.md
+docs/VersionManifestLatest.md
+docs/VersionPackageInfo.md
+docs/VersionPackageInfoAssetIndex.md
+docs/VersionPackageInfoDownloads.md
+docs/VersionPackageInfoJavaVersion.md
 index.ts
 models/Download.ts
 models/Version.ts

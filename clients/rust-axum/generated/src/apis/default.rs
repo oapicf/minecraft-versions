@@ -26,6 +26,8 @@ pub enum GetMinecraftVersionPackageInfoResponse {
 }
 
 
+
+
 /// Default
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -35,6 +37,7 @@ pub trait Default<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// GetMinecraftVersionManifest - GET /mc/game/version_manifest.json
     async fn get_minecraft_version_manifest(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -45,6 +48,7 @@ pub trait Default<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// GetMinecraftVersionPackageInfo - GET /v1/packages/{packageId}/{versionId}.json
     async fn get_minecraft_version_package_info(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

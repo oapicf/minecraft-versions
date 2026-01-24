@@ -1,7 +1,7 @@
 /*
   SDK for Minecraft versions info
 
-  The version of the OpenAPI document: 1.1.1-pre.0
+  The version of the OpenAPI document: 1.1.2-pre.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -17,15 +17,25 @@ import public "models/version_manifest.proto";
 import public "models/version_package_info.proto";
 
 service DefaultService {
-  rpc GetMinecraftVersionManifest (google.protobuf.Empty) returns (VersionManifest);
+  rpc GetMinecraftVersionManifest (google.protobuf.Empty) returns (GetMinecraftVersionManifestResponse);
 
-  rpc GetMinecraftVersionPackageInfo (GetMinecraftVersionPackageInfoRequest) returns (VersionPackageInfo);
+  rpc GetMinecraftVersionPackageInfo (GetMinecraftVersionPackageInfoRequest) returns (GetMinecraftVersionPackageInfoResponse);
 
 }
 
+message GetMinecraftVersionManifestResponse {
+    oneof response {
+        VersionManifest version_manifest_200 = 1;
+    }
+}
 message GetMinecraftVersionPackageInfoRequest {
-  string packageId = 1;
-  string versionId = 2;
+  string package_id = 1;
+  string version_id = 2;
 
 }
 
+message GetMinecraftVersionPackageInfoResponse {
+    oneof response {
+        VersionPackageInfo version_package_info_200 = 1;
+    }
+}

@@ -9,3 +9,5 @@ src/gen/java/org/openapitools/model/VersionPackageInfo.java
 src/gen/java/org/openapitools/model/VersionPackageInfoAssetIndex.java
 src/gen/java/org/openapitools/model/VersionPackageInfoDownloads.java
 src/gen/java/org/openapitools/model/VersionPackageInfoJavaVersion.java
+src/main/java/org/openapitools/api/impl/DefaultApiServiceImpl.java
+src/test/java/org/openapitools/api/DefaultApiTest.java

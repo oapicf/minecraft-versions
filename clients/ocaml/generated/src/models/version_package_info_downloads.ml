@@ -5,17 +5,41 @@
  *
  *)
 
-type t = {
-    client: Download.t option [@default None];
-    client_mappings: Download.t option [@default None];
-    server: Download.t option [@default None];
-    server_mappings: Download.t option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-let create () : t = {
-    client = None;
-    client_mappings = None;
-    server = None;
-    server_mappings = None;
-}
+
+    
+        type t = {
+                              client: Download.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "client"]
+                                              client_mappings: Download.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "client_mappings"]
+                                              server: Download.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "server"]
+                                              server_mappings: Download.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "server_mappings"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        let create () : t = {
+            client = None;
+            client_mappings = None;
+            server = None;
+            server_mappings = None;
+        }
+    
 

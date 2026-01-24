@@ -9,18 +9,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VersionPackageInfoAssetIndex  {
   
   @ApiModelProperty(value = "")
+
   private String id;
 
   @ApiModelProperty(value = "")
+
   private String sha1;
 
   @ApiModelProperty(value = "")
+
   private Integer size;
 
   @ApiModelProperty(value = "")
+
   private Integer totalSize;
 
   @ApiModelProperty(value = "")
+
   private String url;
  /**
    * Get id

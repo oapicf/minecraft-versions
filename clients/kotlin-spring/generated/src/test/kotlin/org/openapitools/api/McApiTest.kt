@@ -16,6 +16,7 @@ class McApiTest {
      */
     @Test
     fun getMinecraftVersionManifestTest() {
+        
         val response: ResponseEntity<VersionManifest> = api.getMinecraftVersionManifest()
 
         // TODO: test validations

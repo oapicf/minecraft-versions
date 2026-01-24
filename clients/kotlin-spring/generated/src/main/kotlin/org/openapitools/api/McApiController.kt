@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.beans.factory.annotation.Autowired
+import org.openapitools.api.McApiController.Companion.BASE_PATH
 
 import javax.validation.Valid
 import javax.validation.constraints.DecimalMax
@@ -30,7 +31,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${api.base-path:}")
+@RequestMapping("\${openapi.OpenAPI Kotlin Spring.base-path:\${api.base-path:$BASE_PATH}}")
 class McApiController() {
 
     @Operation(
@@ -42,10 +43,16 @@ class McApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/mc/game/version_manifest.json"],
+        value = [PATH_GET_MINECRAFT_VERSION_MANIFEST /* "/mc/game/version_manifest.json" */],
         produces = ["application/json"]
     )
     fun getMinecraftVersionManifest(): ResponseEntity<VersionManifest> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    companion object {
+        //for your own safety never directly reuse these path definitions in tests
+        const val BASE_PATH: String = ""
+        const val PATH_GET_MINECRAFT_VERSION_MANIFEST: String = "/mc/game/version_manifest.json"
     }
 }

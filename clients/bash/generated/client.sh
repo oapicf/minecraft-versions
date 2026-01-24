@@ -8,7 +8,7 @@
 # ! openapi-generator (https://openapi-generator.tech)
 # ! FROM OPENAPI SPECIFICATION IN JSON.
 # !
-# ! Generator version: 7.12.0
+# ! Generator version: 7.18.0
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -472,7 +472,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE} command line client (API version 1.1.1-pre.0)${OFF}
+${BOLD}${WHITE} command line client (API version 1.1.2-pre.0)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -534,7 +534,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://launchermeta.mojang.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE} command line client (API version 1.1.1-pre.0)${OFF}"
+    echo -e "${BOLD}${WHITE} command line client (API version 1.1.2-pre.0)${OFF}"
     echo ""
     echo -e "License: MIT"
     echo -e "Contact: blah+oapicf@cliffano.com"
@@ -543,7 +543,7 @@ read -r -d '' appdescription <<EOF
 
 SDK for Minecraft versions info
 EOF
-echo "$appdescription" | paste -sd' ' | fold -sw 80
+echo "$appdescription" | paste -sd' ' - | fold -sw 80
 }
 
 
@@ -554,7 +554,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD} command line client (API version 1.1.1-pre.0)${OFF}"
+    echo -e "${BOLD} command line client (API version 1.1.2-pre.0)${OFF}"
     echo ""
 }
 
@@ -565,12 +565,12 @@ print_version() {
 ##############################################################################
 print_getMinecraftVersionManifest_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getMinecraftVersionManifest - Get Minecraft version manifest${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getMinecraftVersionManifest - Get Minecraft version manifest${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;A list of Minecraft versions with the latest and snapshot releases${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;A list of Minecraft versions with the latest and snapshot releases${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -579,15 +579,15 @@ print_getMinecraftVersionManifest_help() {
 ##############################################################################
 print_getMinecraftVersionPackageInfo_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getMinecraftVersionPackageInfo - Get Minecraft version package info${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getMinecraftVersionPackageInfo - Get Minecraft version package info${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}packageId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: packageId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}versionId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: versionId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}packageId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: packageId=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}versionId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: versionId=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Get package version details${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Get package version details${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 
 

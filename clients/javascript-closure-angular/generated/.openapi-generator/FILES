@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 API/Client/DefaultApi.js
 API/Client/Download.js
 API/Client/Version.js

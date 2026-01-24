@@ -17,17 +17,22 @@ Base.@kwdef mutable struct VersionManifestLatest <: OpenAPI.APIModel
     snapshot::Union{Nothing, String} = nothing
 
     function VersionManifestLatest(release, snapshot, )
-        OpenAPI.validate_property(VersionManifestLatest, Symbol("release"), release)
-        OpenAPI.validate_property(VersionManifestLatest, Symbol("snapshot"), snapshot)
-        return new(release, snapshot, )
+        o = new(release, snapshot, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type VersionManifestLatest
 
 const _property_types_VersionManifestLatest = Dict{Symbol,String}(Symbol("release")=>"String", Symbol("snapshot")=>"String", )
 OpenAPI.property_type(::Type{ VersionManifestLatest }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionManifestLatest[name]))}
 
-function check_required(o::VersionManifestLatest)
+function OpenAPI.check_required(o::VersionManifestLatest)
     true
+end
+
+function OpenAPI.validate_properties(o::VersionManifestLatest)
+    OpenAPI.validate_property(VersionManifestLatest, Symbol("release"), o.release)
+    OpenAPI.validate_property(VersionManifestLatest, Symbol("snapshot"), o.snapshot)
 end
 
 function OpenAPI.validate_property(::Type{ VersionManifestLatest }, name::Symbol, val)

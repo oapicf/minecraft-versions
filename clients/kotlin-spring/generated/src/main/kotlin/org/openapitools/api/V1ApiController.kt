@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.beans.factory.annotation.Autowired
+import org.openapitools.api.V1ApiController.Companion.BASE_PATH
 
 import javax.validation.Valid
 import javax.validation.constraints.DecimalMax
@@ -30,7 +31,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${api.base-path:}")
+@RequestMapping("\${openapi.OpenAPI Kotlin Spring.base-path:\${api.base-path:$BASE_PATH}}")
 class V1ApiController() {
 
     @Operation(
@@ -42,10 +43,19 @@ class V1ApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/v1/packages/{packageId}/{versionId}.json"],
+        value = [PATH_GET_MINECRAFT_VERSION_PACKAGE_INFO /* "/v1/packages/{packageId}/{versionId}.json" */],
         produces = ["application/json"]
     )
-    fun getMinecraftVersionPackageInfo(@Parameter(description = "", required = true) @PathVariable("packageId") packageId: kotlin.String,@Parameter(description = "", required = true) @PathVariable("versionId") versionId: kotlin.String): ResponseEntity<VersionPackageInfo> {
+    fun getMinecraftVersionPackageInfo(
+        @Parameter(description = "", required = true) @PathVariable("packageId") packageId: kotlin.String,
+        @Parameter(description = "", required = true) @PathVariable("versionId") versionId: kotlin.String
+    ): ResponseEntity<VersionPackageInfo> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    companion object {
+        //for your own safety never directly reuse these path definitions in tests
+        const val BASE_PATH: String = ""
+        const val PATH_GET_MINECRAFT_VERSION_PACKAGE_INFO: String = "/v1/packages/{packageId}/{versionId}.json"
     }
 }

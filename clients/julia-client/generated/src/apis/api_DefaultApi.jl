@@ -26,7 +26,7 @@ end
 
 Params:
 
-Return: VersionManifest, OpenAPI.Clients.ApiResponse
+Return: `VersionManifest`, `OpenAPI.Clients.ApiResponse`
 """
 function get_minecraft_version_manifest(_api::DefaultApi; _mediaType=nothing)
     _ctx = _oacinternal_get_minecraft_version_manifest(_api; _mediaType=_mediaType)
@@ -54,10 +54,10 @@ end
 @doc raw"""Get Minecraft version package info
 
 Params:
-- package_id::String (required)
-- version_id::String (required)
+- `package_id`::`String` (required)
+- `version_id`::`String` (required)
 
-Return: VersionPackageInfo, OpenAPI.Clients.ApiResponse
+Return: `VersionPackageInfo`, `OpenAPI.Clients.ApiResponse`
 """
 function get_minecraft_version_package_info(_api::DefaultApi, package_id::String, version_id::String; _mediaType=nothing)
     _ctx = _oacinternal_get_minecraft_version_package_info(_api, package_id, version_id; _mediaType=_mediaType)

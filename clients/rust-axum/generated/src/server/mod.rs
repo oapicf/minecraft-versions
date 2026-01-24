@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Host};
+use axum_extra::extract::{CookieJar, Host, Query as QueryExtra};
 use bytes::Bytes;
 use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
 use tracing::error;
@@ -11,6 +11,9 @@ use crate::{header, types::*};
 
 #[allow(unused_imports)]
 use crate::{apis, models};
+
+#[allow(unused_imports)]
+use crate::{models::check_xss_string, models::check_xss_vec_string, models::check_xss_map_string, models::check_xss_map_nested, models::check_xss_map};
 
 
 /// Setup API Server.
@@ -57,6 +60,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     get_minecraft_version_manifest_validation(
@@ -71,7 +76,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().get_minecraft_version_manifest(
+
+
+let result = api_impl.as_ref().get_minecraft_version_manifest(
+      
       &method,
       &host,
       &cookies,
@@ -89,7 +97,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("application/json").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("application/json"));
                                                   }
 
                                                   let body_content =  tokio::task::spawn_blocking(move ||
@@ -101,11 +109,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -140,6 +149,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     get_minecraft_version_package_info_validation(
@@ -156,7 +167,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().get_minecraft_version_package_info(
+
+
+let result = api_impl.as_ref().get_minecraft_version_package_info(
+      
       &method,
       &host,
       &cookies,
@@ -175,7 +189,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("application/json").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("application/json"));
                                                   }
 
                                                   let body_content =  tokio::task::spawn_blocking(move ||
@@ -187,12 +201,22 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
 
+
+#[allow(dead_code)]
+#[inline]
+fn response_with_status_code_only(code: StatusCode) -> Result<Response, StatusCode> {
+   Response::builder()
+          .status(code)
+          .body(Body::empty())
+          .map_err(|_| code)
+}

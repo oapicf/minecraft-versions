@@ -37,7 +37,7 @@ data class Version(
 
     @Schema(example = "2024-04-01T11:07:19.000Z", description = "")
     @get:JsonProperty("releaseTime") val releaseTime: java.time.OffsetDateTime? = null
-    ) {
+) {
 
 }
 

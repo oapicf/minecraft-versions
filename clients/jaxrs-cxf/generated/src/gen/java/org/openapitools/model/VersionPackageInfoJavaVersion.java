@@ -12,9 +12,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VersionPackageInfoJavaVersion  {
   
   @ApiModelProperty(value = "")
+
   private String component;
 
   @ApiModelProperty(value = "")
+
   private Integer majorVersion;
  /**
    * Get component

@@ -1,7 +1,7 @@
 /*
   SDK for Minecraft versions info
 
-  The version of the OpenAPI document: 1.1.1-pre.0
+  The version of the OpenAPI document: 1.1.2-pre.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -17,6 +17,7 @@ message VersionPackageInfoJavaVersion {
 
   string component = 326165253;
 
-  int32 majorVersion = 70005538;
+  int32 major_version = 224284592;
 
 }
+

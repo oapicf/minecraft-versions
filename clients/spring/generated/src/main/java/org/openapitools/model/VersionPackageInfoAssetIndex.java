@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_assetIndex")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionPackageInfoAssetIndex {
 
   private @Nullable String id;
@@ -34,7 +34,7 @@ public class VersionPackageInfoAssetIndex {
 
   private @Nullable String url;
 
-  public VersionPackageInfoAssetIndex id(String id) {
+  public VersionPackageInfoAssetIndex id(@Nullable String id) {
     this.id = id;
     return this;
   }
@@ -46,15 +46,15 @@ public class VersionPackageInfoAssetIndex {
   
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
-  public String getId() {
+  public @Nullable String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@Nullable String id) {
     this.id = id;
   }
 
-  public VersionPackageInfoAssetIndex sha1(String sha1) {
+  public VersionPackageInfoAssetIndex sha1(@Nullable String sha1) {
     this.sha1 = sha1;
     return this;
   }
@@ -66,15 +66,15 @@ public class VersionPackageInfoAssetIndex {
   
   @Schema(name = "sha1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("sha1")
-  public String getSha1() {
+  public @Nullable String getSha1() {
     return sha1;
   }
 
-  public void setSha1(String sha1) {
+  public void setSha1(@Nullable String sha1) {
     this.sha1 = sha1;
   }
 
-  public VersionPackageInfoAssetIndex size(Integer size) {
+  public VersionPackageInfoAssetIndex size(@Nullable Integer size) {
     this.size = size;
     return this;
   }
@@ -86,15 +86,15 @@ public class VersionPackageInfoAssetIndex {
   
   @Schema(name = "size", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("size")
-  public Integer getSize() {
+  public @Nullable Integer getSize() {
     return size;
   }
 
-  public void setSize(Integer size) {
+  public void setSize(@Nullable Integer size) {
     this.size = size;
   }
 
-  public VersionPackageInfoAssetIndex totalSize(Integer totalSize) {
+  public VersionPackageInfoAssetIndex totalSize(@Nullable Integer totalSize) {
     this.totalSize = totalSize;
     return this;
   }
@@ -106,15 +106,15 @@ public class VersionPackageInfoAssetIndex {
   
   @Schema(name = "totalSize", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("totalSize")
-  public Integer getTotalSize() {
+  public @Nullable Integer getTotalSize() {
     return totalSize;
   }
 
-  public void setTotalSize(Integer totalSize) {
+  public void setTotalSize(@Nullable Integer totalSize) {
     this.totalSize = totalSize;
   }
 
-  public VersionPackageInfoAssetIndex url(String url) {
+  public VersionPackageInfoAssetIndex url(@Nullable String url) {
     this.url = url;
     return this;
   }
@@ -126,11 +126,11 @@ public class VersionPackageInfoAssetIndex {
   
   @Schema(name = "url", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")
-  public String getUrl() {
+  public @Nullable String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@Nullable String url) {
     this.url = url;
   }
 

@@ -9,8 +9,8 @@ Method | HTTP request | Description
 
 
 # **get_minecraft_version_manifest**
-> get_minecraft_version_manifest(_api::DefaultApi; _mediaType=nothing) -> VersionManifest, OpenAPI.Clients.ApiResponse <br/>
-> get_minecraft_version_manifest(_api::DefaultApi, response_stream::Channel; _mediaType=nothing) -> Channel{ VersionManifest }, OpenAPI.Clients.ApiResponse
+> `get_minecraft_version_manifest`(_api::`DefaultApi`; _mediaType=nothing) -> `VersionManifest`, `OpenAPI.Clients.ApiResponse` <br/>
+> `get_minecraft_version_manifest`(_api::`DefaultApi`, response_stream::`Channel`; _mediaType=nothing) -> `Channel`{ `VersionManifest` }, `OpenAPI.Clients.ApiResponse`
 
 Get Minecraft version manifest
 
@@ -19,7 +19,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**VersionManifest**](VersionManifest.md)
+[**`VersionManifest`**](VersionManifest.md)
 
 ### Authorization
 
@@ -33,8 +33,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_minecraft_version_package_info**
-> get_minecraft_version_package_info(_api::DefaultApi, package_id::String, version_id::String; _mediaType=nothing) -> VersionPackageInfo, OpenAPI.Clients.ApiResponse <br/>
-> get_minecraft_version_package_info(_api::DefaultApi, response_stream::Channel, package_id::String, version_id::String; _mediaType=nothing) -> Channel{ VersionPackageInfo }, OpenAPI.Clients.ApiResponse
+> `get_minecraft_version_package_info`(_api::`DefaultApi`, `package_id`::`String`, `version_id`::`String`; _mediaType=nothing) -> `VersionPackageInfo`, `OpenAPI.Clients.ApiResponse` <br/>
+> `get_minecraft_version_package_info`(_api::`DefaultApi`, response_stream::`Channel`, `package_id`::`String`, `version_id`::`String`; _mediaType=nothing) -> `Channel`{ `VersionPackageInfo` }, `OpenAPI.Clients.ApiResponse`
 
 Get Minecraft version package info
 
@@ -42,13 +42,13 @@ Get Minecraft version package info
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_api** | **DefaultApi** | API context | 
-**package_id** | **String** |  |
-**version_id** | **String** |  |
+ **_api** | **`DefaultApi`** | API context | 
+**`package_id`** | **`String`** |  |
+**`version_id`** | **`String`** |  |
 
 ### Return type
 
-[**VersionPackageInfo**](VersionPackageInfo.md)
+[**`VersionPackageInfo`**](VersionPackageInfo.md)
 
 ### Authorization
 

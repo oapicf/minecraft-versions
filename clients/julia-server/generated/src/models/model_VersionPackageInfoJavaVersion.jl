@@ -17,17 +17,22 @@ Base.@kwdef mutable struct VersionPackageInfoJavaVersion <: OpenAPI.APIModel
     majorVersion::Union{Nothing, Int64} = nothing
 
     function VersionPackageInfoJavaVersion(component, majorVersion, )
-        OpenAPI.validate_property(VersionPackageInfoJavaVersion, Symbol("component"), component)
-        OpenAPI.validate_property(VersionPackageInfoJavaVersion, Symbol("majorVersion"), majorVersion)
-        return new(component, majorVersion, )
+        o = new(component, majorVersion, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type VersionPackageInfoJavaVersion
 
 const _property_types_VersionPackageInfoJavaVersion = Dict{Symbol,String}(Symbol("component")=>"String", Symbol("majorVersion")=>"Int64", )
 OpenAPI.property_type(::Type{ VersionPackageInfoJavaVersion }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionPackageInfoJavaVersion[name]))}
 
-function check_required(o::VersionPackageInfoJavaVersion)
+function OpenAPI.check_required(o::VersionPackageInfoJavaVersion)
     true
+end
+
+function OpenAPI.validate_properties(o::VersionPackageInfoJavaVersion)
+    OpenAPI.validate_property(VersionPackageInfoJavaVersion, Symbol("component"), o.component)
+    OpenAPI.validate_property(VersionPackageInfoJavaVersion, Symbol("majorVersion"), o.majorVersion)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfoJavaVersion }, name::Symbol, val)

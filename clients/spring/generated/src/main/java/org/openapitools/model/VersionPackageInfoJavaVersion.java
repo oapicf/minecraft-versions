@@ -21,14 +21,14 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("VersionPackageInfo_javaVersion")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionPackageInfoJavaVersion {
 
   private @Nullable String component;
 
   private @Nullable Integer majorVersion;
 
-  public VersionPackageInfoJavaVersion component(String component) {
+  public VersionPackageInfoJavaVersion component(@Nullable String component) {
     this.component = component;
     return this;
   }
@@ -40,15 +40,15 @@ public class VersionPackageInfoJavaVersion {
   
   @Schema(name = "component", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("component")
-  public String getComponent() {
+  public @Nullable String getComponent() {
     return component;
   }
 
-  public void setComponent(String component) {
+  public void setComponent(@Nullable String component) {
     this.component = component;
   }
 
-  public VersionPackageInfoJavaVersion majorVersion(Integer majorVersion) {
+  public VersionPackageInfoJavaVersion majorVersion(@Nullable Integer majorVersion) {
     this.majorVersion = majorVersion;
     return this;
   }
@@ -60,11 +60,11 @@ public class VersionPackageInfoJavaVersion {
   
   @Schema(name = "majorVersion", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("majorVersion")
-  public Integer getMajorVersion() {
+  public @Nullable Integer getMajorVersion() {
     return majorVersion;
   }
 
-  public void setMajorVersion(Integer majorVersion) {
+  public void setMajorVersion(@Nullable Integer majorVersion) {
     this.majorVersion = majorVersion;
   }
 

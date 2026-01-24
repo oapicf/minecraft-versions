@@ -19,7 +19,7 @@ import javax.annotation.Generated;
  * Download
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class Download {
 
   private @Nullable String sha1;
@@ -28,7 +28,7 @@ public class Download {
 
   private @Nullable String url;
 
-  public Download sha1(String sha1) {
+  public Download sha1(@Nullable String sha1) {
     this.sha1 = sha1;
     return this;
   }
@@ -40,15 +40,15 @@ public class Download {
   
   @Schema(name = "sha1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("sha1")
-  public String getSha1() {
+  public @Nullable String getSha1() {
     return sha1;
   }
 
-  public void setSha1(String sha1) {
+  public void setSha1(@Nullable String sha1) {
     this.sha1 = sha1;
   }
 
-  public Download size(Integer size) {
+  public Download size(@Nullable Integer size) {
     this.size = size;
     return this;
   }
@@ -60,15 +60,15 @@ public class Download {
   
   @Schema(name = "size", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("size")
-  public Integer getSize() {
+  public @Nullable Integer getSize() {
     return size;
   }
 
-  public void setSize(Integer size) {
+  public void setSize(@Nullable Integer size) {
     this.size = size;
   }
 
-  public Download url(String url) {
+  public Download url(@Nullable String url) {
     this.url = url;
     return this;
   }
@@ -80,11 +80,11 @@ public class Download {
   
   @Schema(name = "url", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")
-  public String getUrl() {
+  public @Nullable String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@Nullable String url) {
     this.url = url;
   }
 

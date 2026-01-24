@@ -1,8 +1,11 @@
+.openapi-generator-ignore
 README.md
 config.nim
 openapiclient.nim
 openapiclient/apis/api_default.nim
+openapiclient/models/model_any_type.nim
 openapiclient/models/model_download.nim
+openapiclient/models/model_object.nim
 openapiclient/models/model_version.nim
 openapiclient/models/model_version_manifest.nim
 openapiclient/models/model_version_manifest_latest.nim

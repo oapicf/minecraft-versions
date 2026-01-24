@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .phplint.yml
 .travis.yml
@@ -18,6 +19,7 @@ phpunit.xml.dist
 src/Api/DefaultApi.php
 src/ApiException.php
 src/Configuration.php
+src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/Download.php
 src/Model/ModelInterface.php
@@ -29,3 +31,12 @@ src/Model/VersionPackageInfoAssetIndex.php
 src/Model/VersionPackageInfoDownloads.php
 src/Model/VersionPackageInfoJavaVersion.php
 src/ObjectSerializer.php
+tests/Api/DefaultApiTest.php
+tests/Model/DownloadTest.php
+tests/Model/VersionManifestLatestTest.php
+tests/Model/VersionManifestTest.php
+tests/Model/VersionPackageInfoAssetIndexTest.php
+tests/Model/VersionPackageInfoDownloadsTest.php
+tests/Model/VersionPackageInfoJavaVersionTest.php
+tests/Model/VersionPackageInfoTest.php
+tests/Model/VersionTest.php

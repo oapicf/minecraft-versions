@@ -12,9 +12,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VersionManifestLatest  {
   
   @ApiModelProperty(example = "1.21", value = "")
+
   private String release;
 
   @ApiModelProperty(example = "24w14potato", value = "")
+
   private String snapshot;
  /**
    * Get release

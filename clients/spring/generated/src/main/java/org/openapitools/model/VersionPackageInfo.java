@@ -24,7 +24,7 @@ import javax.annotation.Generated;
  * VersionPackageInfo
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionPackageInfo {
 
   private @Nullable String version;
@@ -53,7 +53,7 @@ public class VersionPackageInfo {
 
   private @Nullable String type;
 
-  public VersionPackageInfo version(String version) {
+  public VersionPackageInfo version(@Nullable String version) {
     this.version = version;
     return this;
   }
@@ -65,15 +65,15 @@ public class VersionPackageInfo {
   
   @Schema(name = "version", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("version")
-  public String getVersion() {
+  public @Nullable String getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
+  public void setVersion(@Nullable String version) {
     this.version = version;
   }
 
-  public VersionPackageInfo assetIndex(VersionPackageInfoAssetIndex assetIndex) {
+  public VersionPackageInfo assetIndex(@Nullable VersionPackageInfoAssetIndex assetIndex) {
     this.assetIndex = assetIndex;
     return this;
   }
@@ -85,15 +85,15 @@ public class VersionPackageInfo {
   @Valid 
   @Schema(name = "assetIndex", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("assetIndex")
-  public VersionPackageInfoAssetIndex getAssetIndex() {
+  public @Nullable VersionPackageInfoAssetIndex getAssetIndex() {
     return assetIndex;
   }
 
-  public void setAssetIndex(VersionPackageInfoAssetIndex assetIndex) {
+  public void setAssetIndex(@Nullable VersionPackageInfoAssetIndex assetIndex) {
     this.assetIndex = assetIndex;
   }
 
-  public VersionPackageInfo assets(String assets) {
+  public VersionPackageInfo assets(@Nullable String assets) {
     this.assets = assets;
     return this;
   }
@@ -105,15 +105,15 @@ public class VersionPackageInfo {
   
   @Schema(name = "assets", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("assets")
-  public String getAssets() {
+  public @Nullable String getAssets() {
     return assets;
   }
 
-  public void setAssets(String assets) {
+  public void setAssets(@Nullable String assets) {
     this.assets = assets;
   }
 
-  public VersionPackageInfo complianceLevel(Integer complianceLevel) {
+  public VersionPackageInfo complianceLevel(@Nullable Integer complianceLevel) {
     this.complianceLevel = complianceLevel;
     return this;
   }
@@ -125,15 +125,15 @@ public class VersionPackageInfo {
   
   @Schema(name = "complianceLevel", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("complianceLevel")
-  public Integer getComplianceLevel() {
+  public @Nullable Integer getComplianceLevel() {
     return complianceLevel;
   }
 
-  public void setComplianceLevel(Integer complianceLevel) {
+  public void setComplianceLevel(@Nullable Integer complianceLevel) {
     this.complianceLevel = complianceLevel;
   }
 
-  public VersionPackageInfo downloads(VersionPackageInfoDownloads downloads) {
+  public VersionPackageInfo downloads(@Nullable VersionPackageInfoDownloads downloads) {
     this.downloads = downloads;
     return this;
   }
@@ -145,15 +145,15 @@ public class VersionPackageInfo {
   @Valid 
   @Schema(name = "downloads", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("downloads")
-  public VersionPackageInfoDownloads getDownloads() {
+  public @Nullable VersionPackageInfoDownloads getDownloads() {
     return downloads;
   }
 
-  public void setDownloads(VersionPackageInfoDownloads downloads) {
+  public void setDownloads(@Nullable VersionPackageInfoDownloads downloads) {
     this.downloads = downloads;
   }
 
-  public VersionPackageInfo id(String id) {
+  public VersionPackageInfo id(@Nullable String id) {
     this.id = id;
     return this;
   }
@@ -165,15 +165,15 @@ public class VersionPackageInfo {
   
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
-  public String getId() {
+  public @Nullable String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@Nullable String id) {
     this.id = id;
   }
 
-  public VersionPackageInfo javaVersion(VersionPackageInfoJavaVersion javaVersion) {
+  public VersionPackageInfo javaVersion(@Nullable VersionPackageInfoJavaVersion javaVersion) {
     this.javaVersion = javaVersion;
     return this;
   }
@@ -185,15 +185,15 @@ public class VersionPackageInfo {
   @Valid 
   @Schema(name = "javaVersion", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("javaVersion")
-  public VersionPackageInfoJavaVersion getJavaVersion() {
+  public @Nullable VersionPackageInfoJavaVersion getJavaVersion() {
     return javaVersion;
   }
 
-  public void setJavaVersion(VersionPackageInfoJavaVersion javaVersion) {
+  public void setJavaVersion(@Nullable VersionPackageInfoJavaVersion javaVersion) {
     this.javaVersion = javaVersion;
   }
 
-  public VersionPackageInfo mainClass(String mainClass) {
+  public VersionPackageInfo mainClass(@Nullable String mainClass) {
     this.mainClass = mainClass;
     return this;
   }
@@ -205,15 +205,15 @@ public class VersionPackageInfo {
   
   @Schema(name = "mainClass", example = "net.minecraft.client.main.Main", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("mainClass")
-  public String getMainClass() {
+  public @Nullable String getMainClass() {
     return mainClass;
   }
 
-  public void setMainClass(String mainClass) {
+  public void setMainClass(@Nullable String mainClass) {
     this.mainClass = mainClass;
   }
 
-  public VersionPackageInfo minimumLauncherVersion(Integer minimumLauncherVersion) {
+  public VersionPackageInfo minimumLauncherVersion(@Nullable Integer minimumLauncherVersion) {
     this.minimumLauncherVersion = minimumLauncherVersion;
     return this;
   }
@@ -225,15 +225,15 @@ public class VersionPackageInfo {
   
   @Schema(name = "minimumLauncherVersion", example = "21", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("minimumLauncherVersion")
-  public Integer getMinimumLauncherVersion() {
+  public @Nullable Integer getMinimumLauncherVersion() {
     return minimumLauncherVersion;
   }
 
-  public void setMinimumLauncherVersion(Integer minimumLauncherVersion) {
+  public void setMinimumLauncherVersion(@Nullable Integer minimumLauncherVersion) {
     this.minimumLauncherVersion = minimumLauncherVersion;
   }
 
-  public VersionPackageInfo time(OffsetDateTime time) {
+  public VersionPackageInfo time(@Nullable OffsetDateTime time) {
     this.time = time;
     return this;
   }
@@ -245,15 +245,15 @@ public class VersionPackageInfo {
   @Valid 
   @Schema(name = "time", example = "2024-04-01T11:14:41.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
-  public OffsetDateTime getTime() {
+  public @Nullable OffsetDateTime getTime() {
     return time;
   }
 
-  public void setTime(OffsetDateTime time) {
+  public void setTime(@Nullable OffsetDateTime time) {
     this.time = time;
   }
 
-  public VersionPackageInfo releaseTime(OffsetDateTime releaseTime) {
+  public VersionPackageInfo releaseTime(@Nullable OffsetDateTime releaseTime) {
     this.releaseTime = releaseTime;
     return this;
   }
@@ -265,15 +265,15 @@ public class VersionPackageInfo {
   @Valid 
   @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseTime")
-  public OffsetDateTime getReleaseTime() {
+  public @Nullable OffsetDateTime getReleaseTime() {
     return releaseTime;
   }
 
-  public void setReleaseTime(OffsetDateTime releaseTime) {
+  public void setReleaseTime(@Nullable OffsetDateTime releaseTime) {
     this.releaseTime = releaseTime;
   }
 
-  public VersionPackageInfo type(String type) {
+  public VersionPackageInfo type(@Nullable String type) {
     this.type = type;
     return this;
   }
@@ -285,11 +285,11 @@ public class VersionPackageInfo {
   
   @Schema(name = "type", example = "snapshot", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("type")
-  public String getType() {
+  public @Nullable String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@Nullable String type) {
     this.type = type;
   }
 

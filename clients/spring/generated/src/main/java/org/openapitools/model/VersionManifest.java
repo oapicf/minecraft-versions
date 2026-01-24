@@ -24,7 +24,7 @@ import javax.annotation.Generated;
  * VersionManifest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-10T01:45:40.016419888Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionManifest {
 
   private @Nullable VersionManifestLatest latest;
@@ -32,7 +32,7 @@ public class VersionManifest {
   @Valid
   private List<@Valid Version> versions = new ArrayList<>();
 
-  public VersionManifest latest(VersionManifestLatest latest) {
+  public VersionManifest latest(@Nullable VersionManifestLatest latest) {
     this.latest = latest;
     return this;
   }
@@ -44,11 +44,11 @@ public class VersionManifest {
   @Valid 
   @Schema(name = "latest", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("latest")
-  public VersionManifestLatest getLatest() {
+  public @Nullable VersionManifestLatest getLatest() {
     return latest;
   }
 
-  public void setLatest(VersionManifestLatest latest) {
+  public void setLatest(@Nullable VersionManifestLatest latest) {
     this.latest = latest;
   }
 

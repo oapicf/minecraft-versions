@@ -5,7 +5,7 @@ import play.api.libs.json._
 /**
   * Represents the Swagger definition for VersionManifest.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2025-05-10T01:45:35.288154528Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-01-24T10:37:51.711944606Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 case class VersionManifest(
   latest: Option[VersionManifestLatest],
   versions: Option[List[Version]]

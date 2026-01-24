@@ -47,27 +47,32 @@ Base.@kwdef mutable struct VersionPackageInfo <: OpenAPI.APIModel
     type::Union{Nothing, String} = nothing
 
     function VersionPackageInfo(version, assetIndex, assets, complianceLevel, downloads, id, javaVersion, mainClass, minimumLauncherVersion, time, releaseTime, type, )
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("version"), version)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("assetIndex"), assetIndex)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("assets"), assets)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("complianceLevel"), complianceLevel)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("downloads"), downloads)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("id"), id)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("javaVersion"), javaVersion)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("mainClass"), mainClass)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("minimumLauncherVersion"), minimumLauncherVersion)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("time"), time)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("releaseTime"), releaseTime)
-        OpenAPI.validate_property(VersionPackageInfo, Symbol("type"), type)
-        return new(version, assetIndex, assets, complianceLevel, downloads, id, javaVersion, mainClass, minimumLauncherVersion, time, releaseTime, type, )
+        o = new(version, assetIndex, assets, complianceLevel, downloads, id, javaVersion, mainClass, minimumLauncherVersion, time, releaseTime, type, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type VersionPackageInfo
 
 const _property_types_VersionPackageInfo = Dict{Symbol,String}(Symbol("version")=>"String", Symbol("assetIndex")=>"VersionPackageInfoAssetIndex", Symbol("assets")=>"String", Symbol("complianceLevel")=>"Int64", Symbol("downloads")=>"VersionPackageInfoDownloads", Symbol("id")=>"String", Symbol("javaVersion")=>"VersionPackageInfoJavaVersion", Symbol("mainClass")=>"String", Symbol("minimumLauncherVersion")=>"Int64", Symbol("time")=>"ZonedDateTime", Symbol("releaseTime")=>"ZonedDateTime", Symbol("type")=>"String", )
 OpenAPI.property_type(::Type{ VersionPackageInfo }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionPackageInfo[name]))}
 
-function check_required(o::VersionPackageInfo)
+function OpenAPI.check_required(o::VersionPackageInfo)
     true
+end
+
+function OpenAPI.validate_properties(o::VersionPackageInfo)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("version"), o.version)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("assetIndex"), o.assetIndex)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("assets"), o.assets)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("complianceLevel"), o.complianceLevel)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("downloads"), o.downloads)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("id"), o.id)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("javaVersion"), o.javaVersion)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("mainClass"), o.mainClass)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("minimumLauncherVersion"), o.minimumLauncherVersion)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("time"), o.time)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("releaseTime"), o.releaseTime)
+    OpenAPI.validate_property(VersionPackageInfo, Symbol("type"), o.type)
 end
 
 function OpenAPI.validate_property(::Type{ VersionPackageInfo }, name::Symbol, val)

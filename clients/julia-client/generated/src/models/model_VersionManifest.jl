@@ -17,17 +17,22 @@ Base.@kwdef mutable struct VersionManifest <: OpenAPI.APIModel
     versions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{Version} }
 
     function VersionManifest(latest, versions, )
-        OpenAPI.validate_property(VersionManifest, Symbol("latest"), latest)
-        OpenAPI.validate_property(VersionManifest, Symbol("versions"), versions)
-        return new(latest, versions, )
+        o = new(latest, versions, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type VersionManifest
 
 const _property_types_VersionManifest = Dict{Symbol,String}(Symbol("latest")=>"VersionManifestLatest", Symbol("versions")=>"Vector{Version}", )
 OpenAPI.property_type(::Type{ VersionManifest }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionManifest[name]))}
 
-function check_required(o::VersionManifest)
+function OpenAPI.check_required(o::VersionManifest)
     true
+end
+
+function OpenAPI.validate_properties(o::VersionManifest)
+    OpenAPI.validate_property(VersionManifest, Symbol("latest"), o.latest)
+    OpenAPI.validate_property(VersionManifest, Symbol("versions"), o.versions)
 end
 
 function OpenAPI.validate_property(::Type{ VersionManifest }, name::Symbol, val)

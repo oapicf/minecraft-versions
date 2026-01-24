@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * VersionPackageInfoDownloads
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2025-05-10T01:44:17.459555707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-01-24T10:36:04.723875190Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionPackageInfoDownloads   {
   @JsonProperty("client")
   private Download client;
