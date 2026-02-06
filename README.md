@@ -6,7 +6,7 @@
 Minecraft Versions
 ------------------
 
-Minecraft Versions is SDK for Minecraft versions info .
+Minecraft Versions is SDK for [Minecraft versions](https://minecraft.wiki/w/Version_history) info .
 
 Published packages
 ------------------
