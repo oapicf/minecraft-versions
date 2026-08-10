@@ -6,11 +6,11 @@ contact:
   url: https://github.com/oapicf/minecraft-versions
   email: blah+oapicf@cliffano.com
 scm:
-  git_user: oapicf
+  git_user: littlegodzillalaboratory
   git_repo: minecraft-versions
 base_dir:
   github_actions: /home/runner/work/minecraft-versions/minecraft-versions/
-  local: /Users/cliffano/dev/workspace-oapicf/minecraft-versions
+  local: /Users/cliffano/dev/workspace-littlegodzillalaboratory/minecraft-versions
   custom: >-
     /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/minecraft-versions/
 generator:
@@ -19,9 +19,9 @@ generator:
     project_id: minecraft-versions
     project_name: Minecraft Versions
     project_desc: An SDK for Minecraft versions info
-    author_name: OpenAPI Clients Factory
-    author_email: blah+oapicf@cliffano.com
-    author_url: https://github.com/oapicf
-    github_id: oapicf
+    author_name: Little Godzilla Laboratory
+    author_email: blah+lgl@cliffano.com
+    author_url: https://github.com/littlegodzillalaboratory
+    github_id: littlegodzillalaboratory
     github_repo: minecraft-versions
-    github_token_prefix: OAPICF
+    github_token_prefix: LITTLEGODZILLALABORATORY
