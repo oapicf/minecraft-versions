@@ -82,21 +82,44 @@ VersionPackageInfoDownloads <- R6::R6Class(
       VersionPackageInfoDownloadsObject <- list()
       if (!is.null(self$`client`)) {
         VersionPackageInfoDownloadsObject[["client"]] <-
-          self$`client`$toSimpleType()
+          self$extractSimpleType(self$`client`)
       }
       if (!is.null(self$`client_mappings`)) {
         VersionPackageInfoDownloadsObject[["client_mappings"]] <-
-          self$`client_mappings`$toSimpleType()
+          self$extractSimpleType(self$`client_mappings`)
       }
       if (!is.null(self$`server`)) {
         VersionPackageInfoDownloadsObject[["server"]] <-
-          self$`server`$toSimpleType()
+          self$extractSimpleType(self$`server`)
       }
       if (!is.null(self$`server_mappings`)) {
         VersionPackageInfoDownloadsObject[["server_mappings"]] <-
-          self$`server_mappings`$toSimpleType()
+          self$extractSimpleType(self$`server_mappings`)
       }
       return(VersionPackageInfoDownloadsObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

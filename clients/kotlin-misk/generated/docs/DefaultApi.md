@@ -1,0 +1,98 @@
+# DefaultApi
+
+All URIs are relative to *https://launchermeta.mojang.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getMinecraftVersionManifest**](DefaultApi.md#getMinecraftVersionManifest) | **Get** /mc/game/version_manifest.json | Get Minecraft version manifest
+[**getMinecraftVersionPackageInfo**](DefaultApi.md#getMinecraftVersionPackageInfo) | **Get** /v1/packages/{packageId}/{versionId}.json | Get Minecraft version package info
+
+
+<a name="getMinecraftVersionManifest"></a>
+# **getMinecraftVersionManifest**
+> VersionManifest getMinecraftVersionManifest()
+
+Get Minecraft version manifest
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.infrastructure.*
+//import org.openapitools.server.api.model.*
+
+val apiInstance = DefaultApi()
+try {
+    val result : VersionManifest = apiInstance.getMinecraftVersionManifest()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#getMinecraftVersionManifest")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#getMinecraftVersionManifest")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**VersionManifest**](VersionManifest.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: APPLICATION_JSON
+
+<a name="getMinecraftVersionPackageInfo"></a>
+# **getMinecraftVersionPackageInfo**
+> VersionPackageInfo getMinecraftVersionPackageInfo(packageId, versionId)
+
+Get Minecraft version package info
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.infrastructure.*
+//import org.openapitools.server.api.model.*
+
+val apiInstance = DefaultApi()
+val packageId : kotlin.String = 177e49d3233cb6eac42f0495c0a48e719870c2ae // kotlin.String | 
+val versionId : kotlin.String = 1.21 // kotlin.String | 
+try {
+    val result : VersionPackageInfo = apiInstance.getMinecraftVersionPackageInfo(packageId, versionId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#getMinecraftVersionPackageInfo")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#getMinecraftVersionPackageInfo")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **packageId** | **kotlin.String**|  |
+ **versionId** | **kotlin.String**|  |
+
+### Return type
+
+[**VersionPackageInfo**](VersionPackageInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: APPLICATION_JSON
+

@@ -61,8 +61,8 @@ async def get_minecraft_version_manifest(
     response_model_by_alias=True,
 )
 async def get_minecraft_version_package_info(
-    packageId: StrictStr = Path(..., description=""),
-    versionId: StrictStr = Path(..., description=""),
+    packageId: StrictStr = Path(..., description="", examples=["177e49d3233cb6eac42f0495c0a48e719870c2ae"]),
+    versionId: StrictStr = Path(..., description="", examples=[1.21]),
 ) -> VersionPackageInfo:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")

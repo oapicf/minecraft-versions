@@ -1,4 +1,4 @@
-# # VersionManifest
+# VersionManifest
 
 ## Properties
 

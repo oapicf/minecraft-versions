@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.beans.factory.annotation.Autowired
-import org.openapitools.api.V1ApiController.Companion.BASE_PATH
 
 import javax.validation.Valid
 import javax.validation.constraints.DecimalMax
@@ -31,7 +30,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${openapi.OpenAPI Kotlin Spring.base-path:\${api.base-path:$BASE_PATH}}")
+@RequestMapping("\${api.base-path:}")
 class V1ApiController() {
 
     @Operation(
@@ -43,7 +42,8 @@ class V1ApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GET_MINECRAFT_VERSION_PACKAGE_INFO /* "/v1/packages/{packageId}/{versionId}.json" */],
+        // "/v1/packages/{packageId}/{versionId}.json"
+        value = [PATH_GET_MINECRAFT_VERSION_PACKAGE_INFO],
         produces = ["application/json"]
     )
     fun getMinecraftVersionPackageInfo(

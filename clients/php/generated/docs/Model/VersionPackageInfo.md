@@ -1,4 +1,4 @@
-# # VersionPackageInfo
+# VersionPackageInfo
 
 ## Properties
 

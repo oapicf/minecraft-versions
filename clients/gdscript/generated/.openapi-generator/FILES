@@ -1,0 +1,16 @@
+.openapi-generator-ignore
+README.md
+apis/DefaultApi.gd
+apis/DefaultApi.md
+core/ApiBee.gd
+core/ApiConfig.gd
+core/ApiError.gd
+core/ApiResponse.gd
+models/Download.gd
+models/Version.gd
+models/VersionManifest.gd
+models/VersionManifestLatest.gd
+models/VersionPackageInfo.gd
+models/VersionPackageInfoAssetIndex.gd
+models/VersionPackageInfoDownloads.gd
+models/VersionPackageInfoJavaVersion.gd

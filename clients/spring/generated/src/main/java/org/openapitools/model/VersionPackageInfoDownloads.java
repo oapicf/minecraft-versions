@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -9,28 +10,32 @@ import org.openapitools.model.Download;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * VersionPackageInfoDownloads
  */
 
 @JsonTypeName("VersionPackageInfo_downloads")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-10T07:24:22.518481704Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfoDownloads {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Download client;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Download clientMappings;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Download server;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Download serverMappings;
 
   public VersionPackageInfoDownloads client(@Nullable Download client) {
@@ -49,6 +54,7 @@ public class VersionPackageInfoDownloads {
     return client;
   }
 
+  @JsonProperty("client")
   public void setClient(@Nullable Download client) {
     this.client = client;
   }
@@ -69,6 +75,7 @@ public class VersionPackageInfoDownloads {
     return clientMappings;
   }
 
+  @JsonProperty("client_mappings")
   public void setClientMappings(@Nullable Download clientMappings) {
     this.clientMappings = clientMappings;
   }
@@ -89,6 +96,7 @@ public class VersionPackageInfoDownloads {
     return server;
   }
 
+  @JsonProperty("server")
   public void setServer(@Nullable Download server) {
     this.server = server;
   }
@@ -109,6 +117,7 @@ public class VersionPackageInfoDownloads {
     return serverMappings;
   }
 
+  @JsonProperty("server_mappings")
   public void setServerMappings(@Nullable Download serverMappings) {
     this.serverMappings = serverMappings;
   }
@@ -149,11 +158,8 @@ public class VersionPackageInfoDownloads {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

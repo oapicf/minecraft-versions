@@ -3,7 +3,7 @@
  *
  * SDK for Minecraft versions info
  *
- * OpenAPI document version: 1.1.2-pre.0
+ * OpenAPI document version: 1.2.1-pre.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-01-24T10:36:07.786134240Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-08-10T06:03:22.302945474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfoJavaVersion   {
   
   private String component;
@@ -95,10 +95,7 @@ public class VersionPackageInfoJavaVersion   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 1.1.2-pre.0
+ * API version: 1.2.1-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -44,7 +44,7 @@ type RequiredError struct {
 }
 
 func (e *RequiredError) Error() string {
-	return fmt.Sprintf("required field '%s' is zero value.", e.Field)
+	return fmt.Sprintf("field '%s' is required.", e.Field)
 }
 
 // ErrorHandler defines the required method for handling error. You may implement it and inject this into a controller if

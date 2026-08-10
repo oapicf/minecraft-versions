@@ -13,7 +13,7 @@ import javax.validation.Valid;
 /**
  * VersionPackageInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-01-24T10:36:06.444932923Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-10T06:02:35.349168592Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class VersionPackageInfo   {
   @JsonProperty("version")
@@ -329,10 +329,7 @@ public class VersionPackageInfo   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

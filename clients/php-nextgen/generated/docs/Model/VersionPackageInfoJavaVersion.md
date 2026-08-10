@@ -1,4 +1,4 @@
-# # VersionPackageInfoJavaVersion
+# VersionPackageInfoJavaVersion
 
 ## Properties
 

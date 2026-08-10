@@ -1,4 +1,4 @@
-# # VersionPackageInfoAssetIndex
+# VersionPackageInfoAssetIndex
 
 ## Properties
 

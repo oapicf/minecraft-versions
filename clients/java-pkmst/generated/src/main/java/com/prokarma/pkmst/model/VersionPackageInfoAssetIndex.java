@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * VersionPackageInfoAssetIndex
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-01-24T10:36:04.723875190Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-08-10T06:01:59.084492511Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfoAssetIndex   {
   @JsonProperty("id")
   private String id;
@@ -163,10 +163,7 @@ public class VersionPackageInfoAssetIndex   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

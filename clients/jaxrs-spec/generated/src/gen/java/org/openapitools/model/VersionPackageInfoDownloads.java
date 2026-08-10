@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("VersionPackageInfo_downloads")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-01-24T10:36:20.860931970Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-10T06:10:46.325651824Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfoDownloads   {
   private Download client;
   private Download clientMappings;
@@ -143,12 +143,8 @@ public class VersionPackageInfoDownloads   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

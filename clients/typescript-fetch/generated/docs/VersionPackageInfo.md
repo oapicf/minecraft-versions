@@ -35,8 +35,8 @@ const example = {
   "javaVersion": null,
   "mainClass": net.minecraft.client.main.Main,
   "minimumLauncherVersion": 21,
-  "time": 2024-04-01T11:14:41.000Z,
-  "releaseTime": 2024-04-01T11:07:19.000Z,
+  "time": 2024-04-01T11:14:41.000+00:00,
+  "releaseTime": 2024-04-01T11:07:19.000+00:00,
   "type": snapshot,
 } satisfies VersionPackageInfo
 

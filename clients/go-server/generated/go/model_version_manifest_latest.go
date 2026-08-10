@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 1.1.2-pre.0
+ * API version: 1.2.1-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -19,7 +19,8 @@ type VersionManifestLatest struct {
 	Snapshot string `json:"snapshot,omitempty"`
 }
 
-// AssertVersionManifestLatestRequired checks if the required fields are not zero-ed
+// AssertVersionManifestLatestRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertVersionManifestLatestRequired(obj VersionManifestLatest) error {
 	return nil
 }

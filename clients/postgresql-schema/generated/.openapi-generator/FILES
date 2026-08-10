@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+Model/Download.sql
+Model/Version.sql
+Model/VersionManifest.sql
+Model/VersionManifestLatest.sql
+Model/VersionPackageInfo.sql
+Model/VersionPackageInfoAssetIndex.sql
+Model/VersionPackageInfoDownloads.sql
+Model/VersionPackageInfoJavaVersion.sql
+README.md
+postgresql_schema.sql
+postgresql_schema_oauth2.sql

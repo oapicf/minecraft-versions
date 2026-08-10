@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
@@ -12,45 +13,57 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * VersionPackageInfo
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-10T07:24:22.518481704Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfo {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String version;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable VersionPackageInfoAssetIndex assetIndex;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String assets;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Integer complianceLevel;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable VersionPackageInfoDownloads downloads;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String id;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable VersionPackageInfoJavaVersion javaVersion;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String mainClass;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable Integer minimumLauncherVersion;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime time;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime releaseTime;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String type;
 
   public VersionPackageInfo version(@Nullable String version) {
@@ -69,6 +82,7 @@ public class VersionPackageInfo {
     return version;
   }
 
+  @JsonProperty("version")
   public void setVersion(@Nullable String version) {
     this.version = version;
   }
@@ -89,6 +103,7 @@ public class VersionPackageInfo {
     return assetIndex;
   }
 
+  @JsonProperty("assetIndex")
   public void setAssetIndex(@Nullable VersionPackageInfoAssetIndex assetIndex) {
     this.assetIndex = assetIndex;
   }
@@ -109,6 +124,7 @@ public class VersionPackageInfo {
     return assets;
   }
 
+  @JsonProperty("assets")
   public void setAssets(@Nullable String assets) {
     this.assets = assets;
   }
@@ -129,6 +145,7 @@ public class VersionPackageInfo {
     return complianceLevel;
   }
 
+  @JsonProperty("complianceLevel")
   public void setComplianceLevel(@Nullable Integer complianceLevel) {
     this.complianceLevel = complianceLevel;
   }
@@ -149,6 +166,7 @@ public class VersionPackageInfo {
     return downloads;
   }
 
+  @JsonProperty("downloads")
   public void setDownloads(@Nullable VersionPackageInfoDownloads downloads) {
     this.downloads = downloads;
   }
@@ -169,6 +187,7 @@ public class VersionPackageInfo {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(@Nullable String id) {
     this.id = id;
   }
@@ -189,6 +208,7 @@ public class VersionPackageInfo {
     return javaVersion;
   }
 
+  @JsonProperty("javaVersion")
   public void setJavaVersion(@Nullable VersionPackageInfoJavaVersion javaVersion) {
     this.javaVersion = javaVersion;
   }
@@ -209,6 +229,7 @@ public class VersionPackageInfo {
     return mainClass;
   }
 
+  @JsonProperty("mainClass")
   public void setMainClass(@Nullable String mainClass) {
     this.mainClass = mainClass;
   }
@@ -229,6 +250,7 @@ public class VersionPackageInfo {
     return minimumLauncherVersion;
   }
 
+  @JsonProperty("minimumLauncherVersion")
   public void setMinimumLauncherVersion(@Nullable Integer minimumLauncherVersion) {
     this.minimumLauncherVersion = minimumLauncherVersion;
   }
@@ -243,12 +265,13 @@ public class VersionPackageInfo {
    * @return time
    */
   @Valid 
-  @Schema(name = "time", example = "2024-04-01T11:14:41.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "time", example = "2024-04-01T11:14:41.000+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
   public @Nullable OffsetDateTime getTime() {
     return time;
   }
 
+  @JsonProperty("time")
   public void setTime(@Nullable OffsetDateTime time) {
     this.time = time;
   }
@@ -263,12 +286,13 @@ public class VersionPackageInfo {
    * @return releaseTime
    */
   @Valid 
-  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseTime")
   public @Nullable OffsetDateTime getReleaseTime() {
     return releaseTime;
   }
 
+  @JsonProperty("releaseTime")
   public void setReleaseTime(@Nullable OffsetDateTime releaseTime) {
     this.releaseTime = releaseTime;
   }
@@ -289,6 +313,7 @@ public class VersionPackageInfo {
     return type;
   }
 
+  @JsonProperty("type")
   public void setType(@Nullable String type) {
     this.type = type;
   }
@@ -345,11 +370,8 @@ public class VersionPackageInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -160,7 +160,7 @@ VersionPackageInfo <- R6::R6Class(
       }
       if (!is.null(self$`assetIndex`)) {
         VersionPackageInfoObject[["assetIndex"]] <-
-          self$`assetIndex`$toSimpleType()
+          self$extractSimpleType(self$`assetIndex`)
       }
       if (!is.null(self$`assets`)) {
         VersionPackageInfoObject[["assets"]] <-
@@ -172,7 +172,7 @@ VersionPackageInfo <- R6::R6Class(
       }
       if (!is.null(self$`downloads`)) {
         VersionPackageInfoObject[["downloads"]] <-
-          self$`downloads`$toSimpleType()
+          self$extractSimpleType(self$`downloads`)
       }
       if (!is.null(self$`id`)) {
         VersionPackageInfoObject[["id"]] <-
@@ -180,7 +180,7 @@ VersionPackageInfo <- R6::R6Class(
       }
       if (!is.null(self$`javaVersion`)) {
         VersionPackageInfoObject[["javaVersion"]] <-
-          self$`javaVersion`$toSimpleType()
+          self$extractSimpleType(self$`javaVersion`)
       }
       if (!is.null(self$`mainClass`)) {
         VersionPackageInfoObject[["mainClass"]] <-
@@ -203,6 +203,29 @@ VersionPackageInfo <- R6::R6Class(
           self$`type`
       }
       return(VersionPackageInfoObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

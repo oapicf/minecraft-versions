@@ -1,19 +1,24 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Host, Query as QueryExtra};
+use axum_extra::{
+    TypedHeader,
+    extract::{CookieJar, Query as QueryExtra},
+};
 use bytes::Bytes;
-use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
+use headers::Host;
+use http::{HeaderMap, HeaderName, HeaderValue, Method, StatusCode, header::CONTENT_TYPE};
 use tracing::error;
 use validator::{Validate, ValidationErrors};
 
-use crate::{header, types::*};
-
 #[allow(unused_imports)]
 use crate::{apis, models};
-
+use crate::{header, types::*};
 #[allow(unused_imports)]
-use crate::{models::check_xss_string, models::check_xss_vec_string, models::check_xss_map_string, models::check_xss_map_nested, models::check_xss_map};
+use crate::{
+    models::check_xss_map, models::check_xss_map_nested, models::check_xss_map_string,
+    models::check_xss_string, models::check_xss_vec_string,
+};
 
 
 /// Setup API Server.
@@ -49,7 +54,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn get_minecraft_version_manifest<I, A, E>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
@@ -78,20 +83,19 @@ where
 
 
 
-let result = api_impl.as_ref().get_minecraft_version_manifest(
+  let result = api_impl.as_ref().get_minecraft_version_manifest(
       
       &method,
       &host,
       &cookies,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::default::GetMinecraftVersionManifestResponse::Status200_AListOfMinecraftVersionsWithTheLatestAndSnapshotReleases
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -137,7 +141,7 @@ Ok((
 #[tracing::instrument(skip_all)]
 async fn get_minecraft_version_package_info<I, A, E>(
   method: Method,
-  host: Host,
+  TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
   Path(path_params): Path<models::GetMinecraftVersionPackageInfoPathParams>,
  State(api_impl): State<I>,
@@ -169,7 +173,7 @@ where
 
 
 
-let result = api_impl.as_ref().get_minecraft_version_package_info(
+  let result = api_impl.as_ref().get_minecraft_version_package_info(
       
       &method,
       &host,
@@ -177,13 +181,12 @@ let result = api_impl.as_ref().get_minecraft_version_package_info(
         &path_params,
   ).await;
 
-  let mut response = Response::builder();
-
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::default::GetMinecraftVersionPackageInfoResponse::Status200_GetPackageVersionDetails
                                                     (body)
                                                 => {
+                                                let mut response = Response::builder();
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();

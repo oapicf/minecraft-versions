@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-10T07:24:22.518481704Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Controller
 @RequestMapping("${openapi.OpenAPI Spring.base-path:}")
 public class V1ApiController implements V1Api {

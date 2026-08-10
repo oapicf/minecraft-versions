@@ -1,6 +1,13 @@
 .openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/org/openapitools/OpenApiGeneratorApplication.java
+src/main/java/org/openapitools/RFC3339DateFormat.java
 src/main/java/org/openapitools/RestConfiguration.java
-src/main/java/org/openapitools/api/DefaultApi.java
+src/main/java/org/openapitools/api/McApi.java
+src/main/java/org/openapitools/api/McApiRoutesImpl.java
+src/main/java/org/openapitools/api/V1Api.java
+src/main/java/org/openapitools/api/V1ApiRoutesImpl.java
 src/main/java/org/openapitools/model/Download.java
 src/main/java/org/openapitools/model/Version.java
 src/main/java/org/openapitools/model/VersionManifest.java
@@ -9,3 +16,6 @@ src/main/java/org/openapitools/model/VersionPackageInfo.java
 src/main/java/org/openapitools/model/VersionPackageInfoAssetIndex.java
 src/main/java/org/openapitools/model/VersionPackageInfoDownloads.java
 src/main/java/org/openapitools/model/VersionPackageInfoJavaVersion.java
+src/main/resources/application.properties
+src/test/java/org/openapitools/api/McApiTest.java
+src/test/java/org/openapitools/api/V1ApiTest.java

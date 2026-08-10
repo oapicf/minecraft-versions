@@ -69,13 +69,36 @@ VersionManifest <- R6::R6Class(
       VersionManifestObject <- list()
       if (!is.null(self$`latest`)) {
         VersionManifestObject[["latest"]] <-
-          self$`latest`$toSimpleType()
+          self$extractSimpleType(self$`latest`)
       }
       if (!is.null(self$`versions`)) {
         VersionManifestObject[["versions"]] <-
-          lapply(self$`versions`, function(x) x$toSimpleType())
+          self$extractSimpleType(self$`versions`)
       }
       return(VersionManifestObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

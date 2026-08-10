@@ -12,7 +12,7 @@ import org.openapitools.model.*;
 
 import org.openapitools.model.VersionPackageInfo;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-01-24T10:35:58.514051490Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-08-10T05:58:09.413245888Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class V1Controller  {
   /**
    * Uncomment and implement as you see fit.  These operations will map

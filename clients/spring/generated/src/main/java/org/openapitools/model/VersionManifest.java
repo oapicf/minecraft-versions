@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
@@ -12,24 +13,25 @@ import org.openapitools.model.VersionManifestLatest;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * VersionManifest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-10T07:24:22.518481704Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionManifest {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable VersionManifestLatest latest;
 
-  @Valid
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<@Valid Version> versions = new ArrayList<>();
 
   public VersionManifest latest(@Nullable VersionManifestLatest latest) {
@@ -48,6 +50,7 @@ public class VersionManifest {
     return latest;
   }
 
+  @JsonProperty("latest")
   public void setLatest(@Nullable VersionManifestLatest latest) {
     this.latest = latest;
   }
@@ -76,6 +79,7 @@ public class VersionManifest {
     return versions;
   }
 
+  @JsonProperty("versions")
   public void setVersions(List<@Valid Version> versions) {
     this.versions = versions;
   }
@@ -112,11 +116,8 @@ public class VersionManifest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

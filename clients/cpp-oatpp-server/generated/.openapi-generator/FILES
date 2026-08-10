@@ -1,0 +1,15 @@
+.openapi-generator-ignore
+CMakeLists.txt
+README.md
+api/DefaultApi.hpp
+impl/DefaultApiController.cpp
+impl/DefaultApiController.hpp
+main-api-server.cpp
+model/Download.hpp
+model/Version.hpp
+model/VersionManifest.hpp
+model/VersionManifest_latest.hpp
+model/VersionPackageInfo.hpp
+model/VersionPackageInfo_assetIndex.hpp
+model/VersionPackageInfo_downloads.hpp
+model/VersionPackageInfo_javaVersion.hpp

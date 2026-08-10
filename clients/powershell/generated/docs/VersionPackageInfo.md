@@ -29,8 +29,8 @@ $VersionPackageInfo = Initialize-PSOpenAPIToolsVersionPackageInfo  -Version null
  -JavaVersion null `
  -MainClass net.minecraft.client.main.Main `
  -MinimumLauncherVersion 21 `
- -Time 2024-04-01T11:14:41.000Z `
- -ReleaseTime 2024-04-01T11:07:19.000Z `
+ -Time 2024-04-01T11:14:41.000+00:00 `
+ -ReleaseTime 2024-04-01T11:07:19.000+00:00 `
  -Type snapshot
 ```
 

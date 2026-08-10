@@ -3,7 +3,7 @@
  *
  * SDK for Minecraft versions info
  *
- * OpenAPI document version: 1.1.2-pre.0
+ * OpenAPI document version: 1.2.1-pre.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -21,7 +21,7 @@ import java.util.Date;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-01-24T10:36:07.786134240Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-08-10T06:03:22.302945474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Version   {
   
   private String id;
@@ -89,7 +89,7 @@ public class Version   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000+00:00", value = "")
   @JsonProperty("time")
   public Date getTime() {
     return time;
@@ -106,7 +106,7 @@ public class Version   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000+00:00", value = "")
   @JsonProperty("releaseTime")
   public Date getReleaseTime() {
     return releaseTime;
@@ -156,10 +156,7 @@ public class Version   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

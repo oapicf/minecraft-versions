@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 1.1.2-pre.0
+ * API version: 1.2.1-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -43,7 +43,8 @@ type VersionPackageInfo struct {
 	Type string `json:"type,omitempty"`
 }
 
-// AssertVersionPackageInfoRequired checks if the required fields are not zero-ed
+// AssertVersionPackageInfoRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertVersionPackageInfoRequired(obj VersionPackageInfo) error {
 	if err := AssertVersionPackageInfoAssetIndexRequired(obj.AssetIndex); err != nil {
 		return err

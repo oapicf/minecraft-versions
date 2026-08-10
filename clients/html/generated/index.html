@@ -183,7 +183,7 @@ font-style: italic;
     <div class="app-desc">SDK for Minecraft versions info</div>
     <div class="app-desc">More information: <a href="https://github.com/oapicf/minecraft-versions">https://github.com/oapicf/minecraft-versions</a></div>
     <div class="app-desc">Contact Info: <a href="blah+oapicf@cliffano.com">blah+oapicf@cliffano.com</a></div>
-    <div class="app-desc">Version: 1.1.2-pre.0</div>
+    <div class="app-desc">Version: 1.2.1-pre.0</div>
     <div class="app-desc">BasePath:</div>
     <div class="license-info">MIT</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
@@ -225,23 +225,23 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "versions" : [ {
-    "releaseTime" : "2024-04-01T11:07:19.000Z",
-    "id" : "24w14potato",
-    "time" : "2024-04-01T11:14:41.000Z",
-    "type" : "snapshot",
-    "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-  }, {
-    "releaseTime" : "2024-04-01T11:07:19.000Z",
-    "id" : "24w14potato",
-    "time" : "2024-04-01T11:14:41.000Z",
-    "type" : "snapshot",
-    "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-  } ],
   "latest" : {
     "release" : 1.21,
     "snapshot" : "24w14potato"
-  }
+  },
+  "versions" : [ {
+    "id" : "24w14potato",
+    "type" : "snapshot",
+    "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+    "time" : "2024-04-01T11:14:41.000+00:00",
+    "releaseTime" : "2024-04-01T11:07:19.000+00:00"
+  }, {
+    "id" : "24w14potato",
+    "type" : "snapshot",
+    "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+    "time" : "2024-04-01T11:14:41.000+00:00",
+    "releaseTime" : "2024-04-01T11:07:19.000+00:00"
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -289,20 +289,17 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "version" : "version",
+  "assetIndex" : {
+    "id" : "id",
+    "sha1" : "sha1",
+    "size" : 0,
+    "totalSize" : 6,
+    "url" : "url"
+  },
   "assets" : "assets",
-  "releaseTime" : "2024-04-01T11:07:19.000Z",
-  "mainClass" : "net.minecraft.client.main.Main",
+  "complianceLevel" : 1,
   "downloads" : {
-    "server" : {
-      "sha1" : "sha1",
-      "size" : 5,
-      "url" : "url"
-    },
-    "server_mappings" : {
-      "sha1" : "sha1",
-      "size" : 5,
-      "url" : "url"
-    },
     "client" : {
       "sha1" : "sha1",
       "size" : 5,
@@ -312,25 +309,28 @@ font-style: italic;
       "sha1" : "sha1",
       "size" : 5,
       "url" : "url"
+    },
+    "server" : {
+      "sha1" : "sha1",
+      "size" : 5,
+      "url" : "url"
+    },
+    "server_mappings" : {
+      "sha1" : "sha1",
+      "size" : 5,
+      "url" : "url"
     }
   },
+  "id" : "id",
   "javaVersion" : {
     "component" : "component",
     "majorVersion" : 5
   },
-  "complianceLevel" : 1,
+  "mainClass" : "net.minecraft.client.main.Main",
   "minimumLauncherVersion" : 21,
-  "assetIndex" : {
-    "sha1" : "sha1",
-    "totalSize" : 6,
-    "size" : 0,
-    "id" : "id",
-    "url" : "url"
-  },
-  "id" : "id",
-  "time" : "2024-04-01T11:14:41.000Z",
-  "type" : "snapshot",
-  "version" : "version"
+  "time" : "2024-04-01T11:14:41.000+00:00",
+  "releaseTime" : "2024-04-01T11:07:19.000+00:00",
+  "type" : "snapshot"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>

@@ -2,25 +2,26 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * Version
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-01-24T10:36:10.584349520Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-10T06:04:19.290155195Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Version {
 
   private String id;
@@ -105,7 +106,7 @@ public class Version {
    * @return time
    */
   @Valid 
-  @Schema(name = "time", example = "2024-04-01T11:14:41.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "time", example = "2024-04-01T11:14:41.000+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
   public Date getTime() {
     return time;
@@ -125,7 +126,7 @@ public class Version {
    * @return releaseTime
    */
   @Valid 
-  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseTime")
   public Date getReleaseTime() {
     return releaseTime;
@@ -174,10 +175,7 @@ public class Version {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

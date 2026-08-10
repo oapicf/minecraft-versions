@@ -10,7 +10,7 @@
     "license" : {
       "name" : "MIT"
     },
-    "version" : "1.1.2-pre.0"
+    "version" : "1.2.1-pre.0"
   },
   "servers" : [ {
     "url" : "https://launchermeta.mojang.com"
@@ -82,23 +82,23 @@
     "schemas" : {
       "VersionManifest" : {
         "example" : {
-          "versions" : [ {
-            "releaseTime" : "2024-04-01T11:07:19.000Z",
-            "id" : "24w14potato",
-            "time" : "2024-04-01T11:14:41.000Z",
-            "type" : "snapshot",
-            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-          }, {
-            "releaseTime" : "2024-04-01T11:07:19.000Z",
-            "id" : "24w14potato",
-            "time" : "2024-04-01T11:14:41.000Z",
-            "type" : "snapshot",
-            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
-          } ],
           "latest" : {
             "release" : 1.21,
             "snapshot" : "24w14potato"
-          }
+          },
+          "versions" : [ {
+            "id" : "24w14potato",
+            "type" : "snapshot",
+            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+            "time" : "2024-04-01T11:14:41.000+00:00",
+            "releaseTime" : "2024-04-01T11:07:19.000+00:00"
+          }, {
+            "id" : "24w14potato",
+            "type" : "snapshot",
+            "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+            "time" : "2024-04-01T11:14:41.000+00:00",
+            "releaseTime" : "2024-04-01T11:07:19.000+00:00"
+          } ]
         },
         "properties" : {
           "latest" : {
@@ -108,17 +108,18 @@
             "items" : {
               "$ref" : "#/components/schemas/Version"
             },
-            "type" : "array"
+            "type" : "array",
+            "default" : null
           }
         }
       },
       "Version" : {
         "example" : {
-          "releaseTime" : "2024-04-01T11:07:19.000Z",
           "id" : "24w14potato",
-          "time" : "2024-04-01T11:14:41.000Z",
           "type" : "snapshot",
-          "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json"
+          "url" : "https://piston-meta.mojang.com/v1/packages/21df7f4ba484a6437ab5e9dca0b4dfb5dcefc802/24w14potato.json",
+          "time" : "2024-04-01T11:14:41.000+00:00",
+          "releaseTime" : "2024-04-01T11:07:19.000+00:00"
         },
         "properties" : {
           "id" : {
@@ -134,12 +135,12 @@
             "type" : "string"
           },
           "time" : {
-            "example" : "2024-04-01T11:14:41.000Z",
+            "example" : "2024-04-01T11:14:41.000+00:00",
             "format" : "date-time",
             "type" : "string"
           },
           "releaseTime" : {
-            "example" : "2024-04-01T11:07:19.000Z",
+            "example" : "2024-04-01T11:07:19.000+00:00",
             "format" : "date-time",
             "type" : "string"
           }
@@ -147,20 +148,17 @@
       },
       "VersionPackageInfo" : {
         "example" : {
+          "version" : "version",
+          "assetIndex" : {
+            "id" : "id",
+            "sha1" : "sha1",
+            "size" : 0,
+            "totalSize" : 6,
+            "url" : "url"
+          },
           "assets" : "assets",
-          "releaseTime" : "2024-04-01T11:07:19.000Z",
-          "mainClass" : "net.minecraft.client.main.Main",
+          "complianceLevel" : 1,
           "downloads" : {
-            "server" : {
-              "sha1" : "sha1",
-              "size" : 5,
-              "url" : "url"
-            },
-            "server_mappings" : {
-              "sha1" : "sha1",
-              "size" : 5,
-              "url" : "url"
-            },
             "client" : {
               "sha1" : "sha1",
               "size" : 5,
@@ -170,25 +168,28 @@
               "sha1" : "sha1",
               "size" : 5,
               "url" : "url"
+            },
+            "server" : {
+              "sha1" : "sha1",
+              "size" : 5,
+              "url" : "url"
+            },
+            "server_mappings" : {
+              "sha1" : "sha1",
+              "size" : 5,
+              "url" : "url"
             }
           },
+          "id" : "id",
           "javaVersion" : {
             "component" : "component",
             "majorVersion" : 5
           },
-          "complianceLevel" : 1,
+          "mainClass" : "net.minecraft.client.main.Main",
           "minimumLauncherVersion" : 21,
-          "assetIndex" : {
-            "sha1" : "sha1",
-            "totalSize" : 6,
-            "size" : 0,
-            "id" : "id",
-            "url" : "url"
-          },
-          "id" : "id",
-          "time" : "2024-04-01T11:14:41.000Z",
-          "type" : "snapshot",
-          "version" : "version"
+          "time" : "2024-04-01T11:14:41.000+00:00",
+          "releaseTime" : "2024-04-01T11:07:19.000+00:00",
+          "type" : "snapshot"
         },
         "properties" : {
           "version" : {
@@ -221,12 +222,12 @@
             "type" : "integer"
           },
           "time" : {
-            "example" : "2024-04-01T11:14:41.000Z",
+            "example" : "2024-04-01T11:14:41.000+00:00",
             "format" : "date-time",
             "type" : "string"
           },
           "releaseTime" : {
-            "example" : "2024-04-01T11:07:19.000Z",
+            "example" : "2024-04-01T11:07:19.000+00:00",
             "format" : "date-time",
             "type" : "string"
           },
@@ -272,10 +273,10 @@
       },
       "VersionPackageInfo_assetIndex" : {
         "example" : {
-          "sha1" : "sha1",
-          "totalSize" : 6,
-          "size" : 0,
           "id" : "id",
+          "sha1" : "sha1",
+          "size" : 0,
+          "totalSize" : 6,
           "url" : "url"
         },
         "properties" : {
@@ -298,22 +299,22 @@
       },
       "VersionPackageInfo_downloads" : {
         "example" : {
-          "server" : {
-            "sha1" : "sha1",
-            "size" : 5,
-            "url" : "url"
-          },
-          "server_mappings" : {
-            "sha1" : "sha1",
-            "size" : 5,
-            "url" : "url"
-          },
           "client" : {
             "sha1" : "sha1",
             "size" : 5,
             "url" : "url"
           },
           "client_mappings" : {
+            "sha1" : "sha1",
+            "size" : 5,
+            "url" : "url"
+          },
+          "server" : {
+            "sha1" : "sha1",
+            "size" : 5,
+            "url" : "url"
+          },
+          "server_mappings" : {
             "sha1" : "sha1",
             "size" : 5,
             "url" : "url"

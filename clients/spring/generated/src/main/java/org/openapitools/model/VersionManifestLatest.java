@@ -2,30 +2,33 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * VersionManifestLatest
  */
 
 @JsonTypeName("VersionManifest_latest")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-10T07:24:22.518481704Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionManifestLatest {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String release;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String snapshot;
 
   public VersionManifestLatest release(@Nullable String release) {
@@ -44,6 +47,7 @@ public class VersionManifestLatest {
     return release;
   }
 
+  @JsonProperty("release")
   public void setRelease(@Nullable String release) {
     this.release = release;
   }
@@ -64,6 +68,7 @@ public class VersionManifestLatest {
     return snapshot;
   }
 
+  @JsonProperty("snapshot")
   public void setSnapshot(@Nullable String snapshot) {
     this.snapshot = snapshot;
   }
@@ -100,11 +105,8 @@ public class VersionManifestLatest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

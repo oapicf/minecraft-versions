@@ -48,11 +48,11 @@ public class VersionPackageInfo  {
 
   private Integer minimumLauncherVersion;
 
-  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000+00:00", value = "")
 
   private Date time;
 
-  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000+00:00", value = "")
 
   private Date releaseTime;
 
@@ -329,10 +329,7 @@ public class VersionPackageInfo  {
    * (except the first line).
    */
   private static String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

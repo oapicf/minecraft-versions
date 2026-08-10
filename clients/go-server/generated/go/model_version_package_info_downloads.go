@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 1.1.2-pre.0
+ * API version: 1.2.1-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -23,7 +23,8 @@ type VersionPackageInfoDownloads struct {
 	ServerMappings Download `json:"server_mappings,omitempty"`
 }
 
-// AssertVersionPackageInfoDownloadsRequired checks if the required fields are not zero-ed
+// AssertVersionPackageInfoDownloadsRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertVersionPackageInfoDownloadsRequired(obj VersionPackageInfoDownloads) error {
 	if err := AssertDownloadRequired(obj.Client); err != nil {
 		return err

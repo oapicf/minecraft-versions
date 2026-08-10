@@ -23,6 +23,7 @@ src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/Download.php
 src/Model/ModelInterface.php
+src/Model/OneOfInterface.php
 src/Model/Version.php
 src/Model/VersionManifest.php
 src/Model/VersionManifestLatest.php

@@ -1,4 +1,4 @@
-(defproject openapi-clj-client "1.1.2-pre.0"
+(defproject openapi-clj-client "1.2.1-pre.0"
   :description "SDK for Minecraft versions info"
   :url "https://github.com/oapicf/minecraft-versions"
   :license {:name "MIT"}

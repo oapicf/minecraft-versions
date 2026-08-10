@@ -1,10 +1,10 @@
 .gitignore
 .openapi-generator-ignore
-.travis.yml
 README.md
 git_push.sh
 shard.yml
-spec/api/default_api_spec.cr
+spec/api/mc_spec.cr
+spec/api/v1/packages_spec.cr
 spec/models/download_spec.cr
 spec/models/version_manifest_latest_spec.cr
 spec/models/version_manifest_spec.cr
@@ -15,10 +15,12 @@ spec/models/version_package_info_spec.cr
 spec/models/version_spec.cr
 spec/spec_helper.cr
 src/openapi_client.cr
-src/openapi_client/api/default_api.cr
-src/openapi_client/api_client.cr
+src/openapi_client/api/mc.cr
+src/openapi_client/api/v1/packages.cr
 src/openapi_client/api_error.cr
+src/openapi_client/client.cr
 src/openapi_client/configuration.cr
+src/openapi_client/connection.cr
 src/openapi_client/models/download.cr
 src/openapi_client/models/version.cr
 src/openapi_client/models/version_manifest.cr
@@ -27,4 +29,6 @@ src/openapi_client/models/version_package_info.cr
 src/openapi_client/models/version_package_info_asset_index.cr
 src/openapi_client/models/version_package_info_downloads.cr
 src/openapi_client/models/version_package_info_java_version.cr
-src/openapi_client/recursive_hash.cr
+src/openapi_client/response.cr
+src/openapi_client/serializable.cr
+src/openapi_client/validation.cr

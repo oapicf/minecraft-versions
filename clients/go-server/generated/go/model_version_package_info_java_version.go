@@ -3,7 +3,7 @@
 /*
  * SDK for Minecraft versions info
  *
- * API version: 1.1.2-pre.0
+ * API version: 1.2.1-pre.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -19,7 +19,8 @@ type VersionPackageInfoJavaVersion struct {
 	MajorVersion int32 `json:"majorVersion,omitempty"`
 }
 
-// AssertVersionPackageInfoJavaVersionRequired checks if the required fields are not zero-ed
+// AssertVersionPackageInfoJavaVersionRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertVersionPackageInfoJavaVersionRequired(obj VersionPackageInfoJavaVersion) error {
 	return nil
 }

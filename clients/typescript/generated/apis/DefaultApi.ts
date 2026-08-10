@@ -61,8 +61,8 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/v1/packages/{packageId}/{versionId}.json'
-            .replace('{' + 'packageId' + '}', encodeURIComponent(String(packageId)))
-            .replace('{' + 'versionId' + '}', encodeURIComponent(String(versionId)));
+            .replace('{packageId}', encodeURIComponent(String(packageId)))
+            .replace('{versionId}', encodeURIComponent(String(versionId)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

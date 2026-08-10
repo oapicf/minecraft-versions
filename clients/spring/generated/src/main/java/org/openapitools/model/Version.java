@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
@@ -9,30 +10,35 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * Version
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T10:37:58.256640213Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-10T07:24:22.518481704Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Version {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String id;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String type;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String url;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime time;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime releaseTime;
 
@@ -52,6 +58,7 @@ public class Version {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(@Nullable String id) {
     this.id = id;
   }
@@ -72,6 +79,7 @@ public class Version {
     return type;
   }
 
+  @JsonProperty("type")
   public void setType(@Nullable String type) {
     this.type = type;
   }
@@ -92,6 +100,7 @@ public class Version {
     return url;
   }
 
+  @JsonProperty("url")
   public void setUrl(@Nullable String url) {
     this.url = url;
   }
@@ -106,12 +115,13 @@ public class Version {
    * @return time
    */
   @Valid 
-  @Schema(name = "time", example = "2024-04-01T11:14:41.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "time", example = "2024-04-01T11:14:41.000+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
   public @Nullable OffsetDateTime getTime() {
     return time;
   }
 
+  @JsonProperty("time")
   public void setTime(@Nullable OffsetDateTime time) {
     this.time = time;
   }
@@ -126,12 +136,13 @@ public class Version {
    * @return releaseTime
    */
   @Valid 
-  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000Z", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "releaseTime", example = "2024-04-01T11:07:19.000+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseTime")
   public @Nullable OffsetDateTime getReleaseTime() {
     return releaseTime;
   }
 
+  @JsonProperty("releaseTime")
   public void setReleaseTime(@Nullable OffsetDateTime releaseTime) {
     this.releaseTime = releaseTime;
   }
@@ -174,11 +185,8 @@ public class Version {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

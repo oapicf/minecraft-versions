@@ -28,6 +28,26 @@ pub struct Download {
 
 }
 
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for Download {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for Download {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
+}
+
 
 impl Download {
     #[allow(clippy::new_without_default)]
@@ -159,7 +179,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Download>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -175,7 +195,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Download>>> for hyper::he
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<Download>> {
     type Error = String;
 
@@ -230,6 +250,26 @@ pub struct Version {
     #[serde(skip_serializing_if="Option::is_none")]
     pub release_time: Option<chrono::DateTime::<chrono::Utc>>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for Version {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for Version {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -375,7 +415,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Version>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -391,7 +431,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Version>>> for hyper::hea
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<Version>> {
     type Error = String;
 
@@ -424,17 +464,35 @@ pub struct VersionManifest {
     #[serde(rename = "latest")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<models::VersionManifestLatest>,
 
     #[serde(rename = "versions")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub versions: Option<Vec<models::Version>>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for VersionManifest {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for VersionManifest {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -546,7 +604,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionManifest>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -562,7 +620,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionManifest>>> for hy
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<VersionManifest>> {
     type Error = String;
 
@@ -602,6 +660,26 @@ pub struct VersionManifestLatest {
     #[serde(skip_serializing_if="Option::is_none")]
     pub snapshot: Option<String>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for VersionManifestLatest {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for VersionManifestLatest {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -724,7 +802,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionManifestLatest>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -740,7 +818,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionManifestLatest>>> 
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<VersionManifestLatest>> {
     type Error = String;
 
@@ -778,7 +856,6 @@ pub struct VersionPackageInfo {
     #[serde(rename = "assetIndex")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub asset_index: Option<models::VersionPackageInfoAssetIndex>,
 
@@ -795,7 +872,6 @@ pub struct VersionPackageInfo {
     #[serde(rename = "downloads")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub downloads: Option<models::VersionPackageInfoDownloads>,
 
@@ -806,7 +882,6 @@ pub struct VersionPackageInfo {
 
     #[serde(rename = "javaVersion")]
 
-    #[cfg_attr(feature = "validate", validate)]
     #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub java_version: Option<models::VersionPackageInfoJavaVersion>,
@@ -836,6 +911,26 @@ pub struct VersionPackageInfo {
     #[serde(skip_serializing_if="Option::is_none")]
     pub r#type: Option<String>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for VersionPackageInfo {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for VersionPackageInfo {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -1043,7 +1138,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfo>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -1059,7 +1154,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfo>>> for
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<VersionPackageInfo>> {
     type Error = String;
 
@@ -1114,6 +1209,26 @@ pub struct VersionPackageInfoAssetIndex {
     #[serde(skip_serializing_if="Option::is_none")]
     pub url: Option<String>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for VersionPackageInfoAssetIndex {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for VersionPackageInfoAssetIndex {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -1269,7 +1384,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoAssetIndex>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -1285,7 +1400,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoAssetIn
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<VersionPackageInfoAssetIndex>> {
     type Error = String;
 
@@ -1318,13 +1433,11 @@ pub struct VersionPackageInfoDownloads {
     #[serde(rename = "client")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub client: Option<models::Download>,
 
     #[serde(rename = "client_mappings")]
 
-    #[cfg_attr(feature = "validate", validate)]
     #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub client_mappings: Option<models::Download>,
@@ -1332,17 +1445,35 @@ pub struct VersionPackageInfoDownloads {
     #[serde(rename = "server")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub server: Option<models::Download>,
 
     #[serde(rename = "server_mappings")]
 
     #[cfg_attr(feature = "validate", validate)]
-    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub server_mappings: Option<models::Download>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for VersionPackageInfoDownloads {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for VersionPackageInfoDownloads {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -1467,7 +1598,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoDownloads>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -1483,7 +1614,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoDownloa
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<VersionPackageInfoDownloads>> {
     type Error = String;
 
@@ -1523,6 +1654,26 @@ pub struct VersionPackageInfoJavaVersion {
     #[serde(skip_serializing_if="Option::is_none")]
     pub major_version: Option<i32>,
 
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMinLength for VersionPackageInfoJavaVersion {
+    fn validate_composited_min_length(
+        &self,
+        _min_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MinLengthError>> {
+        Ok(())
+    }
+}
+
+#[cfg(feature = "validate")]
+impl serde_valid::validation::ValidateCompositedMaxLength for VersionPackageInfoJavaVersion {
+    fn validate_composited_max_length(
+        &self,
+        _max_length: usize,
+    ) -> Result<(), serde_valid::validation::Composited<serde_valid::validation::error::MaxLengthError>> {
+        Ok(())
+    }
 }
 
 
@@ -1645,7 +1796,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoJavaVersion>>> for hyper::header::HeaderValue {
     type Error = String;
 
@@ -1661,7 +1812,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<VersionPackageInfoJavaVer
     }
 }
 
-#[cfg(feature = "server")]
+#[cfg(any(feature = "client", feature = "server"))]
 impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Vec<VersionPackageInfoJavaVersion>> {
     type Error = String;
 

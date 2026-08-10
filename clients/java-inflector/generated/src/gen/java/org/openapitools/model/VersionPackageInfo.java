@@ -14,7 +14,7 @@ import org.openapitools.model.VersionPackageInfoJavaVersion;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-01-24T10:35:58.514051490Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-08-10T05:58:09.413245888Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfo   {
   @JsonProperty("version")
   private String version;
@@ -213,7 +213,7 @@ public class VersionPackageInfo   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:14:41.000Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:14:41.000+00:00", value = "")
   @JsonProperty("time")
   public Date getTime() {
     return time;
@@ -230,7 +230,7 @@ public class VersionPackageInfo   {
   }
 
   
-  @ApiModelProperty(example = "2024-04-01T11:07:19.000Z", value = "")
+  @ApiModelProperty(example = "2024-04-01T11:07:19.000+00:00", value = "")
   @JsonProperty("releaseTime")
   public Date getReleaseTime() {
     return releaseTime;
@@ -311,10 +311,7 @@ public class VersionPackageInfo   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 
