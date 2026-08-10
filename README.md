@@ -22,6 +22,7 @@ Minecraft Versions is SDK for [Minecraft versions](https://minecraft.wiki/w/Vers
 
 | Minecraft Versions Version | OpenAPI Version | OpenAPI Generator Version |
 |----------------------------|-----------------|---------------------------|
+| 1.3.0 | 3.1.0 | 7.24.0 |
 | 1.2.0 | 3.1.0 | 7.18.0 |
 | 1.1.0 | 3.1.0 | 7.12.0 |
 | 1.0.0 | 3.1.0 | 7.9.0 |
