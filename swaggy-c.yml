@@ -13,3 +13,15 @@ base_dir:
   local: /Users/cliffano/dev/workspace-oapicf/minecraft-versions
   custom: >-
     /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/minecraft-versions/
+generator:
+  component: oag-file-spec
+  inputs:
+    project_id: minecraft-versions
+    project_name: Minecraft Versions
+    project_desc: An SDK for Minecraft versions info
+    author_name: OpenAPI Clients Factory
+    author_email: blah+oapicf@cliffano.com
+    author_url: https://github.com/oapicf
+    github_id: oapicf
+    github_repo: minecraft-versions
+    github_token_prefix: OAPICF
