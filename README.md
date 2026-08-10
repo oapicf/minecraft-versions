@@ -1,5 +1,5 @@
 <!-- BEGIN:AVATAR -->
-![Avatar](avatar.jpg)
+<img align="right" src="https://raw.github.com/oapicf/minecraft-versions/main/avatar.jpg" alt="Avatar"/>
 <!-- END:AVATAR -->
 
 <!-- BEGIN:BADGES -->
@@ -54,7 +54,7 @@ gem install minecraft_versions
 ## Colophon
 
 <!-- BEGIN:DEVELOPERS_GUIDE -->
-[Developer's Guide](https://cliffano.github.io/developers-guide-openapi-generator.html)
+[Developer's Guide](https://oapicf.github.io/developers-guide-openapi-generator.html)
 <!-- END:DEVELOPERS_GUIDE -->
 
 <!-- BEGIN:BUILD_REPORTS -->

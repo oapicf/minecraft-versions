@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade Swaggy C to 6.1.0
 - Upgrade OpenAPI Generator to 7.24.0
+- Replace custom GH Actions with command-docker-action
 
 ## 1.2.0 - 2026-01-24
 ### Added
