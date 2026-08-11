@@ -1,6 +1,6 @@
 ---
 spec_uri: specification/minecraft-versions.yml
-version: 1.3.4-pre.0
+version: 1.3.4
 contact:
   name: Minecraft Versions
   url: https://github.com/oapicf/minecraft-versions
