@@ -4,7 +4,7 @@
 ################################################################
 
 # Swaggy C info
-SWAGGY_C_VERSION = 6.2.1
+SWAGGY_C_VERSION = 6.2.2
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.24.0
@@ -174,10 +174,13 @@ generate-primary:
 ################################################################
 # API clients building targets for primary generators
 
+build-javascript: UPDATE_GENERATOR_INPUTS_GITHUB_ID = $(shell yq .generator.inputs.github_id $(UPDATE_MAKEFILE).yml)
+build-javascript: UPDATE_GENERATOR_INPUTS_GITHUB_REPO = $(shell yq .generator.inputs.github_repo $(UPDATE_MAKEFILE).yml)
 build-javascript:
 	$(call run_hook,x-pre-build-javascript)
 	npm install -g babel-cli
 	cd clients/javascript/generated/ && \
+	  yq -i '.repository.url = "https://github.com/$(UPDATE_GENERATOR_INPUTS_GITHUB_ID)/$(UPDATE_GENERATOR_INPUTS_GITHUB_REPO)"' package.json && \
 	  npm install && \
 	  npm link && \
 	  npm run build
