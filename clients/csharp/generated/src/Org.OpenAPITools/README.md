@@ -11,7 +11,7 @@ outputDir: out
 
 # https://openapi-generator.tech/docs/generators/csharp
 additionalProperties:
-  packageGuid: '{D13FBCE2-3669-4DFE-BCB1-D9B6A78E063B}'
+  packageGuid: '{E9AA6D7E-A250-42FB-BB4A-4C1778749CC5}'
 
 # https://openapi-generator.tech/docs/integrations/#github-integration
 # gitHost:
@@ -100,7 +100,7 @@ namespace YourProject
 
 ## Api Information
 - appName: 
-- appVersion: 1.2.1-pre.0
+- appVersion: 1.3.5-pre.0
 - appDescription: SDK for Minecraft versions info
 
 ## Build

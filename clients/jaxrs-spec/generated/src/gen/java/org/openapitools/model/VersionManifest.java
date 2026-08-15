@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("VersionManifest")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-10T06:10:46.325651824Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-15T12:28:30.237397952Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionManifest   {
   private VersionManifestLatest latest;
   private @Valid List<@Valid Version> versions = new ArrayList<>();

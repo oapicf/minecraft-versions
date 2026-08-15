@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-10T06:10:06.427622659Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-15T12:28:28.490017664Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class McApiServiceImpl implements McApi {
       public Response getMinecraftVersionManifest(SecurityContext securityContext) {
       // do some magic!

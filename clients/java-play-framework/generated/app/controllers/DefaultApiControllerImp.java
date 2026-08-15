@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-10T06:02:35.349168592Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-15T12:28:10.372015889Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class DefaultApiControllerImp extends DefaultApiControllerImpInterface {
     @Override
     public VersionManifest getMinecraftVersionManifest(Http.Request request) throws Exception {

@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-10T06:09:24.406726952Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-08-15T12:28:26.708529741Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class V1ApiServiceImpl implements V1ApiService {
       public Response getMinecraftVersionPackageInfo(String packageId,String versionId,SecurityContext securityContext)
       throws NotFoundException {

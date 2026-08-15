@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Download
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-10T06:01:21.340393513Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-15T12:28:06.777982372Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Download   {
   @JsonProperty("sha1")
   private String sha1;

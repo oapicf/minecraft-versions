@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-08-10T06:06:51.958613193Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-08-15T12:28:21.181544870Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class V1ApiServiceImpl implements V1ApiService {
       @Override
       public Response getMinecraftVersionPackageInfo(String packageId, String versionId, SecurityContext securityContext) {

@@ -13,8 +13,8 @@ To see how to make this your own, look here:
 
 [README]((https://openapi-generator.tech))
 
-- API version: 1.2.1-pre.0
-- Build date: 2026-08-10T07:11:45.635425851Z[Etc/UTC]
+- API version: 1.3.5-pre.0
+- Build date: 2026-08-15T12:30:12.364928284Z[Etc/UTC]
 - Generator version: 7.24.0
 
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
@@ -129,13 +129,13 @@ HTTPS support is included by default. To disable it (for example, to reduce depe
 
 ```toml
 [dependencies]
-openapi_client = { version = "1.2.1-pre.0", default-features = false, features = ["client", "server"] }
+openapi_client = { version = "1.3.5-pre.0", default-features = false, features = ["client", "server"] }
 ```
 
 **For server with callbacks that need HTTPS:**
 ```toml
 [dependencies]
-openapi_client = { version = "1.2.1-pre.0", features = ["server", "client-tls"] }
+openapi_client = { version = "1.3.5-pre.0", features = ["server", "client-tls"] }
 ```
 
 The TLS backend is automatically selected based on your target platform:

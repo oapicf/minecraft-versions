@@ -16,7 +16,7 @@ import org.wso2.msf4j.formparam.FileInfo;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-10T06:01:21.340393513Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-15T12:28:06.777982372Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class V1ApiServiceImpl extends V1ApiService {
     @Override
     public Response getMinecraftVersionPackageInfo(String packageId

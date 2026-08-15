@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -51,12 +50,3 @@ src/main/java/org/openapitools/client/model/VersionPackageInfo.java
 src/main/java/org/openapitools/client/model/VersionPackageInfoAssetIndex.java
 src/main/java/org/openapitools/client/model/VersionPackageInfoDownloads.java
 src/main/java/org/openapitools/client/model/VersionPackageInfoJavaVersion.java
-src/test/java/org/openapitools/client/api/DefaultApiTest.java
-src/test/java/org/openapitools/client/model/DownloadTest.java
-src/test/java/org/openapitools/client/model/VersionManifestLatestTest.java
-src/test/java/org/openapitools/client/model/VersionManifestTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoAssetIndexTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoDownloadsTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoJavaVersionTest.java
-src/test/java/org/openapitools/client/model/VersionPackageInfoTest.java
-src/test/java/org/openapitools/client/model/VersionTest.java

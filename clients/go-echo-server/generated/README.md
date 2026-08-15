@@ -12,8 +12,8 @@ To see how to make this your own, look here:
 
 [README](https://openapi-generator.tech)
 
-- API version: 1.2.1-pre.0
-- Build date: 2026-08-10T05:46:18.223927299Z[Etc/UTC]
+- API version: 1.3.5-pre.0
+- Build date: 2026-08-15T12:27:35.622212704Z[Etc/UTC]
 - Generator version: 7.24.0
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
 

@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/DefaultApi.md
@@ -38,13 +37,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_default_api.py
-test/test_download.py
-test/test_version.py
-test/test_version_manifest.py
-test/test_version_manifest_latest.py
-test/test_version_package_info.py
-test/test_version_package_info_asset_index.py
-test/test_version_package_info_downloads.py
-test/test_version_package_info_java_version.py
 tox.ini

@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 docs/DefaultApi.md
 docs/Download.md
@@ -21,12 +20,3 @@ src/main/java/org/openapitools/server/model/VersionPackageInfo.java
 src/main/java/org/openapitools/server/model/VersionPackageInfoAssetIndex.java
 src/main/java/org/openapitools/server/model/VersionPackageInfoDownloads.java
 src/main/java/org/openapitools/server/model/VersionPackageInfoJavaVersion.java
-src/test/java/org/openapitools/server/api/DefaultApiTest.java
-src/test/java/org/openapitools/server/model/DownloadTest.java
-src/test/java/org/openapitools/server/model/VersionManifestLatestTest.java
-src/test/java/org/openapitools/server/model/VersionManifestTest.java
-src/test/java/org/openapitools/server/model/VersionPackageInfoAssetIndexTest.java
-src/test/java/org/openapitools/server/model/VersionPackageInfoDownloadsTest.java
-src/test/java/org/openapitools/server/model/VersionPackageInfoJavaVersionTest.java
-src/test/java/org/openapitools/server/model/VersionPackageInfoTest.java
-src/test/java/org/openapitools/server/model/VersionTest.java

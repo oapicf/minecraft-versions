@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-10T06:07:36.606517266Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-15T12:28:23.015925085Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public abstract class V1ApiService {
     public abstract Response getMinecraftVersionPackageInfo(String packageId,String versionId,SecurityContext securityContext) throws NotFoundException;
 }

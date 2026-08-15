@@ -15,7 +15,7 @@ builder.Services
             s.Description = """
 SDK for Minecraft versions info
 """;
-            s.Version = "1.2.1-pre.0";
+            s.Version = "1.3.5-pre.0";
         };
         o.AutoTagPathSegmentIndex = 0;
     })

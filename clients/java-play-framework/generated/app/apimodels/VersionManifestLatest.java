@@ -10,7 +10,7 @@ import javax.validation.Valid;
 /**
  * VersionManifestLatest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-10T06:02:35.349168592Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-15T12:28:10.372015889Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class VersionManifestLatest   {
   @JsonProperty("release")

@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 lib/Models/Download.cpp
 lib/Models/Download.h
@@ -18,14 +17,6 @@ lib/Models/VersionPackageInfoDownloads.cpp
 lib/Models/VersionPackageInfoDownloads.h
 lib/Models/VersionPackageInfoJavaVersion.cpp
 lib/Models/VersionPackageInfoJavaVersion.h
-lib/TestFiles/DownloadTest.cpp
-lib/TestFiles/VersionManifestLatestTest.cpp
-lib/TestFiles/VersionManifestTest.cpp
-lib/TestFiles/VersionPackageInfoAssetIndexTest.cpp
-lib/TestFiles/VersionPackageInfoDownloadsTest.cpp
-lib/TestFiles/VersionPackageInfoJavaVersionTest.cpp
-lib/TestFiles/VersionPackageInfoTest.cpp
-lib/TestFiles/VersionTest.cpp
 lib/service/DefaultApi.cpp
 lib/service/DefaultApi.h
 lib/service/Response.h

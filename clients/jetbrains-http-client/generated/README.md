@@ -5,7 +5,7 @@
 SDK for Minecraft versions info
 
 * API basepath : [https://launchermeta.mojang.com](https://launchermeta.mojang.com)
-* Version : 1.2.1-pre.0
+* Version : 1.3.5-pre.0
 
 ## Documentation for API Endpoints
 
