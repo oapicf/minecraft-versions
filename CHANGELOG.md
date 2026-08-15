@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade Swaggy C to 6.3.0
 
+### Fixed
+- Fix missing lib/ folders in generated clients
+
 ## 1.3.4 - 2026-08-11
 ### Fixed
 - Fix JavaScript publishing failure due to missing repository.url
