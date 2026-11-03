@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * VersionPackageInfo
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-15T12:30:41.108715545Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-03T06:11:16.293120865Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfo {
 
   @JsonInclude(JsonInclude.Include.NON_NULL)

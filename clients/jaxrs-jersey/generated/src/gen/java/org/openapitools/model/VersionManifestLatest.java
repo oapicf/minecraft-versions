@@ -30,7 +30,7 @@ import javax.validation.Valid;
   VersionManifestLatest.JSON_PROPERTY_RELEASE,
   VersionManifestLatest.JSON_PROPERTY_SNAPSHOT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-15T12:28:23.015925085Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-11-03T06:09:34.977793425Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionManifestLatest   {
   public static final String JSON_PROPERTY_RELEASE = "release";
   @JsonProperty(JSON_PROPERTY_RELEASE)

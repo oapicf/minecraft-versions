@@ -30,7 +30,7 @@ import javax.annotation.Generated;
   VersionPackageInfoJavaVersion.JSON_PROPERTY_MAJOR_VERSION
 })
 @JsonTypeName("VersionPackageInfo_javaVersion")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-15T12:28:03.092304808Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-11-03T06:09:21.111042434Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class VersionPackageInfoJavaVersion {
     public static final String JSON_PROPERTY_COMPONENT = "component";

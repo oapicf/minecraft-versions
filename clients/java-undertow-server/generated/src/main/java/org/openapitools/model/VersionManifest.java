@@ -25,7 +25,7 @@ import org.openapitools.model.VersionManifestLatest;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-08-15T12:28:12.123535186Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-03T06:09:27.326264842Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionManifest   {
   
   private VersionManifestLatest latest;

@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   VersionManifestLatest.JSON_PROPERTY_SNAPSHOT
 })
 @JsonTypeName("VersionManifest_latest")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-15T12:28:04.918830411Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-11-03T06:09:22.398639449Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class VersionManifestLatest {
     public static final String JSON_PROPERTY_RELEASE = "release";

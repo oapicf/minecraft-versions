@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * VersionPackageInfoJavaVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-15T12:27:50.813433887Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-03T06:09:12.544726161Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class VersionPackageInfoJavaVersion {
   public static final String SERIALIZED_NAME_COMPONENT = "component";
   @SerializedName(SERIALIZED_NAME_COMPONENT)

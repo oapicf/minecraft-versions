@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * Download
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-15T12:28:15.812842119Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-03T06:09:29.833836739Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Download {
 
   private String sha1;

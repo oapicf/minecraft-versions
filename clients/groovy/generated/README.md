@@ -6,7 +6,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 1.3.5-pre.0
 - Package version: 1.3.5-pre.0
-- Build date: 2026-08-15T12:27:44.006599769Z[Etc/UTC]
+- Build date: 2026-11-03T06:09:08.075011094Z[Etc/UTC]
 - Generator version: 7.24.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/oapicf/minecraft-versions](https://github.com/oapicf/minecraft-versions)
